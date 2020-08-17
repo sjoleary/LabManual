@@ -1,0 +1,132 @@
+---
+
+title: "Lab Manual Conservation Biology Fall 2020"
+subtitle: "Conservation Biology Fall 2020"
+author: "Shannon J. O'Leary"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+output:
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    split_bib: no
+    margin_references: FALSE
+    css: msmb.css
+bibliography: skeleton.bib
+link-citations: yes
+
+---
+
+```{r setup, include=FALSE}
+
+library(msmbstyle)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
+options(htmltools.dir.version = FALSE)
+
+```
+
+# Rmarkdown Basics
+
+**Learning Objectives**
+
+After completing this tutorial you should
+
+* understand the value of using Rmarkdown files to document your work.
+* understand the core components of the markdown format.
+* be able to use basic markdown syntax to format a document (headers, bold/italics).
+* be able to add a code chunk to a `.Rmd` file and add options.
+* understand how to modify code chunk options to determine what is/is not rendered in the knitted document.
+* know how to `knit` a document to produce an `html` file from an `*.Rmd`.
+
+
+^[Download the R markdown cheat sheet (here)[https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf].]
+
+The goal of open science and reproducible research is to make scientific methods, data, and results more transparent, available, and reproducible. `R markdown` files are a useful tool to be able to generate reports documenting your data, methods (code used to process data), and results. Key packages allowing you to do this are `knitr` and `rmarkdown`.
+
+`R markdown` (`*.Rmd`) files will let you document your workflow, share how you processed/analyzed your data, the resulting output along with any visualizations. `.Rmd` is a text based file format that consists of standard text, code chunks, and the resulting output unsing a very simple syntax (henc mark*down* as opposed to mark*up* languages like `html` or `LateX` which have much more complicated syntax). When you knit your document, the code is executed and the resulting output with be included in the rendered document (common formats are `html` or `pdf`). Advantages to a workflow centered around using `R markdown` to document your work include:
+
+* the simple syntax makes it easy to learn the basics (but some of the more advance options will let you create some sophisticated reports).
+* resulting files have a simple, standardized formatting that looks quite professional and are easy to read and understand (code, documentation, figures all in one place).
+* future you will be thankful when you don't have to remember your assumptions, individual steps and modficiations.
+* easy modification to extend/refine analysis.
+
+
+## Create your first .Rmd file
+
+Create a new `.Rmd` file `File -> New File -> R Markdown` and save that file in your project directory as **Lastname_IntroR.Rmd**.
+
+We'll break down the components of the `.Rmd` file in just a second but to give you the full experience hit the `Knit HTML` button to render an `html` document.
+
+
+## Structure of an Rmarkdown File
+
+An `Rmarkdown`file consists of three components:
+
+1. **Header**: written in `YAML` format the header contains all the information on how to render the `.Rmd` file.
+2. **Markdown Sections**: written in (Rmarkdown syntax)[https://rmarkdown.rstudio.com/authoring_basics.html].
+3. **Code chunks**: Chunks of `R` code. These can be run interactively (e.g. while generating your document) and will be rendered when knitting the document.
+
+
+## YAML header
+
+The header is written in (YAML syntax)[https://en.wikipedia.org/wiki/YAML], it begins and ends with `---` with four default elements that will determine how the document is knitted.
+
+```
+
+---
+title: "title"
+author: "name"
+date: "Date"
+output: html_document
+----
+
+```
+
+Customize your `.Rmd`: Change the title and add your name in the author line. Changing the date to `"`r Sys.Date()`"` will automatically include the current date when you render the document. Leave the default output setting.
+
+
+## Markdown sections
+
+Your markdown sections can contain any text you want using the markdown syntax; once you render the `.Rmd` the resulting (`html`) file will appear as text.
+
+Most of your text (without syntax) will appear as paragraph text but you can add additional syntax to format it in different ways. Check the official documentation for the (basics)[https://rmarkdown.rstudio.com/authoring_basics.html].
+
+
+## Code chunks
+
+Code chunks contain your R code and star and end with three back tick; `{r}` determines that the code chunk should be interpreted as `R` code.
+
+You can add a code chunk using `Ctrl` + `Alt` + `I` or `Code -> Insert Chunk`. You can run code chunks line by line using `Ctrl` + `Enter` or you can run the entire chunk by clicking the `Run` button or the little green arrow in the top right corner of an `R` chunk.
+
+Use `#` to comment your code, any lines following a `#` will not be run by R, you can use them to describe what your code is doing.
+
+You can add options to each code chunk to customize how/if a chunk is executed and appears in the rendered output. These options are added to within the curly brackets. The three most common code chunk options are:
+
+* `eval=FALSE`: results in code chunk not being evaluated or run though it will still be rendered in the knitted document.
+* `echo=FALSE`: This will hide the code in the output though the generated output will still be rendered for the knitted document.
+* `results=hide`: This will result in the cunk being evaluated though neither the results or the code will be rendeded in the knitted document.
+
+Multiple options can be applied to the same chunk; find additional options (here)[http://yihui.name/knitr/demo/output/].
+
+
+## Render your document using knitr
+
+`knitr` is an `R` package used to render `R markdown` files to another format (usually `html` or `pdf`). In Rstudio the most straightforward way of knitting a document is using the `Knit HTML` button. This will open a new tab in your console title R Markdown that will show the knitting process; any errors that occur with show up here along with a line number so you can determine where the error is occurring in your `.Rmd` file to troubleshoot the issue. The output will automatically be saved in your working directory.
+
+
+## Some advanced options
+
+^[make sure the path to your image is relative to your `.Rmd` file; e.g create a `images` subdirectory in your project directory.]
+
+You can add images to an `R markdown` as follows:
+
+```
+
+![alt text here](path-to-image-here)
+
+```
+
+You can stylize your rendered document by modifying the `YAML` header to include a table of contents or use a specific theme.

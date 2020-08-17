@@ -1,0 +1,43 @@
+---
+
+title: "Lab Manual Conservation Biology Fall 2020"
+subtitle: "Conservation Biology Fall 2020"
+author: "Shannon J. O'Leary"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+output:
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    split_bib: no
+    margin_references: FALSE
+    css: msmb.css
+bibliography: skeleton.bib
+link-citations: yes
+
+---
+
+```{r setup, include=FALSE}
+
+library(msmbstyle)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
+options(htmltools.dir.version = FALSE)
+
+```
+
+# Welcome to the tidyverse
+
+**Learning Objectives**
+
+After completing this tutorial you should
+
+* be able to read a tab-delimited file into R
+* use `filter` and `select` to include/exclude rows and columns from a dataframe
+* use `mutate` to add new columns/parameters
+* use `group_by` to group rows
+* use `summarize` to calculate summary statistics
+
+
