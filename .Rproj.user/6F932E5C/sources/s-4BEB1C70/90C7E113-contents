@@ -30,11 +30,13 @@ options(htmltools.dir.version = FALSE)
 
 # Field & Stream Trip-ish
 
+**Date**: 8/19/2020
+
 **Learning Objectives**
 
 After completing this tutorial you should
 
-* be able to install the crowdwater app on your smartphone
+* be able to install the crowdwater app on your smart phone
 * understand how to update virtual gauge, soil moisture, and temporary stream spots
 * have signed up for four "asynchronous field trips"
 

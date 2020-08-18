@@ -3,22 +3,22 @@
     "path": "~/RESEARCH/06 Website/LabManual/04_InstallCrowdwaterApp.Rmd",
     "project_path": "04_InstallCrowdwaterApp.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "18207263",
     "contents": "",
     "dirty": false,
     "created": 1597720529821.0,
     "source_on_save": false,
-    "relative_order": 5,
+    "relative_order": 1,
     "properties": {
-        "cursorPosition": "30,25",
-        "scrollLine": "20"
+        "cursorPosition": "38,54",
+        "scrollLine": "12"
     },
     "folds": "",
-    "lastKnownWriteTime": 1597721982,
+    "lastKnownWriteTime": 1597724537,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1597721982028,
+    "last_content_update": 1597724537625,
     "read_only": false,
     "read_only_alternatives": []
 }

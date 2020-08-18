@@ -31,10 +31,12 @@ options(htmltools.dir.version = FALSE)
 
 # Assessing sources
 
+**Date**: 8/26/2020
+
 **Learning Objectives**
 
 After completing this lab you should
 
 * 
 
-(in short, call bullshit).
+(in short, be able to call bullshit).

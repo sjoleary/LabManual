@@ -30,6 +30,8 @@ options(htmltools.dir.version = FALSE)
 
 # Welcome to the tidyverse
 
+**Date**: 8/19/2020
+
 **Learning Objectives**
 
 After completing this tutorial you should
