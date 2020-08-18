@@ -1,0 +1,50 @@
+---
+
+title: "Lab Manual Conservation Biology Fall 2020"
+subtitle: "Conservation Biology Fall 2020"
+author: "Shannon J. O'Leary"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+output:
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    split_bib: no
+    margin_references: FALSE
+    css: msmb.css
+bibliography: skeleton.bib
+link-citations: yes
+
+---
+
+```{r setup, include=FALSE}
+
+library(msmbstyle)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
+options(htmltools.dir.version = FALSE)
+
+```
+
+# Field & Stream Trip
+
+**Learning Objectives**
+
+After completing this tutorial you should
+
+* be able to install the crowdwater app on your smartphone
+* understand how to update virtual gauge, soil moisture, and temporary stream spots
+* have signed up for four "asynchronous field trips"
+
+## Citizen Science & the Crowdwater App
+
+
+## Site 1
+
+
+## Site 2
+
+
+## Sign-up
