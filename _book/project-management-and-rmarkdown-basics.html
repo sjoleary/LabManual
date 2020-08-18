@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-08-18" />
+
+
+<meta name="description" content="3 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020">
+
+<title>3 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html"><span class="toc-section-number">1</span> Introduction</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">2</span> Installing R/Rstudio</a>
+<a id="active-page" href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">3</span> Project management and Rmarkdown Basics</a><ul class="toc-sections">
+<li class="toc"><a href="#project-organization-101"> Project organization 101</a></li>
+<li class="toc"><a href="#NA"> Create your first .Rmd file</a></li>
+<li class="toc"><a href="#structure-of-an-rmarkdown-file"> Structure of an Rmarkdown File</a></li>
+<li class="toc"><a href="#yaml-header"> YAML header</a></li>
+<li class="toc"><a href="#markdown-sections"> Markdown sections</a></li>
+<li class="toc"><a href="#code-chunks"> Code chunks</a></li>
+<li class="toc"><a href="#render-your-document-using-knitr"> Render your document using knitr</a></li>
+<li class="toc"><a href="#some-advanced-options"> Some advanced options</a></li>
+</ul>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">4</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip-ish.html"><span class="toc-section-number">5</span> Field &amp; Stream Trip-ish</a>
+<a href="assessing-sources.html"><span class="toc-section-number">6</span> Assessing sources</a>
+<a href="assessing-sources.html"><span class="toc-section-number">7</span> Assessing sources</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="project-management-and-rmarkdown-basics" class="section level1">
+<h1>
+<span class="header-section-number">3</span> Project management and Rmarkdown Basics</h1>
+<p><strong>Date</strong>: 8/19/2020</p>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this tutorial you should</p>
+<ul>
+<li>be able to set up a well structured project.</li>
+<li>understand what a working directory is and how to set up an R project.</li>
+<li>understand the value of using Rmarkdown files to document your work.</li>
+<li>understand the core components of the markdown format.</li>
+<li>be able to use basic markdown syntax to format a document (headers, bold/italics).</li>
+<li>be able to add a code chunk to a <code>.Rmd</code> file and add options.</li>
+<li>understand how to modify code chunk options to determine what is/is not rendered in the knitted document.</li>
+<li>know how to <code>knit</code> a document to produce an <code>html</code> file from an <code>*.Rmd</code>.</li>
+</ul>
+<p>The goal of open science and reproducible research is to make scientific methods, data, and results more transparent, available, and reproducible. <code>R markdown</code> files are a useful tool to be able to generate reports documenting your data, methods (code used to process data), and results. Key packages allowing you to do this are <code>knitr</code> and <code>rmarkdown</code>.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Download the R markdown cheat sheet (here)[<a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf</a>].</span></p>
+<p><code>R markdown</code> (<code>*.Rmd</code>) files will let you document your workflow, share how you processed/analyzed your data and the resulting output along with any visualizations. <code>.Rmd</code> is a text based file format that consists of standard text, code chunks, and the resulting output using a very simple syntax (henc mark<em>down</em> as opposed to mark<em>up</em> languages like <code>html</code> or <code>LateX</code> which have much more complicated syntax). When you knit your document, the code is executed and the resulting output with be included in the rendered document (common formats are <code>html</code> or <code>pdf</code>). Advantages to a workflow centered around using <code>R markdown</code> to document your work include:</p>
+<ul>
+<li>the simple syntax makes it easy to learn the basics (but some of the more advance options will let you create some sophisticated reports).</li>
+<li>resulting files have a simple, standardized formatting that looks professional and is easy to read and understand (code, documentation, figures all in one place).</li>
+<li>future you will be thankful when you don’t have to remember your assumptions, individual steps, and modifications.</li>
+<li>easy modification to extend/refine analysis or re-run with updated data.</li>
+</ul>
+<div id="project-organization-101" class="section level2">
+<h2>
+<span class="header-section-number">3.1</span> Project organization 101</h2>
+<p>A key component to doing data analysis is organizing your <strong>working directory</strong> which will contain your data, scripts, <code>Rmarkdown</code>-files, results, figures, and other output. Keeping this well organized will help you establish a reproducible workflow, collaborate well, and share your results.</p>
+<div id="organizing-your-files-and-directories" class="section level3">
+<h3>
+<span class="header-section-number">3.1.1</span> Organizing your files and directories</h3>
+<p>For each project/lab we will set up a project directory<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> We’ll use this term interchangeably with working directory and research compendium</span> with the following set of sub-directories:</p>
+<ul>
+<li><code>data</code></li>
+<li><code>results</code></li>
+<li><code>scr</code></li>
+</ul>
+</div>
+<div id="a-note-on-naming-things" class="section level3">
+<h3>
+<span class="header-section-number">3.1.2</span> A note on Naming things</h3>
+<p>Naming conventions for files, sub-directories etc. should conform to the following key principles:</p>
+<ul>
+<li>
+<strong>Human readable</strong>: keep it short but self-explanatory.</li>
+<li>
+<strong>Machine readable</strong>: don’t use special characters of spaces.</li>
+<li>
+<strong>Sortable</strong>: standardize components of the file names to make it possible to sort files and find what you are looking for.</li>
+</ul>
+</div>
+<div id="set-up-your-project-directory-using-rprojects" class="section level3">
+<h3>
+<span class="header-section-number">3.1.3</span> Set up your project directory using Rprojects</h3>
+<p>Create a project directory<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
+(e.g. <code>IntroR</code>) on your computer, within that directory create sub-directories <code>data</code>, <code>results</code>, <code>scr</code>.</p>
+<p>Now, we are going to create an <code>R project</code> within this directory.</p>
+<ul>
+<li>in the top right hand corner click on the project icon</li>
+<li>select <code>New Project</code> and <code>Create in existing directory</code>; follow the prompts.</li>
+</ul>
+<p>This should create a new <code>R project</code> and open it (the <code>R project</code> name should be in the top right corner next to the icon).</p>
+<p>If you look in the bottom right hand pane in the <code>Files</code> tab, the bread crumbs should lead to your project folder which has now become your <code>working directory</code>, i.e. all paths are relative to this location.<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> If you weren’t working with an <code>R project</code>, you can set your working directory by naviating to your new working director and selecting <code>More &gt; Set as working directory</code>.</span> If you navigate away from your <code>working directory</code> (project directory) you can quickly get back to your project directory by clicking on the project icon in the <code>Files</code> pane or by clicking the cog icon (<code>More</code>) and selecting <code>Go to Working Directory</code>.</p>
+</div>
+</div>
+<div id="create-your-first-.rmd-file" class="section level2">
+<h2>
+<span class="header-section-number">3.2</span> Create your first .Rmd file</h2>
+<p>Create a new <code>.Rmd</code> file using <code>File -&gt; New File -&gt; R Markdown</code> and save that file in your project directory as <strong>Lastname_IntroR.Rmd</strong>.</p>
+<p>We’ll break down the components of the <code>.Rmd</code> file in just a second but to give you the full experience hit the <code>Knit HTML</code> button to render an <code>html</code> document.</p>
+<p>Cool beans, now to the knitty-gritty.</p>
+</div>
+<div id="structure-of-an-rmarkdown-file" class="section level2">
+<h2>
+<span class="header-section-number">3.3</span> Structure of an Rmarkdown File</h2>
+<p>An <code>Rmarkdown</code>file consists of three components:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Header</strong>: written in <code>YAML</code> format the header contains all the information on how to render the <code>.Rmd</code> file.</li>
+<li>
+<strong>Markdown Sections</strong>: written in (Rmarkdown syntax)[<a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="uri">https://rmarkdown.rstudio.com/authoring_basics.html</a>].</li>
+<li>
+<strong>Code chunks</strong>: Chunks of <code>R</code> code. These can be run interactively (e.g. while generating your document) and will be rendered when knitting the document.</li>
+</ol>
+</div>
+<div id="yaml-header" class="section level2">
+<h2>
+<span class="header-section-number">3.4</span> YAML header</h2>
+<p>The header is written in (YAML syntax)[<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>], it begins and ends with <code>---</code> with four default elements that will determine how the document is knitted.</p>
+<pre><code>
+---
+title: "title"
+author: "name"
+date: "Date"
+output: html_document
+----
+</code></pre>
+<p>Customize your <code>.Rmd</code>: Change the title and add your name in the author line. Changing the date to <code>"2020-08-18"</code> will automatically include the current date when you render the document. Leave the default output setting.</p>
+</div>
+<div id="markdown-sections" class="section level2">
+<h2>
+<span class="header-section-number">3.5</span> Markdown sections</h2>
+<p>Your markdown sections can contain any text you want using the markdown syntax; once you render the <code>.Rmd</code> the resulting (<code>html</code>) file will appear as text.</p>
+<p>Most of your text (without syntax) will appear as paragraph text but you can add additional syntax to format it in different ways. Check the official documentation for the (basics)[<a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="uri">https://rmarkdown.rstudio.com/authoring_basics.html</a>].</p>
+</div>
+<div id="code-chunks" class="section level2">
+<h2>
+<span class="header-section-number">3.6</span> Code chunks</h2>
+<p>Code chunks contain your R code and star and end with three back tick; <code>{r}</code> determines that the code chunk should be interpreted as <code>R</code> code.</p>
+<p>You can add a code chunk using <code>Ctrl</code> + <code>Alt</code> + <code>I</code> or <code>Code -&gt; Insert Chunk</code>. You can run code chunks line by line using <code>Ctrl</code> + <code>Enter</code> or you can run the entire chunk by clicking the <code>Run</code> button or the little green arrow in the top right corner of an <code>R</code> chunk.</p>
+<p>Use <code>#</code> to comment your code, any lines following a <code>#</code> will not be run by R, you can use them to describe what your code is doing.</p>
+<p>You can add options to each code chunk to customize how/if a chunk is executed and appears in the rendered output. These options are added to within the curly brackets. The three most common code chunk options are:</p>
+<ul>
+<li>
+<code>eval=FALSE</code>: results in code chunk not being evaluated or run though it will still be rendered in the knitted document.</li>
+<li>
+<code>echo=FALSE</code>: This will hide the code in the output though the generated output will still be rendered for the knitted document.</li>
+<li>
+<code>results=hide</code>: This will result in the chunk being evaluated though neither the results or the code will be rendered in the knitted document.</li>
+</ul>
+<p>Multiple options can be applied to the same chunk; find additional options (here)[<a href="http://yihui.name/knitr/demo/output/" class="uri">http://yihui.name/knitr/demo/output/</a>].</p>
+</div>
+<div id="render-your-document-using-knitr" class="section level2">
+<h2>
+<span class="header-section-number">3.7</span> Render your document using knitr</h2>
+<p><code>knitr</code> is an <code>R</code> package used to render <code>R markdown</code> files to another format (usually <code>html</code> or <code>pdf</code>). In Rstudio the most straightforward way of knitting a document is using the <code>Knit HTML</code> button. This will open a new tab in your console title R Markdown that will show the knitting process; any errors that occur with show up here along with a line number so you can determine where the error is occurring in your <code>.Rmd</code> file to troubleshoot the issue. The output will automatically be saved in your working directory.</p>
+</div>
+<div id="some-advanced-options" class="section level2">
+<h2>
+<span class="header-section-number">3.8</span> Some advanced options</h2>
+<p>You can add images to an <code>R markdown</code> as follows:<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> make sure the path to your image is relative to your <code>.Rmd</code> file; e.g create a <code>images</code> subdirectory in your project directory.</span></p>
+<pre><code>
+![alt text here](path-to-image-here)
+</code></pre>
+<p>You can stylize your rendered document by modifying the <code>YAML</code> header to include a table of contents like this<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> the option of <code>toc_depth</code> determines how many levels are included in the table of contents, e.g. here headers at level 1 and 2 will be included</span>:</p>
+<pre><code>---
+title: "A table of contents?!"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---</code></pre>
+<p>If you really want to jazz things up, you can change the theme<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> you can choose from various options <a href="https://bootswatch.com/3/">here</a></span>.</p>
+<pre><code>---
+title: "A snazzy theme?!"
+output:
+  html_document:
+    theme: flatly
+    toc: true
+    toc_depth: 2
+---</code></pre>
+<p>For being so simple, <code>Rmarkdown</code> is quite powerful - how powerful you ask? Both this lab manual and our course website were written in <code>Rmarkdown</code>.</p>
+
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="installing-rrstudio.html"><button class="btn btn-default">Previous</button></a>
+<a href="welcome-to-the-tidyverse.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-08-18
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
