@@ -28,12 +28,16 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-# Rmarkdown Basics
+# Project management and Rmarkdown Basics
+
+**Date**: 8/19/2020
 
 **Learning Objectives**
 
 After completing this tutorial you should
 
+* be able to set up a well structured project.
+* understand what a working directory is and how to set up an R project.
 * understand the value of using Rmarkdown files to document your work.
 * understand the core components of the markdown format.
 * be able to use basic markdown syntax to format a document (headers, bold/italics).
@@ -52,6 +56,35 @@ The goal of open science and reproducible research is to make scientific methods
 * resulting files have a simple, standardized formatting that looks quite professional and are easy to read and understand (code, documentation, figures all in one place).
 * future you will be thankful when you don't have to remember your assumptions, individual steps and modficiations.
 * easy modification to extend/refine analysis.
+
+
+
+
+## Project organization 101
+
+A key component to doing data analysis is organizing your **working directory** which will contain your data, scripts, Rmarkdowns, results, figures, and other output. Keeping this well organized will help you establish a reproducible workflow, collaborate well, and share your results.
+
+### Organizing your files and directories
+
+For each project we will set up a project directory (we'll use this term interchangeably with working directory and research compendium) with the following set of subdirectories:
+
+
+### A note on Naming things
+
+Naming conventions for files, subdirectories etc should conform to the following key principles:
+
+* **Human readable**: keep it short but self-explanatory.
+* **Machine readable**: don't use special characters of spaces.
+* **Sortable**: standardize components of the filenames to make it possible to sort files and find what you are looking for.
+
+
+### Set up your project directory using Rprojects
+
+Create a project directory
+^[Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it's full path.]
+(e.g. `IntroR`) on your computer, within that directory create subdirectories `data`, `results`, `scr`.
+
+Now, we are going to create an `R project` within this directory.
 
 
 ## Create your first .Rmd file

@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-08-15" />
+<meta name="date" content="2020-08-17" />
 
 
 <meta name="description" content="2 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020">
@@ -132,11 +132,10 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#install-set-up-r-and-rstudio-on-your-computer"> Install &amp; Set up R and Rstudio on your computer</a></li>
 <li class="toc"><a href="#get-to-know-rstudio"> Get to know Rstudio</a></li>
 <li class="toc"><a href="#installing-and-using-packages-in-r"> Installing and using packages in R</a></li>
-<li class="toc"><a href="#project-organization-101"> Project organization 101</a></li>
 </ul>
-<a href="rmarkdown-basics.html"><span class="toc-section-number">3</span> Rmarkdown Basics</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">3</span> Project management and Rmarkdown Basics</a>
 <a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">4</span> Welcome to the tidyverse</a>
-<a href="field-stream-trip.html"><span class="toc-section-number">5</span> Field &amp; Stream Trip</a>
+<a href="field-stream-trip-ish.html"><span class="toc-section-number">5</span> Field &amp; Stream Trip-ish</a>
 <a href="assessing-sources.html"><span class="toc-section-number">6</span> Assessing sources</a>
 <a href="assessing-sources.html"><span class="toc-section-number">7</span> Assessing sources</a>
 </div>
@@ -151,6 +150,7 @@ if(f.classList.contains('fa-plus-square')) {
 <html><body><div id="installing-rrstudio" class="section level1">
 <h1>
 <span class="header-section-number">2</span> Installing R/Rstudio</h1>
+<p><strong>Date</strong>: 8/19/2020</p>
 <p><strong>Learning Objectives</strong></p>
 <p>After completing this tutorial you should</p>
 <ul>
@@ -158,8 +158,6 @@ if(f.classList.contains('fa-plus-square')) {
 <li>be able to install <code>Rtools</code> &amp; <code>devtools</code> to be able to compile <code>R packages</code> from source (Windows).</li>
 <li>understand the main use for each of the four main panes in the <code>Rstudio</code> GUI.</li>
 <li>understand what a package is in <code>R</code> and how to install them.</li>
-<li>be able to set up a well structured project.</li>
-<li>understand what a working directory is and how to set up an R project.</li>
 </ul>
 <div id="install-set-up-r-and-rstudio-on-your-computer" class="section level2">
 <h2>
@@ -185,7 +183,7 @@ if(f.classList.contains('fa-plus-square')) {
 </ul>
 <p><strong>Finish setting up Rtools</strong></p>
 <ul>
-<li>Open <code>Rstudio</code> to make sure you aren’t getting any error messages</li>
+<li>Open <code>Rstudio</code> to make sure you aren’t getting any error messages.</li>
 <li>Put <code>Rtools</code> in your path by typing <code>writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")</code> in the console window.</li>
 <li>Install the <code>devtools</code> package by typing <code>install.packages("devtools")</code> in the console.</li>
 </ul>
@@ -210,7 +208,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="get-to-know-rstudio" class="section level2">
 <h2>
 <span class="header-section-number">2.2</span> Get to know Rstudio</h2>
-<p><code>Rstudio</code> is an Integrated Development Environment (IDE) that you can use to write code, navigate files, inspect objects etc. The advantage of using an IDE is that you have access to shortcuts, visual cues, troubleshooting, navigation, and autocomplete help.</p>
+<p><code>Rstudio</code> is an Integrated Development Environment (IDE) that you can use to write code, navigate files, inspect objects, etc. The advantage of using an IDE is that you have access to shortcuts, visual cues, troubleshooting, navigation, and autocomplete help.</p>
 <div id="gui-layout" class="section level3">
 <h3>
 <span class="header-section-number">2.2.1</span> GUI Layout</h3>
@@ -225,7 +223,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li>
 <strong>files/plots/packages/help/viewer</strong> (bottom right): Different tabs in this pane wil let you explore files on your computer, view plots, loaded packages, and read manual pages for various functions.</li>
 </ol>
-<p>The panes can be customized (<code>Rstudio -&gt; Preferences -&gt; Pane Layout</code>) and you can move/resize them using your mouse.</p>
+<p>The panes can be customized (<code>Rstudio -&gt; Preferences -&gt; Pane Layout</code>) and you can move/re-size them using your mouse.</p>
 </div>
 <div id="interacting-with-r-in-rstudio" class="section level3">
 <h3>
@@ -238,7 +236,7 @@ if(f.classList.contains('fa-plus-square')) {
 <strong>Executing</strong> code or a program means you are telling the computer to run it.</li>
 </ul>
 <p>There are three main ways to interact with <code>R</code> - directly using console, script files (<code>*.R</code>), or code chunks embedded in R markdown files (<code>*.Rmd</code>).</p>
-<p>The console is where you execute code and see the results those commands. You can type your code directly into the console and hit <code>Enter</code> to execute it. You can review those commands in the history pane (or by saving the history) but if you close the session and don’t save the history to file those commands will be forgotten.</p>
+<p>The console is where you execute code and see the results of those commands. You can type your code directly into the console and hit <code>Enter</code> to execute it. You can review those commands in the history pane (or by saving the history) but if you close the session and don’t save the history to file those commands will be forgotten.</p>
 <p>By contrast, writing your code in the script editor either as a standard script or as a code chunk in an Rmarkdown file allows you to have a reproducible workflow (future you and other collaborators will thank you).</p>
 <p>Executing an entire script, a code chunk, or individual functions from a script will run them in the console.</p>
 <ul>
@@ -246,11 +244,12 @@ if(f.classList.contains('fa-plus-square')) {
 <code>Ctrl</code> + <code>Enter</code> will execute commands directly from the script editor. You can use this to run the line of code your cursor is currently in in the script editor or you can highlight a series of lines to execute.</li>
 <li>If you are using an Rmarkdown file you can execute an entire code chunk by pressing the green arrow in the top right corner.</li>
 </ul>
-<p>If the console is ready for you to execute commands you should see a <code>&gt;</code> prompt. If you e.g. forget a <code>)</code> you will see a <code>+</code> prompy - <code>R</code> is telling you that it is expecting further code. When this happens and you don’t know what you are missing (usually it is an unmatched quotation or parenthesis), make sure your cursor is in the console and hit the <code>Esc</code> key.</p>
+<p>If the console is ready for you to execute commands you should see a <code>&gt;</code> prompt. If you e.g. forget a <code>)</code> you will see a <code>+</code> prompt - <code>R</code> is telling you that it is expecting further code. When this happens and you don’t know what you are missing (usually it is an unmatched quotation or parenthesis), make sure your cursor is in the console and hit the <code>Esc</code> key.</p>
 </div>
 <div id="customize-rstudio" class="section level3">
 <h3>
 <span class="header-section-number">2.2.3</span> Customize Rstudio</h3>
+<p>There are several options to customize Rstudio including setting a theme, and other formatting preferences. You can access this using <code>Tools &gt; Global Options</code>.</p>
 </div>
 </div>
 <div id="installing-and-using-packages-in-r" class="section level2">
@@ -259,11 +258,11 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="install-a-package" class="section level3">
 <h3>
 <span class="header-section-number">2.3.1</span> Install a package</h3>
-<p>Think of R packages as tool kit, a packages is comprised of a set of functions (tools) to perform specific tasks. <code>R</code> comes with a set of packages already installed that gives you base <code>R</code> functions. For other tasks we will need additional packages. A central group of packages for data wrangling and processing form the <a href="https://www.tidyverse.org/">tidyverse</a>, described as “… an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.”.</p>
-<p><label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Most <code>R</code> packages are found in the <a href="https://cran.r-project.org/">CRAN repository</a> and on <a href="https://www.bioconductor.org/">Bioconducter</a>, developmental packages are available on <a href="https://github.com/">github</a>.</span></p>
+<p>Think of R packages as tool kit comprising a set of functions (tools) to perform specific tasks. <code>R</code> comes with a set of packages already installed that gives you base <code>R</code> functions; you can view these and determine which have been loaded in the <code>Packages</code> tab in the bottom right pane. For other tasks we will need additional packages.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Most <code>R</code> packages are found in the <a href="https://cran.r-project.org/">CRAN repository</a> and on <a href="https://www.bioconductor.org/">Bioconducter</a>, developmental packages are available on <a href="https://github.com/">github</a>.</span>
+A central group of packages for data wrangling and processing form the <a href="https://www.tidyverse.org/">tidyverse</a>, described as “… an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.”</p>
 <p>When you install packages they will be downloaded and installed onto your computer. Determine what your default path is using <code>.libPaths()</code> and change if necessary.</p>
 <p>The easiest way to install packages is to use the <code>install.packages()</code> function. Use the <code>R</code> console to install some libraries to get us started (we will install other libraries as needed for other labs).</p>
-<p><label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Using <code>#</code> in an R script allows you to insert comments that are ignored by R when executing your code. Use comments to document your code, future you will thank you!</span></p>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">Using <code>#</code> in an R script allows you to insert comments that are ignored by R when executing your code. Use comments to document your code, future you will thank you!</span></span></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="installing-rrstudio.html#cb1-1"></a><span class="co"># install the rmarkdown package</span></span>
 <span id="cb1-2"><a href="installing-rrstudio.html#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
 <span id="cb1-3"><a href="installing-rrstudio.html#cb1-3"></a></span>
@@ -275,36 +274,6 @@ if(f.classList.contains('fa-plus-square')) {
 <span id="cb1-9"><a href="installing-rrstudio.html#cb1-9"></a></span>
 <span id="cb1-10"><a href="installing-rrstudio.html#cb1-10"></a><span class="co"># install ggthemes</span></span>
 <span id="cb1-11"><a href="installing-rrstudio.html#cb1-11"></a><span class="kw">install.packages</span>(ggthemes)</span></code></pre></div>
-</div>
-</div>
-<div id="project-organization-101" class="section level2">
-<h2>
-<span class="header-section-number">2.4</span> Project organization 101</h2>
-<p>A key component to doing data analysis is organizing your <strong>working directory</strong> which will contain your data, scripts, Rmarkdowns, results, figures, and other output. Keeping this well organized will help you establish a reproducible workflow, collaborate well, and share your results.</p>
-<div id="organizing-your-files-and-directories" class="section level3">
-<h3>
-<span class="header-section-number">2.4.1</span> Organizing your files and directories</h3>
-<p>For each project we will set up a project directory (we’ll use this term interchangeably with working directory and research compendium) with the following set of subdirectories:</p>
-</div>
-<div id="a-note-on-naming-things" class="section level3">
-<h3>
-<span class="header-section-number">2.4.2</span> A note on Naming things</h3>
-<p>Naming conventions for files, subdirectories etc should conform to the following key principles:</p>
-<ul>
-<li>
-<strong>Human readable</strong>: keep it short but self-explanatory.</li>
-<li>
-<strong>Machine readable</strong>: don’t use special characters of spaces.</li>
-<li>
-<strong>Sortable</strong>: standardize components of the filenames to make it possible to sort files and find what you are looking for.</li>
-</ul>
-</div>
-<div id="set-up-your-project-directory-using-rprojects" class="section level3">
-<h3>
-<span class="header-section-number">2.4.3</span> Set up your project directory using Rprojects</h3>
-<p>Create a project directory<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
-(e.g. <code>IntroR</code>) on your computer, within that directory create subdirectories <code>data</code>, <code>results</code>, <code>scr</code>.</p>
-<p>Now, we are going to create an <code>R project</code> within this directory.</p>
 
 </div>
 </div>
@@ -312,10 +281,10 @@ if(f.classList.contains('fa-plus-square')) {
 
 <p style="text-align: center;">
 <a href="index.html"><button class="btn btn-default">Previous</button></a>
-<a href="rmarkdown-basics.html"><button class="btn btn-default">Next</button></a>
+<a href="project-management-and-rmarkdown-basics.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-08-15
+2020-08-17
 </p>
 </div>
 </div>

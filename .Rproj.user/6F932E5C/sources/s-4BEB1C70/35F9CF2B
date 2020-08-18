@@ -3,19 +3,22 @@
     "path": "~/RESEARCH/06 Website/LabManual/02_RmarkdownBasics.Rmd",
     "project_path": "02_RmarkdownBasics.Rmd",
     "type": "r_markdown",
-    "hash": "2609225809",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1597720527260.0,
     "source_on_save": false,
     "relative_order": 3,
-    "properties": {},
+    "properties": {
+        "cursorPosition": "32,19",
+        "scrollLine": "23"
+    },
     "folds": "",
-    "lastKnownWriteTime": 1597498956,
+    "lastKnownWriteTime": 1597722155,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1597498956,
+    "last_content_update": 1597722155162,
     "read_only": false,
     "read_only_alternatives": []
 }
