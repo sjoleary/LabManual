@@ -13,6 +13,7 @@ output:
     split_by: chapter
     split_bib: no
     margin_references: FALSE
+    delete_merged_file: TRUE
     css: msmb.css
 bibliography: skeleton.bib
 link-citations: yes
@@ -22,6 +23,7 @@ link-citations: yes
 ```{r setup, include=FALSE}
 
 library(msmbstyle)
+
 # invalidate cache when the tufte version changes
 knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
 options(htmltools.dir.version = FALSE)
@@ -36,17 +38,106 @@ options(htmltools.dir.version = FALSE)
 
 After completing this tutorial you should
 
-* be able to install the crowdwater app on your smart phone
-* understand how to update virtual gauge, soil moisture, and temporary stream spots
+* be able to define citizen's science.
+* be able to install the crowdwater app on your smart phone.
+* understand how to update virtual gauge, soil moisture, and temporary stream spots through the app & website
 * have signed up for four "asynchronous field trips"
 
 ## Citizen Science & the Crowdwater App
 
+### Introduction
 
-## Site 1
+[Crowdwater](https://crowdwater.ch/en/) is a Citizen Science project out of the University of Zurich to collect supplemental data to enable improved modeling of floods and droughts.
+
+`r msmbstyle::question(label = "ques:two", text = "What is Citizen's Science?")`
+
+`r msmbstyle::solution(text = "Citizen Science or volunteer monitoring is scientific research where data collection for specific projects is gathered at least in part by nonprofessional scientists. Frequently these projects make use of the ubiquitness of smartphones allowing users to gather and upload data using an app. One of the most well-known projects is iNaturalist")`
+
+Crowdwater uses a geocaching-type approach where "spots" (measuring stations) can be found using a smart phone app and navigated to using the built-in maps, any user can add additional observations. The generated data can be used to update hydrological models predicting streamflow which have important roles for flood/drought prediction and water management decisions.
 
 
-## Site 2
+### Crodwater App
+
+**Download the App**
+Search for and download the app in the Google Play or Apple App store.
 
 
-## Sign-up
+**Register an Account & Log in**
+Open the app and register a `SPOTTERON` account using an email address. You will choose a username and password. If you get logged out, you need to log in using the email address & password.
+
+
+**App overview**
+
+When you open the app it should show you your current location and you will be able to view spots (and stacks of spots) near your location. Top right will show an icon for your user profiles and new notifications. The ribbon on the bottoms has buttons to filter, find the newest entries, stats, and the menu (blue). The black `+` symbol is for adding new spots.
+
+```{r echo=FALSE, fig.cap="Crowdwater app start screen", out.width="250px"}
+
+knitr::include_graphics(path = "images/App_overview.jpg")
+
+```
+
+You can access all the same functions plus some additional ones from the menu.
+
+```{r echo=FALSE, fig.cap="Crowdwater app menu", out.width="250px"}
+
+knitr::include_graphics(path = "images/menu.jpg")
+
+```
+
+
+**Check out a spot**
+
+If you select a spot you will get detailed information on the type of spot, when it was created, updates, and any comments.
+
+```{r echo=FALSE, fig.cap="Detailed information on virtual gauge spot", out.width="250px"}
+
+knitr::include_graphics(path = "images/Virtual_gauge.jpg")
+
+```
+
+
+**Spot types**
+
+```{r echo=FALSE, fig.cap="Detailed information on virtual gauge spot", out.width="250px"}
+
+knitr::include_graphics(path = "images/spot_types.jpg")
+
+```
+
+There are six types of spots, `Virtual Staff Gauges` and `Physical Staff Gauges` are used to measure changes in the water level. `Stream Type` can be used to give additional information on stream or river being monitored. `Temporary Stream` and `Soil moisture` can be used to monitor changes in the appearance (and disappearance) of temporary streams and changes in soil moisture - both are indicative of drought and flood conditions. Finally `Plastic Pollution` spots can be used to monitor the amount and type of pollution encountered in streams.  
+We will be monitoring two sites and making three types of measurements: observed changes in water level using `Virtual Staff Gauges` and changes in drought/flood conditions by monitoring changes in `Temporary Streams` and `Soil moisture`. 
+
+
+**Virtual Staff Gauge**
+
+```{r echo=FALSE, fig.cap="Detailed information on virtual gauge spot", out.width="250px"}
+
+knitr::include_graphics(path = "images/Virtual_gauge.jpg")
+
+```
+
+
+
+
+### Website
+
+
+## Go Forth!
+
+ 
+### Sign-up for field-ish trips
+
+
+
+### Going in the field
+
+
+
+### Site 1: Piscataquog River Park
+
+
+
+### Site 2: Pulpit Rock Conservation Area
+
+
+
