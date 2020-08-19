@@ -49,9 +49,7 @@ After completing this tutorial you should
 
 [Crowdwater](https://crowdwater.ch/en/) is a Citizen Science project out of the University of Zurich to collect supplemental data to enable improved modeling of floods and droughts.
 
-`r msmbstyle::question(label = "ques:two", text = "What is Citizen's Science?")`
-
-`r msmbstyle::solution(text = "Citizen Science or volunteer monitoring is scientific research where data collection for specific projects is gathered at least in part by nonprofessional scientists. Frequently these projects make use of the ubiquitness of smartphones allowing users to gather and upload data using an app. One of the most well-known projects is iNaturalist")`
+Citizen Science or volunteer monitoring is scientific research where data collection for specific projects is gathered at least in part by nonprofessional scientists. Frequently these projects make use of the ubiquitness of smartphones allowing users to gather and upload data using an app. One of the most well-known projects is `iNaturalist`.
 
 Crowdwater uses a geocaching-type approach where "spots" (measuring stations) can be found using a smart phone app and navigated to using the built-in maps, any user can add additional observations. The generated data can be used to update hydrological models predicting streamflow which have important roles for flood/drought prediction and water management decisions.
 
@@ -69,7 +67,7 @@ Open the app and register a `SPOTTERON` account using an email address. You will
 **App overview**  
 When you open the app it should show you your current location and you will be able to view spots (and stacks of spots) near your location. Top right will show an icon for your user profiles and new notifications. The ribbon on the bottoms has buttons to filter, find the newest entries, stats, and the menu (blue). The black `+` symbol is for adding new spots.
 
-```{r echo=FALSE, fig.cap="Crowdwater app start screen", out.width="250px"}
+```{r echo=FALSE, fig.cap="Crowdwater app start screen.", out.width="250px"}
 
 knitr::include_graphics(path = "images/App_overview.jpg")
 
@@ -77,7 +75,7 @@ knitr::include_graphics(path = "images/App_overview.jpg")
 
 You can access all the same functions plus some additional ones from the menu.
 
-```{r echo=FALSE, fig.cap="Crowdwater app menu", out.width="250px"}
+```{r echo=FALSE, fig.cap="Crowdwater app menu.", out.width="250px"}
 
 knitr::include_graphics(path = "images/menu.jpg")
 
@@ -87,17 +85,11 @@ knitr::include_graphics(path = "images/menu.jpg")
 **Check out a spot**  
 If you select a spot you will get detailed information on the type of spot, when it was created, updates, and any comments.
 
-```{r echo=FALSE, fig.cap="Detailed information on virtual gauge spot", out.width="250px"}
-
-knitr::include_graphics(path = "images/Virtual_gauge.jpg")
-
-```
-
 
 **Spot types**  
-There are six types of spots, `Virtual Staff Gauges` and `Physical Staff Gauges` are used to measure changes in the water level. `Stream Type` can be used to give additional information on stream or river being monitored. `Temporary Stream` and `Soil moisture` can be used to monitor changes in the appearance (and disappearance) of temporary streams and changes in soil moisture - both are indicative of drought and flood conditions. Finally `Plastic Pollution` spots can be used to monitor the amount and type of pollution encountered in streams.
+There are six types of spots. `Virtual Staff Gauges` and `Physical Staff Gauges` are used to measure changes in the water level. `Stream Type` can be used to give additional information on stream or river being monitored. `Temporary Stream` and `Soil moisture` can be used to monitor changes in the appearance (and disappearance) of temporary streams and changes in soil moisture - both are indicative of drought and flood conditions. Finally `Plastic Pollution` spots can be used to monitor the amount and type of pollution encountered in streams.
 
-```{r echo=FALSE, fig.cap="Detailed information on virtual gauge spot", out.width="250px"}
+```{r echo=FALSE, fig.cap="The six different types of monitoring spots. ", out.width="250px"}
 
 knitr::include_graphics(path = "images/spot_types.jpg")
 
@@ -115,7 +107,7 @@ knitr::include_graphics(path = "images/Virtual_gauge.jpg")
 
 ```
 
-All new measurements are relative to the initially recorded water level, i.e. you compare an update to the original and determine where the water level is now relative to the original water level and record that water class as +/- . This is frequently easier to do via the webpage compare to the app.
+All new measurements are relative to the initially recorded water level, i.e. you compare an update to the original and determine where the water level is now relative to the original water level and record that water class as +/- . This is frequently easier to do via the webpage compared to the app.
 
 
 **Temporary Stream**  
@@ -137,9 +129,9 @@ knitr::include_graphics(path = "images/temp_stream-2.jpg")
 
 For each new measurement indicate which of the six categories you observe: 
 
-* **DRY STREAMBED**: no visible water, streambed is dry
-* **WET STREAMBED**: no visible water, streambed is wet at least 2 cm depth below the surface
-* **ISOLATED POOLS**: separated pools of water, no visible flow in the streambed
+* **DRY STREAMBED**: no visible water, stream bed is dry
+* **WET STREAMBED**: no visible water, stream bed is wet at least 2 cm depth below the surface
+* **ISOLATED POOLS**: separated pools of water, no visible flow in the stream bed
 * **STANDING WATER**: water but no visible flow
 * **TRICKLING WATER**: clearly visibly flowing water, but little flow
 * **FLOWING WATER**: continuously flowing water
@@ -174,7 +166,7 @@ For each new measurement indicate which of the eight categories you observe^[You
 * **RAIN/SNOW**: If the spot is covered in snow or it is currently raining you cannot make an accurate measurement - but still take a picture and update the spot.
 
 **Update a Spot**  
-To add a new measurement to an existing spot, use the app and the integrated maps to locate that spot, now tap the spot icon to open that spot (see Figures \@ref(fig:virt-gauge), \@ref(fig:temp-stream), \@ref(fig:soil)). Next, either tap on the blue `+` sign on the map next to the spot, or in the information section about the spot, tap the three vertical dots and select update spot. 
+To add a new measurement to an existing spot, use the app and the integrated maps to locate that spot and tap the icon (see Figures \@ref(fig:virt-gauge), \@ref(fig:temp-stream), \@ref(fig:soil)). Next, either tap on the blue `+` sign on the map next to the spot, or in the information section about the spot, tap the three vertical dots and select update spot. 
 
 ```{r echo=FALSE, fig.cap="Navigate to spot to update measurement.", out.width="250px"}
 
@@ -182,7 +174,7 @@ knitr::include_graphics(path = "images/update-1.jpg")
 
 ```
 
-This will open a `NEW MEASUREMENT` interface that will allow you to take a new picture (or use an existing picture), for a virtual staff gauge you will need to compare the current water level to the original water level to determine the relative change in water classes, for temporary streams and soil moisture identify the original measurement location using the the original image and then add your observation.
+This will open a `NEW MEASUREMENT` interface that will allow you to take a new picture (or use an existing picture). For a virtual staff gauge you will need to compare the current water level to the original water level to determine the relative change in water classes, for temporary streams and soil moisture identify the original measurement location using the the original image and then add your observation.
 
 ```{r echo=FALSE, fig.cap="Add new observation.", out.width="250px"}
 
@@ -196,22 +188,26 @@ Make sure you tap save so your observation is registered.
 
 The [Crowdwater website](https://crowdwater.ch/en/) has additional background information and resources regarding the entire project.
 
-You can use the [Data](https://crowdwater.ch/en/data/) section of the website both to explore current spots around the world^[this is also where we would download data for analysis] and you can use it to add and update spots as well. For virtual staff gauge spots it can be helpful to take pictures in the field and the upload them to your computer to update spots because it will allow you to compare an image on your phone to the computer screen to determine the change in water level. It is also easier to backdate images etc. from the website interface.
+You can use the [Data](https://crowdwater.ch/en/data/) section of the website both to explore current spots around the world^[This is also where you can download the crowdsourced data for analysis] and you can use it to add and update spots as well. For virtual staff gauge spots it can be helpful to take pictures in the field and then upload them to your computer to update spots because it will allow you to compare an image on your phone to the computer screen to determine the change in water level. It is also easier to backdate images etc. from the website interface.
 
 
 ## Go Forth!
 
-Now that you are familiar with the app, spot, and measurement types it's time to make some observations. You will be making these observations on your own time with a field buddy and uploading your observations via the app or the website - because you can take images and upload them later we can always do that together. At the end of the semester we will use this data for a lab comparing the two sites by analyzing changes in conditions over the course of the semester^[future Conservation Biology courses will use your data for temporal comparisons as well!], comparing ecosystem functions & services, and thinking about why modeling (forecasting) hydrological forecasting can be important for conservation.  
+Now that you are familiar with the app, spot, and measurement types it's time to make some observations. You will be making these observations on your own time with a field buddy and uploading your observations via the app or the website^[because you can take images and upload them later we can always do that together if you are unsure!]. At the end of the semester we will use this data for a lab comparing the two sites by analyzing changes in conditions over the course of the semester^[Future Conservation Biology courses will use your data for temporal comparisons as well!], comparing ecosystem functions & services, and thinking about why modeling (forecasting) hydrological forecasting can be important for conservation.  
 
  
 ### Sign-up for field-ish trips
 
+*You will need the observations you make in the field both through the app and in general for the lab at the end of the semester so be sure to take these field trips seriously and take notes if needed. These outings are considered part of your lab participation grade.*
 
-*You will need the observations you make in the field both through the app and in general for the lab at the end of the semester so be sure to take these field trips seriously, take notes if needed. These outings are considered part of your lab participation grade*
+Find a field buddy (at least one of you should have a car) and sign up for two trips per site on the google spreadsheets (links will be in our slack channel for easy access throughout the semester). We are trying to make weekly(ish) measurements, but you are free to visit during a time that is convenient for you and your schedule (try to find a buddy with a similar schedule). We will have everyone sign off their measurements as completed with a time/date so you will be able to see when the last measurement was made^[Ideally, if the person before you went on a Sunday, don't go Monday even if it is "the next week"].
 
-Find a field buddy (at least one of your should have a car) and sign up for two trips per site on the two google spreadsheets (links will be in our slack channel for easy access). We are trying to make weekly(ish) measurements, but you are free to visit during a time that is convenient for you and your schedule (try to find a buddy with a similar schedule). We will have everyone sign off their measurements as completed with a time/date so you will be able to see when the last measurement was made. Ideally, if the person before you went on a Sunday, don't go Monday even if it is "the next week".
-
-Site 1 (Piscataquog River Park) is closer (approx. 5 minute drive) and only has three measurement points (budget for 30 minutes to complete, Site 2 (Pulpit Rock Conservation Area) is about a 15 minute drive and involves hiking in about 30 - 45 minutes depending on your walking speed and you need to hike back out to the trail head, though coming back should be quicker since you won't have to stop to make observations. Theoretically, you could take an afternoon and hit both sites but then you would want to budget 3 - 4 hours to make sure you have plenty of time. Ideally, you should visit each sites both early in the semester and in the back half; you should discuss with your partner whether you want to pack your weeks (i.e. sign up for two weeks in which you commit to going to both locations) or spread them out (i.e. sign up for a different week for each site/visit). 
+Site 1 (Piscataquog River Park) is closer to campus (approx. 5 minute drive) and only has three measurement points. You should budget for driving time and at least 30 minutes.   
+Site 2 (Pulpit Rock Conservation Area) is about a 15 minute drive and involves hiking in about 30 - 45 minutes depending on your walking speed and you need to hike back out to the parking lot at the trail head, though coming back should be quicker since you won't have to stop to make observations; you should budget at least 90 minutes + driving time.   
+Ideally, you should visit each sites both early in the semester and in the back half.  
+Theoretically, you could take a single afternoon and hit both sites but then you would want to budget 3 - 4 hours to make sure you have plenty of time.  
+You should discuss with your partner whether you want to pack your weeks (i.e. sign up for two weeks in which you commit to going to both locations) or spread them out (i.e. sign up for a different week for each site/visit).  
+You and your partner should alternate "taking the lead", i.e. being responsible to upload the observations.
 
 
 ### Going in the field
@@ -220,25 +216,26 @@ Safety is our top priority. Always go with a buddy, be mindful of your surroundi
 
 Checklist:
 
+* field buddy.
 * weather appropriate clothes & shoes.
 * bug spray.
 * app downloaded/cell phone charged.
 * water, snacks.
 
-*Safety is our top priority, if conditions do not seem safe (heavy rain, lightning ...) during your week please contact me immediately so we can figure out our best options. Do not go hiking on your own, if your field buddy needs to drop out for some reason again, contact me we will figure something out (am I always looking for an excuse for some fresh air? Probably.)*
+*Safety is our top priority, if conditions do not seem safe (heavy rain, lightning ...) during your week please contact me immediately so we can figure out our best options. Do not go hiking on your own - if your field buddy needs to drop out for some reason contact me right away and we will figure something out (Am I always looking for an excuse for some fresh air? Probably.)*
 
 
 ### Site 1: Piscataquog River Park
 
 We have three measurement spots at Site 1, water level measurements above and below the dam and a temporary stream.
 
-```{r echo=FALSE, fig.cap="Virtual Staff Gauge spot above Kelly Dam.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Measurement spots at Piscataquog River Park; water level measurement above Kelly Dam, temporary stream and water level measurement below the dam.", out.width="250px"}
 
 knitr::include_graphics(path = "images/River_park.jpg")
 
 ```
 
-**Access point 1:** You can park at the [Piscatagquia Boat Ramp](https://www.google.com/maps/@42.9944418,-71.4970789,421m/data=!3m1!1e3) which is where the one of the virtual staff gauge spots is located. 
+**Route 1:** You can park at the [Piscatagquia Boat Ramp](https://www.google.com/maps/@42.9944418,-71.4970789,421m/data=!3m1!1e3) which is where the one of the virtual staff gauge spots is located. 
 
 ```{r echo=FALSE, fig.cap="Virtual Staff Gauge location above Kelly Dam.", out.width="250px"}
 
@@ -246,10 +243,10 @@ knitr::include_graphics(path = "images/Piscataquog_3.jpg")
 
 ```
 
-From there you can connect with the River Trail walk towards the Ice Arena and then get on the trail that will take you to the foot trail which you will take you to the temporary stream and second virtual staff gauge located right before the foot bridge. 
+From there you can connect with the River Trail and walk towards the Ice Arena to pick up the trail that will take you to the temporary stream and second virtual staff gauge located right before the foot bridge. 
 
 
-```{r echo=FALSE, fig.cap="Temporary Stream and Virtual Staff Gauge locations below Kelly Dam.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Temporary Stream and Virtual Staff Gauge locations below Kelly Dam; these are right before the foot bridge. Don't forget your bug spray!", out.width="250px"}
 
 knitr::include_graphics(path = "images/Piscataquog_1.jpg")
 
@@ -259,14 +256,16 @@ knitr::include_graphics(path = "images/Piscataquog_2.jpg")
 
 Then you would walk back out and to your car.
 
-**Access point 2:** You can park at the [Ice Arena](https://www.google.com/maps/place/West+Side+Ice+Arena/@42.9905691,-71.4944085,525m/data=!3m1!1e3!4m5!3m4!1s0x89e249277b405e6b:0xb621b368cffd972!8m2!3d42.9921536!4d-71.4923622), access the trail taking you to the two spots by the foot bridge, walk back and either take the River Trail to the boat launch/virtual staff gauge spot or you could hop in your car and drive there.
+**Route 2:** You can park at the [Ice Arena](https://www.google.com/maps/place/West+Side+Ice+Arena/@42.9905691,-71.4944085,525m/data=!3m1!1e3!4m5!3m4!1s0x89e249277b405e6b:0xb621b368cffd972!8m2!3d42.9921536!4d-71.4923622), access the trail taking you to the two spots by the foot bridge, walk back and either take the River Trail to the boat launch/virtual staff gauge spot or you could hop in your car and drive there.
 
 
 ### Site 2: Pulpit Rock Conservation Area
 
+*You will likely use cell phone reception during the hike you can try downloading the map & spots offline^[I've tried this without too much luck if you figure out a good way to do this, please share with the class!]. You can also use this guide to find all the spots. They are all next to/under bridges or boardwalks - there is only one boardwalk that is not a measurement spot along the route so you needn't worry too much about missing spots.*
+
 Park your vehicle at the Pulpit [Road Trail-head Parking lot](https://www.google.com/maps/place/Pulpit+Road+Trail-head+Parking/@42.9485262,-71.5874269,15.75z/data=!4m5!3m4!1s0x0:0x41ab24d525816bf6!8m2!3d42.9471641!4d-71.5940917).
 
-Access the trail, initially you'll be following the yellow path (look for markers on the trees). You will likely use cell phone reception during the hike you can download maps offline if you'd like.
+After you park and access the trail, initially you'll be following the yellow path (look for markers on the trees). To your right you should see the stream bed of the Pulpit Brook (it is currently running quite dry!).
 
 ```{r echo=FALSE, fig.cap="Follow the yellow trail...", out.width="250px"}
 
@@ -274,15 +273,15 @@ knitr::include_graphics(path = "images/20200808_174357.jpg")
 
 ```
 
-You'll quickly come upon your first fork in the road - hang right.
+You'll quickly (3 min) come upon your first fork in the road - hang right.
 
-```{r echo=FALSE, fig.cap="Right at the pink sign.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Hang right at the pink sign.", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_174632.jpg")
 
 ```
 
-You'll hit another fork, stick to the right hand trail.
+A few minutes down the trail, you'll hit another fork, stick to the right hand trail.
 
 ```{r echo=FALSE, fig.cap="Get on the white trail.", out.width="250px"}
 
@@ -292,7 +291,7 @@ knitr::include_graphics(path = "images/20200808_174844.jpg")
 
 You are now and for the rest of your hike following the white trail which will either be paint markings or little plaques on trees. 
 
-```{r echo=FALSE, fig.cap="Get on the white trail.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Stick to the white path.", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_174922.jpg")
 
@@ -300,7 +299,7 @@ knitr::include_graphics(path = "images/20200808_174922.jpg")
 
 At this point you can't really get lost you just have to make sure that you take pictures at all the spots. They should be easy to spot, most of them are next to/under bridges/boardwalks.
 
-Your first spot is a temporary stream crossing this bridge.
+Your first spot is about 2-3 minutes down the trail - it is a temporary stream crossing this bridge.
 
 ```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
 
@@ -318,7 +317,7 @@ knitr::include_graphics(path = "images/20200808_175213.jpg")
 
 Your next measurement will be the soil moisture at this boardwalk.
 
-```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Temporary stream measurment spot.", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_175540.jpg")
 
@@ -326,15 +325,41 @@ knitr::include_graphics(path = "images/20200808_175540.jpg")
 
 Take a picture and note the status.
 
-You will come across the turn-off onto the yellow trail (Martin's trail) - do not deviate from your mission! Stay on the white path.
+About 2 minutes later you will cross a small foot brige near an open field - this is the only bridge/boardwalk you will be crossing that is **not** a measurement spot.
 
-```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
+
+```{r echo=FALSE, fig.cap="Cross this foot bridge and keep on, keeping on.", out.width="250px"}
+
+knitr::include_graphics(path = "images/20200818_160849.jpg")
+
+```
+
+A few minutes later you will use a bridge to cross Pulpit Creek - this is our water level measurement spot. 
+
+```{r echo=FALSE, fig.cap="Bridge crossing Pulpit Creek (virtual staff gauge spot).", out.width="250px"}
+
+knitr::include_graphics(path = "images/20200818_161336.jpg")
+
+```
+
+Unfortunately, the original image in the app has the streambed almost dry - about a week earlier when I visited the water level was about one water class higher (but the image didn't have the water level perpendicular...).
+
+```{r echo=FALSE, fig.cap="Bridge crossing Pulpit Creek with flowing water.", out.width="250px"}
+
+knitr::include_graphics(path = "images/20200808_175840.jpg")
+
+```
+
+
+You will pass the turn-off onto the yellow trail (Martin's trail) - do not deviate from your mission! Stay on the white path.
+
+```{r echo=FALSE, fig.cap="Turn off to Martin's Trail.", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_180506.jpg")
 
 ```
 
-Next spot: Temporary stream:
+The next spot is not until about 10 minutes later, do not cross this bridge, stay on the main trail.
 
 ```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
 
@@ -344,9 +369,9 @@ knitr::include_graphics(path = "images/20200808_180928.jpg")
 
 Take a picture and note the status.
 
-Almost there ... your penultimate spot is a soil moisture measurement.
+Almost there ... your penultimate spot is a soil moisture measurement about 5 - 6 minutes farther down the trail.
 
-```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Boardwalk near soil moisture measurement spot.", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_181622.jpg")
 
@@ -354,9 +379,9 @@ knitr::include_graphics(path = "images/20200808_181622.jpg")
 
 Take a picture and note the status.
 
-Keep going, you are basically at the last footbridge and final soil moisture measurement. For the direction you are coming in it will probably look more like this: 
+Keep going, you are basically at the last measurement spot (2 - 3 min); soil moisture next to a boardwalk. For the direction you are coming in it will probably look more like this: 
 
-```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Boardwalk next to final soil moisture measurement spot (arriving).", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_182114.jpg")
 
@@ -364,7 +389,7 @@ knitr::include_graphics(path = "images/20200808_182114.jpg")
 
 The original image of the spot was taken returning down the trail and will look like this.
 
-```{r echo=FALSE, fig.cap="Bridge over temporary stream.", out.width="250px"}
+```{r echo=FALSE, fig.cap="Boardwalk next to final soil moisture measurement spot (use this perspective for measurement).", out.width="250px"}
 
 knitr::include_graphics(path = "images/20200808_182059.jpg")
 
