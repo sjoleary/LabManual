@@ -69,7 +69,7 @@ catch <- read_delim("data/longline_catchdata.txt", delim = "\t")
 
 ```
 
-`read_delim` is the function we are using to read in the data, it takes two arguments, the path (`data/longline_catchdata.txt`) and the delimiter (`"\t`).
+`read_delim` is the function we are using to read in the data, it takes two arguments, the path (`data/longline_catchdata.txt`) and the delimiter (`\t`).
 
 Execute the code. If you look over in your environment pane you should now see the object `catch`. This is your dataframe. Click on it, you should see the command `View(catch)` in your console and a tab `catch` appear in your top left pane.
 
@@ -100,7 +100,7 @@ catch
 
 The data set contains information on the sampling site, Species name, Sex, Pre-caudal length (PCL), fork length (FL), stretch total length (STL), Hook Size, and the set number and sampling date.
 
-Now that we have a data frame to play with, let's explore some data wrangling options using `dplyr`. The `d` stands for `data` and the `plyr` stands for `plyers` - this package is designed to manipulate data frames, there are some central actions (`verbs`) that will allow you to manipulate the data frame.
+Now that we have a data frame to play with, let's explore some data wrangling options using `dplyr`. The `d` stands for `data` and the `plyr` stands for `plyers` - this package is designed to manipulate data frames. We are going to focus on the central actions (`verbs`) that will allow you to manipulate the data frame.
 
 Sure, you could do all of these things in excel but there are advantages to using code -
 
@@ -108,7 +108,7 @@ Sure, you could do all of these things in excel but there are advantages to usin
 * You can manipulate data sets too large to easily handle in Excel.
 * If you update your data set or have a second identically formatted data set you just have to re-run the code.
 
-There is a bit of a learning curve but it will pay off in the long run. Be sure to record all the steps (code chunks) in your Rmarkdown - both the examples given here and the applications you will be asked to make. Write a (very brief) explanation of what a code chunk is doing above it - you'll likely want to be able to refer to the rendered document at a later point^[you may find it helpful to cut and paste from this manual].
+There is a bit of a learning curve but it will pay off in the long run. Be sure to record all the steps (code chunks) in your Rmarkdown - both the examples given here and the applications you will be asked to make. Write a (very brief) explanation of what a code chunk is doing above it - you'll likely want to be able to refer to the rendered document at a later point^[You may find it helpful to cut and paste from this manual].
 
 
 ## Select
@@ -150,7 +150,7 @@ You can also eliminate multiple columns by name, for example you would remove Da
 ```{r}
 
 catch %>%
-  select(Day, Month, Year)
+  select(-Day, -Month, -Year)
 
 ```
 
@@ -179,9 +179,9 @@ There you go. Simple as that.
 
 Title this section as `# Filter` in your Rmarkdown.
 
-The function `filter()` is used to subset a data frame by row. We do this using `regular expression` that describe the content of sets of rows.
+The function `filter()` is used to subset a data frame by row. We do this using `regular expressions` that describe the content of sets of rows.
 
-For example, we might only want Gafftop sail catfish (*Bagre marinus").
+For example, we might only want Gafftop sail catfish (*Bagre marinus*).
 
 ```{r}
 
@@ -224,7 +224,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:six", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus (aka the sharky-sharks? There are four species in the data set - Carcharhinus_leucas, Carcharhinus_brevipinna, Carcharhinus_limbatus, Carcharhinus_porosus.")`
+`r msmbstyle::question(label = "ques:six", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus aka the sharky-sharks? There are four species in the data set - Carcharhinus_leucas, Carcharhinus_brevipinna, Carcharhinus_limbatus, Carcharhinus_porosus.")`
 
 For numbers you can select all rows with values greater than a certain value using `>`.
 
@@ -235,9 +235,9 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:seven", text = "Create a data frame containing only entries with a forklength < 300.")`.
+`r msmbstyle::question(label = "ques:seven", text = "Create a data frame containing only entries with a forklength < 300.")`
 
-You can also combine expressions, for example to select only scalloped hammerheads that are also smaller that 300 cm you would use
+You can also combine expressions - for example to select only scalloped hammerheads that are also smaller that 300 cm you would use
 
 ```{r}
 
@@ -259,7 +259,7 @@ catch %>%
 
 `r msmbstyle::question(label = "ques:nine", text = "How would you select fish that have a forklength either smaller than 200 cm or larger than 300cm?")`
  
-The tidyverse has a central concept call "split-apply-combine", which means that occasionally we want to group entries in a dataframe (split), do some sort of manipulation (apply), but end up with a single data frame.
+The tidyverse has a central concept call "split-apply-combine", which means that occasionally we want to group entries in a dataframe (split), do some sort of manipulation (apply), but end up with a single data frame (combine).
 
 
 ```{marginfigure}
@@ -286,7 +286,7 @@ Okay, now we can select subsets of columns and rows - what if we want to add col
 
 ## Mutate
 
-The function `mutate()` can be used to create new columns (usually based on columns already existing in the data frame)- this is a very powerful function with endless possibilities, we are going to stick to some of the basics. But rest assured if your answer is "Oh, could I ..." the answer is "Yes".
+The function `mutate()` can be used to create new columns (usually based on columns already existing in the data frame) - this is a very powerful function with endless possibilities, we are going to stick to some of the basics^[Rest assured if your answer is "Oh, could I ..." the answer is "Yes".].
 
 Start a new section in your markdown using `# Mutate`.
 
@@ -299,11 +299,13 @@ catch %>%
 
 ```
 
-You should now have a column called `difference` at the end of the data frame, instead of `-` you can use `+` to add , `*` to multiple, and `/` to divide values.
+You should now have a column called `difference` at the end of the data frame.
+
+Instead of `-` you can use `+` to add , `*` to multiple, and `/` to divide values when creating a new column
 
 `r msmbstyle::question(label = "ques:eleven", text = "How would you create a new column called ratio, that is the ratio of the fork to stretch total length?")`
 
-You can also create a column that contains a logical value (TRUE/FALSE). For example we might need a column that indicates if the Sex is unknown.
+You can also create a column that contains a logical value (`TRUE`/`FALSE`). For example we might need a column that indicates if the Sex is unknown.
 
 ```{r}
 
@@ -357,7 +359,7 @@ The function `mean()` will calculate the mean value of a vector of numbers, the 
 
 ```
 
-For example, let's say you wanted to create a column that is the difference between the fork length of an individual and the mean fork length of that species.
+For example, let's say you wanted to create a column that is the difference between the fork length of an individual and the mean fork length of *that species*.
 
 ```{r}
 
@@ -372,9 +374,9 @@ Almost there, we have one final action that will prove useful.
 
 ## Summarize
 
-Start a new section in your Rmarkdown as `# Summarize`.
+Start a new section in your Rmarkdown as  `# Summarize`.
 
-Not infrequently we are more interested in summary stats of a data set rather than all the raw data. `Tidyverse` got you covered with the function `summarize`.
+Not infrequently we are more interested in summary stats of a data set rather than all the raw data - `Tidyverse` got you covered with the function `summarize`.
 
 For example, we might want to calculate the mean and standard deviation of the measured fork length.
 
@@ -386,7 +388,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:thirteen", text = "How could you use summarize to get the maximum forklength?")`
+`r msmbstyle::question(label = "ques:thirteen", text = "How could you use summarize to get the maximum forklength? Hint: Remember earlier we used the function max() to get a maximum value.")`
 
 That's cool, but not super helpful ... unless, we leverage `group_by()` to start calculating summary stats for entries grouped for example by species:
 
@@ -424,9 +426,9 @@ summary <- catch %>%
 
 ```
 
-When you execute this code, you'll notice that the code (and probably a warning) is printed to the console but there is no output. Instead, if you look at the environment in the top right corner you should now see a new object called `summary`. Again, you can pull that up in the View pane using either `View(summary)` in the console or by clicking on the object in the environment.
+When you execute this code, you'll notice that the code (and probably a warning) is printed to the console but there is no output. Instead, if you look at the environment in the top right corner you should now see a new object called `summary`. Again, you can pull that up in the Editor/View pane (top left) using either `View(summary)` in the console or by clicking on the object in the environment.
 
-What if you wanted to print a table with the contents of that object? You can use the `kable()` function, you can specify the number of digits printed using the argument `digits = ` and add a caption using `caption = "caption"`.
+What if you wanted to print a table with the contents of that object? You can use the `kable()` function, you can even further format the table for example specify the number of digits printed using the argument `digits = ` and add a caption using `caption = "caption"`.
 
 ```{r}
 

@@ -18,19 +18,21 @@ link-citations: yes
 
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 
 library(msmbstyle)
 
 # invalidate cache when the tufte version changes
 knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
+
+
 options(htmltools.dir.version = FALSE)
 
 ```
 
 # Overview {-}
 
-This is the lab manual for Conservation Biology (BI328) and will be continuously updated throughout the semester.  
+This is the lab manual for Conservation Biology (BI328). It will be continuously updated throughout the semester, generally there are no pre-labs (just homework, you can't win).  
 For the most part an electronic copy (on a laptop or tablet) is sufficient, at times you may be instructed to print a data or worksheet for lab.
 
 ## The Basics
@@ -38,14 +40,14 @@ For the most part an electronic copy (on a laptop or tablet) is sufficient, at t
 **Lab times**
 
 Wednesday 1:30 - 4:30pm (GOUL3102)  
-*Be on time, arriving >5 minutes late will be considered an unexcused absence*
+*Be on time, arriving >5 minutes late will be considered an unexcused absence.*
 
 <br>
 
 
 **BYOD: Bring your own device (to lab)**
 
-You are required to bring your laptop for use during lab; a tablet will not be sufficient to participate though you are welcome to bring a tablet to have an extra screen to follow along an electronic version of the lab manual or an exercise we are working on. Make sure to have a power cable and/or fully charged battery!
+You are required to bring your laptop for use during lab; a tablet will not be sufficient to participate though you are welcome to bring an additional device to have an extra screen to follow along an electronic version of the lab manual. Make sure to have a power cable and/or fully charged battery!
 
 <br>
 
@@ -58,7 +60,7 @@ You will be receiving lab homework in some format almost every lab, part of the 
 *No late or incomplete homework will be accepted or receive credit.*
 
 
-### Due Wednesday, 26th
+### Due Wednesday, Aug. 26th
 
 Introduce yourself in the `#general` slack channel:
 
@@ -66,7 +68,7 @@ Introduce yourself in the `#general` slack channel:
 * Tell us what you are hoping to get out of this class^[If it's 'check it off my list to graduate' - that's fine, we'll try to make this class more than a check mark!]
 * Explain which category you fit in best as a "conservation biologist": Preservationist, Resource Management, Environmentalism (Activism), Environmental Science, or Ecologist. You don't have to choose just one.
 
-Find a field buddy and sign up on the spreadsheet (find the link in the `#field-outings` slack channel) for two visits to each site.
+Find a field buddy and sign up on the spreadsheet (find the link in the  `#field-outings` slack channel) for two visits to each site.
 
 Upload your completed `IntroR` - markdown through Canvas.
 

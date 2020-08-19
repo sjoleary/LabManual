@@ -19,7 +19,7 @@ link-citations: yes
 
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 
 library(msmbstyle)
 # invalidate cache when the tufte version changes
@@ -141,7 +141,13 @@ Most of your text (without syntax) will appear as paragraph text but you can add
 
 ## Code chunks
 
-Code chunks contain your R code and star and end with three back tick; `{r}` determines that the code chunk should be interpreted as `R` code.
+Code chunks contain your R code and start and end with three back ticks; `{r}` determines that the code chunk should be interpreted as `R` code.
+
+```` ```{r} ````
+
+
+```` ``` ````
+
 
 You can add a code chunk using `Ctrl` + `Alt` + `I` or `Code -> Insert Chunk`. You can run code chunks line by line using `Ctrl` + `Enter` or you can run the entire chunk by clicking the `Run` button or the little green arrow in the top right corner of an `R` chunk.
 

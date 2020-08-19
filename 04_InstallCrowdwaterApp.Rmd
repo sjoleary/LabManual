@@ -20,7 +20,7 @@ link-citations: yes
 
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 
 library(msmbstyle)
 
@@ -40,7 +40,7 @@ After completing this tutorial you should
 
 * be able to define citizen's science.
 * be able to install the crowdwater app on your smart phone.
-* understand how to update virtual gauge, soil moisture, and temporary stream spots through the app & website
+* understand how to update virtual staff gauge, soil moisture, and temporary stream spots through the app & website
 * have signed up for four "asynchronous field trips"
 
 ## Citizen Science & the Crowdwater App
@@ -49,9 +49,9 @@ After completing this tutorial you should
 
 [Crowdwater](https://crowdwater.ch/en/) is a Citizen Science project out of the University of Zurich to collect supplemental data to enable improved modeling of floods and droughts.
 
-Citizen Science or volunteer monitoring is scientific research where data collection for specific projects is gathered at least in part by nonprofessional scientists. Frequently these projects make use of the ubiquitness of smartphones allowing users to gather and upload data using an app. One of the most well-known projects is `iNaturalist`.
+Citizen Science or volunteer monitoring is scientific research where data collection for specific projects is gathered at least in part by nonprofessional scientists. Frequently, these projects make use of the ubiquitness of smartphones allowing users to gather and upload data using an app. One of the most well-known projects is `iNaturalist`.
 
-Crowdwater uses a geocaching-type approach where "spots" (measuring stations) can be found using a smart phone app and navigated to using the built-in maps, any user can add additional observations. The generated data can be used to update hydrological models predicting streamflow which have important roles for flood/drought prediction and water management decisions.
+Crowdwater uses a geocaching-type approach where "spots" (measuring stations) can be found using a smart phone app and navigated to using the built-in maps and any user can add additional observations. The generated data can be used to update hydrological models predicting streamflow which have important roles for flood/drought prediction and water management decisions.
 
 
 ### Crodwater App

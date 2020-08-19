@@ -171,7 +171,7 @@ if(f.classList.contains('fa-plus-square')) {
 <p>We are going to use the <code>IntroR</code> project directory and markdown file you created in the last tutorial; keep the <code>YAML</code> header and delete the rest of the file content.</p>
 <p>Download a tab-delimited text file containing catch data from a long-lining survey in Corpus Christi Bay and place it in the data directory.</p>
 <p>In your Rmarkdown file insert a header as <code># Import catch data</code>, and insert the following code chunk below to load the <code>tidyverse</code> packages and read in the catch data as a data frame.</p>
-<p><code>read_delim</code> is the function we are using to read in the data, it takes two arguments, the path (<code>data/longline_catchdata.txt</code>) and the delimiter (<code>"\t</code>).</p>
+<p><code>read_delim</code> is the function we are using to read in the data, it takes two arguments, the path (<code>data/longline_catchdata.txt</code>) and the delimiter (<code>\t</code>).</p>
 <p>Execute the code. If you look over in your environment pane you should now see the object <code>catch</code>. This is your dataframe. Click on it, you should see the command <code>View(catch)</code> in your console and a tab <code>catch</code> appear in your top left pane.</p>
 <p>Inspect your data.</p>
 <div id="ques:one" class="question">
@@ -210,14 +210,14 @@ Can you determine how many columns and rows your data frame has from the View pa
 ## 10 Aransas~ Bagre_mar~ U     NA      450   539        10     1    28     7  2015
 ## # ... with 2,315 more rows</code></pre>
 <p>The data set contains information on the sampling site, Species name, Sex, Pre-caudal length (PCL), fork length (FL), stretch total length (STL), Hook Size, and the set number and sampling date.</p>
-<p>Now that we have a data frame to play with, let’s explore some data wrangling options using <code>dplyr</code>. The <code>d</code> stands for <code>data</code> and the <code>plyr</code> stands for <code>plyers</code> - this package is designed to manipulate data frames, there are some central actions (<code>verbs</code>) that will allow you to manipulate the data frame.</p>
+<p>Now that we have a data frame to play with, let’s explore some data wrangling options using <code>dplyr</code>. The <code>d</code> stands for <code>data</code> and the <code>plyr</code> stands for <code>plyers</code> - this package is designed to manipulate data frames. We are going to focus on the central actions (<code>verbs</code>) that will allow you to manipulate the data frame.</p>
 <p>Sure, you could do all of these things in excel but there are advantages to using code -</p>
 <ul>
 <li>you aren’t manipulating the raw data set - if you make a mistake or accidentally overwrite something you haven’t made any permanent damage.</li>
 <li>You can manipulate data sets too large to easily handle in Excel.</li>
 <li>If you update your data set or have a second identically formatted data set you just have to re-run the code.</li>
 </ul>
-<p>There is a bit of a learning curve but it will pay off in the long run. Be sure to record all the steps (code chunks) in your Rmarkdown - both the examples given here and the applications you will be asked to make. Write a (very brief) explanation of what a code chunk is doing above it - you’ll likely want to be able to refer to the rendered document at a later point<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> you may find it helpful to cut and paste from this manual</span>.</p>
+<p>There is a bit of a learning curve but it will pay off in the long run. Be sure to record all the steps (code chunks) in your Rmarkdown - both the examples given here and the applications you will be asked to make. Write a (very brief) explanation of what a code chunk is doing above it - you’ll likely want to be able to refer to the rendered document at a later point<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> You may find it helpful to cut and paste from this manual</span>.</p>
 </div>
 <div id="select" class="section level2">
 <h2>
@@ -287,20 +287,20 @@ How would you eliminate hook size from the data set?
 </div>
 <p>You can also eliminate multiple columns by name, for example you would remove Day, Month and Year like this:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="welcome-to-the-tidyverse.html#cb9-1"></a>catch <span class="op">%&gt;%</span></span>
-<span id="cb9-2"><a href="welcome-to-the-tidyverse.html#cb9-2"></a><span class="st">  </span><span class="kw">select</span>(Day, Month, Year)</span></code></pre></div>
-<pre><code>## # A tibble: 2,325 x 3
-##      Day Month  Year
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1    28     7  2015
-##  2    28     7  2015
-##  3    28     7  2015
-##  4    28     7  2015
-##  5    28     7  2015
-##  6    28     7  2015
-##  7    28     7  2015
-##  8    28     7  2015
-##  9    28     7  2015
-## 10    28     7  2015
+<span id="cb9-2"><a href="welcome-to-the-tidyverse.html#cb9-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Day, <span class="op">-</span>Month, <span class="op">-</span>Year)</span></code></pre></div>
+<pre><code>## # A tibble: 2,325 x 8
+##    Site        Species       Sex   PCL      FL   STL Hook_Size   Set
+##    &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt; &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 Aransas_Bay Bagre_marinus U     NA      287   353        10     1
+##  2 Aransas_Bay Bagre_marinus U     NA      425   495        10     1
+##  3 Aransas_Bay Bagre_marinus U     NA      416   502        15     1
+##  4 Aransas_Bay Bagre_marinus U     NA      416   507        10     1
+##  5 Aransas_Bay Bagre_marinus U     NA      418   510        15     1
+##  6 Aransas_Bay Bagre_marinus U     NA      434   515        10     1
+##  7 Aransas_Bay Bagre_marinus U     NA      427   520        15     1
+##  8 Aransas_Bay Bagre_marinus U     NA      446   532        10     1
+##  9 Aransas_Bay Bagre_marinus U     NA      465   538        10     1
+## 10 Aransas_Bay Bagre_marinus U     NA      450   539        10     1
 ## # ... with 2,315 more rows</code></pre>
 <p>If you want to re-arrange columns in your data frame, you would also use <code>select()</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="welcome-to-the-tidyverse.html#cb11-1"></a>catch <span class="op">%&gt;%</span></span>
@@ -342,8 +342,8 @@ How would you eliminate hook size from the data set?
 <h2>
 <span class="header-section-number">3.3</span> Filter</h2>
 <p>Title this section as <code># Filter</code> in your Rmarkdown.</p>
-<p>The function <code>filter()</code> is used to subset a data frame by row. We do this using <code>regular expression</code> that describe the content of sets of rows.</p>
-<p>For example, we might only want Gafftop sail catfish (*Bagre marinus").</p>
+<p>The function <code>filter()</code> is used to subset a data frame by row. We do this using <code>regular expressions</code> that describe the content of sets of rows.</p>
+<p>For example, we might only want Gafftop sail catfish (<em>Bagre marinus</em>).</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="welcome-to-the-tidyverse.html#cb15-1"></a>catch <span class="op">%&gt;%</span></span>
 <span id="cb15-2"><a href="welcome-to-the-tidyverse.html#cb15-2"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> "Bagre_marinus"</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,511 x 11
@@ -444,7 +444,7 @@ How would you create a dataframe without Scalloped Hammerheads (<em>Sphyrna lewi
 </p>
 <div class="question-body">
 <p>
-How would you subset a data frame to contain only entries for different species in the genus Charcharhinus (aka the sharky-sharks? There are four species in the data set - Carcharhinus_leucas, Carcharhinus_brevipinna, Carcharhinus_limbatus, Carcharhinus_porosus.
+How would you subset a data frame to contain only entries for different species in the genus Charcharhinus aka the sharky-sharks? There are four species in the data set - Carcharhinus_leucas, Carcharhinus_brevipinna, Carcharhinus_limbatus, Carcharhinus_porosus.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -481,8 +481,7 @@ Create a data frame containing only entries with a forklength &lt; 300.
 </p>
 </div>
 </div>
-<p>.</p>
-<p>You can also combine expressions, for example to select only scalloped hammerheads that are also smaller that 300 cm you would use</p>
+<p>You can also combine expressions - for example to select only scalloped hammerheads that are also smaller that 300 cm you would use</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="welcome-to-the-tidyverse.html#cb25-1"></a>catch <span class="op">%&gt;%</span></span>
 <span id="cb25-2"><a href="welcome-to-the-tidyverse.html#cb25-2"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> "Sphyrna_lewini"</span> <span class="op">&amp;</span><span class="st"> </span>FL <span class="op">&lt;</span><span class="st"> </span><span class="dv">300</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 11
@@ -532,7 +531,7 @@ How would you select fish that have a forklength either smaller than 200 cm or l
 </p>
 </div>
 </div>
-<p>The tidyverse has a central concept call “split-apply-combine”, which means that occasionally we want to group entries in a dataframe (split), do some sort of manipulation (apply), but end up with a single data frame.</p>
+<p>The tidyverse has a central concept call “split-apply-combine”, which means that occasionally we want to group entries in a dataframe (split), do some sort of manipulation (apply), but end up with a single data frame (combine).</p>
 <p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">The function <code>max()</code> can be used to get the maximum value for a vector of numbers. In this case, the vector we are looking at is the <code>FL</code> column of the <code>catch</code> dataframe.</span></span></p>
 <p>For example, we might want to retain the entry with the longest fork length for each species. To do this we can use the <code>group_by()</code> function, then the <code>filter()</code> function.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="welcome-to-the-tidyverse.html#cb29-1"></a>catch <span class="op">%&gt;%</span></span>
@@ -568,7 +567,7 @@ How would you group rows by Species and then retain the individual caught on the
 <div id="mutate" class="section level2">
 <h2>
 <span class="header-section-number">3.4</span> Mutate</h2>
-<p>The function <code>mutate()</code> can be used to create new columns (usually based on columns already existing in the data frame)- this is a very powerful function with endless possibilities, we are going to stick to some of the basics. But rest assured if your answer is “Oh, could I …” the answer is “Yes”.</p>
+<p>The function <code>mutate()</code> can be used to create new columns (usually based on columns already existing in the data frame) - this is a very powerful function with endless possibilities, we are going to stick to some of the basics<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Rest assured if your answer is “Oh, could I …” the answer is “Yes”.</span>.</p>
 <p>Start a new section in your markdown using <code># Mutate</code>.</p>
 <p>Let’s say you wanted create a column that contained the difference between the fork length and the stretch total length:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="welcome-to-the-tidyverse.html#cb31-1"></a>catch <span class="op">%&gt;%</span></span>
@@ -587,7 +586,8 @@ How would you group rows by Species and then retain the individual caught on the
 ##  9 Aran~ Bagre_~ U     NA      465   538        10     1    28     7  2015
 ## 10 Aran~ Bagre_~ U     NA      450   539        10     1    28     7  2015
 ## # ... with 2,315 more rows, and 1 more variable: difference &lt;dbl&gt;</code></pre>
-<p>You should now have a column called <code>difference</code> at the end of the data frame, instead of <code>-</code> you can use <code>+</code> to add , <code>*</code> to multiple, and <code>/</code> to divide values.</p>
+<p>You should now have a column called <code>difference</code> at the end of the data frame.</p>
+<p>Instead of <code>-</code> you can use <code>+</code> to add , <code>*</code> to multiple, and <code>/</code> to divide values when creating a new column</p>
 <div id="ques:eleven" class="question">
 <p class="question-begin">
 ► Question 3.11
@@ -601,7 +601,7 @@ How would you create a new column called ratio, that is the ratio of the fork to
 </p>
 </div>
 </div>
-<p>You can also create a column that contains a logical value (TRUE/FALSE). For example we might need a column that indicates if the Sex is unknown.</p>
+<p>You can also create a column that contains a logical value (<code>TRUE</code>/<code>FALSE</code>). For example we might need a column that indicates if the Sex is unknown.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="welcome-to-the-tidyverse.html#cb33-1"></a>catch <span class="op">%&gt;%</span></span>
 <span id="cb33-2"><a href="welcome-to-the-tidyverse.html#cb33-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">unknown_sex =</span> Sex <span class="op">==</span><span class="st"> "U"</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2,325 x 12
@@ -685,7 +685,7 @@ How would you create a new column called post_2017 that is TRUE if fish were cau
 ## # ... with 2,315 more rows</code></pre>
 <p>You can of course also combine <code>mutate()</code> with <code>group_by()</code>.</p>
 <p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;">The function <code>mean()</code> will calculate the mean value of a vector of numbers, the argument <code>na.rm=TRUE</code> tells the function to ignore any <code>NA</code>-values in the data set.</span></span></p>
-<p>For example, let’s say you wanted to create a column that is the difference between the fork length of an individual and the mean fork length of that species.</p>
+<p>For example, let’s say you wanted to create a column that is the difference between the fork length of an individual and the mean fork length of <em>that species</em>.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="welcome-to-the-tidyverse.html#cb41-1"></a>catch <span class="op">%&gt;%</span></span>
 <span id="cb41-2"><a href="welcome-to-the-tidyverse.html#cb41-2"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span></span>
 <span id="cb41-3"><a href="welcome-to-the-tidyverse.html#cb41-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff_mean =</span> FL<span class="op">-</span><span class="kw">mean</span>(FL, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
@@ -710,7 +710,7 @@ How would you create a new column called post_2017 that is TRUE if fish were cau
 <h2>
 <span class="header-section-number">3.5</span> Summarize</h2>
 <p>Start a new section in your Rmarkdown as <code># Summarize</code>.</p>
-<p>Not infrequently we are more interested in summary stats of a data set rather than all the raw data. <code>Tidyverse</code> got you covered with the function <code>summarize</code>.</p>
+<p>Not infrequently we are more interested in summary stats of a data set rather than all the raw data - <code>Tidyverse</code> got you covered with the function <code>summarize</code>.</p>
 <p>For example, we might want to calculate the mean and standard deviation of the measured fork length.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="welcome-to-the-tidyverse.html#cb43-1"></a>catch <span class="op">%&gt;%</span></span>
 <span id="cb43-2"><a href="welcome-to-the-tidyverse.html#cb43-2"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_FL =</span> <span class="kw">mean</span>(FL, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
@@ -725,7 +725,7 @@ How would you create a new column called post_2017 that is TRUE if fish were cau
 </p>
 <div class="question-body">
 <p>
-How could you use summarize to get the maximum forklength?
+How could you use summarize to get the maximum forklength? Hint: Remember earlier we used the function max() to get a maximum value.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -782,8 +782,8 @@ How could you use summarize calculate a range of summary stats for species group
 <span id="cb47-6"><a href="welcome-to-the-tidyverse.html#cb47-6"></a>           <span class="dt">min_FL =</span> <span class="kw">min</span>(FL, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
 <span id="cb47-7"><a href="welcome-to-the-tidyverse.html#cb47-7"></a>           <span class="dt">sd_FL =</span> <span class="kw">sd</span>(FL, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb47-8"><a href="welcome-to-the-tidyverse.html#cb47-8"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
-<p>When you execute this code, you’ll notice that the code (and probably a warning) is printed to the console but there is no output. Instead, if you look at the environment in the top right corner you should now see a new object called <code>summary</code>. Again, you can pull that up in the View pane using either <code>View(summary)</code> in the console or by clicking on the object in the environment.</p>
-<p>What if you wanted to print a table with the contents of that object? You can use the <code>kable()</code> function, you can specify the number of digits printed using the argument <code>digits =</code> and add a caption using <code>caption = "caption"</code>.</p>
+<p>When you execute this code, you’ll notice that the code (and probably a warning) is printed to the console but there is no output. Instead, if you look at the environment in the top right corner you should now see a new object called <code>summary</code>. Again, you can pull that up in the Editor/View pane (top left) using either <code>View(summary)</code> in the console or by clicking on the object in the environment.</p>
+<p>What if you wanted to print a table with the contents of that object? You can use the <code>kable()</code> function, you can even further format the table for example specify the number of digits printed using the argument <code>digits =</code> and add a caption using <code>caption = "caption"</code>.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="welcome-to-the-tidyverse.html#cb48-1"></a><span class="kw">kable</span>(</span>
 <span id="cb48-2"><a href="welcome-to-the-tidyverse.html#cb48-2"></a>  summary,</span>
 <span id="cb48-3"><a href="welcome-to-the-tidyverse.html#cb48-3"></a>  <span class="dt">digits =</span> <span class="dv">1</span>,</span>
