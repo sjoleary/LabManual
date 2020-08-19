@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="2 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:title" content="1 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020" />
 <meta property="og:type" content="book" />
 
 
@@ -14,12 +14,12 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-08-17" />
+<meta name="date" content="2020-08-18" />
 
 
-<meta name="description" content="2 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020">
+<meta name="description" content="1 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020">
 
-<title>2 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020</title>
+<title>1 Installing R/Rstudio | Lab Manual Conservation Biology Fall 2020</title>
 
 <link href="libs/tufte-css/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
@@ -127,17 +127,18 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="dropdown" style="float:right">
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
-<a href="index.html"><span class="toc-section-number">1</span> Introduction</a>
-<a id="active-page" href="installing-rrstudio.html"><span class="toc-section-number">2</span> Installing R/Rstudio</a><ul class="toc-sections">
+<a href="index.html">Overview</a>
+<a id="active-page" href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a><ul class="toc-sections">
 <li class="toc"><a href="#install-set-up-r-and-rstudio-on-your-computer"> Install &amp; Set up R and Rstudio on your computer</a></li>
 <li class="toc"><a href="#get-to-know-rstudio"> Get to know Rstudio</a></li>
 <li class="toc"><a href="#installing-and-using-packages-in-r"> Installing and using packages in R</a></li>
 </ul>
-<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">3</span> Project management and Rmarkdown Basics</a>
-<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">4</span> Welcome to the tidyverse</a>
-<a href="field-stream-trip-ish.html"><span class="toc-section-number">5</span> Field &amp; Stream Trip-ish</a>
-<a href="assessing-sources.html"><span class="toc-section-number">6</span> Assessing sources</a>
-<a href="assessing-sources.html"><span class="toc-section-number">7</span> Assessing sources</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources.html"><span class="toc-section-number">5</span> Assessing sources</a>
+<a href="species-diversity-island-biogeography.html"><span class="toc-section-number">6</span> Species Diversity &amp; Island Biogeography</a>
+<a href="import-catch-data.html"><span class="toc-section-number">7</span> Import catch data</a>
 </div>
 </li>
 </ul>
@@ -149,7 +150,7 @@ if(f.classList.contains('fa-plus-square')) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body><div id="installing-rrstudio" class="section level1">
 <h1>
-<span class="header-section-number">2</span> Installing R/Rstudio</h1>
+<span class="header-section-number">1</span> Installing R/Rstudio</h1>
 <p><strong>Date</strong>: 8/19/2020</p>
 <p><strong>Learning Objectives</strong></p>
 <p>After completing this tutorial you should</p>
@@ -161,10 +162,10 @@ if(f.classList.contains('fa-plus-square')) {
 </ul>
 <div id="install-set-up-r-and-rstudio-on-your-computer" class="section level2">
 <h2>
-<span class="header-section-number">2.1</span> Install &amp; Set up R and Rstudio on your computer</h2>
+<span class="header-section-number">1.1</span> Install &amp; Set up R and Rstudio on your computer</h2>
 <div id="windows" class="section level3">
 <h3>
-<span class="header-section-number">2.1.1</span> Windows</h3>
+<span class="header-section-number">1.1.1</span> Windows</h3>
 <p><strong>Install R</strong></p>
 <ul>
 <li>Download most recent version of R for Windows <a href="https://cran.r-project.org/bin/windows/base/release.htm">here</a>.</li>
@@ -190,7 +191,7 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="mac-os-x" class="section level3">
 <h3>
-<span class="header-section-number">2.1.2</span> Mac OS X</h3>
+<span class="header-section-number">1.1.2</span> Mac OS X</h3>
 <p><strong>Download &amp; install R</strong></p>
 <ul>
 <li>Go to (CRAN)[<a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>], select <code>Download R for (Mac) OS X</code>.</li>
@@ -207,11 +208,11 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="get-to-know-rstudio" class="section level2">
 <h2>
-<span class="header-section-number">2.2</span> Get to know Rstudio</h2>
+<span class="header-section-number">1.2</span> Get to know Rstudio</h2>
 <p><code>Rstudio</code> is an Integrated Development Environment (IDE) that you can use to write code, navigate files, inspect objects, etc. The advantage of using an IDE is that you have access to shortcuts, visual cues, troubleshooting, navigation, and autocomplete help.</p>
 <div id="gui-layout" class="section level3">
 <h3>
-<span class="header-section-number">2.2.1</span> GUI Layout</h3>
+<span class="header-section-number">1.2.1</span> GUI Layout</h3>
 <p>Open <code>Rstudio</code> and identify the four panes in the interface (default layout).</p>
 <ol style="list-style-type: decimal">
 <li>
@@ -227,7 +228,7 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="interacting-with-r-in-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">2.2.2</span> Interacting with R in Rstudio</h3>
+<span class="header-section-number">1.2.2</span> Interacting with R in Rstudio</h3>
 <p>Think of <code>R</code> as a language that allows you to give your computer precise instructions (code) to follow.</p>
 <ul>
 <li>
@@ -248,16 +249,16 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="customize-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">2.2.3</span> Customize Rstudio</h3>
+<span class="header-section-number">1.2.3</span> Customize Rstudio</h3>
 <p>There are several options to customize Rstudio including setting a theme, and other formatting preferences. You can access this using <code>Tools &gt; Global Options</code>.</p>
 </div>
 </div>
 <div id="installing-and-using-packages-in-r" class="section level2">
 <h2>
-<span class="header-section-number">2.3</span> Installing and using packages in R</h2>
+<span class="header-section-number">1.3</span> Installing and using packages in R</h2>
 <div id="install-a-package" class="section level3">
 <h3>
-<span class="header-section-number">2.3.1</span> Install a package</h3>
+<span class="header-section-number">1.3.1</span> Install a package</h3>
 <p>Think of R packages as tool kit comprising a set of functions (tools) to perform specific tasks. <code>R</code> comes with a set of packages already installed that gives you base <code>R</code> functions; you can view these and determine which have been loaded in the <code>Packages</code> tab in the bottom right pane. For other tasks we will need additional packages.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Most <code>R</code> packages are found in the <a href="https://cran.r-project.org/">CRAN repository</a> and on <a href="https://www.bioconductor.org/">Bioconducter</a>, developmental packages are available on <a href="https://github.com/">github</a>.</span>
 A central group of packages for data wrangling and processing form the <a href="https://www.tidyverse.org/">tidyverse</a>, described as “… an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.”</p>
 <p>When you install packages they will be downloaded and installed onto your computer. Determine what your default path is using <code>.libPaths()</code> and change if necessary.</p>
@@ -273,7 +274,7 @@ A central group of packages for data wrangling and processing form the <a href="
 <span id="cb1-8"><a href="installing-rrstudio.html#cb1-8"></a><span class="kw">install.packages</span>(<span class="st">"plyr"</span>)</span>
 <span id="cb1-9"><a href="installing-rrstudio.html#cb1-9"></a></span>
 <span id="cb1-10"><a href="installing-rrstudio.html#cb1-10"></a><span class="co"># install ggthemes</span></span>
-<span id="cb1-11"><a href="installing-rrstudio.html#cb1-11"></a><span class="kw">install.packages</span>(ggthemes)</span></code></pre></div>
+<span id="cb1-11"><a href="installing-rrstudio.html#cb1-11"></a><span class="kw">install.packages</span>(<span class="st">"ggthemes"</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -284,7 +285,7 @@ A central group of packages for data wrangling and processing form the <a href="
 <a href="project-management-and-rmarkdown-basics.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-08-17
+2020-08-18
 </p>
 </div>
 </div>

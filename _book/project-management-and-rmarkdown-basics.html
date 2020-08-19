@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="3 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:title" content="2 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020" />
 <meta property="og:type" content="book" />
 
 
@@ -17,9 +17,9 @@
 <meta name="date" content="2020-08-18" />
 
 
-<meta name="description" content="3 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020">
+<meta name="description" content="2 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020">
 
-<title>3 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020</title>
+<title>2 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020</title>
 
 <link href="libs/tufte-css/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
@@ -62,9 +62,9 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="dropdown" style="float:right">
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
-<a href="index.html"><span class="toc-section-number">1</span> Introduction</a>
-<a href="installing-rrstudio.html"><span class="toc-section-number">2</span> Installing R/Rstudio</a>
-<a id="active-page" href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">3</span> Project management and Rmarkdown Basics</a><ul class="toc-sections">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a id="active-page" href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a><ul class="toc-sections">
 <li class="toc"><a href="#project-organization-101"> Project organization 101</a></li>
 <li class="toc"><a href="#NA"> Create your first .Rmd file</a></li>
 <li class="toc"><a href="#structure-of-an-rmarkdown-file"> Structure of an Rmarkdown File</a></li>
@@ -74,10 +74,10 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#render-your-document-using-knitr"> Render your document using knitr</a></li>
 <li class="toc"><a href="#some-advanced-options"> Some advanced options</a></li>
 </ul>
-<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">4</span> Welcome to the tidyverse</a>
-<a href="field-stream-trip-ish.html"><span class="toc-section-number">5</span> Field &amp; Stream Trip-ish</a>
-<a href="assessing-sources.html"><span class="toc-section-number">6</span> Assessing sources</a>
-<a href="assessing-sources.html"><span class="toc-section-number">7</span> Assessing sources</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources.html"><span class="toc-section-number">5</span> Assessing sources</a>
+<a href="species-diversity-island-biogeography.html"><span class="toc-section-number">6</span> Species Diversity &amp; Island Biogeography</a>
 </div>
 </li>
 </ul>
@@ -89,7 +89,7 @@ if(f.classList.contains('fa-plus-square')) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body><div id="project-management-and-rmarkdown-basics" class="section level1">
 <h1>
-<span class="header-section-number">3</span> Project management and Rmarkdown Basics</h1>
+<span class="header-section-number">2</span> Project management and Rmarkdown Basics</h1>
 <p><strong>Date</strong>: 8/19/2020</p>
 <p><strong>Learning Objectives</strong></p>
 <p>After completing this tutorial you should</p>
@@ -113,11 +113,11 @@ if(f.classList.contains('fa-plus-square')) {
 </ul>
 <div id="project-organization-101" class="section level2">
 <h2>
-<span class="header-section-number">3.1</span> Project organization 101</h2>
+<span class="header-section-number">2.1</span> Project organization 101</h2>
 <p>A key component to doing data analysis is organizing your <strong>working directory</strong> which will contain your data, scripts, <code>Rmarkdown</code>-files, results, figures, and other output. Keeping this well organized will help you establish a reproducible workflow, collaborate well, and share your results.</p>
 <div id="organizing-your-files-and-directories" class="section level3">
 <h3>
-<span class="header-section-number">3.1.1</span> Organizing your files and directories</h3>
+<span class="header-section-number">2.1.1</span> Organizing your files and directories</h3>
 <p>For each project/lab we will set up a project directory<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> We’ll use this term interchangeably with working directory and research compendium</span> with the following set of sub-directories:</p>
 <ul>
 <li><code>data</code></li>
@@ -127,7 +127,7 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="a-note-on-naming-things" class="section level3">
 <h3>
-<span class="header-section-number">3.1.2</span> A note on Naming things</h3>
+<span class="header-section-number">2.1.2</span> A note on Naming things</h3>
 <p>Naming conventions for files, sub-directories etc. should conform to the following key principles:</p>
 <ul>
 <li>
@@ -140,7 +140,7 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="set-up-your-project-directory-using-rprojects" class="section level3">
 <h3>
-<span class="header-section-number">3.1.3</span> Set up your project directory using Rprojects</h3>
+<span class="header-section-number">2.1.3</span> Set up your project directory using Rprojects</h3>
 <p>Create a project directory<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
 (e.g. <code>IntroR</code>) on your computer, within that directory create sub-directories <code>data</code>, <code>results</code>, <code>scr</code>.</p>
 <p>Now, we are going to create an <code>R project</code> within this directory.</p>
@@ -154,15 +154,15 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="create-your-first-.rmd-file" class="section level2">
 <h2>
-<span class="header-section-number">3.2</span> Create your first .Rmd file</h2>
+<span class="header-section-number">2.2</span> Create your first .Rmd file</h2>
 <p>Create a new <code>.Rmd</code> file using <code>File -&gt; New File -&gt; R Markdown</code> and save that file in your project directory as <strong>Lastname_IntroR.Rmd</strong>.</p>
 <p>We’ll break down the components of the <code>.Rmd</code> file in just a second but to give you the full experience hit the <code>Knit HTML</code> button to render an <code>html</code> document.</p>
 <p>Cool beans, now to the knitty-gritty.</p>
 </div>
 <div id="structure-of-an-rmarkdown-file" class="section level2">
 <h2>
-<span class="header-section-number">3.3</span> Structure of an Rmarkdown File</h2>
-<p>An <code>Rmarkdown</code>file consists of three components:</p>
+<span class="header-section-number">2.3</span> Structure of an Rmarkdown File</h2>
+<p>An <code>Rmarkdown</code>-file consists of three components:</p>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Header</strong>: written in <code>YAML</code> format the header contains all the information on how to render the <code>.Rmd</code> file.</li>
@@ -174,7 +174,7 @@ if(f.classList.contains('fa-plus-square')) {
 </div>
 <div id="yaml-header" class="section level2">
 <h2>
-<span class="header-section-number">3.4</span> YAML header</h2>
+<span class="header-section-number">2.4</span> YAML header</h2>
 <p>The header is written in (YAML syntax)[<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>], it begins and ends with <code>---</code> with four default elements that will determine how the document is knitted.</p>
 <pre><code>
 ---
@@ -184,17 +184,17 @@ date: "Date"
 output: html_document
 ----
 </code></pre>
-<p>Customize your <code>.Rmd</code>: Change the title and add your name in the author line. Changing the date to <code>"2020-08-18"</code> will automatically include the current date when you render the document. Leave the default output setting.</p>
+<p>Customize your <code>.Rmd</code>:Change the title and add your name in the author line. Changing the date to <code>`r Sys.Date()`</code> will automatically include the current date when you render the document. Leave the default output setting.</p>
 </div>
 <div id="markdown-sections" class="section level2">
 <h2>
-<span class="header-section-number">3.5</span> Markdown sections</h2>
+<span class="header-section-number">2.5</span> Markdown sections</h2>
 <p>Your markdown sections can contain any text you want using the markdown syntax; once you render the <code>.Rmd</code> the resulting (<code>html</code>) file will appear as text.</p>
 <p>Most of your text (without syntax) will appear as paragraph text but you can add additional syntax to format it in different ways. Check the official documentation for the (basics)[<a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="uri">https://rmarkdown.rstudio.com/authoring_basics.html</a>].</p>
 </div>
 <div id="code-chunks" class="section level2">
 <h2>
-<span class="header-section-number">3.6</span> Code chunks</h2>
+<span class="header-section-number">2.6</span> Code chunks</h2>
 <p>Code chunks contain your R code and star and end with three back tick; <code>{r}</code> determines that the code chunk should be interpreted as <code>R</code> code.</p>
 <p>You can add a code chunk using <code>Ctrl</code> + <code>Alt</code> + <code>I</code> or <code>Code -&gt; Insert Chunk</code>. You can run code chunks line by line using <code>Ctrl</code> + <code>Enter</code> or you can run the entire chunk by clicking the <code>Run</code> button or the little green arrow in the top right corner of an <code>R</code> chunk.</p>
 <p>Use <code>#</code> to comment your code, any lines following a <code>#</code> will not be run by R, you can use them to describe what your code is doing.</p>
@@ -211,12 +211,12 @@ output: html_document
 </div>
 <div id="render-your-document-using-knitr" class="section level2">
 <h2>
-<span class="header-section-number">3.7</span> Render your document using knitr</h2>
+<span class="header-section-number">2.7</span> Render your document using knitr</h2>
 <p><code>knitr</code> is an <code>R</code> package used to render <code>R markdown</code> files to another format (usually <code>html</code> or <code>pdf</code>). In Rstudio the most straightforward way of knitting a document is using the <code>Knit HTML</code> button. This will open a new tab in your console title R Markdown that will show the knitting process; any errors that occur with show up here along with a line number so you can determine where the error is occurring in your <code>.Rmd</code> file to troubleshoot the issue. The output will automatically be saved in your working directory.</p>
 </div>
 <div id="some-advanced-options" class="section level2">
 <h2>
-<span class="header-section-number">3.8</span> Some advanced options</h2>
+<span class="header-section-number">2.8</span> Some advanced options</h2>
 <p>You can add images to an <code>R markdown</code> as follows:<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> make sure the path to your image is relative to your <code>.Rmd</code> file; e.g create a <code>images</code> subdirectory in your project directory.</span></p>
 <pre><code>
 ![alt text here](path-to-image-here)
