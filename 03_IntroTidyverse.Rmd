@@ -11,7 +11,7 @@ output:
     toc: TRUE
     toc_depth: 1
     split_by: chapter
-    split_bib: yes
+    split_bib: no
     margin_references: FALSE
     css: msmb.css
 bibliography: skeleton.bib
