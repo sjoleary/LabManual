@@ -1,4 +1,5 @@
 ---
+
 title: "Lab Manual Conservation Biology Fall 2020"
 subtitle: "Conservation Biology Fall 2020"
 author: "Shannon J. O'Leary"
@@ -15,6 +16,7 @@ output:
     css: msmb.css
 bibliography: skeleton.bib
 link-citations: yes
+
 ---
 
 ```{r include=FALSE}
