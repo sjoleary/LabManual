@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-08-19" />
+<meta name="date" content="2020-08-22" />
 
 
 <meta name="description" content="2 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020">
@@ -143,6 +143,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
 <a href="assessing-sources.html"><span class="toc-section-number">5</span> Assessing sources</a>
 <a href="species-diversity-island-biogeography.html"><span class="toc-section-number">6</span> Species Diversity &amp; Island Biogeography</a>
+<a href="references.html">References</a>
 <a href="import-catch-data.html"><span class="toc-section-number">7</span> Import catch data</a>
 </div>
 </li>
@@ -194,7 +195,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="a-note-on-naming-things" class="section level3">
 <h3>
 <span class="header-section-number">2.1.2</span> A note on Naming things</h3>
-<p>Naming conventions for files, sub-directories etc. should conform to the following key principles:</p>
+<p>Naming conventions for files, sub-directories etc. should conform to the following key principles<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> see Jenny Bryan’s <a href="https://speakerdeck.com/jennybc/how-to-name-files?slide=3">excellent summary</a> of these principles</span>:</p>
 <ul>
 <li>
 <strong>Human readable</strong>: keep it short but self-explanatory.</li>
@@ -207,7 +208,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="set-up-your-project-directory-using-rprojects" class="section level3">
 <h3>
 <span class="header-section-number">2.1.3</span> Set up your project directory using Rprojects</h3>
-<p>Create a project directory<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
+<p>Create a project directory<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
 (e.g. <code>IntroR</code>) on your computer, within that directory create sub-directories <code>data</code>, <code>results</code>, <code>scr</code>.</p>
 <p>Now, we are going to create an <code>R project</code> within this directory.</p>
 <ul>
@@ -215,7 +216,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li>select <code>New Project</code> and <code>Create in existing directory</code>; follow the prompts.</li>
 </ul>
 <p>This should create a new <code>R project</code> and open it (the <code>R project</code> name should be in the top right corner next to the icon).</p>
-<p>If you look in the bottom right hand pane in the <code>Files</code> tab, the bread crumbs should lead to your project folder which has now become your <code>working directory</code>, i.e. all paths are relative to this location.<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> If you weren’t working with an <code>R project</code>, you can set your working directory by naviating to your new working director and selecting <code>More &gt; Set as working directory</code>.</span> If you navigate away from your <code>working directory</code> (project directory) you can quickly get back to your project directory by clicking on the project icon in the <code>Files</code> pane or by clicking the cog icon (<code>More</code>) and selecting <code>Go to Working Directory</code>.</p>
+<p>If you look in the bottom right hand pane in the <code>Files</code> tab, the bread crumbs should lead to your project folder which has now become your <code>working directory</code>, i.e. all paths are relative to this location.<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> If you weren’t working with an <code>R project</code>, you can set your working directory by naviating to your new working director and selecting <code>More &gt; Set as working directory</code>.</span> If you navigate away from your <code>working directory</code> (project directory) you can quickly get back to your project directory by clicking on the project icon in the <code>Files</code> pane or by clicking the cog icon (<code>More</code>) and selecting <code>Go to Working Directory</code>.</p>
 </div>
 </div>
 <div id="create-your-first-.rmd-file" class="section level2">
@@ -285,11 +286,11 @@ output: html_document
 <div id="some-advanced-options" class="section level2">
 <h2>
 <span class="header-section-number">2.8</span> Some advanced options</h2>
-<p>You can add images to an <code>R markdown</code> as follows:<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> make sure the path to your image is relative to your <code>.Rmd</code> file; e.g create a <code>images</code> subdirectory in your project directory.</span></p>
+<p>You can add images to an <code>R markdown</code> as follows:<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> make sure the path to your image is relative to your <code>.Rmd</code> file; e.g create a <code>images</code> subdirectory in your project directory.</span></p>
 <pre><code>
 ![alt text here](path-to-image-here)
 </code></pre>
-<p>You can stylize your rendered document by modifying the <code>YAML</code> header to include a table of contents like this<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> the option of <code>toc_depth</code> determines how many levels are included in the table of contents, e.g. here headers at level 1 and 2 will be included</span>:</p>
+<p>You can stylize your rendered document by modifying the <code>YAML</code> header to include a table of contents like this<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> the option of <code>toc_depth</code> determines how many levels are included in the table of contents, e.g. here headers at level 1 and 2 will be included</span>:</p>
 <pre><code>---
 title: "A table of contents?!"
 output:
@@ -297,7 +298,7 @@ output:
     toc: true
     toc_depth: 2
 ---</code></pre>
-<p>If you really want to jazz things up, you can change the theme<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> you can choose from various options <a href="https://bootswatch.com/3/">here</a></span>.</p>
+<p>If you really want to jazz things up, you can change the theme<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> you can choose from various options <a href="https://bootswatch.com/3/">here</a></span>.</p>
 <pre><code>---
 title: "A snazzy theme?!"
 output:
@@ -316,7 +317,7 @@ output:
 <a href="welcome-to-the-tidyverse.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-08-19
+2020-08-22
 </p>
 </div>
 </div>
