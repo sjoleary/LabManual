@@ -1,5 +1,4 @@
 ---
-
 title: "Lab Manual Conservation Biology Fall 2020"
 subtitle: "Conservation Biology Fall 2020"
 author: "Shannon J. O'Leary"
@@ -11,12 +10,10 @@ output:
     toc: TRUE
     toc_depth: 1
     split_by: chapter
-    split_bib: no
     margin_references: FALSE
     css: msmb.css
-bibliography: skeleton.bib
+bibliography: labmanual.bib
 link-citations: yes
-
 ---
 
 ```{r include=FALSE}

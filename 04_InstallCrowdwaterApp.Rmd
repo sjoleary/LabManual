@@ -10,11 +10,9 @@ output:
     toc: TRUE
     toc_depth: 1
     split_by: chapter
-    split_bib: no
     margin_references: FALSE
-    delete_merged_file: TRUE
     css: msmb.css
-bibliography: skeleton.bib
+bibliography: labmanual.bib
 link-citations: yes
 ---
 

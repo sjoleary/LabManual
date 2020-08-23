@@ -1,5 +1,4 @@
 ---
-
 title: "Lab Manual Conservation Biology Fall 2020"
 subtitle: "Conservation Biology Fall 2020"
 author: "Shannon J. O'Leary"
@@ -11,12 +10,10 @@ output:
     toc: TRUE
     toc_depth: 1
     split_by: chapter
-    split_bib: no
     margin_references: FALSE
     css: msmb.css
-bibliography: skeleton.bib
+bibliography: labmanual.bib
 link-citations: yes
-
 ---
 
 ```{r include=FALSE}
@@ -52,13 +49,17 @@ After completing this tutorial you should
 
 ## Read in data
 
-We are going to use the `IntroR` project directory and markdown file you created in the last tutorial. If you want to start fresh you can download a project folder [here](https://drive.google.com/drive/folders/1gcs-aKiBB0l4iqr11tBQDB9O_pWtEHRZ?usp=sharing). Keep the `YAML` header and delete the rest of the file content.
+We are going to use the `IntroR` project directory and markdown file you created in the last tutorial.
 
-Download a tab-delimited text file containing catch data from a long-lining survey in Corpus Christi Bay [@Swift2020] and place it in the data directory.
+Well, to keep it simple, you can get a fresh start with a project folder  [here](https://drive.google.com/drive/folders/1gcs-aKiBB0l4iqr11tBQDB9O_pWtEHRZ?usp=sharing). Download it - as a bonus I've included a Rmarkdown file for you to work with and the `data` sub-directory already includes the data for this exercise.
+
+Check in the data folder, it should contain a tab-delimited text file with catch data from a long-lining survey in Corpus Christi Bay [@Swift2020].
+
+You will hand in your rendered ("knitted") rmarkdown file as your homework assignment. So, first thing in the `YAML` header, change the author to your name.
 
 In your Rmarkdown file insert a header as `# Import catch data`, and insert the following code chunk below to load the `tidyverse` packages and read in the catch data as a data frame.
 
-```{r echo=TRUE, include=FALSE}
+```{r}
 
 # load libraries
 library(tidyverse)
@@ -443,9 +444,11 @@ kable(
 
 ## Combining verbs
 
-Start your final section as `# Combining verbs` in your markdown - we're almost there but now is your chance to put it all together. We've already combined most of our `dplyr` verbs with `group_by()` - you can use the pipe (`%>%`) to combine select, filter, mutate, and summarize as a series of commands.
+Start your final section as `# Combining verbs` in your markdown - now is your chance to put it all together. 
 
-`r msmbstyle::question(label = "ques:fifteen", text = "Look at the following code and then describe what each line is doing to manipulate the data frame (bullets is fine). Make an educated guess with the last line for a bonus verb!")`
+We've already combined most of our `dplyr` verbs with `group_by()` - you can use the pipe (`%>%`) to combine select, filter, mutate, and summarize as a series of commands.
+
+`r msmbstyle::question(label = "ques:fifteen", text = "Cut and paste this final code chunk into your Rmarkdown file and execute the code chunk. Now, describe what each line is doing to manipulate the data frame (bullets is fine). Make an educated guess with the last line for a bonus verb!")`
 
 ```{r}
 
@@ -460,4 +463,4 @@ catch %>%
 
 ```
 
-
+Now hit the knit button to render your `rmarkdown`-file into `html`. That is the file you will upload as your homework assignment by Sept 2nd, 12pm through Canvas.
