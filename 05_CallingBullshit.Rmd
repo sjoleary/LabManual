@@ -32,7 +32,7 @@ options(htmltools.dir.version = FALSE)
 
 **Learning Objectives**
 
-`r tufte::margin_note("A large portion of the content of this lab draws on Carl Bergstrom and Jevin West's course and book on (Calling Bullshit: The Art of Skepticism in a Data-Driven World)[https://www.callingbullshit.org/]. Their course is online, including videos, it's entertaining and informative. Put the book on your Christmas wishlist.")` 
+`r tufte::margin_note("A large component of the content of this lab draws on Carl Bergstrom and Jevin West's course and book on [Calling Bullshit: The Art of Skepticism in a Data-Driven World](https://www.callingbullshit.org/). Their course is online, including videos, it's entertaining and informative. Put the book on your Christmas wishlist.")` 
 
 After completing this lab you should
 
