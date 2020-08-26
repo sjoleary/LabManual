@@ -33,7 +33,7 @@ options(htmltools.dir.version = FALSE)
 
 # Welcome to the tidyverse
 
-**Date**: 8/24/2020
+**Date**: 8/26/2020
 
 **Learning Objectives**
 
