@@ -26,14 +26,259 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-# Assessing sources
+# Assessing sources & calling bullsh*t
 
 **Date**: 8/26/2020
 
 **Learning Objectives**
 
+`r tufte::margin_note("A large portion of the content of this lab draws on Carl Bergstrom and Jevin West's course and book on (Calling Bullshit: The Art of Skepticism in a Data-Driven World)[https://www.callingbullshit.org/]. Their course is online, including videos, it's entertaining and informative. Put the book on your Christmas wishlist.")` 
+
 After completing this lab you should
 
-* 
+* understand the distinction between misinformation, disinformation, and propaganda.
+* be able to spot misinformation/disinformation using a few simple techniques.
+* understand what primary literature is and how to critically assess it.
+* have a simple toolkit for assessing sources on the interwebs.
 
-(in short, be able to call bullshit).
+(in short, be able to spot bullsh*t)
+
+
+## Terms & Definitions.
+
+`r tufte::margin_note("probably not [Mark Twain](https://www.york.ac.uk/depts/maths/histstat/lies.htm)")`
+
+> *There are three kinds of lies, lies, damned lies, and statistics.*
+
+
+`r tufte::margin_note("Harry G. Frankfort")`
+
+> *The bullshitter is neither on the side of the true or the side of the false. His eye is not on the facts at all. He does not reject the authority of the truth, as the liar does, and oppose himself to it. He pays no attention to it at all. By virtue of this, bullshit is a greater enemy of the truth than lies are.*
+
+Misinformation describes erroneous/incorrect information, by contrast disinformation is the deliberate use of false information with an intent to mislead, similar propaganda which is biased and/or misleading information use to promote a specific cause or point of view.
+
+In his book `On Bullshit`, Harry G. Frankfurt distinguishes between a **liar** who knows the truth and deliberately tries to convince somebody of something that is untrue and a **bullshitter** who either does not know the truth or does not care - their focus is solely on persuading the listener. The focus of this distinction is the blatant disregard for truth and a carelessness in how data and facts are used.
+
+`r msmbstyle::question(label = "ques:one", text = "Briefly compare and contrast Frankfort's categories with the distinction between misinformation, disinformation, and propaganda.")`
+
+## Spotting misinformation/disinformation
+
+`r tufte::margin_note("still not Mark Twain - maybe Churchill?")`
+
+> *A lie can travel halfway around the world while the truth is still putting on its shoes.*
+
+
+`r tufte::margin_note("Thomas Francklin, Sermons on Various Subjects, 1787")`
+
+> *Falsehood will fly, as it were, on the wings of the wind, and carry its tales to every corner of the earth; whilst truth lags behind; her steps, though sure, are slow and solemn, and she has neither vigor nor activity enough to pursue and overtake her enemy.*
+
+`r msmbstyle::question(label = "ques:two", text = "Brandolini's Law, also known as the BS asymmetry principle, states that the amount of energy needed to refute bullshite is an order of magnitude bigger than to produce it. Briefly give three arguments supportint this principle.")`
+
+In [The Fine Art of Baloney Detection](http://www.inf.fu-berlin.de/lehre/pmo/eng/Sagan-Baloney.pdf
+), Carl Sagan lists nine things to consider in order to identify misinformation: 
+
+> *Wherever possible there must be independent confirmation of the “facts.”*
+
+> *Encourage substantive debate on the evidence by knowledgeable proponents of all points of view.*
+
+> *Arguments from authority carry little weight — “authorities” have made mistakes in the past. They will do so again in the future. Perhaps a better way to say it is that in science there are no authorities; at most, there are experts.*
+
+> *Spin more than one hypothesis. If there’s something to be explained, think of all the different ways in which it could be explained. Then think of tests by which you might systematically disprove each of the alternatives. What survives, the hypothesis that resists disproof in this Darwinian selection among “multiple working hypotheses,” has a much better chance of being the right answer than if you had simply run with the first idea that caught your fancy.*
+
+> *Try not to get overly attached to a hypothesis just because it’s yours. It’s only a way station in the pursuit of knowledge. Ask yourself why you like the idea. Compare it fairly with the alternatives. See if you can find reasons for rejecting it. If you don’t, others will.*
+
+> *Quantify. If whatever it is you’re explaining has some measure, some numerical quantity attached to it, you’ll be much better able to discriminate among competing hypotheses. What is vague and qualitative is open to many explanations. Of course there are truths to be sought in the many qualitative issues we are obliged to confront, but finding them is more challenging.*
+
+> *If there’s a chain of argument, every link in the chain must work (including the premise) — not just most of them.*
+
+> *Occam’s Razor. This convenient rule-of-thumb urges us when faced with two hypotheses that explain the data equally well to choose the simpler.*
+
+> *Always ask whether the hypothesis can be, at least in principle, falsified. Propositions that are untestable, unfalsifiable are not worth much. Consider the grand idea that our Universe and everything in it is just an elementary particle — an electron, say — in a much bigger Cosmos. But if we can never acquire information from outside our Universe, is not the idea incapable of disproof? You must be able to check assertions out. Inveterate skeptics must be given the chance to follow your reasoning, to duplicate your experiments and see if they get the same result.*
+
+One of the goals of this course is to equip you with a framework to be able to categorize and assess new information you encounter, or as Neil deGrasse Tyson puts it *"To be scientifically literate is to empower yourself to know when someone else is full of bullshit"*.
+
+The key here is that you need to *empower yourself*, i.e. develop a set of skills so that you can pro-actively and habitually assess information. We are going to look at some ways to spot misinformation/disinformation using a toolkit of common sense principles, learning how to dig down to the source of online/newspaper articles, and by seeing through some common visualization techniques that distort the information being presented.
+
+### ... by using some common sense principles
+
+`r tufte::margin_note("definitely my Dad. so. many. times.")`
+
+> *Remember to use your own brain.*
+
+**The used cars salesman principle**
+
+Ask yourself three questions when evaluating a source of information:
+
+1. Who is telling me this?
+2. How do they know it?
+3. What are they trying to sell me?
+4. What do they have to gain?
+
+
+`r tufte::margin_note("Unless it's 2020...")`
+
+**If it's to good or to bad to be true - it probably is**
+
+This principle a cousin to **Occam's Razor** - known as the **Law of Parsimony**. 
+
+`r msmbstyle::question(label = "ques:three", text = "Give a brief definition of Occam's Razor and compare/contrast it to the idea that claims that sound to good/bad to be true probably are. You may use an example if you'd like.")`
+
+
+**Entertain multiple hypothesis**
+
+This principle encompasses both **confirmation bias** and the dreaded **echo chamber** - another way of stating it is to not fall in love with your hypothesis and continue to entertain independent evidence.
+
+`r msmbstyle::question(label = "ques:four", text = "Briefly define the concepts of confirmation bias and the echo chamber. List some techniques you can use to counteract them.")`
+
+
+**Garbage in/garbage out**
+
+With ever larger and more available data sets and increasingly complex analysis it is important to not only consider the output and interpretation of an analysis and the methods used (which are becoming increasingly difficult to understand as a layperson) is only ever as good as the data set used in the first place. Consider the source of the data, sample size, how it was generated, and whether it is a legitimate comparison.
+
+
+**Causation & Correlation**
+
+There are two common logical fallacies that can be used to take a relationship of two variables to infer causation - *cum hoc ergo propter hoc* (with this, therefore because of this, i.e. correlation implies causation) and *post hoc ergo proper hoc* (after this, therefore because of this, i.e. because something occurred first it must be causing the later).
+
+`r tufte::margin_note("How many more fancy latin phrases do I have up my sleeve? We shall probably never truly know... Is this an *exempli gratia* of using fancy language to obfuscate information? Also difficult to tell.")`
+Taking this to *ad absurdum* we have fun example involving [chocolate and Nobel laureates](https://www.nejm.org/doi/full/10.1056/nejmon1211064) along with [storks and babies](https://web.stanford.edu/class/hrp259/2007/regression/storke.pdf).
+
+`r msmbstyle::question(label = "ques:five", text = "Go to [Spurious Correlations](https://www.tylervigen.com/spurious-correlations), create your own misleading but highly correlated relationship, download it, and post it in the #random channel on slack..")`
+
+### ... by going to the source
+
+In one of their exhibits, the Pacific Science Center emphasizes four principles:
+
+* Science is meant to move slowly
+* Change is a natural part of science
+* Experts have different specialties
+* Not all sources are trustworthy
+
+Sometimes it is important to [slow down](http://slow-science.org/) and give science an chance to breath and mature through discussion and testing.
+
+This is important to keep in mind when watching science unfold in real time and out in the open via social media, pre-prints (before peer-review) and in media outlets.
+
+`r tufte::margin_note("See list of Media Outlet's ranked by quality of their [science reporting](https://www.acsh.org/news/2017/03/05/infographic-best-and-worst-science-news-sites-10948).")`
+
+"New studies find ... " makes for a great headline, unfortunately occasionally both deliberately and unintentionally by the time the "new study" is translated into a press release and that press release is written up in the media misinformation or disinformation may have sneaked in. This may include
+
+* cherry-picking
+* over-generalizing (see `# In Mice` [examples](https://twitter.com/hashtag/inmice?lang=en) and an article describing the intent.)
+* false interpretation
+
+`r msmbstyle::question(label = "ques:six", text = "Find a science article in from a respected(ish) news outlet and track down the original study. Give the title and links for each and briefly describe how you tracked down the original study and a brief assessment of how well the article reflects the original study. Pro-tip: Find a science article that relates to Conservation Biology, then use that as your next Conservation IRL post.")`
+
+
+### ... by not being mislead by visualizations
+
+Manipulative visualization either present false data or misrepresent data to tell a specific story, i.e. they are either lying with false data or lying with truthful data. A good way to assess a figure is to break it down into content, structure, and presentation.
+
+**Content**
+
+* Questions asked (titles) and legends can be very subjective and manipulate the data.
+* Check if data is being cherry-picked or if all data points are included.
+* Consider 'Garbage in/garbage out".
+
+
+**Structure**
+
+* Are all data points plotted?
+* Are all bins/intervals evenly selected?
+* Are there skewed graph proportions? Do % add up to 100?
+* Have axes been manipulated?
+* Is there a combination of thicker/less nuanced lines?
+* Is color being used to manipulate?
+
+
+**Presentation**
+
+`r tufte::margin_note("It is alright to decorate construction but never construct decoration. Augustus Welby Northmore Pugin")`
+
+The presentation for a graph can easily be used for intentional manipulation and misrepresentation of the data. Two types of potentially misleading figures are Ducks and Glass slippers which fall more into the category of Frankfortian BS characterized by a carelessness towards accurately representing the data. 
+
+`r tufte::margin_note("Ducks are named after [Big_Duck](https://en.wikipedia.org/wiki/Big_Duck) a building shaped like a duck built to sell duck and duck eggs.")`
+
+Ducks are figures where the topic of the figure is reflected in the design itself, e.g. the global carbon footprint being shaped like a footprint, whereas a Glass slipper (mis)uses a very specific format meant to visualize a very specific thing (e.g. a periodic table) in an incorrect context that detracts more from the content than adds to it.
+
+
+## Primary literature
+
+> *At the heart of science is an essential balance between two seemingly contradictory attitudes – An openness to new ideas, no matter how bizarre or counterintuitive they may be, and the most ruthless skeptical scrutiny of all ideas, old, and new. This is how deep truths are winnowed from deep nonsense. Carl Sagan, The Demon-Haunted World: Science as a Candle in the Dark*
+
+### Definitions
+
+Primary literature includes research articles, review articles, and method papers and is a description of original work geared toward a specialized audience, by contrast secondary literature is a presentation of results & implications described in primary references. 
+
+`r msmbstyle::question(label = "ques:seven", text = "List examples for primary literature and secondary literature. Give a brief description of what peer-review is and argue the benefits.")`
+
+
+### Assessing quality
+
+In general, primary literature consists of an Abstract, Introduction, Materials/Methods, Results, Conclusion/Discussion and includes both informative and persuasive elements. When evaluating and discussing primary literature you want to ask yourself
+
+* What is the author trying to convince me of?
+* Are they acknowledging potential bias or caveats?
+* Do I agree with the conclusions?
+* Were the methods appropriate?
+* Is there an alternative explanation for the results?
+
+Peer-review doesn't guarantee that a paper is correct - it is indented to ensure that the methods being used a reasonable/appropriate, that the reasoning is logical, that conclusions follow from the results and that the paper accurately represents and adds to the literature. 
+
+To establish legitimacy you can check a few things:
+
+* Where was the paper published (legitimacy of journal) and did it go through peer-review? Is it a legitimate or predatory publisher? Is it in a pre-print archive?
+* Are the claims commensurate with the journal (big claims, obscure journal? That should raise some flags)?
+* Has the paper been retracted or seriously questioned? It's not uncommon to have some controversy including some back and forth between papers being published - that is a sharpening of ideas and good for science. Unconvering misconduct leading to retraction is not.
+* Who are the authors? Do they have a vested interest? Generally the authors affiliations should be listed you can use those to determine if they are established. Even if it is a newcomer (grad students/post-docs are idea generating machines!) they should usually be associated with an established lab.
+
+### Reproducibility Crisis & Scientific misconduct (?)
+
+> *"False positives and exaggerated results in peer-reviewed scientific studies have reached epidemic proportions in recent years, The problem is rampant in economics, the social sciences and even the natural sciences, but it is particularly egregious in biomedicine". John Ioaniddis, An Epidemic of False Claims*
+
+There is ongoing controversy with an increasing number of studies especially in the psychological, medical, social sciences not being reproducible. There are efforts to require both code and data analysis to be deposited along with the paper for increased accountability.
+
+Scientific misconduct including falsification or intentional misrepresentation of data is rare and is frequently uncovered due to irregularities in reproducibility or the data itself.
+
+
+## Guidelines for assessing sources on the interwebs
+
+> *Everybody gets so much information all day long that they loose their common sense. Gertrude Stein*
+
+Apart from the information overload and misinformation/disinformation being presented (see section above) the internet has now given us a new category of information where advertising & public information blur commercial and information ... everybody can publish their ideas, this is both helpful to give voice to people who don't usually have a platform but it also means it's increasingly difficult to weed through the noise, your sources now don't just include primary and secondary literature you also have other informational websites, news/media outlets, advocacy (NGOs, think tanks, ...), business/marketing, personal webpages, social media and blogs.
+
+Here is a basic toolkit to evaluate internet resources next to all the principles we have laid out previously:
+
+* Accuracy
+    + Is the website reliable? free from error? were fact checkers/editors involved?
+* Authority: 
+    + Who are the authors? 
+    + Are they reputable? 
+    + What qualifications do they have? 
+* Publishing body/affiliation?
+    + Is data being selected/used to form information representative of specific view?
+    + Is data being used to prove a specific point?
+    + Who is providing the information? What is their point of view?
+    + Is somebody/organization sponsiring the website? What is their reputation?
+* Objectivity: 
+    + Is there bias? 
+    + Is there an agenda to sway opinion in a certain direction?
+* Currency?: 
+    + Is the website up-to-date?
+    + What's the publication date?
+* Breadth of coverage: 
+    + Many topics? 
+    + specific focus?
+* Accuracy & Verifiability of details: 
+    + What is the knowledge of the literature? 
+    + Is it placed in context? 
+    + Is knowledge of appropriate theories/schools of thought/techniques being displayed? 
+    + How was data gathered?
+* Target audience: Audience level?
+
+`r msmbstyle::question(label = "ques:eight", text = "Here are four links to information about sharks - choose two websites, make a brief assessment of the website and argue whether or not use would use the information on that webpage for a presentation on sharks.")`
+
+* [Site 1](https://www.worldwildlife.org/species/shark)
+* [Site 2](https://www.sharktrust.org/blog/5-extraordinary-connections-sharks-share-with-other-animals)
+* [Site 3](https://www.sharkconservationfund.org/drivers-of-the-crisis/)
+* [Site 4](https://www.welovesharks.club/just-like-humans-sharks-personalities/)
+
