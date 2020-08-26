@@ -408,7 +408,7 @@ catch %>%
 
 You are getting a few `NA`, `NaN`, `-Inf`, and `Inf` values - any guesses why? You might want to pull up the catch data frame in the view panel to see what is going on with those species.
 
-`r msmbstyle::question(label = "ques:fourteen", text = "How could you use summarize calculate a range of summary stats for species grouped by sex?")`
+`r msmbstyle::question(label = "ques:fourteen", text = "How could you use summarize calculate a range of summary stats for the forklength for individuals grouped by sex?")`
 
 So far, we have been manipulating our data frame using code and printing it directly to the console (and our rmarkdown). This can be useful for example to generate tables for reports but frequently we want to create a new object that has been manipulated according to our code to use for other things (for example to visualize).
 
