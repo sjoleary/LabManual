@@ -58,6 +58,13 @@ You will be receiving lab homework in some format almost every lab, part of the 
 *No late or incomplete homework will be accepted or receive credit.*
 
 
+### Due Wednesday, Sept. 2nd
+
+Complete lab 3 (tidyverse tutorial) and upload the knitted `html` document through Canvas.
+
+Complete the questions in lab 5 and upload a word document with the answers through Canvas. Make sure to include your name, date, and lab title in the document.
+
+
 ### Due Wednesday, Aug. 26th
 
 Introduce yourself in the  `#general` slack channel:
