@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5 Assessing sources &amp; calling bullsh*t | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-08-25" />
+
+
+<meta name="description" content="5 Assessing sources &amp; calling bullsh*t | Lab Manual Conservation Biology Fall 2020">
+
+<title>5 Assessing sources &amp; calling bullsh*t | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a id="active-page" href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a><ul class="toc-sections">
+<li class="toc"><a href="#NA"> Terms &amp; Definitions.</a></li>
+<li class="toc"><a href="#spotting-misinformationdisinformation"> Spotting misinformation/disinformation</a></li>
+<li class="toc"><a href="#primary-literature"> Primary literature</a></li>
+<li class="toc"><a href="#guidelines-for-assessing-sources-on-the-interwebs"> Guidelines for assessing sources on the interwebs</a></li>
+</ul>
+<a href="species-diversity-island-biogeography.html"><span class="toc-section-number">6</span> Species Diversity &amp; Island Biogeography</a>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="assessing-sources-calling-bullsht" class="section level1">
+<h1>
+<span class="header-section-number">5</span> Assessing sources &amp; calling bullsh*t</h1>
+<p><strong>Date</strong>: 8/26/2020</p>
+<p><strong>Learning Objectives</strong></p>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote">A large portion of the content of this lab draws on Carl Bergstrom and Jevin West’s course and book on (Calling Bullshit: The Art of Skepticism in a Data-Driven World)[<a href="https://www.callingbullshit.org/" class="uri">https://www.callingbullshit.org/</a>]. Their course is online, including videos, it’s entertaining and informative. Put the book on your Christmas wishlist.</span></p>
+<p>After completing this lab you should</p>
+<ul>
+<li>understand the distinction between misinformation, disinformation, and propaganda.</li>
+<li>be able to spot misinformation/disinformation using a few simple techniques.</li>
+<li>understand what primary literature is and how to critically assess it.</li>
+<li>have a simple toolkit for assessing sources on the interwebs.</li>
+</ul>
+<p>(in short, be able to spot bullsh*t)</p>
+<div id="terms-definitions." class="section level2">
+<h2>
+<span class="header-section-number">5.1</span> Terms &amp; Definitions.</h2>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote">probably not <a href="https://www.york.ac.uk/depts/maths/histstat/lies.htm">Mark Twain</a></span></p>
+<blockquote>
+<p><em>There are three kinds of lies, lies, damned lies, and statistics.</em></p>
+</blockquote>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote">Harry G. Frankfort</span></p>
+<blockquote>
+<p><em>The bullshitter is neither on the side of the true or the side of the false. His eye is not on the facts at all. He does not reject the authority of the truth, as the liar does, and oppose himself to it. He pays no attention to it at all. By virtue of this, bullshit is a greater enemy of the truth than lies are.</em></p>
+</blockquote>
+<p>Misinformation describes erroneous/incorrect information, by contrast disinformation is the deliberate use of false information with an intent to mislead, similar propaganda which is biased and/or misleading information use to promote a specific cause or point of view.</p>
+<p>In his book <code>On Bullshit</code>, Harry G. Frankfurt distinguishes between a <strong>liar</strong> who knows the truth and deliberately tries to convince somebody of something that is untrue and a <strong>bullshitter</strong> who either does not know the truth or does not care - their focus is solely on persuading the listener. The focus of this distinction is the blatant disregard for truth and a carelessness in how data and facts are used.</p>
+<div id="ques:one" class="question">
+<p class="question-begin">
+► Question 5.1
+</p>
+<div class="question-body">
+<p>
+Briefly compare and contrast Frankfort’s categories with the distinction between misinformation, disinformation, and propaganda.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="spotting-misinformationdisinformation" class="section level2">
+<h2>
+<span class="header-section-number">5.2</span> Spotting misinformation/disinformation</h2>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote">still not Mark Twain - maybe Churchill?</span></p>
+<blockquote>
+<p><em>A lie can travel halfway around the world while the truth is still putting on its shoes.</em></p>
+</blockquote>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote">Thomas Francklin, Sermons on Various Subjects, 1787</span></p>
+<blockquote>
+<p><em>Falsehood will fly, as it were, on the wings of the wind, and carry its tales to every corner of the earth; whilst truth lags behind; her steps, though sure, are slow and solemn, and she has neither vigor nor activity enough to pursue and overtake her enemy.</em></p>
+</blockquote>
+<div id="ques:two" class="question">
+<p class="question-begin">
+► Question 5.2
+</p>
+<div class="question-body">
+<p>
+Brandolini’s Law, also known as the BS asymmetry principle, states that the amount of energy needed to refute bullshite is an order of magnitude bigger than to produce it. Briefly give three arguments supportint this principle.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>In <a href="http://www.inf.fu-berlin.de/lehre/pmo/eng/Sagan-Baloney.pdf">The Fine Art of Baloney Detection</a>, Carl Sagan lists nine things to consider in order to identify misinformation:</p>
+<blockquote>
+<p><em>Wherever possible there must be independent confirmation of the “facts.”</em></p>
+</blockquote>
+<blockquote>
+<p><em>Encourage substantive debate on the evidence by knowledgeable proponents of all points of view.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Arguments from authority carry little weight — “authorities” have made mistakes in the past. They will do so again in the future. Perhaps a better way to say it is that in science there are no authorities; at most, there are experts.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Spin more than one hypothesis. If there’s something to be explained, think of all the different ways in which it could be explained. Then think of tests by which you might systematically disprove each of the alternatives. What survives, the hypothesis that resists disproof in this Darwinian selection among “multiple working hypotheses,” has a much better chance of being the right answer than if you had simply run with the first idea that caught your fancy.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Try not to get overly attached to a hypothesis just because it’s yours. It’s only a way station in the pursuit of knowledge. Ask yourself why you like the idea. Compare it fairly with the alternatives. See if you can find reasons for rejecting it. If you don’t, others will.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Quantify. If whatever it is you’re explaining has some measure, some numerical quantity attached to it, you’ll be much better able to discriminate among competing hypotheses. What is vague and qualitative is open to many explanations. Of course there are truths to be sought in the many qualitative issues we are obliged to confront, but finding them is more challenging.</em></p>
+</blockquote>
+<blockquote>
+<p><em>If there’s a chain of argument, every link in the chain must work (including the premise) — not just most of them.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Occam’s Razor. This convenient rule-of-thumb urges us when faced with two hypotheses that explain the data equally well to choose the simpler.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Always ask whether the hypothesis can be, at least in principle, falsified. Propositions that are untestable, unfalsifiable are not worth much. Consider the grand idea that our Universe and everything in it is just an elementary particle — an electron, say — in a much bigger Cosmos. But if we can never acquire information from outside our Universe, is not the idea incapable of disproof? You must be able to check assertions out. Inveterate skeptics must be given the chance to follow your reasoning, to duplicate your experiments and see if they get the same result.</em></p>
+</blockquote>
+<p>One of the goals of this course is to equip you with a framework to be able to categorize and assess new information you encounter, or as Neil deGrasse Tyson puts it <em>“To be scientifically literate is to empower yourself to know when someone else is full of bullshit”</em>.</p>
+<p>The key here is that you need to <em>empower yourself</em>, i.e. develop a set of skills so that you can pro-actively and habitually assess information. We are going to look at some ways to spot misinformation/disinformation using a toolkit of common sense principles, learning how to dig down to the source of online/newspaper articles, and by seeing through some common visualization techniques that distort the information being presented.</p>
+<div id="by-using-some-common-sense-principles" class="section level3">
+<h3>
+<span class="header-section-number">5.2.1</span> … by using some common sense principles</h3>
+<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote">definitely my Dad. so. many. times.</span></p>
+<blockquote>
+<p><em>Remember to use your own brain.</em></p>
+</blockquote>
+<p><strong>The used cars salesman principle</strong></p>
+<p>Ask yourself three questions when evaluating a source of information:</p>
+<ol style="list-style-type: decimal">
+<li>Who is telling me this?</li>
+<li>How do they know it?</li>
+<li>What are they trying to sell me?</li>
+<li>What do they have to gain?</li>
+</ol>
+<p><label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote">Unless it’s 2020…</span></p>
+<p><strong>If it’s to good or to bad to be true - it probably is</strong></p>
+<p>This principle a cousin to <strong>Occam’s Razor</strong> - known as the <strong>Law of Parsimony</strong>.</p>
+<div id="ques:three" class="question">
+<p class="question-begin">
+► Question 5.3
+</p>
+<div class="question-body">
+<p>
+Give a brief definition of Occam’s Razor and compare/contrast it to the idea that claims that sound to good/bad to be true probably are. You may use an example if you’d like.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><strong>Entertain multiple hypothesis</strong></p>
+<p>This principle encompasses both <strong>confirmation bias</strong> and the dreaded <strong>echo chamber</strong> - another way of stating it is to not fall in love with your hypothesis and continue to entertain independent evidence.</p>
+<div id="ques:four" class="question">
+<p class="question-begin">
+► Question 5.4
+</p>
+<div class="question-body">
+<p>
+Briefly define the concepts of confirmation bias and the echo chamber. List some techniques you can use to counteract them.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><strong>Garbage in/garbage out</strong></p>
+<p>With ever larger and more available data sets and increasingly complex analysis it is important to not only consider the output and interpretation of an analysis and the methods used (which are becoming increasingly difficult to understand as a layperson) is only ever as good as the data set used in the first place. Consider the source of the data, sample size, how it was generated, and whether it is a legitimate comparison.</p>
+<p><strong>Causation &amp; Correlation</strong></p>
+<p>There are two common logical fallacies that can be used to take a relationship of two variables to infer causation - <em>cum hoc ergo propter hoc</em> (with this, therefore because of this, i.e. correlation implies causation) and <em>post hoc ergo proper hoc</em> (after this, therefore because of this, i.e. because something occurred first it must be causing the later).</p>
+<p><label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote">How many more fancy latin phrases do I have up my sleeve? We shall probably never truly know… Is this an <em>exempli gratia</em> of using fancy language to obfuscate information? Also difficult to tell.</span>
+Taking this to <em>ad absurdum</em> we have fun example involving <a href="https://www.nejm.org/doi/full/10.1056/nejmon1211064">chocolate and Nobel laureates</a> along with <a href="https://web.stanford.edu/class/hrp259/2007/regression/storke.pdf">storks and babies</a>.</p>
+<div id="ques:five" class="question">
+<p class="question-begin">
+► Question 5.5
+</p>
+<div class="question-body">
+<p>
+Go to <a href="https://www.tylervigen.com/spurious-correlations">Spurious Correlations</a>, create your own misleading but highly correlated relationship, download it, and post it in the #random channel on slack..
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="by-going-to-the-source" class="section level3">
+<h3>
+<span class="header-section-number">5.2.2</span> … by going to the source</h3>
+<p>In one of their exhibits, the Pacific Science Center emphasizes four principles:</p>
+<ul>
+<li>Science is meant to move slowly</li>
+<li>Change is a natural part of science</li>
+<li>Experts have different specialties</li>
+<li>Not all sources are trustworthy</li>
+</ul>
+<p>Sometimes it is important to <a href="http://slow-science.org/">slow down</a> and give science an chance to breath and mature through discussion and testing.</p>
+<p>This is important to keep in mind when watching science unfold in real time and out in the open via social media, pre-prints (before peer-review) and in media outlets.</p>
+<p><label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle"><span class="marginnote">See list of Media Outlet’s ranked by quality of their <a href="https://www.acsh.org/news/2017/03/05/infographic-best-and-worst-science-news-sites-10948">science reporting</a>.</span></p>
+<p>“New studies find …” makes for a great headline, unfortunately occasionally both deliberately and unintentionally by the time the “new study” is translated into a press release and that press release is written up in the media misinformation or disinformation may have sneaked in. This may include</p>
+<ul>
+<li>cherry-picking</li>
+<li>over-generalizing (see <code># In Mice</code> <a href="https://twitter.com/hashtag/inmice?lang=en">examples</a> and an article describing the intent.)</li>
+<li>false interpretation</li>
+</ul>
+<div id="ques:six" class="question">
+<p class="question-begin">
+► Question 5.6
+</p>
+<div class="question-body">
+<p>
+Find a science article in from a respected(ish) news outlet and track down the original study. Give the title and links for each and briefly describe how you tracked down the original study and a brief assessment of how well the article reflects the original study. Pro-tip: Find a science article that relates to Conservation Biology, then use that as your next Conservation IRL post.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="by-not-being-mislead-by-visualizations" class="section level3">
+<h3>
+<span class="header-section-number">5.2.3</span> … by not being mislead by visualizations</h3>
+<p>Manipulative visualization either present false data or misrepresent data to tell a specific story, i.e. they are either lying with false data or lying with truthful data. A good way to assess a figure is to break it down into content, structure, and presentation.</p>
+<p><strong>Content</strong></p>
+<ul>
+<li>Questions asked (titles) and legends can be very subjective and manipulate the data.</li>
+<li>Check if data is being cherry-picked or if all data points are included.</li>
+<li>Consider ’Garbage in/garbage out".</li>
+</ul>
+<p><strong>Structure</strong></p>
+<ul>
+<li>Are all data points plotted?</li>
+<li>Are all bins/intervals evenly selected?</li>
+<li>Are there skewed graph proportions? Do % add up to 100?</li>
+<li>Have axes been manipulated?</li>
+<li>Is there a combination of thicker/less nuanced lines?</li>
+<li>Is color being used to manipulate?</li>
+</ul>
+<p><strong>Presentation</strong></p>
+<p><label for="tufte-mn-10" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle"><span class="marginnote">It is alright to decorate construction but never construct decoration. Augustus Welby Northmore Pugin</span></p>
+<p>The presentation for a graph can easily be used for intentional manipulation and misrepresentation of the data. Two types of potentially misleading figures are Ducks and Glass slippers which fall more into the category of Frankfortian BS characterized by a carelessness towards accurately representing the data.</p>
+<p><label for="tufte-mn-11" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle"><span class="marginnote">Ducks are named after <a href="https://en.wikipedia.org/wiki/Big_Duck">Big_Duck</a> a building shaped like a duck built to sell duck and duck eggs.</span></p>
+<p>Ducks are figures where the topic of the figure is reflected in the design itself, e.g. the global carbon footprint being shaped like a footprint, whereas a Glass slipper (mis)uses a very specific format meant to visualize a very specific thing (e.g. a periodic table) in an incorrect context that detracts more from the content than adds to it.</p>
+</div>
+</div>
+<div id="primary-literature" class="section level2">
+<h2>
+<span class="header-section-number">5.3</span> Primary literature</h2>
+<blockquote>
+<p><em>At the heart of science is an essential balance between two seemingly contradictory attitudes – An openness to new ideas, no matter how bizarre or counterintuitive they may be, and the most ruthless skeptical scrutiny of all ideas, old, and new. This is how deep truths are winnowed from deep nonsense. Carl Sagan, The Demon-Haunted World: Science as a Candle in the Dark</em></p>
+</blockquote>
+<div id="definitions" class="section level3">
+<h3>
+<span class="header-section-number">5.3.1</span> Definitions</h3>
+<p>Primary literature includes research articles, review articles, and method papers and is a description of original work geared toward a specialized audience, by contrast secondary literature is a presentation of results &amp; implications described in primary references.</p>
+<div id="ques:seven" class="question">
+<p class="question-begin">
+► Question 5.7
+</p>
+<div class="question-body">
+<p>
+List examples for primary literature and secondary literature. Give a brief description of what peer-review is and argue the benefits.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="assessing-quality" class="section level3">
+<h3>
+<span class="header-section-number">5.3.2</span> Assessing quality</h3>
+<p>In general, primary literature consists of an Abstract, Introduction, Materials/Methods, Results, Conclusion/Discussion and includes both informative and persuasive elements. When evaluating and discussing primary literature you want to ask yourself</p>
+<ul>
+<li>What is the author trying to convince me of?</li>
+<li>Are they acknowledging potential bias or caveats?</li>
+<li>Do I agree with the conclusions?</li>
+<li>Were the methods appropriate?</li>
+<li>Is there an alternative explanation for the results?</li>
+</ul>
+<p>Peer-review doesn’t guarantee that a paper is correct - it is indented to ensure that the methods being used a reasonable/appropriate, that the reasoning is logical, that conclusions follow from the results and that the paper accurately represents and adds to the literature.</p>
+<p>To establish legitimacy you can check a few things:</p>
+<ul>
+<li>Where was the paper published (legitimacy of journal) and did it go through peer-review? Is it a legitimate or predatory publisher? Is it in a pre-print archive?</li>
+<li>Are the claims commensurate with the journal (big claims, obscure journal? That should raise some flags)?</li>
+<li>Has the paper been retracted or seriously questioned? It’s not uncommon to have some controversy including some back and forth between papers being published - that is a sharpening of ideas and good for science. Unconvering misconduct leading to retraction is not.</li>
+<li>Who are the authors? Do they have a vested interest? Generally the authors affiliations should be listed you can use those to determine if they are established. Even if it is a newcomer (grad students/post-docs are idea generating machines!) they should usually be associated with an established lab.</li>
+</ul>
+</div>
+<div id="reproducibility-crisis-scientific-misconduct" class="section level3">
+<h3>
+<span class="header-section-number">5.3.3</span> Reproducibility Crisis &amp; Scientific misconduct (?)</h3>
+<blockquote>
+<p><em>“False positives and exaggerated results in peer-reviewed scientific studies have reached epidemic proportions in recent years, The problem is rampant in economics, the social sciences and even the natural sciences, but it is particularly egregious in biomedicine”. John Ioaniddis, An Epidemic of False Claims</em></p>
+</blockquote>
+<p>There is ongoing controversy with an increasing number of studies especially in the psychological, medical, social sciences not being reproducible. There are efforts to require both code and data analysis to be deposited along with the paper for increased accountability.</p>
+<p>Scientific misconduct including falsification or intentional misrepresentation of data is rare and is frequently uncovered due to irregularities in reproducibility or the data itself.</p>
+</div>
+</div>
+<div id="guidelines-for-assessing-sources-on-the-interwebs" class="section level2">
+<h2>
+<span class="header-section-number">5.4</span> Guidelines for assessing sources on the interwebs</h2>
+<blockquote>
+<p><em>Everybody gets so much information all day long that they loose their common sense. Gertrude Stein</em></p>
+</blockquote>
+<p>Apart from the information overload and misinformation/disinformation being presented (see section above) the internet has now given us a new category of information where advertising &amp; public information blur commercial and information … everybody can publish their ideas, this is both helpful to give voice to people who don’t usually have a platform but it also means it’s increasingly difficult to weed through the noise, your sources now don’t just include primary and secondary literature you also have other informational websites, news/media outlets, advocacy (NGOs, think tanks, …), business/marketing, personal webpages, social media and blogs.</p>
+<p>Here is a basic toolkit to evaluate internet resources next to all the principles we have laid out previously:</p>
+<ul>
+<li>Accuracy
+<ul>
+<li>Is the website reliable? free from error? were fact checkers/editors involved?</li>
+</ul>
+</li>
+<li>Authority:
+<ul>
+<li>Who are the authors?</li>
+<li>Are they reputable?</li>
+<li>What qualifications do they have?</li>
+</ul>
+</li>
+<li>Publishing body/affiliation?
+<ul>
+<li>Is data being selected/used to form information representative of specific view?</li>
+<li>Is data being used to prove a specific point?</li>
+<li>Who is providing the information? What is their point of view?</li>
+<li>Is somebody/organization sponsiring the website? What is their reputation?</li>
+</ul>
+</li>
+<li>Objectivity:
+<ul>
+<li>Is there bias?</li>
+<li>Is there an agenda to sway opinion in a certain direction?</li>
+</ul>
+</li>
+<li>Currency?:
+<ul>
+<li>Is the website up-to-date?</li>
+<li>What’s the publication date?</li>
+</ul>
+</li>
+<li>Breadth of coverage:
+<ul>
+<li>Many topics?</li>
+<li>specific focus?</li>
+</ul>
+</li>
+<li>Accuracy &amp; Verifiability of details:
+<ul>
+<li>What is the knowledge of the literature?</li>
+<li>Is it placed in context?</li>
+<li>Is knowledge of appropriate theories/schools of thought/techniques being displayed?</li>
+<li>How was data gathered?</li>
+</ul>
+</li>
+<li>Target audience: Audience level?</li>
+</ul>
+<div id="ques:eight" class="question">
+<p class="question-begin">
+► Question 5.8
+</p>
+<div class="question-body">
+<p>
+Here are four links to information about sharks - choose two websites, make a brief assessment of the website and argue whether or not use would use the information on that webpage for a presentation on sharks.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<ul>
+<li><a href="https://www.worldwildlife.org/species/shark">Site 1</a></li>
+<li><a href="https://www.sharktrust.org/blog/5-extraordinary-connections-sharks-share-with-other-animals">Site 2</a></li>
+<li><a href="https://www.sharkconservationfund.org/drivers-of-the-crisis/">Site 3</a></li>
+<li><a href="https://www.welovesharks.club/just-like-humans-sharks-personalities/">Site 4</a></li>
+</ul>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="field-stream-trip.html"><button class="btn btn-default">Previous</button></a>
+<a href="species-diversity-island-biogeography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-08-25
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
