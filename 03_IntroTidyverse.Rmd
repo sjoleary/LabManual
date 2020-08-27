@@ -57,7 +57,7 @@ Check in the data folder, it should contain a tab-delimited text file with catch
 
 You will hand in your rendered ("knitted") rmarkdown file as your homework assignment. So, first thing in the `YAML` header, change the author to your name.
 
-In your Rmarkdown file insert a header as `# Import catch data`, and insert the following code chunk below to load the `tidyverse` packages and read in the catch data as a data frame.
+In your Rmarkdown file insert a header as `# Import catch data`, and insert the following code chunk below to load the `tidyverse` packages and read in the catch data as a data frame[^Executing this code chunk also loads the libraries that you need for this tutorial. If you close `Rstudio` and open it again later it will generally automatically load the project you were working on and re-open any files you were using in the editor panel. It will probably also load your environment which may fool you into thinking everything is ready to go - but it will **not** load the packages, so you will have to rerun the `library()` code lines any time you restart `Rstudio`.].
 
 ```{r}
 
@@ -70,7 +70,7 @@ catch <- read_delim("data/longline_catchdata.txt", delim = "\t")
 
 ```
 
-`read_delim` is the function we are using to read in the data, it takes two arguments, the path (`data/longline_catchdata.txt`) and the delimiter (`\t`).
+`read_delim` is the function we are using to read in the data, it takes two arguments, the path (`data/longline_catchdata.txt`) and the delimiter (`\t`, which is "computer" for tab).
 
 Execute the code. If you look over in your environment pane you should now see the object `catch`. This is your dataframe. Click on it, you should see the command `View(catch)` in your console and a tab `catch` appear in your top left pane.
 
@@ -101,7 +101,7 @@ catch
 
 The data set contains information on the sampling site, Species name, Sex, Pre-caudal length (PCL), fork length (FL), stretch total length (STL), Hook Size, and the set number and sampling date.
 
-Now that we have a data frame to play with, let's explore some data wrangling options using `dplyr`. The `d` stands for `data` and the `plyr` stands for `plyers` - this package is designed to manipulate data frames. We are going to focus on the central actions (`verbs`) that will allow you to manipulate the data frame.
+Now that we have a data frame to play with, let's explore some data wrangling options using `dplyr`. The `d` stands for `data` and the `plyr` stands for `plyers` - this package is designed to manipulate data frames^[This is also known as `data wrangling`, manipulating is not a negative thing in this case it means you can clean up and format the data in appropriate way to fit the questions you are asking and allow to to display the information in a hepful way.]. We are going to focus on the central actions (`verbs`) that will allow you to manipulate the data frame.
 
 Sure, you could do all of these things in excel but there are advantages to using code -
 
@@ -191,9 +191,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:four", text = "How would you select only rows containing Scalloped Hammerheads (*Sphyrna lewini*)?")`
-
-Note: you need to use `==` (not `=` if you are looking for an exact match).
+`r msmbstyle::question(label = "ques:four", text = "How would you select only rows containing Scalloped Hammerheads (*Sphyrna lewini*)?")`^[Note: you need to use `==` (not `=` if you are looking for an exact match).]
 
 If want all rows but Gafftop sailfish you can use a `!` to say "not that".
 
@@ -249,7 +247,7 @@ catch %>%
 
 `r msmbstyle::question(label = "ques:eight", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus that have a forklength larger than 500 cm?")`
 
-Instead of entries having to fulfill two (or more) requirements, you might have a situation where you only want to retain rows that fulfill one or another argument. For example, if you wanted all entries that are either gafftops or a fork length smaller than 300 cm you could use the following code:
+Instead of entries having to fulfill two (or more) requirements, you might have a situation where you only want to retain rows that fulfill one or another argument. For example, if you wanted all entries that are either gafftops or a fork length smaller than 300 cm you could use the following code^[When you are combining arguments you use `&` to say "it must fulfill this **AND** this" or `|` (called the pipe) to say "it must fulfull this **OR** that.]:
 
 ```{r}
 
@@ -300,9 +298,7 @@ catch %>%
 
 ```
 
-You should now have a column called `difference` at the end of the data frame.
-
-Instead of `-` you can use `+` to add , `*` to multiple, and `/` to divide values when creating a new column
+You should now have a column called `difference` at the end of the data frame^[Instead of `-` you can use `+` to add , `*` to multiple, and `/` to divide values when creating a new column.].
 
 `r msmbstyle::question(label = "ques:eleven", text = "How would you create a new column called ratio, that is the ratio of the fork to stretch total length?")`
 
@@ -321,7 +317,7 @@ You should know have a column called `unknown_sex` where if the animal that was 
 
 ```{marginfigure}
 
-Note: For that last one, a "conditional mutate" using and `ifelse` statement - if this then do that, else do that) could have come in handy. This is what it would look like (file this away for "maybe useful later").
+Note: For that last one, a "conditional mutate" using an `ifelse` statement - if this then do that, else do that) could have come in handy. This is what it would look like (file this away for "maybe useful later").
 
 ```
 
@@ -389,11 +385,11 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:thirteen", text = "How could you use summarize to get the maximum forklength? Hint: Remember earlier we used the function max() to get a maximum value.")`
+`r msmbstyle::question(label = "ques:thirteen", text = "How could you use summarize to get the maximum forklength?")`^[Hint: Remember earlier we used the function max() to get a maximum value.]
 
 That's cool, but not super helpful ... unless, we leverage `group_by()` to start calculating summary stats for entries grouped for example by species:
 
-```{r}
+```{r echo=FALSE}
 
 catch %>%
   group_by(Species) %>%

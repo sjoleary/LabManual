@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-08-25" />
+<meta name="date" content="2020-08-27" />
 
 
 <meta name="description" content="Overview | Lab Manual Conservation Biology Fall 2020">
@@ -63,15 +63,15 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
 <div class="dropdown-content">
 <a id="active-page" href="index.html">Overview</a><ul class="toc-sections">
-<li class="toc"><a href="#the-basics"> The Basics</a></li>
-<li class="toc"><a href="#lab-homeworkreports"> Lab homework/reports</a></li>
+<li class="toc"><a href="#the-basics">The Basics</a></li>
+<li class="toc"><a href="#lab-homeworkreports">Lab homework/reports</a></li>
 </ul>
 <a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
 <a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
 <a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
 <a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
 <a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
-<a href="species-diversity-island-biogeography.html"><span class="toc-section-number">6</span> Species Diversity &amp; Island Biogeography</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -86,9 +86,8 @@ if(f.classList.contains('fa-plus-square')) {
 <h1>Overview</h1>
 <p>This is the lab manual for Conservation Biology (BI328). It will be continuously updated throughout the semester, generally there are no pre-labs (just homework, you can’t win).<br>
 For the most part an electronic copy (on a laptop or tablet) is sufficient, at times you may be instructed to print a data or worksheet for lab.</p>
-<div id="the-basics" class="section level2">
-<h2>
-<span class="header-section-number">0.1</span> The Basics</h2>
+<div id="the-basics" class="section level2 unnumbered">
+<h2>The Basics</h2>
 <p><strong>Lab times</strong></p>
 <p>Wednesday 1:30 - 4:30pm (GOUL3102)<br><em>Be on time, arriving &gt;5 minutes late will be considered an unexcused absence.</em></p>
 <p><br></p>
@@ -96,24 +95,23 @@ For the most part an electronic copy (on a laptop or tablet) is sufficient, at t
 <p>You are required to bring your laptop for use during lab; a tablet will not be sufficient to participate though you are welcome to bring an additional device to have an extra screen to follow along an electronic version of the lab manual. Make sure to have a power cable and/or fully charged battery!</p>
 <p><br></p>
 </div>
-<div id="lab-homeworkreports" class="section level2">
-<h2>
-<span class="header-section-number">0.2</span> Lab homework/reports</h2>
+<div id="lab-homeworkreports" class="section level2 unnumbered">
+<h2>Lab homework/reports</h2>
 <p>You will be receiving lab homework in some format almost every lab, part of the assignments will be completed in lab, other parts your will finish on your own time. Make sure you start early enough to get help if necessary.</p>
 <p><strong>Due by the following Wednesday 12pm</strong> unless otherwise specified.<br><em>No late or incomplete homework will be accepted or receive credit.</em></p>
 <div id="due-wednesday-sept.-2nd" class="section level3">
 <h3>
-<span class="header-section-number">0.2.1</span> Due Wednesday, Sept. 2nd</h3>
-<p>Complete lab 3 (tidyverse tutorial) and upload the knitted <code>html</code> document through Canvas.</p>
-<p>Complete the questions in lab 5 and upload a word document with the answers through Canvas. Make sure to include your name, date, and lab title in the document.</p>
+<span class="header-section-number">0.0.1</span> Due Wednesday, Sept. 2nd</h3>
+<p>Complete lab 3 (<a href="https://labmanual.netlify.app/welcome-to-the-tidyverse.html">tidyverse tutorial</a>) and upload the knitted <code>html</code> document through Canvas (<code>HW-2</code>)<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Remember, in order to knit a document all the code chunks must be able to run properly - so make sure that you delete any “experimental code chunks” (e.g. if you tried something that didn’t work).</span>.</p>
+<p><br></p>
 </div>
 <div id="due-wednesday-aug.-26th" class="section level3">
 <h3>
-<span class="header-section-number">0.2.2</span> Due Wednesday, Aug. 26th</h3>
+<span class="header-section-number">0.0.2</span> Due Wednesday, Aug. 26th</h3>
 <p>Introduce yourself in the <code>#general</code> slack channel:</p>
 <ul>
 <li>Give your name, major, year</li>
-<li>Tell us what you are hoping to get out of this class<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> If it’s ‘check it off my list to graduate’ - that’s fine, we’ll try to make this class more than a check mark!</span>
+<li>Tell us what you are hoping to get out of this class<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> If it’s ‘check it off my list to graduate’ - that’s fine, we’ll try to make this class more than a check mark!</span>
 </li>
 <li>Explain which category you fit in best as a “conservation biologist”: Preservationist, Resource Management, Environmentalism (Activism), Environmental Science, or Ecologist. You don’t have to choose just one.</li>
 </ul>
@@ -128,7 +126,7 @@ For the most part an electronic copy (on a laptop or tablet) is sufficient, at t
 <a href="installing-rrstudio.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-08-25
+2020-08-27
 </p>
 </div>
 </div>
