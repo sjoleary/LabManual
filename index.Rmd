@@ -60,7 +60,7 @@ You will be receiving lab homework in some format almost every lab, part of the 
 
 ### Due Wednesday, Sept. 2nd {-}
 
-Complete lab 3 ([tidyverse tutorial](https://labmanual.netlify.app/welcome-to-the-tidyverse.html)) and upload the knitted `html` document through Canvas (`HW-2`)^[Remember, in order to knit a document all the code chunks must be able to run properly - so make sure that you delete any "experimental code chunks" (e.g. if you tried something that didn't work).].
+Complete lab 3 ([tidyverse tutorial](https://labmanual.netlify.app/welcome-to-the-tidyverse.html)) and upload the knitted^[Remember, in order to knit a document all the code chunks must be able to run properly - so make sure that you delete any "experimental code chunks" (e.g. if you tried something that didn't work).] `html` document through Canvas (`HW-2`).
 
 
 <br>

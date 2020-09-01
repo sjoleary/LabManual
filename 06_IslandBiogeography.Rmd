@@ -14,11 +14,25 @@ output:
     css: msmb.css
 bibliography: labmanual.bib
 link-citations: yes
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r include=FALSE}
 
+# load libraries
 library(msmbstyle)
+library(tidyverse)
+library(ggthemes)
+library(vegan)
+library(scales)
+
+source("scr/ggplot.R")
+
+cols <- c("#7008a0", "darkorange", "#4473c4", "#375623",
+          "#ffbf00", "#70ad47",
+          "#c00000",   "#5b9bd5",
+          "#44546a", "black")
 
 # invalidate cache when the tufte version changes
 knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
@@ -26,10 +40,714 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-# Species Diversity & Island Biogeography
+# Island Biogeography
+
+**Date**: 9/2/2020
+
+Download the project folder [here](https://drive.google.com/drive/folders/1c4LVqsMKMxgP6b0NQTjhRCEftBHgVpfr?usp=sharing).
+
 
 **Learning Objectives**
 
 After completing this lab you should
 
-* 
+* understand the difference between a `tidy` (long) and `wide` formatted data set.
+* be able to create a simple scatterplot using `ggplot`.
+* understand the relationship of immigration rates, extinction rates, and species richness to the area and distance to mainland of an island. 
+* understand the concept of a dynamic equilibrium.
+* understand how habitats may differ in their productivity whic can affect the number of species (individuals) they can sustain.
+
+
+## Background
+
+The field of biogeography focuses on the geographic distribution of species and ecosystems and the factors contributing to differences in distribution, understanding patterns (and changes to those patterns) of species distributions is an important component of conservation biology.
+
+Islands are frequently characterized by higher rates of extinction compared to other areas, this can be attributed to the fact that compared to counterparts on the mainland they generally have smaller populations and lower genetic diversity [@Frankham1997]^[We will focus more on this aspect during and Conservation Genetics Unit.]. Further, anthropogenic effects such as habitat degradation and fragmentation (e.g. development of resort), introduced species and other drivers of biodiversity loss such as direct and indirect impacts of climate change (e.g. increasing number and severity of storms), invasive species, disease makes them some of the most threatened habitats.
+
+The **equilibrium theory of island biogeography** [@MacArthur1963] is a model that predicts community diversity on islands at equilibrium based on the immigration/colonization rate from the mainland to the islands and the extinction rate on the island. The probability of colonization of an island is a function of the distance of the island from the mainland (closer, more likely), the island's species richness (less species, more likely). Though species richness also plays a role in determining the extinction rate, by contrast, the extinction rate is in large part determined by the island size (smaller island, less resources available).
+
+In an effort to test MacArthur & Wilson's model, in the 1960s small mangrove islands in southern Florida were first fumigated to remove all arthropods^[Try getting permits for an experiment like that today!] and then the change in diversity over time was modeled [@Simberloff1969] which corresponded to the predicted patterns remarkably well.
+
+Biodiversity can also be limited by the productivity of an ecosystem. The primary production can be measured as the amount of energy fixed (captured) by primary producers through photosynthesis - this determines the amount of energy available to an ecosystem because it determine the amount of energy available at other levels of the ecosystem. In large part, primary production depends on the amount of sunlight available but also other important climate predictors such as temperature and precipitation. In general, more productive habitats are expected to support higher species richness.
+
+
+## Comparison of Species Richness among two islands
+
+Let's compare the species richness on two islands. 
+
+Shannon Rock is located 110km from the mainland and has a diameter of 128km, the Isle of Leary is 70km from the mainland and has a diameter of 256 km. Both islands feature five different habitats and I recorded the number of individuals of each species present for four taxonomic groups^[10 species per taxonomic group possible.].
+
+Let's load that data set:
+
+```{r}
+
+# read data
+raw_counts <- read_delim("data/model_output.txt", delim = "\t") %>%
+  filter(EXPERIMENT == "diversity") %>%
+  select(-EXPERIMENT)
+
+raw_counts
+
+```
+
+It consists of 10 variables and 400 observations. This is what we call a `tidy` (or long) data set^[See Hadley Wickham's [paper](http://vita.had.co.nz/papers/tidy-data.pdf) for a detailed description on the concept.]. Each row is a single observation. It does make for a very long dataframe but it has several benefits for processing and visualizing data sets. 
+
+A data set in this format is centered around the concept that all the information is in a single dataframe with sets of `key-value` pairs. For example, in this data frame `SPECIES` would be the key, and `COUNT` the values, i.e. the unit of analysis is `SPECIES` the measurement we are making is `COUNT` (number of individuals for each species)^[You can have multiple `keys` for example here, all the parameters set in the model together with the each `ISLAND` and `SPECIES` could form a `key` - this should remind you of our use of the the `group_by` function to create groups within a data set based on shared values for a parameter.].
+
+To demonstrate the difference select the columns `ISLAND`, `SPECIES` and `COUNT`, and retain only the counts for `Arthropods` in the `tropical` habitat.
+
+`r msmbstyle::question(label= "ques:one", text = "What functions and arguments would you use to accomplish this?")`
+
+`r msmbstyle::solution_begin(toggle = TRUE)`
+
+```{r}
+
+tidy <- raw_counts %>%
+  filter(TAXON == "Arthropods" & HABITAT == "tropical") %>%
+  select(ISLAND, SPECIES, COUNT) 
+
+tidy
+
+```
+
+`r msmbstyle::solution_end()`
+
+Now we can turn that into the `wide` format using `pivot_wider()`. Specify the `key` using `names_from` (these will become the columns) and the values using `values_from`.
+
+```{r}
+
+wide <- tidy %>%
+  pivot_wider(names_from = SPECIES, values_from = COUNT)
+
+wide
+
+```
+
+This format is probably a little more familiar (and legible) to you - but unless you add a descriptive title and description somebody else would not immediately be able to get all the information about what habitat and what taxonomic group you are presenting. You would either have to create a series of tables, one for each habitat/taxon combination, or you could create one giant wide table where you would have columns in the format of `habitat-taxon-spX`.
+
+Sometimes you will have a data set in the wide format and will need to create a tidy data set from that. Fortunately, we have a function `pivote_longer()` that will do exactly that. Specify the columns that you will gather using `cols` and then name your column with the key values (`names_to`) and the columns that will hold your values (`values_to`).
+
+```{r}
+
+tidy <- wide %>%
+  pivot_longer(cols = 2:11, names_to = "SPECIES", values_to = "COUNT")
+
+tidy
+
+```
+
+To further demonstrate the benefits of a tidy data set, let's calculate species richness to compare the biodiversity found on each of the islands.
+
+`r msmbstyle::question(label = "ques:two", text = "Give a brief definition of species richness and point out the limitations of using it as a measure of species diversity.")`
+
+`r msmbstyle::question(label = "ques:three", text = "What dplyr verbs can you use to quickly calculate the number of observed species per island for each taxonomic group in each habitat?")`
+
+`r msmbstyle::solution_begin(toggle = TRUE)`
+
+Exactly, to do this we can use `filter()` to remove entries where no individuals of a given species were observed (`COUNT` would be `0`), and group our observations by `ISLAND`, `TAXON`, and `HABITAT`. Now we use summarize count the number of observations in each group^[It's not important how many individuals of a species were observed - just that they were observed.].
+
+```{r}
+
+richn <- raw_counts %>%
+  filter(COUNT > 0) %>%
+  group_by(ISLAND, TAXON, HABITAT) %>%
+  summarize(richn = n(), .groups = "drop")
+
+richn
+
+```
+
+`r msmbstyle::solution_end()`
+
+Here is another benefit of using the `tidy` format - you can easily create tables to answer specific questions. For example, if you were mainly interested in difference of species richness among habitat types you could pivoting the table into a wide table by first grouping observations by `ISLAND` and `TAXON` and then using `HABITAT`as your key, and `n` as your values.
+
+```{r}
+
+richn %>%
+  group_by(ISLAND, TAXON) %>%
+  pivot_wider(names_from = HABITAT, values_from = richn) %>%
+  arrange(TAXON)
+
+```
+
+Or, if you more interested in a comparison of species richness among taxa you could do the following:
+
+```{r}
+
+richn %>%
+  group_by(ISLAND, HABITAT) %>%
+  pivot_wider(names_from = TAXON, values_from = richn) %>%
+  arrange(HABITAT)
+
+```
+
+While tables can efficiently summarize data it is frequently difficult to compare values in a straightforward way. Instead visualizing the differences using a simple plot may be more helpful.
+
+You can plot pretty much any plot you can dream up^[and several you haven't even thought of!] using `ggplot` which is based on the same principles as other packages in the `tidyverse`.
+
+Let's start with something simple. We will first plot the species richness for a single habitat.
+
+```{r fig.cap="Species Richness per taxon for desert habitats on the Isle of Leary (red?) and Shannon Rock (blue?)", fig.width=6, fig.height=5}
+
+desert <- richn %>%
+  filter(HABITAT == "desert")
+
+ggplot(desert, aes(x = TAXON, y = richn, fill = ISLAND)) +
+  geom_point(shape = 21, size = 3)
+
+```
+
+Let's break down what this code is doing.
+
+* Each line of code is connected to the next using `+`^[The `+` is used the same way we use the `%>%` pipe to string together commands) telling the function "and now add this to the plot".
+* `ggplot(desert, aes(x = TAXON, y = n, fill = ISLAND))`: this specifies the data frame to plot (`desert`) and the `aes()` (aesthetics) tells the function what you want plotted on the `x` and `y` axis. You are also telling it that you want to color code your points based on the contents of the column `ISLAND`.
+* `geom_point(shape = 21, size = 3)` - now you are telling the function what type of plot you want - points (scatterplot). You are also specifying the type of point and how large you want it to be.
+
+Not too shabby - but we can add a few lines to customize (and improve) our plot:
+
+```{r fig.cap="Species Richness per taxon for desert habitats on the Isle of Leary (grey) and Shannon Rock (orange)", fig.width=5, fig.height=5}
+
+ggplot(desert, aes(x = TAXON, y = richn, fill = ISLAND)) +
+  geom_point(shape = 21, size = 3) +
+  # specify the colors to use for fill
+  scale_fill_manual(values = cols) +
+  # make sure the breaks are at whole numbers and scale goes from 0 to 10
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  # specify the axis titles
+  labs(x = "taxonomic group", y = "species richness") +
+  # customize the theme
+  theme_standard +
+  # turn x-axis labels 90 degrees
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+Now, what if we wanted to create a plot for each habitat? 
+
+Being able to quickly create facetted plots is another benefit of keeping your data in the `tidy` format. You can use `facet_wrap()` which allows you to specify a column to say "split the data set into groups according to this column" to create a set of individual plots.
+
+```{r fig.cap="Species Richness per taxon and habitat", fig.width=8, fig.height=8}
+
+ggplot(richn, aes(x = TAXON, y = richn, fill = ISLAND)) +
+  geom_point(shape = 21, size = 3) +
+  facet_wrap(~ HABITAT) +
+  scale_fill_manual(values = cols) +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  labs(x = "taxonomic group", y = "species richness") +
+  theme_facet +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:four", text = "What if you were more interested in comparing how species richness compared across habitats for each taxonomic groups? Can you think of a straightforward way to re-plot your data?")`
+
+`r msmbstyle::solution_begin(toggle = TRUE)`
+
+```{r fig.cap="Species Richness per taxon and habitat", fig.width=8, fig.height=9}
+
+ggplot(richn, aes(x = HABITAT, y = richn, fill = ISLAND)) +
+  geom_point(shape = 21, size = 3) +
+  facet_wrap(~ TAXON) +
+  scale_fill_manual(values = cols) +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  labs(x = "taxonomic group", y = "species richness") +
+  theme_facet +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::solution_end()`
+
+Now we are getting somewhere. Now that we've played with the data, let's actually take a look and what patterns we can observe in the data.
+
+`r msmbstyle::question(label = "ques:five", text = "Take a look at the two faceted plots and record your observations. Consider patterns patterns between the two islands, across taxonmic groups and among habitats.")`
+
+`r msmbstyle::solution(header = "Hint", toggle = TRUE, text = "One of the central observations you should have made is that species richness is consistently higher on the Isle of Leary")`
+
+`r msmbstyle::question(label = "ques:six", text = "Both islands have the same set of habitats available and species colonizing the islands come from the same mainland pool. What two key parameters distinguish the islands? Formulate a hypothesis for each parameter as to how it could be causing the observed pattern, the argue why you would expect this effect.")`
+
+`r msmbstyle::solution(header = "Hint", toggle = TRUE, text = "The two parameters you are looking for are Distance and Area.")`
+
+
+## Design your experiment(s)
+
+### The model
+
+In this lab we will use a computer simulation to generate data sets to explore the fundamental principles of **Island Biogeography**.
+
+Open the using this [link](http://virtualbiologylab.org/ModelsHTML5/IslandBiogeography/IslandBiogeography.html).
+
+On the right hand you can see the modeled "world" consisting of the mainland and two islands. You will also see various species (different colors) moving around.
+
+On the left, you should see a notebook describing the parameters that can be specified for the model these include
+
+* **Habitat** (categorical): Tropical, Subtropical, Temperate, Tundra, and Desert
+* **Island Distance** (numerical): ranging from 10 to 410 in increments of 20.
+* **Island Diameter** (numerical): ranging from 64 - 256 in increments of 32.
+* **Taxon** (categorical): Arthropods, Birds, Reptiles, Mammals
+* **Migration Rate** (numerical): ranging from 0 - 10, increments of 1.
+* **Mortality** (numerical): ranging from 0.01 - 0.11, increments of 0.11.
+
+Categorical values are manipulated by selecting a category, numerical values are increased/decreased using the blue arrows.
+
+On the bottom of the notebook, you will see three round blue buttons that control the speed of the model (white box) using the `<<` and `>>` buttons and you can start and stop the model using the middle button.
+
+In the bottom right corner of the notebook there is an arrow taking you to the "next page" which is recording the data of the model in real time. Click the arrow to check out the data sheet.
+
+The Data Collection section consists of a dynamic table that is recording the number of individuals for each of the ten species found on the mainland that are currently found on each of the islands.
+
+On the bottom left you can see two panels with dynamic histograms indicating the current and average number of species on the island. To the right is a table with the values being displayed in the histogram.
+
+Above the arrow that would take you back to the `Design` page you see the `Run Time`, above that the option to `Reset the Average` and `Clear Islands`.
+
+
+`r msmbstyle::question(label = "ques:seven", text = "Briefly explain how you will design your experiment to test whether distance or area are causing the observed differences in species richness.")`
+
+
+### Run the model & collect your data
+
+Use the provided template to record your parameter settings and the habitat and taxonomic group you will be observing. For your experiment testing the effect of distance put "distance" in the `EXPERIMENT` column, for testing the effect of area, "area". Remember this is in the format of a tidy data set so all your observations for each run time and both experiments will be in consecutive rows.
+
+Run the model and at each time step record the observed number of individuals for each species. When you are finished export your results as a tab-delimited file for analysis and place it in the `data` directory. 
+
+*Be sure to upload your data to the google spreadsheet for a later comparison of different patterns among habitats/taxonomic groups!*
+
+### Compare results
+
+**DISTANCE**
+
+Load your results^[make sure to replace the file path with your file name].
+
+```{r}
+
+# read data
+distance <- read_delim("data/model_output.txt", delim = "\t") %>%
+  filter(EXPERIMENT == "distance")
+
+```
+
+Let's compare the change in species composition over time^[Make sure to change the title to reflect the habitat/taxon group you are comparing].
+
+```{r echo=TRUE, eval=FALSE}
+
+ggplot(distance, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  facet_grid(SPECIES ~ ISLAND) +
+  scale_color_manual(values = cols) +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  labs(x = "time", y = "number of individuals",
+       title = "TITLE YOUR FIGURE!") +
+  theme_facet +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:eight", text = "Describe your results.")`
+
+Calculate species richness observed for each sampling point and plot the change over time.
+
+```{r echo=TRUE, eval=FALSE}
+
+# calculate 
+richn <- distance %>%
+  filter(COUNT > 0) %>%
+  group_by(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) %>%
+  summarize(sp_richn = n())
+
+ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = "time", y = "species richness",
+       title = "TITLE YOUR FIGURE!") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:nine", text = "Describe your results.")`
+
+Calculate the total number of individuals observed for each sampling point and plot the change over time.
+
+```{r echo=TRUE, eval=FALSE}
+
+# calculate 
+total <- distance %>%
+  group_by(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) %>%
+  summarize(total_ind = sum(COUNT))
+
+ggplot(total, aes(x = RUN_TIME, y = total_ind, color = ISLAND)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  scale_y_continuous(breaks = pretty_breaks()) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = "time", y = "total indv",
+       title = "TITLE YOUR FIGURE!") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:ten", text = "Describe your results.")`
+
+
+**ISLAND AREA**
+
+Load your results (make sure to replace with your file name).
+
+```{r}
+
+# read data
+area <- read_delim("data/model_output.txt", delim = "\t") %>%
+  filter(EXPERIMENT == "area")
+
+```
+
+Let's compare the change in species composition over time (make sure to change the title to reflect the habitat/taxon group you are comparing).
+
+```{r eval=FALSE, echo=TRUE}
+
+ggplot(area, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  facet_grid(SPECIES ~ ISLAND) +
+  scale_color_manual(values = cols) +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  labs(x = "time", y = "number of individuals",
+       title = "TITLE YOUR FIGURE!") +
+  theme_facet +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:eleven", text = "Describe your results.")`
+
+Calculate species richness observed for each sampling point and plot the change over time.
+
+```{r echo=TRUE, eval=FALSE}
+
+# calculate 
+richn <- area %>%
+  filter(COUNT > 0) %>%
+  group_by(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) %>%
+  summarize(sp_richn = n())
+
+ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = "time", y = "species richness",
+       title = "TITLE YOUR FIGURE!") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:twelve", text = "Describe your results.")`
+
+Calculate the total number of individuals observed for each sampling point and plot the change over time.
+
+```{r echo=TRUE, eval=FALSE}
+
+# calculate 
+total <- distance %>%
+  group_by(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) %>%
+  summarize(total_ind = sum(COUNT))
+
+ggplot(total, aes(x = RUN_TIME, y = total_ind, color = ISLAND)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  scale_y_continuous(breaks = pretty_breaks()) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = "time", y = "total indv",
+       title = "TITLE YOUR FIGURE!") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:thirteen", text = "Describe your results.")`
+
+
+## The Equilibrium Theory of Island Biogeography
+
+The equilibrium theory of island biogeography [@MacArthur1963] states that patterns of species richness of an island are determined by two processes, **Immigration** (Colonization) and **Extinction**. If we can determine how these are related to distance and size of an island, we can infer how this affects species richness.
+
+`r msmbstyle::question(label = "ques:fourteen", text = "Assuming that species randomly migrate from the mainland to the island, briefly describe which factors determine the **rate of immigration**.")`
+
+`r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
+
+1. Distance of the island from the mainland.
+2. The number of species on the mainland that do not occur on the island.
+3. The probability a species will disperse from the mainland to the island.
+
+(*you still need to explain why in your answer!*)
+
+`r msmbstyle::solution_end()`
+
+`r msmbstyle::question(label = "ques:fifteen", text = "Assuming that species randomly migrate from the mainland to the island, briefly describe which factors determine the **rate of extinction** on the island.")`
+
+`r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
+
+1. Area of the island.
+2. Number of species present on the island.
+3. Probability a species will go extinct.
+
+(*you still need to explain why in your answer!*)
+
+`r msmbstyle::solution_end()`
+
+Simple versions of this model do not consider more complex factors such as species interactions and differences among species in terms of migration/extinction probabilities; we are essentially assuming that species are ecologically equivalent.
+
+`r msmbstyle::question(label = "ques:sixteen", text = "We of course know that species are not ecologically equivalent. Describe a few examples of factors that could affect species richness other than distance and area.")`
+
+Now that know what the factors are determine the immigration and extinction rates we should be able to generate a simple mathematical equation to quantify the rates.
+
+```{marginfigure}
+
+$$I = \frac{c(P-S)}{fD}$$
+
+```
+
+The **overall immigration rate** $I$ is inversely related to distance $D$, i.e. the closer the island to the mainland the more likely a species will disperse to the island. The **migration rate** (colonization probability $c$), determine the probability that a species will disperse from the mainland pool of species (**total number of species on mainland** $P$) and increase the **species richness** $S$ on the island, because as more species disperse the less likely it is that a species moving to the island does not already occur there. As a rule of thumb the scaling factor for Distance $f$ can be assumed to be 0.01.
+
+```{marginfigure}
+
+$$E = \frac{qS}{A^{m}}$$
+
+```
+
+The **extinction rate** $E$ can be is inversely related to the **area of the island** $A$ (we will assume a **power scaling factor for the area** $m$ of 0.25). The **extinction probability** $p$ will determine the decrease in **species richness** $S$.
+
+A key feature when considering that both processes are occurring simultaneously on the island is that as the species accumulate on the island ($S$ increases), the immigration rate decreases, while the extinction rate increases. At some point the immigration rate and extinction rate will become equal, the species richness will have reached an equilibrium. This means that even though the composition of species is dynamic with new species immigrating to the island, this process is balanced by species on the island going extinct. 
+
+Because the composition of species but not the number of species changes it is called a dynamic equilibrium, the **turnover rate** $T$ is determined as the rate of immigration (or extinction) at equilibrium, it is independent of the mainland pool size.
+
+Having defined these relationships we can model the immigration rate and extinction rate as a function of species richness.
+
+```{marginfigure}
+
+For this model we will first set values for our parameters and constants - usually you would need to infer those value from the literature or based on your data.
+
+<br>
+
+We are running what is called a `for loop`. Essentially we are running the same set of functions `for` a range of values (here distance). Instead of cutting and pasting the code multiple times and then adding those data frames together, we tell R to run the same set of functions for each value `d` in a given vector `D` that we have previously defined.
+
+<br>
+
+By using variables in our function and defining those separately instead of hardcoding the values in to the functions it is easy to change the actual values and re-run the code later on.
+
+```
+
+
+**DISTANCE**
+
+```{r fig.cap="Immigration/Extinction Rates and Island Distances", fig.width=8, fig.height=6}
+
+## SET PARAMETERS ---
+
+# number species mainland pool
+P <- 1000
+
+
+# colonization probability (assumed to be equal for all species)
+c <- 0.1
+
+# extinction probability (assumed to be equal for all species)
+q <- 0.2
+  
+
+# power scaling factor for area
+m <- 0.01
+
+
+# scaling factor for distance
+f <- 0.05
+
+
+# Distance island-mainland
+D <- c(100, 300, 600)
+
+# area of the island
+A <- 500
+
+## CALCLATE RATES ---
+
+# empty dataframe for results
+model <- setNames(data.frame(matrix(ncol = 6, nrow = 0)), 
+                  c("fract_pool", "area", "distance", "richn", "parameter", "rate"))
+
+# calculate species richness, immigration/extinction rate
+for (d in D){
+
+    run <- as.data.frame(seq(from = 0, to = 1, by = 0.1)) %>%
+              rename(fract_pool = `seq(from = 0, to = 1, by = 0.1)`) %>%
+              mutate(area = A,
+                     distance = d,
+                     richn = P*fract_pool,
+                     I = (c(P-richn))/(f*d),
+                     E = q*richn/A^m) %>%
+              pivot_longer(cols = 5:6, names_to = "parameter", values_to = "rate")
+    
+    model <- rbind(model, run)
+    
+}
+
+# adjust labels for plotting
+model <- model %>%
+  mutate(category = case_when(distance == 100 & parameter == "I" ~ "near",
+                              distance == 300 & parameter == "I" ~ "medium",
+                              distance == 600 & parameter == "I" ~ "far",
+                              parameter == "E" ~ "all"),
+         category = ordered(category, levels = c("near", "medium", "far", "all")))
+  
+
+ggplot(model, aes(x = richn, y = rate, shape = parameter, color = category)) +
+  geom_line(size = 1) +
+  geom_point(size = 3, fill = "white") +
+  scale_color_manual(values = cols) +
+  scale_shape_manual(values = c(21, 22)) +
+  labs(x = "species richness", y = "immigration/extinction rate") +
+  theme_standard +
+  theme(legend.position = "right")
+
+```
+
+`r msmbstyle::question(label = "ques:seventeen", text = "Briefly describe the relationship of immigration rate and species richness and the distance of the island to the mainland and identify the differences turnover rates (i.e. the level of species richness when extinction/immigration are in equilibrium) and explain how/why they differ in relation to each other.")`
+
+
+**AREA**
+
+```{r fig.cap="Immigration/Extinction Rates and Island Size", fig.width=8, fig.height=6}
+
+## SET PARAMETERS ---
+
+# number species mainland pool
+P <- 1000
+
+
+# colonization probability (assumed to be equal for all species)
+c <- 0.1
+
+# extinction probability
+q <- 0.2
+  
+
+# power scaling factor for area
+m <- 0.25
+
+# scaling factor for distance
+f <- 0.05
+
+
+# Distance island-mainland
+D <- 200
+
+# area of the island
+A <- c(50, 500, 5000)
+
+## CALCLATE RATES
+
+# empty dataframe for results
+model <- setNames(data.frame(matrix(ncol = 6, nrow = 0)), 
+                  c("fract_pool", "area", "distance", "richn", "parameter", "rate"))
+
+# calculate species richness, immigration/extinction rate
+for(a in A){
+    
+    run <- as.data.frame(seq(from = 0, to = 1, by = 0.1)) %>%
+              rename(fract_pool = `seq(from = 0, to = 1, by = 0.1)`) %>%
+              mutate(area = a,
+                     distance = D,
+                     richn = P*fract_pool,
+                     I = (c(P-richn))/(f*D),
+                     E = q*richn/a^m) %>%
+              pivot_longer(cols = 5:6, names_to = "parameter", values_to = "rate")
+    
+    model <- rbind(model, run)
+    
+  }
+
+
+# adjust labels for plotting
+model <- model %>%
+  mutate(category = case_when(area == 50 & parameter == "E" ~ "small",
+                              area == 500 & parameter == "E" ~ "medium",
+                              area == 5000 & parameter == "E" ~ "large",
+                              parameter == "I" ~ "all"),
+         category = ordered(category, levels = c("small", "medium", "large", "all")))
+  
+
+ggplot(model, aes(x = richn, y = rate, shape = parameter, color = category)) +
+  geom_line(size = 1) +
+  geom_point(size = 3, fill = "white") +
+  scale_color_manual(values = cols) +
+  scale_shape_manual(values = c(21, 22)) +
+  labs(x = "species richness", y = "immigration/extinction rate") +
+  theme_standard +
+  theme(legend.position = "right")
+
+
+```
+
+`r msmbstyle::question(label = "ques:eighteen", text = "Briefly describe the relationship of immigration rate and species richness and the distance of the island to the mainland and identify the differences turnover rates (i.e. the level of species richness when extinction/immigration are in equilibrium) and explain how/why they differ in relation to each other.")`
+
+Despite its simplicity, models based on our understanding of island biogeography are frequently used to predict the number of species expected to persist (or go extinct) in nature reserves.
+
+
+## Habitat & Taxonomic groups
+
+You may remember from our initial comparison that we identified differences among habitats. 
+
+`r msmbstyle::question(label = "ques:nineteen", text = "Take a look at the different habitats in the model and argue how you think they should rank in terms of the number of different species and total number of individuals they can support.")`
+
+`r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
+
+Keyword: Productivity.
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question(label = "ques:twenty", text = "Take a look at the different taxonomic in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.")`
+
+`r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
+
+They have to survive the trip to the island ...
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question(label = "ques:twenty-one", text = "Download the data from the spreadsheet we have combined all the different taxa/habitat scenarios and use the skills you've gained throughout this lab to compare the species richness grouped by taxon and habitat.")`
+
+`r msmbstyle::solution_begin(header = "Notes", toggle = TRUE)`
+
+1. Consider whether to filter for the "distance" or "area" experiment - or both?
+2. Remember, you can use `facet_grid()` to simultaneously create a range of plots!
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question(label = "ques:twenty-two", text = "Briefly describe your results and interpret them (i.e. try to explain the mechanisms producing the observed patterns.")`
+
+
+## Changes in mortality and migration rate
+
+Two parameters that so far we have not manipulated in the experiment are the mortality and migration rate. The migration rate affects how frequently animals are blown out to sea and mortality determine the probability of individuals dying on the island.
+
+`r msmbstyle::question(label = "ques:twenty-three", text = "For each of these parameters argue how you think increase/decrease will affect species richness on an island in relation to distance to mainland and/or island area. Consider that each parameter might affect both area and distance or only one or neither.")`
+
+`r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
+
+Go back to our model of biogeography and consider how each of these parameters is included in the calculation of Immigration and Extinction rates and how these in turn determine species richness.
+
+`r msmbstyle::solution_end()`
+
+`r msmbstyle::question(label = "ques:twenty-four", text = "Choose either mortality or migration rate and design an experiment to determine how it affects species richness in relation to distance and area of an island. Explain your design (be sure to detail your parameter settings), run the model, and collect your data. Export your data as a tab delimited file, visualize your results and briefly discuss them (this includes describing your results and explaining the mechanisms generating the patterns you are observing - refer back to your original hypothesis of how this parameter will affect species richness.)")`
+
+`r msmbstyle::solution_begin(header = "Pro tip", toggle = TRUE)`
+
+You already have one data set each for area and distance ... consider re-using those data sets and just generating complementary data sets.
+
+Essentially This section should be set up in a very similar format as your initial experimental design looking at just distance/area.
+
+`r msmbstyle::solution_end()`
+
