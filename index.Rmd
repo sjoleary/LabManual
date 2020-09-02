@@ -57,6 +57,13 @@ You will be receiving lab homework in some format almost every lab, part of the 
 **Due by the following Wednesday 12pm** unless otherwise specified.  
 *No late or incomplete homework will be accepted or receive credit.*
 
+### Due Wednesday, Sept. 9th {-}
+
+Complete lab 6 ([Island Biogeography](https://labmanual.netlify.app/island-biogeography.html)) and upload the knitted `html` document through Canvas (`HW-3`).
+
+
+<br>
+
 
 ### Due Wednesday, Sept. 2nd {-}
 
