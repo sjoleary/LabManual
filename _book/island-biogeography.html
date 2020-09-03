@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-09-01" />
+<meta name="date" content="2020-09-02" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -617,7 +617,7 @@ Briefly explain how you will design your experiment to test whether distance or 
 <p><strong>DISTANCE</strong></p>
 <p>Load your results<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> make sure to replace the file path with your file name</span>.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="island-biogeography.html#cb21-1"></a><span class="co"># read data</span></span>
-<span id="cb21-2"><a href="island-biogeography.html#cb21-2"></a>distance &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/model_output.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb21-2"><a href="island-biogeography.html#cb21-2"></a>distance &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/tundra_arthropods.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb21-3"><a href="island-biogeography.html#cb21-3"></a><span class="st">  </span><span class="kw">filter</span>(EXPERIMENT <span class="op">==</span><span class="st"> "distance"</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -641,9 +641,16 @@ Briefly explain how you will design your experiment to test whether distance or 
 <span id="cb23-5"><a href="island-biogeography.html#cb23-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
 <span id="cb23-6"><a href="island-biogeography.html#cb23-6"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
 <span id="cb23-7"><a href="island-biogeography.html#cb23-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>,</span>
-<span id="cb23-8"><a href="island-biogeography.html#cb23-8"></a>       <span class="dt">title =</span> <span class="st">"TITLE YOUR FIGURE!"</span>) <span class="op">+</span></span>
+<span id="cb23-8"><a href="island-biogeography.html#cb23-8"></a>       <span class="dt">title =</span> <span class="st">"Arthropods in the the Tundra"</span>) <span class="op">+</span></span>
 <span id="cb23-9"><a href="island-biogeography.html#cb23-9"></a><span class="st">  </span>theme_facet <span class="op">+</span></span>
 <span id="cb23-10"><a href="island-biogeography.html#cb23-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-14"></span>
+<p class="caption marginnote shownote">
+Figure 6.5: Number of individuals sampled for each species at each sampling point.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-14-1.png" alt="Number of individuals sampled for each species at each sampling point." width="768">
+</div>
 <div id="ques:eight" class="question">
 <p class="question-begin">
 ► Question 6.8
@@ -662,16 +669,23 @@ Describe your results.
 <span id="cb24-2"><a href="island-biogeography.html#cb24-2"></a>richn &lt;-<span class="st"> </span>distance <span class="op">%&gt;%</span></span>
 <span id="cb24-3"><a href="island-biogeography.html#cb24-3"></a><span class="st">  </span><span class="kw">filter</span>(COUNT <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
 <span id="cb24-4"><a href="island-biogeography.html#cb24-4"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
-<span id="cb24-5"><a href="island-biogeography.html#cb24-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">sp_richn =</span> <span class="kw">n</span>())</span>
-<span id="cb24-6"><a href="island-biogeography.html#cb24-6"></a></span>
-<span id="cb24-7"><a href="island-biogeography.html#cb24-7"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> sp_richn, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
-<span id="cb24-8"><a href="island-biogeography.html#cb24-8"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb24-9"><a href="island-biogeography.html#cb24-9"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb24-10"><a href="island-biogeography.html#cb24-10"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
-<span id="cb24-11"><a href="island-biogeography.html#cb24-11"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
-<span id="cb24-12"><a href="island-biogeography.html#cb24-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>,</span>
-<span id="cb24-13"><a href="island-biogeography.html#cb24-13"></a>       <span class="dt">title =</span> <span class="st">"TITLE YOUR FIGURE!"</span>) <span class="op">+</span></span>
-<span id="cb24-14"><a href="island-biogeography.html#cb24-14"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<span id="cb24-5"><a href="island-biogeography.html#cb24-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">sp_richn =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'ISLAND', 'RUN_TIME', 'DISTANCE', 'SIZE', 'MIGRAT_RATE' (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="island-biogeography.html#cb26-1"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> sp_richn, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
+<span id="cb26-2"><a href="island-biogeography.html#cb26-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb26-3"><a href="island-biogeography.html#cb26-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb26-4"><a href="island-biogeography.html#cb26-4"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
+<span id="cb26-5"><a href="island-biogeography.html#cb26-5"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb26-6"><a href="island-biogeography.html#cb26-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>,</span>
+<span id="cb26-7"><a href="island-biogeography.html#cb26-7"></a>       <span class="dt">title =</span> <span class="st">"Arthropods in the the Tundra"</span>) <span class="op">+</span></span>
+<span id="cb26-8"><a href="island-biogeography.html#cb26-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-15"></span>
+<p class="caption marginnote shownote">
+Figure 6.6: Observed species richness at each sampling point.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-15-1.png" alt="Observed species richness at each sampling point." width="672">
+</div>
 <div id="ques:nine" class="question">
 <p class="question-begin">
 ► Question 6.9
@@ -686,19 +700,26 @@ Describe your results.
 </div>
 </div>
 <p>Calculate the total number of individuals observed for each sampling point and plot the change over time.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="island-biogeography.html#cb25-1"></a><span class="co"># calculate </span></span>
-<span id="cb25-2"><a href="island-biogeography.html#cb25-2"></a>total &lt;-<span class="st"> </span>distance <span class="op">%&gt;%</span></span>
-<span id="cb25-3"><a href="island-biogeography.html#cb25-3"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
-<span id="cb25-4"><a href="island-biogeography.html#cb25-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_ind =</span> <span class="kw">sum</span>(COUNT))</span>
-<span id="cb25-5"><a href="island-biogeography.html#cb25-5"></a></span>
-<span id="cb25-6"><a href="island-biogeography.html#cb25-6"></a><span class="kw">ggplot</span>(total, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> total_ind, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
-<span id="cb25-7"><a href="island-biogeography.html#cb25-7"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb25-8"><a href="island-biogeography.html#cb25-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb25-9"><a href="island-biogeography.html#cb25-9"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
-<span id="cb25-10"><a href="island-biogeography.html#cb25-10"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
-<span id="cb25-11"><a href="island-biogeography.html#cb25-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"total indv"</span>,</span>
-<span id="cb25-12"><a href="island-biogeography.html#cb25-12"></a>       <span class="dt">title =</span> <span class="st">"TITLE YOUR FIGURE!"</span>) <span class="op">+</span></span>
-<span id="cb25-13"><a href="island-biogeography.html#cb25-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="island-biogeography.html#cb27-1"></a><span class="co"># calculate </span></span>
+<span id="cb27-2"><a href="island-biogeography.html#cb27-2"></a>total &lt;-<span class="st"> </span>distance <span class="op">%&gt;%</span></span>
+<span id="cb27-3"><a href="island-biogeography.html#cb27-3"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
+<span id="cb27-4"><a href="island-biogeography.html#cb27-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_ind =</span> <span class="kw">sum</span>(COUNT))</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'ISLAND', 'RUN_TIME', 'DISTANCE', 'SIZE', 'MIGRAT_RATE' (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="island-biogeography.html#cb29-1"></a><span class="kw">ggplot</span>(total, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> total_ind, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
+<span id="cb29-2"><a href="island-biogeography.html#cb29-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb29-3"><a href="island-biogeography.html#cb29-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb29-4"><a href="island-biogeography.html#cb29-4"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb29-5"><a href="island-biogeography.html#cb29-5"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb29-6"><a href="island-biogeography.html#cb29-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"total indv"</span>,</span>
+<span id="cb29-7"><a href="island-biogeography.html#cb29-7"></a>       <span class="dt">title =</span> <span class="st">"Arthropods in the Tundra"</span>) <span class="op">+</span></span>
+<span id="cb29-8"><a href="island-biogeography.html#cb29-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-16"></span>
+<p class="caption marginnote shownote">
+Figure 6.7: Observed total number of individuals across all species at each sampling point..
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-16-1.png" alt="Observed total number of individuals across all species at each sampling point.." width="672">
+</div>
 <div id="ques:ten" class="question">
 <p class="question-begin">
 ► Question 6.10
@@ -714,9 +735,9 @@ Describe your results.
 </div>
 <p><strong>ISLAND AREA</strong></p>
 <p>Load your results (make sure to replace with your file name).</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="island-biogeography.html#cb26-1"></a><span class="co"># read data</span></span>
-<span id="cb26-2"><a href="island-biogeography.html#cb26-2"></a>area &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/model_output.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb26-3"><a href="island-biogeography.html#cb26-3"></a><span class="st">  </span><span class="kw">filter</span>(EXPERIMENT <span class="op">==</span><span class="st"> "area"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="island-biogeography.html#cb30-1"></a><span class="co"># read data</span></span>
+<span id="cb30-2"><a href="island-biogeography.html#cb30-2"></a>area &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/tundra_arthropods.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb30-3"><a href="island-biogeography.html#cb30-3"></a><span class="st">  </span><span class="kw">filter</span>(EXPERIMENT <span class="op">==</span><span class="st"> "area"</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   EXPERIMENT = col_character(),
@@ -732,16 +753,23 @@ Describe your results.
 ##   MORTALITY = col_double()
 ## )</code></pre>
 <p>Let’s compare the change in species composition over time (make sure to change the title to reflect the habitat/taxon group you are comparing).</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="island-biogeography.html#cb28-1"></a><span class="kw">ggplot</span>(area, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> COUNT, <span class="dt">color =</span> SPECIES)) <span class="op">+</span></span>
-<span id="cb28-2"><a href="island-biogeography.html#cb28-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb28-3"><a href="island-biogeography.html#cb28-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb28-4"><a href="island-biogeography.html#cb28-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(SPECIES <span class="op">~</span><span class="st"> </span>ISLAND) <span class="op">+</span></span>
-<span id="cb28-5"><a href="island-biogeography.html#cb28-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
-<span id="cb28-6"><a href="island-biogeography.html#cb28-6"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
-<span id="cb28-7"><a href="island-biogeography.html#cb28-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>,</span>
-<span id="cb28-8"><a href="island-biogeography.html#cb28-8"></a>       <span class="dt">title =</span> <span class="st">"TITLE YOUR FIGURE!"</span>) <span class="op">+</span></span>
-<span id="cb28-9"><a href="island-biogeography.html#cb28-9"></a><span class="st">  </span>theme_facet <span class="op">+</span></span>
-<span id="cb28-10"><a href="island-biogeography.html#cb28-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="island-biogeography.html#cb32-1"></a><span class="kw">ggplot</span>(area, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> COUNT, <span class="dt">color =</span> SPECIES)) <span class="op">+</span></span>
+<span id="cb32-2"><a href="island-biogeography.html#cb32-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb32-3"><a href="island-biogeography.html#cb32-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb32-4"><a href="island-biogeography.html#cb32-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(SPECIES <span class="op">~</span><span class="st"> </span>ISLAND) <span class="op">+</span></span>
+<span id="cb32-5"><a href="island-biogeography.html#cb32-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
+<span id="cb32-6"><a href="island-biogeography.html#cb32-6"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
+<span id="cb32-7"><a href="island-biogeography.html#cb32-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>,</span>
+<span id="cb32-8"><a href="island-biogeography.html#cb32-8"></a>       <span class="dt">title =</span> <span class="st">"Arthropods in the Tundra"</span>) <span class="op">+</span></span>
+<span id="cb32-9"><a href="island-biogeography.html#cb32-9"></a><span class="st">  </span>theme_facet <span class="op">+</span></span>
+<span id="cb32-10"><a href="island-biogeography.html#cb32-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-18"></span>
+<p class="caption marginnote shownote">
+Figure 6.8: Number of individuals sampled for each species at each sampling point.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-18-1.png" alt="Number of individuals sampled for each species at each sampling point." width="768">
+</div>
 <div id="ques:eleven" class="question">
 <p class="question-begin">
 ► Question 6.11
@@ -756,20 +784,27 @@ Describe your results.
 </div>
 </div>
 <p>Calculate species richness observed for each sampling point and plot the change over time.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="island-biogeography.html#cb29-1"></a><span class="co"># calculate </span></span>
-<span id="cb29-2"><a href="island-biogeography.html#cb29-2"></a>richn &lt;-<span class="st"> </span>area <span class="op">%&gt;%</span></span>
-<span id="cb29-3"><a href="island-biogeography.html#cb29-3"></a><span class="st">  </span><span class="kw">filter</span>(COUNT <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
-<span id="cb29-4"><a href="island-biogeography.html#cb29-4"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
-<span id="cb29-5"><a href="island-biogeography.html#cb29-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">sp_richn =</span> <span class="kw">n</span>())</span>
-<span id="cb29-6"><a href="island-biogeography.html#cb29-6"></a></span>
-<span id="cb29-7"><a href="island-biogeography.html#cb29-7"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> sp_richn, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
-<span id="cb29-8"><a href="island-biogeography.html#cb29-8"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb29-9"><a href="island-biogeography.html#cb29-9"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb29-10"><a href="island-biogeography.html#cb29-10"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
-<span id="cb29-11"><a href="island-biogeography.html#cb29-11"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
-<span id="cb29-12"><a href="island-biogeography.html#cb29-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>,</span>
-<span id="cb29-13"><a href="island-biogeography.html#cb29-13"></a>       <span class="dt">title =</span> <span class="st">"TITLE YOUR FIGURE!"</span>) <span class="op">+</span></span>
-<span id="cb29-14"><a href="island-biogeography.html#cb29-14"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="island-biogeography.html#cb33-1"></a><span class="co"># calculate </span></span>
+<span id="cb33-2"><a href="island-biogeography.html#cb33-2"></a>richn &lt;-<span class="st"> </span>area <span class="op">%&gt;%</span></span>
+<span id="cb33-3"><a href="island-biogeography.html#cb33-3"></a><span class="st">  </span><span class="kw">filter</span>(COUNT <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb33-4"><a href="island-biogeography.html#cb33-4"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
+<span id="cb33-5"><a href="island-biogeography.html#cb33-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">sp_richn =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'ISLAND', 'RUN_TIME', 'DISTANCE', 'SIZE', 'MIGRAT_RATE' (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="island-biogeography.html#cb35-1"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> sp_richn, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
+<span id="cb35-2"><a href="island-biogeography.html#cb35-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb35-3"><a href="island-biogeography.html#cb35-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb35-4"><a href="island-biogeography.html#cb35-4"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
+<span id="cb35-5"><a href="island-biogeography.html#cb35-5"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb35-6"><a href="island-biogeography.html#cb35-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>,</span>
+<span id="cb35-7"><a href="island-biogeography.html#cb35-7"></a>       <span class="dt">title =</span> <span class="st">"Arthropods in the Tundra"</span>) <span class="op">+</span></span>
+<span id="cb35-8"><a href="island-biogeography.html#cb35-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-19"></span>
+<p class="caption marginnote shownote">
+Figure 6.9: Observed species richness at each sampling point.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-19-1.png" alt="Observed species richness at each sampling point." width="672">
+</div>
 <div id="ques:twelve" class="question">
 <p class="question-begin">
 ► Question 6.12
@@ -784,19 +819,26 @@ Describe your results.
 </div>
 </div>
 <p>Calculate the total number of individuals observed for each sampling point and plot the change over time.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="island-biogeography.html#cb30-1"></a><span class="co"># calculate </span></span>
-<span id="cb30-2"><a href="island-biogeography.html#cb30-2"></a>total &lt;-<span class="st"> </span>distance <span class="op">%&gt;%</span></span>
-<span id="cb30-3"><a href="island-biogeography.html#cb30-3"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
-<span id="cb30-4"><a href="island-biogeography.html#cb30-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_ind =</span> <span class="kw">sum</span>(COUNT))</span>
-<span id="cb30-5"><a href="island-biogeography.html#cb30-5"></a></span>
-<span id="cb30-6"><a href="island-biogeography.html#cb30-6"></a><span class="kw">ggplot</span>(total, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> total_ind, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
-<span id="cb30-7"><a href="island-biogeography.html#cb30-7"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb30-8"><a href="island-biogeography.html#cb30-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb30-9"><a href="island-biogeography.html#cb30-9"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
-<span id="cb30-10"><a href="island-biogeography.html#cb30-10"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
-<span id="cb30-11"><a href="island-biogeography.html#cb30-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"total indv"</span>,</span>
-<span id="cb30-12"><a href="island-biogeography.html#cb30-12"></a>       <span class="dt">title =</span> <span class="st">"TITLE YOUR FIGURE!"</span>) <span class="op">+</span></span>
-<span id="cb30-13"><a href="island-biogeography.html#cb30-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="island-biogeography.html#cb36-1"></a><span class="co"># calculate </span></span>
+<span id="cb36-2"><a href="island-biogeography.html#cb36-2"></a>total &lt;-<span class="st"> </span>distance <span class="op">%&gt;%</span></span>
+<span id="cb36-3"><a href="island-biogeography.html#cb36-3"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
+<span id="cb36-4"><a href="island-biogeography.html#cb36-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_ind =</span> <span class="kw">sum</span>(COUNT))</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'ISLAND', 'RUN_TIME', 'DISTANCE', 'SIZE', 'MIGRAT_RATE' (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="island-biogeography.html#cb38-1"></a><span class="kw">ggplot</span>(total, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> total_ind, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
+<span id="cb38-2"><a href="island-biogeography.html#cb38-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb38-3"><a href="island-biogeography.html#cb38-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb38-4"><a href="island-biogeography.html#cb38-4"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb38-5"><a href="island-biogeography.html#cb38-5"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb38-6"><a href="island-biogeography.html#cb38-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"total indv"</span>,</span>
+<span id="cb38-7"><a href="island-biogeography.html#cb38-7"></a>       <span class="dt">title =</span> <span class="st">"Arthropods in the Tundra"</span>) <span class="op">+</span></span>
+<span id="cb38-8"><a href="island-biogeography.html#cb38-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-20"></span>
+<p class="caption marginnote shownote">
+Figure 6.10: Observed total number of individuals across all species at each sampling point..
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-20-1.png" alt="Observed total number of individuals across all species at each sampling point.." width="672">
+</div>
 <div id="ques:thirteen" class="question">
 <p class="question-begin">
 ► Question 6.13
@@ -902,76 +944,76 @@ We of course know that species are not ecologically equivalent. Describe a few e
 <span style="display: block;"><br></span>
 <span style="display: block;">By using variables in our function and defining those separately instead of hardcoding the values in to the functions it is easy to change the actual values and re-run the code later on.</span></span></p>
 <p><strong>DISTANCE</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="island-biogeography.html#cb31-1"></a><span class="co">## SET PARAMETERS ---</span></span>
-<span id="cb31-2"><a href="island-biogeography.html#cb31-2"></a></span>
-<span id="cb31-3"><a href="island-biogeography.html#cb31-3"></a><span class="co"># number species mainland pool</span></span>
-<span id="cb31-4"><a href="island-biogeography.html#cb31-4"></a>P &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb31-5"><a href="island-biogeography.html#cb31-5"></a></span>
-<span id="cb31-6"><a href="island-biogeography.html#cb31-6"></a></span>
-<span id="cb31-7"><a href="island-biogeography.html#cb31-7"></a><span class="co"># colonization probability (assumed to be equal for all species)</span></span>
-<span id="cb31-8"><a href="island-biogeography.html#cb31-8"></a>c &lt;-<span class="st"> </span><span class="fl">0.1</span></span>
-<span id="cb31-9"><a href="island-biogeography.html#cb31-9"></a></span>
-<span id="cb31-10"><a href="island-biogeography.html#cb31-10"></a><span class="co"># extinction probability (assumed to be equal for all species)</span></span>
-<span id="cb31-11"><a href="island-biogeography.html#cb31-11"></a>q &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
-<span id="cb31-12"><a href="island-biogeography.html#cb31-12"></a>  </span>
-<span id="cb31-13"><a href="island-biogeography.html#cb31-13"></a></span>
-<span id="cb31-14"><a href="island-biogeography.html#cb31-14"></a><span class="co"># power scaling factor for area</span></span>
-<span id="cb31-15"><a href="island-biogeography.html#cb31-15"></a>m &lt;-<span class="st"> </span><span class="fl">0.01</span></span>
-<span id="cb31-16"><a href="island-biogeography.html#cb31-16"></a></span>
-<span id="cb31-17"><a href="island-biogeography.html#cb31-17"></a></span>
-<span id="cb31-18"><a href="island-biogeography.html#cb31-18"></a><span class="co"># scaling factor for distance</span></span>
-<span id="cb31-19"><a href="island-biogeography.html#cb31-19"></a>f &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
-<span id="cb31-20"><a href="island-biogeography.html#cb31-20"></a></span>
-<span id="cb31-21"><a href="island-biogeography.html#cb31-21"></a></span>
-<span id="cb31-22"><a href="island-biogeography.html#cb31-22"></a><span class="co"># Distance island-mainland</span></span>
-<span id="cb31-23"><a href="island-biogeography.html#cb31-23"></a>D &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">600</span>)</span>
-<span id="cb31-24"><a href="island-biogeography.html#cb31-24"></a></span>
-<span id="cb31-25"><a href="island-biogeography.html#cb31-25"></a><span class="co"># area of the island</span></span>
-<span id="cb31-26"><a href="island-biogeography.html#cb31-26"></a>A &lt;-<span class="st"> </span><span class="dv">500</span></span>
-<span id="cb31-27"><a href="island-biogeography.html#cb31-27"></a></span>
-<span id="cb31-28"><a href="island-biogeography.html#cb31-28"></a><span class="co">## CALCLATE RATES ---</span></span>
-<span id="cb31-29"><a href="island-biogeography.html#cb31-29"></a></span>
-<span id="cb31-30"><a href="island-biogeography.html#cb31-30"></a><span class="co"># empty dataframe for results</span></span>
-<span id="cb31-31"><a href="island-biogeography.html#cb31-31"></a>model &lt;-<span class="st"> </span><span class="kw">setNames</span>(<span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="dt">ncol =</span> <span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">0</span>)), </span>
-<span id="cb31-32"><a href="island-biogeography.html#cb31-32"></a>                  <span class="kw">c</span>(<span class="st">"fract_pool"</span>, <span class="st">"area"</span>, <span class="st">"distance"</span>, <span class="st">"richn"</span>, <span class="st">"parameter"</span>, <span class="st">"rate"</span>))</span>
-<span id="cb31-33"><a href="island-biogeography.html#cb31-33"></a></span>
-<span id="cb31-34"><a href="island-biogeography.html#cb31-34"></a><span class="co"># calculate species richness, immigration/extinction rate</span></span>
-<span id="cb31-35"><a href="island-biogeography.html#cb31-35"></a><span class="cf">for</span> (d <span class="cf">in</span> D){</span>
-<span id="cb31-36"><a href="island-biogeography.html#cb31-36"></a></span>
-<span id="cb31-37"><a href="island-biogeography.html#cb31-37"></a>    run &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb31-38"><a href="island-biogeography.html#cb31-38"></a><span class="st">              </span><span class="kw">rename</span>(<span class="dt">fract_pool =</span> <span class="st">`</span><span class="dt">seq(from = 0, to = 1, by = 0.1)</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
-<span id="cb31-39"><a href="island-biogeography.html#cb31-39"></a><span class="st">              </span><span class="kw">mutate</span>(<span class="dt">area =</span> A,</span>
-<span id="cb31-40"><a href="island-biogeography.html#cb31-40"></a>                     <span class="dt">distance =</span> d,</span>
-<span id="cb31-41"><a href="island-biogeography.html#cb31-41"></a>                     <span class="dt">richn =</span> P<span class="op">*</span>fract_pool,</span>
-<span id="cb31-42"><a href="island-biogeography.html#cb31-42"></a>                     <span class="dt">I =</span> (<span class="kw">c</span>(P<span class="op">-</span>richn))<span class="op">/</span>(f<span class="op">*</span>d),</span>
-<span id="cb31-43"><a href="island-biogeography.html#cb31-43"></a>                     <span class="dt">E =</span> q<span class="op">*</span>richn<span class="op">/</span>A<span class="op">^</span>m) <span class="op">%&gt;%</span></span>
-<span id="cb31-44"><a href="island-biogeography.html#cb31-44"></a><span class="st">              </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"parameter"</span>, <span class="dt">values_to =</span> <span class="st">"rate"</span>)</span>
-<span id="cb31-45"><a href="island-biogeography.html#cb31-45"></a>    </span>
-<span id="cb31-46"><a href="island-biogeography.html#cb31-46"></a>    model &lt;-<span class="st"> </span><span class="kw">rbind</span>(model, run)</span>
-<span id="cb31-47"><a href="island-biogeography.html#cb31-47"></a>    </span>
-<span id="cb31-48"><a href="island-biogeography.html#cb31-48"></a>}</span>
-<span id="cb31-49"><a href="island-biogeography.html#cb31-49"></a></span>
-<span id="cb31-50"><a href="island-biogeography.html#cb31-50"></a><span class="co"># adjust labels for plotting</span></span>
-<span id="cb31-51"><a href="island-biogeography.html#cb31-51"></a>model &lt;-<span class="st"> </span>model <span class="op">%&gt;%</span></span>
-<span id="cb31-52"><a href="island-biogeography.html#cb31-52"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">case_when</span>(distance <span class="op">==</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "near"</span>,</span>
-<span id="cb31-53"><a href="island-biogeography.html#cb31-53"></a>                              distance <span class="op">==</span><span class="st"> </span><span class="dv">300</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "medium"</span>,</span>
-<span id="cb31-54"><a href="island-biogeography.html#cb31-54"></a>                              distance <span class="op">==</span><span class="st"> </span><span class="dv">600</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "far"</span>,</span>
-<span id="cb31-55"><a href="island-biogeography.html#cb31-55"></a>                              parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "all"</span>),</span>
-<span id="cb31-56"><a href="island-biogeography.html#cb31-56"></a>         <span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"near"</span>, <span class="st">"medium"</span>, <span class="st">"far"</span>, <span class="st">"all"</span>)))</span>
-<span id="cb31-57"><a href="island-biogeography.html#cb31-57"></a>  </span>
-<span id="cb31-58"><a href="island-biogeography.html#cb31-58"></a></span>
-<span id="cb31-59"><a href="island-biogeography.html#cb31-59"></a><span class="kw">ggplot</span>(model, <span class="kw">aes</span>(<span class="dt">x =</span> richn, <span class="dt">y =</span> rate, <span class="dt">shape =</span> parameter, <span class="dt">color =</span> category)) <span class="op">+</span></span>
-<span id="cb31-60"><a href="island-biogeography.html#cb31-60"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb31-61"><a href="island-biogeography.html#cb31-61"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb31-62"><a href="island-biogeography.html#cb31-62"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
-<span id="cb31-63"><a href="island-biogeography.html#cb31-63"></a><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">22</span>)) <span class="op">+</span></span>
-<span id="cb31-64"><a href="island-biogeography.html#cb31-64"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"species richness"</span>, <span class="dt">y =</span> <span class="st">"immigration/extinction rate"</span>) <span class="op">+</span></span>
-<span id="cb31-65"><a href="island-biogeography.html#cb31-65"></a><span class="st">  </span>theme_standard <span class="op">+</span></span>
-<span id="cb31-66"><a href="island-biogeography.html#cb31-66"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="island-biogeography.html#cb39-1"></a><span class="co">## SET PARAMETERS ---</span></span>
+<span id="cb39-2"><a href="island-biogeography.html#cb39-2"></a></span>
+<span id="cb39-3"><a href="island-biogeography.html#cb39-3"></a><span class="co"># number species mainland pool</span></span>
+<span id="cb39-4"><a href="island-biogeography.html#cb39-4"></a>P &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb39-5"><a href="island-biogeography.html#cb39-5"></a></span>
+<span id="cb39-6"><a href="island-biogeography.html#cb39-6"></a></span>
+<span id="cb39-7"><a href="island-biogeography.html#cb39-7"></a><span class="co"># colonization probability (assumed to be equal for all species)</span></span>
+<span id="cb39-8"><a href="island-biogeography.html#cb39-8"></a>c &lt;-<span class="st"> </span><span class="fl">0.1</span></span>
+<span id="cb39-9"><a href="island-biogeography.html#cb39-9"></a></span>
+<span id="cb39-10"><a href="island-biogeography.html#cb39-10"></a><span class="co"># extinction probability (assumed to be equal for all species)</span></span>
+<span id="cb39-11"><a href="island-biogeography.html#cb39-11"></a>q &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
+<span id="cb39-12"><a href="island-biogeography.html#cb39-12"></a>  </span>
+<span id="cb39-13"><a href="island-biogeography.html#cb39-13"></a></span>
+<span id="cb39-14"><a href="island-biogeography.html#cb39-14"></a><span class="co"># power scaling factor for area</span></span>
+<span id="cb39-15"><a href="island-biogeography.html#cb39-15"></a>m &lt;-<span class="st"> </span><span class="fl">0.01</span></span>
+<span id="cb39-16"><a href="island-biogeography.html#cb39-16"></a></span>
+<span id="cb39-17"><a href="island-biogeography.html#cb39-17"></a></span>
+<span id="cb39-18"><a href="island-biogeography.html#cb39-18"></a><span class="co"># scaling factor for distance</span></span>
+<span id="cb39-19"><a href="island-biogeography.html#cb39-19"></a>f &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb39-20"><a href="island-biogeography.html#cb39-20"></a></span>
+<span id="cb39-21"><a href="island-biogeography.html#cb39-21"></a></span>
+<span id="cb39-22"><a href="island-biogeography.html#cb39-22"></a><span class="co"># Distance island-mainland</span></span>
+<span id="cb39-23"><a href="island-biogeography.html#cb39-23"></a>D &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">600</span>)</span>
+<span id="cb39-24"><a href="island-biogeography.html#cb39-24"></a></span>
+<span id="cb39-25"><a href="island-biogeography.html#cb39-25"></a><span class="co"># area of the island</span></span>
+<span id="cb39-26"><a href="island-biogeography.html#cb39-26"></a>A &lt;-<span class="st"> </span><span class="dv">500</span></span>
+<span id="cb39-27"><a href="island-biogeography.html#cb39-27"></a></span>
+<span id="cb39-28"><a href="island-biogeography.html#cb39-28"></a><span class="co">## CALCLATE RATES ---</span></span>
+<span id="cb39-29"><a href="island-biogeography.html#cb39-29"></a></span>
+<span id="cb39-30"><a href="island-biogeography.html#cb39-30"></a><span class="co"># empty dataframe for results</span></span>
+<span id="cb39-31"><a href="island-biogeography.html#cb39-31"></a>model &lt;-<span class="st"> </span><span class="kw">setNames</span>(<span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="dt">ncol =</span> <span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">0</span>)), </span>
+<span id="cb39-32"><a href="island-biogeography.html#cb39-32"></a>                  <span class="kw">c</span>(<span class="st">"fract_pool"</span>, <span class="st">"area"</span>, <span class="st">"distance"</span>, <span class="st">"richn"</span>, <span class="st">"parameter"</span>, <span class="st">"rate"</span>))</span>
+<span id="cb39-33"><a href="island-biogeography.html#cb39-33"></a></span>
+<span id="cb39-34"><a href="island-biogeography.html#cb39-34"></a><span class="co"># calculate species richness, immigration/extinction rate</span></span>
+<span id="cb39-35"><a href="island-biogeography.html#cb39-35"></a><span class="cf">for</span> (d <span class="cf">in</span> D){</span>
+<span id="cb39-36"><a href="island-biogeography.html#cb39-36"></a></span>
+<span id="cb39-37"><a href="island-biogeography.html#cb39-37"></a>    run &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb39-38"><a href="island-biogeography.html#cb39-38"></a><span class="st">              </span><span class="kw">rename</span>(<span class="dt">fract_pool =</span> <span class="st">`</span><span class="dt">seq(from = 0, to = 1, by = 0.1)</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb39-39"><a href="island-biogeography.html#cb39-39"></a><span class="st">              </span><span class="kw">mutate</span>(<span class="dt">area =</span> A,</span>
+<span id="cb39-40"><a href="island-biogeography.html#cb39-40"></a>                     <span class="dt">distance =</span> d,</span>
+<span id="cb39-41"><a href="island-biogeography.html#cb39-41"></a>                     <span class="dt">richn =</span> P<span class="op">*</span>fract_pool,</span>
+<span id="cb39-42"><a href="island-biogeography.html#cb39-42"></a>                     <span class="dt">I =</span> (<span class="kw">c</span>(P<span class="op">-</span>richn))<span class="op">/</span>(f<span class="op">*</span>d),</span>
+<span id="cb39-43"><a href="island-biogeography.html#cb39-43"></a>                     <span class="dt">E =</span> q<span class="op">*</span>richn<span class="op">/</span>A<span class="op">^</span>m) <span class="op">%&gt;%</span></span>
+<span id="cb39-44"><a href="island-biogeography.html#cb39-44"></a><span class="st">              </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"parameter"</span>, <span class="dt">values_to =</span> <span class="st">"rate"</span>)</span>
+<span id="cb39-45"><a href="island-biogeography.html#cb39-45"></a>    </span>
+<span id="cb39-46"><a href="island-biogeography.html#cb39-46"></a>    model &lt;-<span class="st"> </span><span class="kw">rbind</span>(model, run)</span>
+<span id="cb39-47"><a href="island-biogeography.html#cb39-47"></a>    </span>
+<span id="cb39-48"><a href="island-biogeography.html#cb39-48"></a>}</span>
+<span id="cb39-49"><a href="island-biogeography.html#cb39-49"></a></span>
+<span id="cb39-50"><a href="island-biogeography.html#cb39-50"></a><span class="co"># adjust labels for plotting</span></span>
+<span id="cb39-51"><a href="island-biogeography.html#cb39-51"></a>model &lt;-<span class="st"> </span>model <span class="op">%&gt;%</span></span>
+<span id="cb39-52"><a href="island-biogeography.html#cb39-52"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">case_when</span>(distance <span class="op">==</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "near"</span>,</span>
+<span id="cb39-53"><a href="island-biogeography.html#cb39-53"></a>                              distance <span class="op">==</span><span class="st"> </span><span class="dv">300</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "medium"</span>,</span>
+<span id="cb39-54"><a href="island-biogeography.html#cb39-54"></a>                              distance <span class="op">==</span><span class="st"> </span><span class="dv">600</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "far"</span>,</span>
+<span id="cb39-55"><a href="island-biogeography.html#cb39-55"></a>                              parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "all"</span>),</span>
+<span id="cb39-56"><a href="island-biogeography.html#cb39-56"></a>         <span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"near"</span>, <span class="st">"medium"</span>, <span class="st">"far"</span>, <span class="st">"all"</span>)))</span>
+<span id="cb39-57"><a href="island-biogeography.html#cb39-57"></a>  </span>
+<span id="cb39-58"><a href="island-biogeography.html#cb39-58"></a></span>
+<span id="cb39-59"><a href="island-biogeography.html#cb39-59"></a><span class="kw">ggplot</span>(model, <span class="kw">aes</span>(<span class="dt">x =</span> richn, <span class="dt">y =</span> rate, <span class="dt">shape =</span> parameter, <span class="dt">color =</span> category)) <span class="op">+</span></span>
+<span id="cb39-60"><a href="island-biogeography.html#cb39-60"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb39-61"><a href="island-biogeography.html#cb39-61"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb39-62"><a href="island-biogeography.html#cb39-62"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
+<span id="cb39-63"><a href="island-biogeography.html#cb39-63"></a><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">22</span>)) <span class="op">+</span></span>
+<span id="cb39-64"><a href="island-biogeography.html#cb39-64"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"species richness"</span>, <span class="dt">y =</span> <span class="st">"immigration/extinction rate"</span>) <span class="op">+</span></span>
+<span id="cb39-65"><a href="island-biogeography.html#cb39-65"></a><span class="st">  </span>theme_standard <span class="op">+</span></span>
+<span id="cb39-66"><a href="island-biogeography.html#cb39-66"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div>
 <div class="figure">
 <span id="fig:unnamed-chunk-24"></span>
 <p class="caption marginnote shownote">
-Figure 6.5: Immigration/Extinction Rates and Island Distances
+Figure 6.11: Immigration/Extinction Rates and Island Distances
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-24-1.png" alt="Immigration/Extinction Rates and Island Distances" width="768">
 </div>
@@ -989,76 +1031,76 @@ Briefly describe the relationship of immigration rate and species richness and t
 </div>
 </div>
 <p><strong>AREA</strong></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="island-biogeography.html#cb32-1"></a><span class="co">## SET PARAMETERS ---</span></span>
-<span id="cb32-2"><a href="island-biogeography.html#cb32-2"></a></span>
-<span id="cb32-3"><a href="island-biogeography.html#cb32-3"></a><span class="co"># number species mainland pool</span></span>
-<span id="cb32-4"><a href="island-biogeography.html#cb32-4"></a>P &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb32-5"><a href="island-biogeography.html#cb32-5"></a></span>
-<span id="cb32-6"><a href="island-biogeography.html#cb32-6"></a></span>
-<span id="cb32-7"><a href="island-biogeography.html#cb32-7"></a><span class="co"># colonization probability (assumed to be equal for all species)</span></span>
-<span id="cb32-8"><a href="island-biogeography.html#cb32-8"></a>c &lt;-<span class="st"> </span><span class="fl">0.1</span></span>
-<span id="cb32-9"><a href="island-biogeography.html#cb32-9"></a></span>
-<span id="cb32-10"><a href="island-biogeography.html#cb32-10"></a><span class="co"># extinction probability</span></span>
-<span id="cb32-11"><a href="island-biogeography.html#cb32-11"></a>q &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
-<span id="cb32-12"><a href="island-biogeography.html#cb32-12"></a>  </span>
-<span id="cb32-13"><a href="island-biogeography.html#cb32-13"></a></span>
-<span id="cb32-14"><a href="island-biogeography.html#cb32-14"></a><span class="co"># power scaling factor for area</span></span>
-<span id="cb32-15"><a href="island-biogeography.html#cb32-15"></a>m &lt;-<span class="st"> </span><span class="fl">0.25</span></span>
-<span id="cb32-16"><a href="island-biogeography.html#cb32-16"></a></span>
-<span id="cb32-17"><a href="island-biogeography.html#cb32-17"></a><span class="co"># scaling factor for distance</span></span>
-<span id="cb32-18"><a href="island-biogeography.html#cb32-18"></a>f &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
-<span id="cb32-19"><a href="island-biogeography.html#cb32-19"></a></span>
-<span id="cb32-20"><a href="island-biogeography.html#cb32-20"></a></span>
-<span id="cb32-21"><a href="island-biogeography.html#cb32-21"></a><span class="co"># Distance island-mainland</span></span>
-<span id="cb32-22"><a href="island-biogeography.html#cb32-22"></a>D &lt;-<span class="st"> </span><span class="dv">200</span></span>
-<span id="cb32-23"><a href="island-biogeography.html#cb32-23"></a></span>
-<span id="cb32-24"><a href="island-biogeography.html#cb32-24"></a><span class="co"># area of the island</span></span>
-<span id="cb32-25"><a href="island-biogeography.html#cb32-25"></a>A &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">500</span>, <span class="dv">5000</span>)</span>
-<span id="cb32-26"><a href="island-biogeography.html#cb32-26"></a></span>
-<span id="cb32-27"><a href="island-biogeography.html#cb32-27"></a><span class="co">## CALCLATE RATES</span></span>
-<span id="cb32-28"><a href="island-biogeography.html#cb32-28"></a></span>
-<span id="cb32-29"><a href="island-biogeography.html#cb32-29"></a><span class="co"># empty dataframe for results</span></span>
-<span id="cb32-30"><a href="island-biogeography.html#cb32-30"></a>model &lt;-<span class="st"> </span><span class="kw">setNames</span>(<span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="dt">ncol =</span> <span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">0</span>)), </span>
-<span id="cb32-31"><a href="island-biogeography.html#cb32-31"></a>                  <span class="kw">c</span>(<span class="st">"fract_pool"</span>, <span class="st">"area"</span>, <span class="st">"distance"</span>, <span class="st">"richn"</span>, <span class="st">"parameter"</span>, <span class="st">"rate"</span>))</span>
-<span id="cb32-32"><a href="island-biogeography.html#cb32-32"></a></span>
-<span id="cb32-33"><a href="island-biogeography.html#cb32-33"></a><span class="co"># calculate species richness, immigration/extinction rate</span></span>
-<span id="cb32-34"><a href="island-biogeography.html#cb32-34"></a><span class="cf">for</span>(a <span class="cf">in</span> A){</span>
-<span id="cb32-35"><a href="island-biogeography.html#cb32-35"></a>    </span>
-<span id="cb32-36"><a href="island-biogeography.html#cb32-36"></a>    run &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb32-37"><a href="island-biogeography.html#cb32-37"></a><span class="st">              </span><span class="kw">rename</span>(<span class="dt">fract_pool =</span> <span class="st">`</span><span class="dt">seq(from = 0, to = 1, by = 0.1)</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
-<span id="cb32-38"><a href="island-biogeography.html#cb32-38"></a><span class="st">              </span><span class="kw">mutate</span>(<span class="dt">area =</span> a,</span>
-<span id="cb32-39"><a href="island-biogeography.html#cb32-39"></a>                     <span class="dt">distance =</span> D,</span>
-<span id="cb32-40"><a href="island-biogeography.html#cb32-40"></a>                     <span class="dt">richn =</span> P<span class="op">*</span>fract_pool,</span>
-<span id="cb32-41"><a href="island-biogeography.html#cb32-41"></a>                     <span class="dt">I =</span> (<span class="kw">c</span>(P<span class="op">-</span>richn))<span class="op">/</span>(f<span class="op">*</span>D),</span>
-<span id="cb32-42"><a href="island-biogeography.html#cb32-42"></a>                     <span class="dt">E =</span> q<span class="op">*</span>richn<span class="op">/</span>a<span class="op">^</span>m) <span class="op">%&gt;%</span></span>
-<span id="cb32-43"><a href="island-biogeography.html#cb32-43"></a><span class="st">              </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"parameter"</span>, <span class="dt">values_to =</span> <span class="st">"rate"</span>)</span>
-<span id="cb32-44"><a href="island-biogeography.html#cb32-44"></a>    </span>
-<span id="cb32-45"><a href="island-biogeography.html#cb32-45"></a>    model &lt;-<span class="st"> </span><span class="kw">rbind</span>(model, run)</span>
-<span id="cb32-46"><a href="island-biogeography.html#cb32-46"></a>    </span>
-<span id="cb32-47"><a href="island-biogeography.html#cb32-47"></a>  }</span>
-<span id="cb32-48"><a href="island-biogeography.html#cb32-48"></a></span>
-<span id="cb32-49"><a href="island-biogeography.html#cb32-49"></a></span>
-<span id="cb32-50"><a href="island-biogeography.html#cb32-50"></a><span class="co"># adjust labels for plotting</span></span>
-<span id="cb32-51"><a href="island-biogeography.html#cb32-51"></a>model &lt;-<span class="st"> </span>model <span class="op">%&gt;%</span></span>
-<span id="cb32-52"><a href="island-biogeography.html#cb32-52"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">case_when</span>(area <span class="op">==</span><span class="st"> </span><span class="dv">50</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "small"</span>,</span>
-<span id="cb32-53"><a href="island-biogeography.html#cb32-53"></a>                              area <span class="op">==</span><span class="st"> </span><span class="dv">500</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "medium"</span>,</span>
-<span id="cb32-54"><a href="island-biogeography.html#cb32-54"></a>                              area <span class="op">==</span><span class="st"> </span><span class="dv">5000</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "large"</span>,</span>
-<span id="cb32-55"><a href="island-biogeography.html#cb32-55"></a>                              parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "all"</span>),</span>
-<span id="cb32-56"><a href="island-biogeography.html#cb32-56"></a>         <span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"small"</span>, <span class="st">"medium"</span>, <span class="st">"large"</span>, <span class="st">"all"</span>)))</span>
-<span id="cb32-57"><a href="island-biogeography.html#cb32-57"></a>  </span>
-<span id="cb32-58"><a href="island-biogeography.html#cb32-58"></a></span>
-<span id="cb32-59"><a href="island-biogeography.html#cb32-59"></a><span class="kw">ggplot</span>(model, <span class="kw">aes</span>(<span class="dt">x =</span> richn, <span class="dt">y =</span> rate, <span class="dt">shape =</span> parameter, <span class="dt">color =</span> category)) <span class="op">+</span></span>
-<span id="cb32-60"><a href="island-biogeography.html#cb32-60"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb32-61"><a href="island-biogeography.html#cb32-61"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
-<span id="cb32-62"><a href="island-biogeography.html#cb32-62"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
-<span id="cb32-63"><a href="island-biogeography.html#cb32-63"></a><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">22</span>)) <span class="op">+</span></span>
-<span id="cb32-64"><a href="island-biogeography.html#cb32-64"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"species richness"</span>, <span class="dt">y =</span> <span class="st">"immigration/extinction rate"</span>) <span class="op">+</span></span>
-<span id="cb32-65"><a href="island-biogeography.html#cb32-65"></a><span class="st">  </span>theme_standard <span class="op">+</span></span>
-<span id="cb32-66"><a href="island-biogeography.html#cb32-66"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="island-biogeography.html#cb40-1"></a><span class="co">## SET PARAMETERS ---</span></span>
+<span id="cb40-2"><a href="island-biogeography.html#cb40-2"></a></span>
+<span id="cb40-3"><a href="island-biogeography.html#cb40-3"></a><span class="co"># number species mainland pool</span></span>
+<span id="cb40-4"><a href="island-biogeography.html#cb40-4"></a>P &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb40-5"><a href="island-biogeography.html#cb40-5"></a></span>
+<span id="cb40-6"><a href="island-biogeography.html#cb40-6"></a></span>
+<span id="cb40-7"><a href="island-biogeography.html#cb40-7"></a><span class="co"># colonization probability (assumed to be equal for all species)</span></span>
+<span id="cb40-8"><a href="island-biogeography.html#cb40-8"></a>c &lt;-<span class="st"> </span><span class="fl">0.1</span></span>
+<span id="cb40-9"><a href="island-biogeography.html#cb40-9"></a></span>
+<span id="cb40-10"><a href="island-biogeography.html#cb40-10"></a><span class="co"># extinction probability</span></span>
+<span id="cb40-11"><a href="island-biogeography.html#cb40-11"></a>q &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
+<span id="cb40-12"><a href="island-biogeography.html#cb40-12"></a>  </span>
+<span id="cb40-13"><a href="island-biogeography.html#cb40-13"></a></span>
+<span id="cb40-14"><a href="island-biogeography.html#cb40-14"></a><span class="co"># power scaling factor for area</span></span>
+<span id="cb40-15"><a href="island-biogeography.html#cb40-15"></a>m &lt;-<span class="st"> </span><span class="fl">0.25</span></span>
+<span id="cb40-16"><a href="island-biogeography.html#cb40-16"></a></span>
+<span id="cb40-17"><a href="island-biogeography.html#cb40-17"></a><span class="co"># scaling factor for distance</span></span>
+<span id="cb40-18"><a href="island-biogeography.html#cb40-18"></a>f &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb40-19"><a href="island-biogeography.html#cb40-19"></a></span>
+<span id="cb40-20"><a href="island-biogeography.html#cb40-20"></a></span>
+<span id="cb40-21"><a href="island-biogeography.html#cb40-21"></a><span class="co"># Distance island-mainland</span></span>
+<span id="cb40-22"><a href="island-biogeography.html#cb40-22"></a>D &lt;-<span class="st"> </span><span class="dv">200</span></span>
+<span id="cb40-23"><a href="island-biogeography.html#cb40-23"></a></span>
+<span id="cb40-24"><a href="island-biogeography.html#cb40-24"></a><span class="co"># area of the island</span></span>
+<span id="cb40-25"><a href="island-biogeography.html#cb40-25"></a>A &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">500</span>, <span class="dv">5000</span>)</span>
+<span id="cb40-26"><a href="island-biogeography.html#cb40-26"></a></span>
+<span id="cb40-27"><a href="island-biogeography.html#cb40-27"></a><span class="co">## CALCLATE RATES</span></span>
+<span id="cb40-28"><a href="island-biogeography.html#cb40-28"></a></span>
+<span id="cb40-29"><a href="island-biogeography.html#cb40-29"></a><span class="co"># empty dataframe for results</span></span>
+<span id="cb40-30"><a href="island-biogeography.html#cb40-30"></a>model &lt;-<span class="st"> </span><span class="kw">setNames</span>(<span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="dt">ncol =</span> <span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">0</span>)), </span>
+<span id="cb40-31"><a href="island-biogeography.html#cb40-31"></a>                  <span class="kw">c</span>(<span class="st">"fract_pool"</span>, <span class="st">"area"</span>, <span class="st">"distance"</span>, <span class="st">"richn"</span>, <span class="st">"parameter"</span>, <span class="st">"rate"</span>))</span>
+<span id="cb40-32"><a href="island-biogeography.html#cb40-32"></a></span>
+<span id="cb40-33"><a href="island-biogeography.html#cb40-33"></a><span class="co"># calculate species richness, immigration/extinction rate</span></span>
+<span id="cb40-34"><a href="island-biogeography.html#cb40-34"></a><span class="cf">for</span>(a <span class="cf">in</span> A){</span>
+<span id="cb40-35"><a href="island-biogeography.html#cb40-35"></a>    </span>
+<span id="cb40-36"><a href="island-biogeography.html#cb40-36"></a>    run &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb40-37"><a href="island-biogeography.html#cb40-37"></a><span class="st">              </span><span class="kw">rename</span>(<span class="dt">fract_pool =</span> <span class="st">`</span><span class="dt">seq(from = 0, to = 1, by = 0.1)</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb40-38"><a href="island-biogeography.html#cb40-38"></a><span class="st">              </span><span class="kw">mutate</span>(<span class="dt">area =</span> a,</span>
+<span id="cb40-39"><a href="island-biogeography.html#cb40-39"></a>                     <span class="dt">distance =</span> D,</span>
+<span id="cb40-40"><a href="island-biogeography.html#cb40-40"></a>                     <span class="dt">richn =</span> P<span class="op">*</span>fract_pool,</span>
+<span id="cb40-41"><a href="island-biogeography.html#cb40-41"></a>                     <span class="dt">I =</span> (<span class="kw">c</span>(P<span class="op">-</span>richn))<span class="op">/</span>(f<span class="op">*</span>D),</span>
+<span id="cb40-42"><a href="island-biogeography.html#cb40-42"></a>                     <span class="dt">E =</span> q<span class="op">*</span>richn<span class="op">/</span>a<span class="op">^</span>m) <span class="op">%&gt;%</span></span>
+<span id="cb40-43"><a href="island-biogeography.html#cb40-43"></a><span class="st">              </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"parameter"</span>, <span class="dt">values_to =</span> <span class="st">"rate"</span>)</span>
+<span id="cb40-44"><a href="island-biogeography.html#cb40-44"></a>    </span>
+<span id="cb40-45"><a href="island-biogeography.html#cb40-45"></a>    model &lt;-<span class="st"> </span><span class="kw">rbind</span>(model, run)</span>
+<span id="cb40-46"><a href="island-biogeography.html#cb40-46"></a>    </span>
+<span id="cb40-47"><a href="island-biogeography.html#cb40-47"></a>  }</span>
+<span id="cb40-48"><a href="island-biogeography.html#cb40-48"></a></span>
+<span id="cb40-49"><a href="island-biogeography.html#cb40-49"></a></span>
+<span id="cb40-50"><a href="island-biogeography.html#cb40-50"></a><span class="co"># adjust labels for plotting</span></span>
+<span id="cb40-51"><a href="island-biogeography.html#cb40-51"></a>model &lt;-<span class="st"> </span>model <span class="op">%&gt;%</span></span>
+<span id="cb40-52"><a href="island-biogeography.html#cb40-52"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">case_when</span>(area <span class="op">==</span><span class="st"> </span><span class="dv">50</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "small"</span>,</span>
+<span id="cb40-53"><a href="island-biogeography.html#cb40-53"></a>                              area <span class="op">==</span><span class="st"> </span><span class="dv">500</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "medium"</span>,</span>
+<span id="cb40-54"><a href="island-biogeography.html#cb40-54"></a>                              area <span class="op">==</span><span class="st"> </span><span class="dv">5000</span> <span class="op">&amp;</span><span class="st"> </span>parameter <span class="op">==</span><span class="st"> "E"</span> <span class="op">~</span><span class="st"> "large"</span>,</span>
+<span id="cb40-55"><a href="island-biogeography.html#cb40-55"></a>                              parameter <span class="op">==</span><span class="st"> "I"</span> <span class="op">~</span><span class="st"> "all"</span>),</span>
+<span id="cb40-56"><a href="island-biogeography.html#cb40-56"></a>         <span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"small"</span>, <span class="st">"medium"</span>, <span class="st">"large"</span>, <span class="st">"all"</span>)))</span>
+<span id="cb40-57"><a href="island-biogeography.html#cb40-57"></a>  </span>
+<span id="cb40-58"><a href="island-biogeography.html#cb40-58"></a></span>
+<span id="cb40-59"><a href="island-biogeography.html#cb40-59"></a><span class="kw">ggplot</span>(model, <span class="kw">aes</span>(<span class="dt">x =</span> richn, <span class="dt">y =</span> rate, <span class="dt">shape =</span> parameter, <span class="dt">color =</span> category)) <span class="op">+</span></span>
+<span id="cb40-60"><a href="island-biogeography.html#cb40-60"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb40-61"><a href="island-biogeography.html#cb40-61"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb40-62"><a href="island-biogeography.html#cb40-62"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> cols) <span class="op">+</span></span>
+<span id="cb40-63"><a href="island-biogeography.html#cb40-63"></a><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">22</span>)) <span class="op">+</span></span>
+<span id="cb40-64"><a href="island-biogeography.html#cb40-64"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"species richness"</span>, <span class="dt">y =</span> <span class="st">"immigration/extinction rate"</span>) <span class="op">+</span></span>
+<span id="cb40-65"><a href="island-biogeography.html#cb40-65"></a><span class="st">  </span>theme_standard <span class="op">+</span></span>
+<span id="cb40-66"><a href="island-biogeography.html#cb40-66"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div>
 <div class="figure">
 <span id="fig:unnamed-chunk-25"></span>
 <p class="caption marginnote shownote">
-Figure 6.6: Immigration/Extinction Rates and Island Size
+Figure 6.12: Immigration/Extinction Rates and Island Size
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-25-1.png" alt="Immigration/Extinction Rates and Island Size" width="768">
 </div>
@@ -1111,7 +1153,7 @@ Hint<span id="sol-start-8" class="fa fa-plus-square solution-icon clickable" onc
 </p>
 <div class="question-body">
 <p>
-Take a look at the different taxonomic in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.
+Take a look at the different taxonomic groups in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1155,6 +1197,126 @@ Notes<span id="sol-start-10" class="fa fa-plus-square solution-icon clickable" o
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
+</div>
+<p>Load your results (make sure to replace with your file name). We will start with area - habitat will be a component to determine the extinction rate on the island; though of course differences in mortality at sea will still affect the signal because it will partially determine the immigration rate. Also, the effects of differences for large/small islands are much more apparent compared to near/far so it might be easier to discern a pattern.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="island-biogeography.html#cb41-1"></a><span class="co"># read data</span></span>
+<span id="cb41-2"><a href="island-biogeography.html#cb41-2"></a>area &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/combined.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb41-3"><a href="island-biogeography.html#cb41-3"></a><span class="st">  </span><span class="kw">filter</span>(EXPERIMENT <span class="op">==</span><span class="st"> "area"</span>)</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   EXPERIMENT = col_character(),
+##   ISLAND = col_character(),
+##   SPECIES = col_character(),
+##   COUNT = col_double(),
+##   RUN_TIME = col_double(),
+##   HABITAT = col_character(),
+##   DISTANCE = col_double(),
+##   SIZE = col_double(),
+##   TAXON = col_character(),
+##   MIGRAT_RATE = col_double(),
+##   MORTALITY = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="island-biogeography.html#cb43-1"></a><span class="co"># double check that all the data points are there</span></span>
+<span id="cb43-2"><a href="island-biogeography.html#cb43-2"></a><span class="co"># should have same number of lines per taxon/habitat combination</span></span>
+<span id="cb43-3"><a href="island-biogeography.html#cb43-3"></a>area <span class="op">%&gt;%</span></span>
+<span id="cb43-4"><a href="island-biogeography.html#cb43-4"></a><span class="st">  </span><span class="kw">group_by</span>(TAXON, HABITAT) <span class="op">%&gt;%</span></span>
+<span id="cb43-5"><a href="island-biogeography.html#cb43-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'TAXON' (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 10 x 3
+## # Groups:   TAXON [3]
+##    TAXON      HABITAT         n
+##    &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;
+##  1 arthropods desert        120
+##  2 arthropods subtropical   120
+##  3 arthropods temperate     120
+##  4 arthropods tropical      120
+##  5 arthropods tundra        120
+##  6 birds      desert        120
+##  7 birds      subtropical   120
+##  8 birds      temperate     120
+##  9 birds      tropical      120
+## 10 reptile    tropical      120</code></pre>
+<p>Calculate species richness observed for each sampling point and plot the change over time.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="island-biogeography.html#cb46-1"></a><span class="co"># calculate </span></span>
+<span id="cb46-2"><a href="island-biogeography.html#cb46-2"></a>richn &lt;-<span class="st"> </span>area <span class="op">%&gt;%</span></span>
+<span id="cb46-3"><a href="island-biogeography.html#cb46-3"></a><span class="st">  </span><span class="kw">filter</span>(COUNT <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb46-4"><a href="island-biogeography.html#cb46-4"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, TAXON, HABITAT, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
+<span id="cb46-5"><a href="island-biogeography.html#cb46-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">sp_richn =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'ISLAND', 'RUN_TIME', 'DISTANCE', 'SIZE', 'TAXON', 'HABITAT', 'MIGRAT_RATE' (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="island-biogeography.html#cb48-1"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> sp_richn, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
+<span id="cb48-2"><a href="island-biogeography.html#cb48-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb48-3"><a href="island-biogeography.html#cb48-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb48-4"><a href="island-biogeography.html#cb48-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(TAXON <span class="op">~</span><span class="st"> </span>HABITAT) <span class="op">+</span></span>
+<span id="cb48-5"><a href="island-biogeography.html#cb48-5"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
+<span id="cb48-6"><a href="island-biogeography.html#cb48-6"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb48-7"><a href="island-biogeography.html#cb48-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>) <span class="op">+</span></span>
+<span id="cb48-8"><a href="island-biogeography.html#cb48-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-27"></span>
+<p class="caption marginnote shownote">
+Figure 6.13: Observed species richness at each sampling point for two islands with different areas, small (Island-1) and large (Island-2).
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-27-1.png" alt="Observed species richness at each sampling point for two islands with different areas, small (Island-1) and large (Island-2)." width="768">
+</div>
+<p>Load your results (make sure to replace with your file name). Now, let’s look at distance - this is more likely to determine differences among taxonomic groups because those likely have different probabilities of surviving at sea and making it to the island - this will affect the immigration rate, though of course habitat (extinction rate) will still play a role.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="island-biogeography.html#cb49-1"></a><span class="co"># read data</span></span>
+<span id="cb49-2"><a href="island-biogeography.html#cb49-2"></a>area &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/combined.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb49-3"><a href="island-biogeography.html#cb49-3"></a><span class="st">  </span><span class="kw">filter</span>(EXPERIMENT <span class="op">==</span><span class="st"> "distance"</span>)</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   EXPERIMENT = col_character(),
+##   ISLAND = col_character(),
+##   SPECIES = col_character(),
+##   COUNT = col_double(),
+##   RUN_TIME = col_double(),
+##   HABITAT = col_character(),
+##   DISTANCE = col_double(),
+##   SIZE = col_double(),
+##   TAXON = col_character(),
+##   MIGRAT_RATE = col_double(),
+##   MORTALITY = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="island-biogeography.html#cb51-1"></a><span class="co"># double check that all the data points are there</span></span>
+<span id="cb51-2"><a href="island-biogeography.html#cb51-2"></a><span class="co"># should have same number of lines per taxon/habitat combination</span></span>
+<span id="cb51-3"><a href="island-biogeography.html#cb51-3"></a>area <span class="op">%&gt;%</span></span>
+<span id="cb51-4"><a href="island-biogeography.html#cb51-4"></a><span class="st">  </span><span class="kw">group_by</span>(TAXON, HABITAT) <span class="op">%&gt;%</span></span>
+<span id="cb51-5"><a href="island-biogeography.html#cb51-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'TAXON' (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 10 x 3
+## # Groups:   TAXON [3]
+##    TAXON      HABITAT         n
+##    &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;
+##  1 arthropods desert        120
+##  2 arthropods subtropical   120
+##  3 arthropods temperate     120
+##  4 arthropods tropical      120
+##  5 arthropods tundra        120
+##  6 birds      desert        120
+##  7 birds      subtropical   120
+##  8 birds      temperate     120
+##  9 birds      tropical      120
+## 10 reptile    tropical      120</code></pre>
+<p>Calculate species richness observed for each sampling point and plot the change over time.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="island-biogeography.html#cb54-1"></a><span class="co"># calculate </span></span>
+<span id="cb54-2"><a href="island-biogeography.html#cb54-2"></a>richn &lt;-<span class="st"> </span>area <span class="op">%&gt;%</span></span>
+<span id="cb54-3"><a href="island-biogeography.html#cb54-3"></a><span class="st">  </span><span class="kw">filter</span>(COUNT <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb54-4"><a href="island-biogeography.html#cb54-4"></a><span class="st">  </span><span class="kw">group_by</span>(ISLAND, RUN_TIME, DISTANCE, SIZE, TAXON, HABITAT, MIGRAT_RATE, MORTALITY) <span class="op">%&gt;%</span></span>
+<span id="cb54-5"><a href="island-biogeography.html#cb54-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">sp_richn =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by 'ISLAND', 'RUN_TIME', 'DISTANCE', 'SIZE', 'TAXON', 'HABITAT', 'MIGRAT_RATE' (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="island-biogeography.html#cb56-1"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> RUN_TIME, <span class="dt">y =</span> sp_richn, <span class="dt">color =</span> ISLAND)) <span class="op">+</span></span>
+<span id="cb56-2"><a href="island-biogeography.html#cb56-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb56-3"><a href="island-biogeography.html#cb56-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb56-4"><a href="island-biogeography.html#cb56-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(TAXON <span class="op">~</span><span class="st"> </span>HABITAT) <span class="op">+</span></span>
+<span id="cb56-5"><a href="island-biogeography.html#cb56-5"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="op">+</span></span>
+<span id="cb56-6"><a href="island-biogeography.html#cb56-6"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">pretty_breaks</span>()) <span class="op">+</span></span>
+<span id="cb56-7"><a href="island-biogeography.html#cb56-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>) <span class="op">+</span></span>
+<span id="cb56-8"><a href="island-biogeography.html#cb56-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-29"></span>
+<p class="caption marginnote shownote">
+Figure 6.14: Observed species richness at each sampling point for two islands with different distances from the mainland.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-29-1.png" alt="Observed species richness at each sampling point for two islands with different distances from the mainland." width="768">
 </div>
 <div id="ques:twenty-two" class="question">
 <p class="question-begin">
@@ -1245,7 +1407,7 @@ Pro tip<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable"
 <a href="value-of-and-threats-to-biodiversity.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-09-01
+2020-09-02
 </p>
 </div>
 </div>

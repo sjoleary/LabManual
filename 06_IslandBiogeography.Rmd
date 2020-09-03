@@ -321,14 +321,14 @@ Load your results^[make sure to replace the file path with your file name].
 ```{r}
 
 # read data
-distance <- read_delim("data/model_output.txt", delim = "\t") %>%
+distance <- read_delim("data/tundra_arthropods.txt", delim = "\t") %>%
   filter(EXPERIMENT == "distance")
 
 ```
 
 Let's compare the change in species composition over time^[Make sure to change the title to reflect the habitat/taxon group you are comparing].
 
-```{r echo=TRUE, eval=FALSE}
+```{r fig.cap="Number of individuals sampled for each species at each sampling point.", fig.height=20, fig.width=8}
 
 ggplot(distance, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
   geom_line(size = 1) +
@@ -337,7 +337,7 @@ ggplot(distance, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
   scale_color_manual(values = cols) +
   scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
   labs(x = "time", y = "number of individuals",
-       title = "TITLE YOUR FIGURE!") +
+       title = "Arthropods in the the Tundra") +
   theme_facet +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
@@ -347,7 +347,7 @@ ggplot(distance, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
 
 Calculate species richness observed for each sampling point and plot the change over time.
 
-```{r echo=TRUE, eval=FALSE}
+```{r fig.cap="Observed species richness at each sampling point.", fig.height=6, fig.width=7}
 
 # calculate 
 richn <- distance %>%
@@ -361,7 +361,7 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
   scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
   scale_x_continuous(breaks = pretty_breaks()) +
   labs(x = "time", y = "species richness",
-       title = "TITLE YOUR FIGURE!") +
+       title = "Arthropods in the the Tundra") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 ```
@@ -370,7 +370,7 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
 
 Calculate the total number of individuals observed for each sampling point and plot the change over time.
 
-```{r echo=TRUE, eval=FALSE}
+```{r fig.cap="Observed total number of individuals across all species at each sampling point..", fig.height=6, fig.width=7}
 
 # calculate 
 total <- distance %>%
@@ -383,7 +383,7 @@ ggplot(total, aes(x = RUN_TIME, y = total_ind, color = ISLAND)) +
   scale_y_continuous(breaks = pretty_breaks()) +
   scale_x_continuous(breaks = pretty_breaks()) +
   labs(x = "time", y = "total indv",
-       title = "TITLE YOUR FIGURE!") +
+       title = "Arthropods in the Tundra") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 ```
@@ -398,14 +398,14 @@ Load your results (make sure to replace with your file name).
 ```{r}
 
 # read data
-area <- read_delim("data/model_output.txt", delim = "\t") %>%
+area <- read_delim("data/tundra_arthropods.txt", delim = "\t") %>%
   filter(EXPERIMENT == "area")
 
 ```
 
 Let's compare the change in species composition over time (make sure to change the title to reflect the habitat/taxon group you are comparing).
 
-```{r eval=FALSE, echo=TRUE}
+```{r fig.cap="Number of individuals sampled for each species at each sampling point.", fig.height=20, fig.width=8}
 
 ggplot(area, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
   geom_line(size = 1) +
@@ -414,7 +414,7 @@ ggplot(area, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
   scale_color_manual(values = cols) +
   scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
   labs(x = "time", y = "number of individuals",
-       title = "TITLE YOUR FIGURE!") +
+       title = "Arthropods in the Tundra") +
   theme_facet +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
@@ -424,7 +424,7 @@ ggplot(area, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
 
 Calculate species richness observed for each sampling point and plot the change over time.
 
-```{r echo=TRUE, eval=FALSE}
+```{r fig.cap="Observed species richness at each sampling point.", fig.height=6, fig.width=7}
 
 # calculate 
 richn <- area %>%
@@ -438,7 +438,7 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
   scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
   scale_x_continuous(breaks = pretty_breaks()) +
   labs(x = "time", y = "species richness",
-       title = "TITLE YOUR FIGURE!") +
+       title = "Arthropods in the Tundra") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 ```
@@ -447,7 +447,7 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
 
 Calculate the total number of individuals observed for each sampling point and plot the change over time.
 
-```{r echo=TRUE, eval=FALSE}
+```{r fig.cap="Observed total number of individuals across all species at each sampling point..", fig.height=6, fig.width=7}
 
 # calculate 
 total <- distance %>%
@@ -460,7 +460,7 @@ ggplot(total, aes(x = RUN_TIME, y = total_ind, color = ISLAND)) +
   scale_y_continuous(breaks = pretty_breaks()) +
   scale_x_continuous(breaks = pretty_breaks()) +
   labs(x = "time", y = "total indv",
-       title = "TITLE YOUR FIGURE!") +
+       title = "Arthropods in the Tundra") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 ```
@@ -707,7 +707,7 @@ Keyword: Productivity.
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question(label = "ques:twenty", text = "Take a look at the different taxonomic in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.")`
+`r msmbstyle::question(label = "ques:twenty", text = "Take a look at the different taxonomic groups in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -724,6 +724,80 @@ They have to survive the trip to the island ...
 2. Remember, you can use `facet_grid()` to simultaneously create a range of plots!
 
 `r msmbstyle::solution_end()`
+
+Load your results (make sure to replace with your file name). We will start with area - habitat will be a component to determine the extinction rate on the island; though of course differences in mortality at sea will still affect the signal because it will partially determine the immigration rate. Also, the effects of differences for large/small islands are much more apparent compared to near/far so it might be easier to discern a pattern.
+
+```{r}
+
+# read data
+area <- read_delim("data/combined.txt", delim = "\t") %>%
+  filter(EXPERIMENT == "area")
+
+# double check that all the data points are there
+# should have same number of lines per taxon/habitat combination
+area %>%
+  group_by(TAXON, HABITAT) %>%
+  summarize(n = n())
+
+```
+
+Calculate species richness observed for each sampling point and plot the change over time.
+
+```{r fig.cap="Observed species richness at each sampling point for two islands with different areas, small (Island-1) and large (Island-2).", fig.height=8, fig.width=8}
+
+# calculate 
+richn <- area %>%
+  filter(COUNT > 0) %>%
+  group_by(ISLAND, RUN_TIME, DISTANCE, SIZE, TAXON, HABITAT, MIGRAT_RATE, MORTALITY) %>%
+  summarize(sp_richn = n())
+
+ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  facet_grid(TAXON ~ HABITAT) +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = "time", y = "species richness") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+Load your results (make sure to replace with your file name). Now, let's look at distance - this is more likely to determine differences among taxonomic groups because those likely have different probabilities of surviving at sea and making it to the island - this will affect the immigration rate, though of course habitat (extinction rate) will still play a role.
+
+```{r}
+
+# read data
+area <- read_delim("data/combined.txt", delim = "\t") %>%
+  filter(EXPERIMENT == "distance")
+
+# double check that all the data points are there
+# should have same number of lines per taxon/habitat combination
+area %>%
+  group_by(TAXON, HABITAT) %>%
+  summarize(n = n())
+
+```
+
+Calculate species richness observed for each sampling point and plot the change over time.
+
+```{r fig.cap="Observed species richness at each sampling point for two islands with different distances from the mainland.", fig.height=8, fig.width=8}
+
+# calculate 
+richn <- area %>%
+  filter(COUNT > 0) %>%
+  group_by(ISLAND, RUN_TIME, DISTANCE, SIZE, TAXON, HABITAT, MIGRAT_RATE, MORTALITY) %>%
+  summarize(sp_richn = n())
+
+ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
+  geom_line(size = 1) +
+  geom_point(shape = 21, size = 3, fill = "white") +
+  facet_grid(TAXON ~ HABITAT) +
+  scale_y_continuous(breaks = pretty_breaks(), limits = c(0, 10)) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = "time", y = "species richness") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
 
 
 `r msmbstyle::question(label = "ques:twenty-two", text = "Briefly describe your results and interpret them (i.e. try to explain the mechanisms producing the observed patterns.")`
