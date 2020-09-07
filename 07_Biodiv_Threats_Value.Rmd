@@ -1,0 +1,99 @@
+---
+title: "Lab Manual Conservation Biology Fall 2020"
+subtitle: "Conservation Biology Fall 2020"
+author: "Shannon J. O'Leary"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+output:
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    margin_references: FALSE
+    css: msmb.css
+bibliography: labmanual.bib
+link-citations: yes
+---
+
+```{r include=FALSE}
+
+library(msmbstyle)
+
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, 
+                      cache.extra = packageVersion('msmbstyle'))
+
+
+options(htmltools.dir.version = FALSE)
+
+```
+
+# Value of and Threats to Biodiversity
+
+**Date**: //2020
+
+**Learning Objectives**
+
+`r tufte::margin_note(".")` 
+
+After completing this lab you should
+
+* 
+
+
+## IUCN Redlist
+
+The [IUCN Redlist](https://www.iucnredlist.org/) is "the world's most comprehensive inventory of global conservation status of plant and animal species". It is maintained by the International Union for Conservation of Nature (IUCN) which is comprises both government and civil society organizations with a focus of understanding biodiversity and the measures needed to safeguard it. 
+
+The goal of the IUCN redlist is to assess the status of individual species to create a barometer of the health of the world's biodiversity to be able to guide scientific research, inform policy/conventions (e.g. listing of species), affect resource allocation, and inform conservation planning, management strategies, and improve decision making.
+
+`r msmbstyle::question(label = "ques:one", text = "Go to the IUCN redlist website and record the proportion of various taxonomic groups (based on the number of **assessed** species) that are currently threatened with extinction. Are these numbers higher or lower than you expected? Why?")`
+
+## IUCN Redlist Categories
+
+
+
+## Valueing Biodiversity
+
+Value systems for biodiversity range from ethical and cultural/relational to ecological and economic systems. With a growing number of species being threatened, endangered, or going extinct it is important to consider the value of biodiversity and what irreversible loss will mean for the ecosystems they exist in, the economy, and human well-being in the broadest sense.
+
+One way to categorize species in terms of value is as (1) **Direct Use Value** and (2) **Indirect Use Value**.
+
+`r msmbstyle::question(label = "ques:one", text = "Briefly define each of these two categories and list specific examples for each.")`
+
+Two categories of Indirect Use Value are **Ecological Value** and **Cultural/Spiritual Value** 
+
+`r msmbstyle::question(label = "ques:one", text = "Briefly define each of these two categories and list specific examples for each.")`
+
+Being able to define the value of species is important because it allows us to assess what would be lost if a species went extinct and how this would affect their ecosystem and human well-being.
+
+Go to the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) and identify one species each that is endangered or critically endangered in the New Hampshire, in another part of the USA, and outside of the US that has a **direct use**. 
+
+An easy way to do this is to use the drop-down menus on the left-hand side of the webpate. Open the `Red List Category` panel and check the boxes for `endangered` and `critically endangered`, the use the `Land Regions` section to narrow your search to New Hampshire, USA and another part of the world to make your selections. This will likely be a long list - you can use e.g the `Systems` section to restrict your search to marine, terrestrial, or freshwater systems or the `Taxonomy` panel to look at specific groups of animal or plants. Finally, the `Use and Trade` panel will allow you to narrow your search to organisms with direct use value. For easy comparison, you may want to choose three species that share direct use value.
+
+`r msmbstyle::question(label = "ques:one", text = "For each of the three species you selected pull up the page with their assessment. For each species give a brief synopsis of the name, range, habitat/ecology, major threats and direct use value. For each consider what the ecological value and/or cultural/spiritual value could be. Finally, describe the broad-scale effects of this species going extinct would be (use the "value categories" we've discussed) and argue whether you think significant efforts should be made to protect the species.")`
+
+
+## Threats to Biodiversity
+
+For our course we are grouping drivers of biodiversity loss (threats) into five broad categories.
+
+1. Habitat loss, fragmentation & degradation
+2. Pollution^[at times this is grouped into the first category because it may result in habitat degradation]
+3. Overexploitation
+4. Invasive Species
+5. Climate Change
+
+Open the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) again and open the `Threats` panel/section. You should see twelve categories. Go to the detailed description of these [categories](https://www.iucnredlist.org/resources/threat-classification-scheme). 
+
+`r msmbstyle::question(label = "ques:one", text = "Read over the groups of threats the IUCN Redlist uses to describe the mechanisms that are affecting individual species and organize them into the five broad categories listed above.")`
+
+`r msmbstyle::question(label = "ques:one", text = "At the bottom of this detailed descriptions of these categories you should find descriptions of the timing, scope, and severity options. Briefly describe how these are asssessed (categories) and explain why it is important to consider these categories/perspectives as well to better assess what the IUCN redlist status of each species is.")`
+
+
+## Local and Global comparison of status and threats to biodiversity
+
+We are going to use the IUCN Redlist database to compare the distribution of threat categories and threats to biodiversity for New Hampshire, the United States and across the planet. We will also determine if there are differences among taxonomic groups, habitats, and broad ecosystem categories.
+
+

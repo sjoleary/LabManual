@@ -242,7 +242,7 @@ knitr::include_graphics(path = "images/River_park.jpg")
 
 ```
 
-**Route 1:** You can park at the [Piscatagquia Boat Ramp](https://www.google.com/maps/@42.9944418,-71.4970789,421m/data=!3m1!1e3) which is where the one of the virtual staff gauge spots is located. 
+You have two options starting from the the [Piscatagquia Boat Ramp](https://www.google.com/maps/@42.9944418,-71.4970789,421m/data=!3m1!1e3) which is where the one of the virtual staff gauge spots is located. 
 
 ```{r echo=FALSE, fig.cap="Virtual Staff Gauge location above Kelly Dam.", out.width="250px"}
 
@@ -250,21 +250,94 @@ knitr::include_graphics(path = "images/Piscataquog_3.jpg")
 
 ```
 
-From there you can connect with the River Trail and walk towards the Ice Arena to pick up the trail that will take you to the temporary stream and second virtual staff gauge located right before the foot bridge. 
+You can either take a small trail directly along the river (blue) or you can take the paved rail trail and the cut down to the river behind the baseball fields (orange).
 
+```{r echo=FALSE, fig.cap="Alternative routes to reach the second virtual staff gauge and temporary stream located below the dam (purple dots). Blue route takes you on a small trail along the river, the orange takes you along the paved rail trail.", out.width="250px"}
 
-```{r echo=FALSE, fig.cap="Temporary Stream and Virtual Staff Gauge locations below Kelly Dam; these are right before the foot bridge. Don't forget your bug spray!", out.width="250px"}
+knitr::include_graphics(path = "images/Site1_map.jpg")
+
+```
+
+After taking your first measurement at the boat ramp, walk up to the road to take either route to the second set of measurements.
+
+**Route 1 (blue):**
+
+```{r echo=FALSE, fig.cap="For the blue route, head towards the Ice Arena.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_fork.jpg")
+
+```
+
+For the blue route along the river take either the lower path or the road down towards the Ice Arena.
+
+```{r echo=FALSE, fig.cap="Trail head near Ice Arena parking lot.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_Arenaparking.jpg")
+
+```
+
+When you head into the parking lot, you will see the small trail head to your right.
+
+```{r echo=FALSE, fig.cap="Trail head near Ice Arena parking lot.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_trail.jpg")
+
+```
+
+Here, you can pick up the trail that will take you to the temporary stream and second virtual staff gauge located right before the foot bridge over the river. Normally, you will encounter a few people walking their dogs and/or some teenagers that are hanging out doing teenager-y stuff. You may also see evidence of people camping out near the river/off the trail - please make sure you are not going after sunset.
+
+It should be less than a 10 minute walk to the temporary stream.
+
+```{r echo=FALSE, fig.cap="Temporary Stream location below Kelly Dam. Don't forget your bug spray!", out.width="250px"}
 
 knitr::include_graphics(path = "images/Piscataquog_1.jpg")
+
+```
+
+Right behind that you will see a painted rock and the footbridge across the river; that is where our second virtual staff gauge is located, you will have to go down to the embankment to get the measurement.
+
+```{r echo=FALSE, fig.cap="Virtual Staff Gauge location below Kelly Dam.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_rock.jpg")
+
+knitr::include_graphics(path = "images/Site1_bridge.jpg")
 
 knitr::include_graphics(path = "images/Piscataquog_2.jpg")
 
 ```
 
-Then you would walk back out and to your car.
 
-**Route 2:** You can park at the [Ice Arena](https://www.google.com/maps/place/West+Side+Ice+Arena/@42.9905691,-71.4944085,525m/data=!3m1!1e3!4m5!3m4!1s0x89e249277b405e6b:0xb621b368cffd972!8m2!3d42.9921536!4d-71.4923622), access the trail taking you to the two spots by the foot bridge, walk back and either take the River Trail to the boat launch/virtual staff gauge spot or you could hop in your car and drive there.
+**Route 2:** 
 
+Alternatively you can start your approach on the Rail Trail - keep an eye out for kids on scooters and tricycles. They will run you over without remorse!
+
+```{r echo=FALSE, fig.cap="For the orange route, take the wide, paved rail trail (left/upper path at fork) towards the athletic fields.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_fork.jpg")
+
+knitr::include_graphics(path = "images/Site1_railtrail.jpg")
+
+```
+
+For the orange route you will start on the Rail Trail and keep going past the ice arena (behind the trees to your right) and two baseball diamonds (also hidden by the trees), you will see some stairs to your right that you can take down towards the pitch.
+
+```{r echo=FALSE, fig.cap="For the orange route, take the wide, paved rail trail (left/upper path at fork) towards the athletic fields.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_stairs.jpg")
+
+```
+
+Once you are level with the pitch there is a small path that will take you around and behind the field to a small trail that will take you down to the river, you will hit a T-crossing, take the path to your right to come out by the footbridge and the two measurement points.
+
+```{r echo=FALSE, fig.cap="Take the trail along the baseball field, at the far corner a small trail will take you down to the river, at the crossing, hang right.", out.width="250px"}
+
+knitr::include_graphics(path = "images/Site1_baseball.jpg")
+
+knitr::include_graphics(path = "images/Site1_baseball2.jpg")
+
+knitr::include_graphics(path = "images/Site1_crossing.jpg")
+
+```
 
 ### Site 2: Pulpit Rock Conservation Area
 
