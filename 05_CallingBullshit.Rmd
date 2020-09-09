@@ -28,7 +28,7 @@ options(htmltools.dir.version = FALSE)
 
 # Assessing sources & calling bullsh*t
 
-**Date**: 8/26/2020
+**Date**: 9/9/2020
 
 **Learning Objectives**
 
