@@ -57,9 +57,16 @@ You will be receiving lab homework in some format almost every lab, part of the 
 **Due by the following Wednesday 12pm** unless otherwise specified.  
 *No late or incomplete homework will be accepted or receive credit.*
 
+### Due Wednesday, Sept. 23rd {-}
+
+Complete lab 7 ([IUCN Redlist Evaluation](https://labmanual.netlify.app/iucn-redlist-evaluation.html)) and the knitted `html`-file through Canvas (`HW-5`)
+
+
+<br>
+
 ### Due Wednesday, Sept. 16th {-}
 
-Complete lab 5 ([Aseesing sources & calling bullsh*t](https://labmanual.netlify.app/assessing-sources-calling-bullsht.html)) and submit as a word document through Canvas. You do not have to cut & paste the entire question but at minimum you should indicate the question number (e.g. Q5.1). All you answers can be quite brief; use bulletpoints when indicated otherwise write out your answers. Double space and use a legible font (Times new Roman/Cambria, Arial/Calibri) and font size (11 - 12 pts). Name your file `BI328_lastname_HW-4.docx`. Create a header or footer with your Name, Page number, and course designation/semester.
+Complete lab 5 ([Asessing sources & calling bullsh*t](https://labmanual.netlify.app/assessing-sources-calling-bullsht.html)) and submit as a word document through Canvas. You do not have to cut & paste the entire question but at minimum you should indicate the question number (e.g. Q5.1). All you answers can be quite brief; use bulletpoints when indicated otherwise write out your answers. Double space and use a legible font (Times new Roman/Cambria, Arial/Calibri) and font size (11 - 12 pts). Name your file `BI328_lastname_HW-4.docx`. Create a header or footer with your Name, Page number, and course designation/semester.
 
 
 <br>
