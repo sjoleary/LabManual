@@ -1,0 +1,710 @@
+species	code	habitat
+Acaena exigua	1.9	Forest - Subtropical/Tropical Moist Montane
+Acaena exigua	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Acalypha dikuluwensis	17	Other
+Acalypha dikuluwensis	2.1	Savanna - Dry
+Acalypha rubrinervis	1.9	Forest - Subtropical/Tropical Moist Montane
+Acalypha wilderi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Achyranthes atollensis	13.3	Marine Coastal/Supratidal - Coastal Sand Dunes
+Acipenser nudiventris Aral Sea stock	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Acrocephalus astrolabii	1.6	Forest - Subtropical/Tropical Moist Lowland
+Acrocephalus astrolabii	3.6	Shrubland - Subtropical/Tropical Moist
+Acrocephalus astrolabii	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Acrocephalus astrolabii	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Acrocephalus astrolabii	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Acrocephalus luscinius	1.6	Forest - Subtropical/Tropical Moist Lowland
+Acrocephalus luscinius	3.6	Shrubland - Subtropical/Tropical Moist
+Acrocephalus luscinius	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Acrocephalus luscinius	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Acrocephalus luscinius	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Acrocephalus musae	14.3	Artificial/Terrestrial - Plantations
+Acrocephalus musae	1.6	Forest - Subtropical/Tropical Moist Lowland
+Acrocephalus musae	3.6	Shrubland - Subtropical/Tropical Moist
+Acrocephalus nijoi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Acrocephalus nijoi	3.6	Shrubland - Subtropical/Tropical Moist
+Acrocephalus nijoi	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Acrocephalus nijoi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Acrocephalus nijoi	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Acrocephalus yamashinae	1.6	Forest - Subtropical/Tropical Moist Lowland
+Acrocephalus yamashinae	3.6	Shrubland - Subtropical/Tropical Moist
+Acrocephalus yamashinae	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Acrocephalus yamashinae	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Acrocephalus yamashinae	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Adiantum lianxianense	1.6	Forest - Subtropical/Tropical Moist Lowland
+Aegolius gradyi	1.4	Forest - Temperate
+Afrocyclops pauliani	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Akialoa ellisiana	1.6	Forest - Subtropical/Tropical Moist Lowland
+Akialoa ellisiana	1.9	Forest - Subtropical/Tropical Moist Montane
+Akialoa lanaiensis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Akialoa lanaiensis	1.9	Forest - Subtropical/Tropical Moist Montane
+Akialoa obscura	1.9	Forest - Subtropical/Tropical Moist Montane
+Akialoa stejnegeri	1.6	Forest - Subtropical/Tropical Moist Lowland
+Akialoa stejnegeri	1.9	Forest - Subtropical/Tropical Moist Montane
+Alasmidonta mccordi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Alburnus akili	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Alburnus nicaeensis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Alburnus nicaeensis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Alectroenas nitidissimus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Alectroenas payandeei	1.6	Forest - Subtropical/Tropical Moist Lowland
+Alinea luciae	18	Unknown
+Alopecoenas ferrugineus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Alopecoenas salamonis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Alopochen kervazoi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Alopochen kervazoi	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Alopochen mauritiana	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Amaranthus brownii	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Amazona martinicana	1.6	Forest - Subtropical/Tropical Moist Lowland
+Amazona violacea	1.6	Forest - Subtropical/Tropical Moist Lowland
+Ameles fasciipennis	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Anabarilius macrolepis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Anas marecula	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Anas marecula	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Anas theodori	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Angraecopsis dolabriformis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Angraecum astroarche	1.6	Forest - Subtropical/Tropical Moist Lowland
+Anthornis melanocephala	1.3	Forest - Subantarctic
+Aphanapteryx bonasia	1.6	Forest - Subtropical/Tropical Moist Lowland
+Aphanius splendens	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Aplonis corvina	1.9	Forest - Subtropical/Tropical Moist Montane
+Aplonis fusca	1.4	Forest - Temperate
+Aplonis fusca	3.4	Shrubland - Temperate
+Aplonis mavornata	1.6	Forest - Subtropical/Tropical Moist Lowland
+Aplonis ulietensis	3.6	Shrubland - Subtropical/Tropical Moist
+Ara tricolor	1.6	Forest - Subtropical/Tropical Moist Lowland
+Ara tricolor	1.8	Forest - Subtropical/Tropical Swamp
+Ara tricolor	1.9	Forest - Subtropical/Tropical Moist Montane
+Argyroxiphium virescens	1.9	Forest - Subtropical/Tropical Moist Montane
+Argyroxiphium virescens	3.7	Shrubland - Subtropical/Tropical High Altitude
+Astragalus nitidiflorus	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Atelopus longirostris	1.6	Forest - Subtropical/Tropical Moist Lowland
+Atelopus longirostris	1.9	Forest - Subtropical/Tropical Moist Montane
+Atelopus longirostris	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Atelopus vogli	1.6	Forest - Subtropical/Tropical Moist Lowland
+Atelopus vogli	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Athearnia crassa	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Atherinella callida	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Atlantisia podarces	17	Other
+Barbus microbarbis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Basananthe cupricola	17	Other
+Basananthe cupricola	2.1	Savanna - Dry
+Begonia eiromischa	1.6	Forest - Subtropical/Tropical Moist Lowland
+Bermuteo avivorus	1.4	Forest - Temperate
+Bettongia anhydra	18	Unknown
+Bettongia pusilla	18	Unknown
+Blutaparon rigidum	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Blutaparon rigidum	3.5	Shrubland - Subtropical/Tropical Dry
+Boromys offella	18	Unknown
+Boromys torrei	18	Unknown
+Bos primigenius	1.4	Forest - Temperate
+Bos primigenius	4.4	Grassland - Temperate
+Bos primigenius	5.3	Wetlands (inland) - Shrub Dominated Wetlands
+Bos primigenius	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Bradycellus chavesi	1.4	Forest - Temperate
+Brotomys voratus	18	Unknown
+Bulweria bifax	10.1	Marine Oceanic - Epipelagic (0-200m)
+Bulweria bifax	10.2	Marine Oceanic - Mesopelagic (200-1000m)
+Bulweria bifax	1.5	Forest - Subtropical/Tropical Dry
+Bulweria bifax	3.5	Shrubland - Subtropical/Tropical Dry
+Bulweria bifax	9.1	Marine Neritic - Pelagic
+Bythinella gibbosa	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Bythinella limnopsis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Bythinella mauritanica	18	Unknown
+Bythinella microcochlia	18	Unknown
+Bythinella punica	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Cabalus modestus	3.2	Shrubland - Subantarctic
+Cabalus modestus	4.3	Grassland - Subantarctic
+Calathus extensicollis	1.4	Forest - Temperate
+Calathus vicenteorum	1.4	Forest - Temperate
+Caloenas maculata	1.6	Forest - Subtropical/Tropical Moist Lowland
+Caloprymnus campestris	8.2	Desert - Temperate
+Cambarellus alvarezi	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Cambarellus chihuahuae	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Camptorhynchus labradorius	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Camptorhynchus labradorius	12.3	Marine Intertidal - Shingle and/or Pebble Shoreline and/or Beaches
+Camptorhynchus labradorius	9.10	Marine Neritic - Estuaries
+Caracara lutosa	3.5	Shrubland - Subtropical/Tropical Dry
+Carpodacus ferreorostris	1.4	Forest - Temperate
+Centaurea pseudoleucolepis	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Centrobunus braueri	1.6	Forest - Subtropical/Tropical Moist Lowland
+Chaeropus ecaudatus	1.5	Forest - Subtropical/Tropical Dry
+Chaeropus ecaudatus	2.1	Savanna - Dry
+Chaeropus ecaudatus	3.5	Shrubland - Subtropical/Tropical Dry
+Chaeropus ecaudatus	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Chaeropus ecaudatus	4.5	Grassland - Subtropical/Tropical Dry
+Chaetoptila angustipluma	1.9	Forest - Subtropical/Tropical Moist Montane
+Chambardia letourneuxi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Characodon garmani	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Chasmistes muriei	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Chelonoidis abingdonii	3.5	Shrubland - Subtropical/Tropical Dry
+Chelonoidis niger	1.5	Forest - Subtropical/Tropical Dry
+Chelonoidis niger	3.5	Shrubland - Subtropical/Tropical Dry
+Chenonetta finschi	1.4	Forest - Temperate
+Chenonetta finschi	3.4	Shrubland - Temperate
+Chenonetta finschi	4.4	Grassland - Temperate
+Chilonopsis nonpareil	3.5	Shrubland - Subtropical/Tropical Dry
+Chioninia coctei	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Chitala lopis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Chitala lopis	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Chitala lopis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Chloridops kona	1.5	Forest - Subtropical/Tropical Dry
+Chlorostilbon bracei	17	Other
+Chlorostilbon elegans	17	Other
+Chondrostoma scodrense	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Chondrostoma scodrense	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Cichlocolaptes mazarbarnetti	1.9	Forest - Subtropical/Tropical Moist Montane
+Ciridops anna	1.6	Forest - Subtropical/Tropical Moist Lowland
+Clappia cahabensis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Clappia umbilicata	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Clelia errabunda	18	Unknown
+Clermontia multiflora	1.6	Forest - Subtropical/Tropical Moist Lowland
+Coenocorypha barrierensis	3.4	Shrubland - Temperate
+Coenocorypha barrierensis	4.4	Grassland - Temperate
+Coenocorypha iredalei	3.2	Shrubland - Subantarctic
+Coenocorypha iredalei	4.3	Grassland - Subantarctic
+Colaptes oceanicus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Columba jouyi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Columba thiriouxi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Columba versicolor	1.6	Forest - Subtropical/Tropical Moist Lowland
+Conilurus albipes	1.4	Forest - Temperate
+Conilurus capricornensis	1.5	Forest - Subtropical/Tropical Dry
+Conilurus capricornensis	2.1	Savanna - Dry
+Contomastix charrua	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Conuropsis carolinensis	1.4	Forest - Temperate
+Copeoglossum redondae	1.5	Forest - Subtropical/Tropical Dry
+Coregonus alpenae	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus bezola	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus fera	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus gutturosus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus hiemalis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus johannae	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus nigripinnis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coregonus oxyrinchus	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Coregonus oxyrinchus	9.10	Marine Neritic - Estuaries
+Coregonus restrictus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coryphomys buehleri	18	Unknown
+Cottus echinatus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Coturnix novaezelandiae	4.4	Grassland - Temperate
+Coua delalandei	1.6	Forest - Subtropical/Tropical Moist Lowland
+Craugastor anciano	1.9	Forest - Subtropical/Tropical Moist Montane
+Craugastor anciano	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Craugastor escoces	1.9	Forest - Subtropical/Tropical Moist Montane
+Craugastor escoces	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Craugastor omoaensis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Craugastor omoaensis	1.9	Forest - Subtropical/Tropical Moist Montane
+Craugastor omoaensis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Cryptonanus ignitus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cryptoprocta spelea	18	Unknown
+Cyanea dolichopoda	1.9	Forest - Subtropical/Tropical Moist Montane
+Cyanea eleeleensis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyanea linearifolia	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyanea mauiensis	1.5	Forest - Subtropical/Tropical Dry
+Cyanea mauiensis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyanea minutiflora	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyanea parvifolia	3.6	Shrubland - Subtropical/Tropical Moist
+Cyanea sessilifolia	1.5	Forest - Subtropical/Tropical Dry
+Cyanea sessilifolia	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyanoramphus ulietanus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyanoramphus zealandicus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Cyclura onchiopsis	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Cyclura onchiopsis	1.5	Forest - Subtropical/Tropical Dry
+Cyclura onchiopsis	2.1	Savanna - Dry
+Cyclura onchiopsis	3.5	Shrubland - Subtropical/Tropical Dry
+Cynops wolterstorffi	15.7	Artificial/Aquatic - Irrigated Land (includes irrigation channels)
+Cynops wolterstorffi	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Cynops wolterstorffi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Cynops wolterstorffi	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Cyperus rockii	1.9	Forest - Subtropical/Tropical Moist Montane
+Cyprinodon arcuatus	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Cyprinodon ceciliae	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Cyprinodon inmemoriam	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Cyprinus yilongensis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Cyrtandra olona	1.6	Forest - Subtropical/Tropical Moist Lowland
+Delilia inelegans	18	Unknown
+Delissea niihauensis	1.5	Forest - Subtropical/Tropical Dry
+Delissea subcordata	1.6	Forest - Subtropical/Tropical Moist Lowland
+Delissea undulata	1.5	Forest - Subtropical/Tropical Dry
+Deloneura immaculata	1.5	Forest - Subtropical/Tropical Dry
+Deloneura immaculata	2.1	Savanna - Dry
+Diaphorapteryx hawkinsi	1.4	Forest - Temperate
+Dicrogonatus gardineri	1.6	Forest - Subtropical/Tropical Moist Lowland
+Drepanis funerea	1.6	Forest - Subtropical/Tropical Moist Lowland
+Drepanis pacifica	1.6	Forest - Subtropical/Tropical Moist Lowland
+Dromaius baudinianus	1.4	Forest - Temperate
+Dromaius minor	2.1	Savanna - Dry
+Dryolimnas augusti	18	Unknown
+Dryophthorus distinguendus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Dryopteris ascensionis	3.7	Shrubland - Subtropical/Tropical High Altitude
+Dryopteris ascensionis	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Dusicyon australis	18	Unknown
+Dusicyon avus	3.5	Shrubland - Subtropical/Tropical Dry
+Dusicyon avus	4.4	Grassland - Temperate
+Dusicyon avus	4.5	Grassland - Subtropical/Tropical Dry
+Dysmorodrepanis munroi	1.5	Forest - Subtropical/Tropical Dry
+Eclectus infectus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Ectopistes migratorius	1.4	Forest - Temperate
+Elimia clausa	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Elimia fusiformis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Elimia jonesi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Elimia pilsbryi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Emoia nativitatis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Empetrichthys merriami	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Epioblasma arcaeformis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma biemarginata	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma flexuosa	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma haysiana	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma lenior	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma lewisii	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma personata	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma propinqua	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma sampsonii	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Epioblasma stewardsonii	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Eriocaulon inundatum	5.8	Wetlands (inland) - Seasonal/Intermittent Freshwater Marshes/Pools (under 8ha)
+Eriocaulon jordanii	15.8	Artificial/Aquatic - Seasonally Flooded Agricultural Land
+Eriocaulon jordanii	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Erythrolamprus perfuscus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Erythromachus leguati	1.6	Forest - Subtropical/Tropical Moist Lowland
+Etheostoma sellare	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Etlingera heyneana	1.6	Forest - Subtropical/Tropical Moist Lowland
+Eucarlia alluaudi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Eulophia stenopetala	1.4	Forest - Temperate
+Euphrasia mendoncae	4.4	Grassland - Temperate
+Evarra bustamantei	15.9	Artificial/Aquatic - Canals and Drainage Channels, Ditches
+Evarra eigenmanni	15.9	Artificial/Aquatic - Canals and Drainage Channels, Ditches
+Evarra tlahuacensis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Falco duboisi	3.6	Shrubland - Subtropical/Tropical Moist
+Fissidens microstictus	1.4	Forest - Temperate
+Flabellidium spinosum	1.9	Forest - Subtropical/Tropical Moist Montane
+Foudia delloni	14.3	Artificial/Terrestrial - Plantations
+Foudia delloni	14.4	Artificial/Terrestrial - Rural Gardens
+Foudia delloni	1.6	Forest - Subtropical/Tropical Moist Lowland
+Foudia delloni	3.6	Shrubland - Subtropical/Tropical Moist
+Fregilupus varius	1.6	Forest - Subtropical/Tropical Moist Lowland
+Fulica newtonii	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Fulica newtonii	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Fundulus albolineatus	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Galba vancouverensis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Galba vancouverensis	5.2	Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks
+Galba vancouverensis	5.6	Wetlands (inland) - Seasonal/Intermittent Freshwater Lakes (over 8ha)
+Galba vancouverensis	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Galba vancouverensis	5.8	Wetlands (inland) - Seasonal/Intermittent Freshwater Marshes/Pools (under 8ha)
+Gallinula nesiotis	3.2	Shrubland - Subantarctic
+Gallinula nesiotis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Gallinula nesiotis	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Gallinula nesiotis	5.8	Wetlands (inland) - Seasonal/Intermittent Freshwater Marshes/Pools (under 8ha)
+Gambusia amistadensis	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Gambusia georgei	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Gasterosteus crenobiontus	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Gazella bilkis	8.1	Desert - Hot
+Gazella saudiya	8.1	Desert - Hot
+Geocapromys columbianus	18	Unknown
+Geocapromys thoracatus	3.5	Shrubland - Subtropical/Tropical Dry
+Geonemertes rodericana	1.6	Forest - Subtropical/Tropical Moist Lowland
+Germainaia geayi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Germainaia geayi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Gerygone insularis	1.4	Forest - Temperate
+Gila crassicauda	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Gila crassicauda	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Graecoanatolica macedonica	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Habenaria petromedusa	18	Unknown
+Haematopus meadewaldoi	12.1	Marine Intertidal - Rocky Shoreline
+Haematopus meadewaldoi	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Haematopus meadewaldoi	12.3	Marine Intertidal - Shingle and/or Pebble Shoreline and/or Beaches
+Haematopus meadewaldoi	12.6	Marine Intertidal - Tidepools
+Heleobia spinellii	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Heliotropium pannifolium	18	Unknown
+Hemignathus lucidus	1.9	Forest - Subtropical/Tropical Moist Montane
+Heteralocha acutirostris	1.4	Forest - Temperate
+Heteropsomys insulans	18	Unknown
+Hexolobodon phenax	18	Unknown
+Himatione fraithii	1.6	Forest - Subtropical/Tropical Moist Lowland
+Himatione fraithii	1.9	Forest - Subtropical/Tropical Moist Montane
+Hippopotamus lemerlei	18	Unknown
+Hippopotamus madagascariensis	18	Unknown
+Hippotragus leucophaeus	4.4	Grassland - Temperate
+Hirstienus nanus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Hoplodactylus delcourti	18	Unknown
+Hydrobia gracilis	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Hydrodamalis gigas	9.7	Marine Neritic - Macroalgal/Kelp
+Hydropsyche tobiasi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Hypotaenidia dieffenbachii	3.2	Shrubland - Subantarctic
+Hypotaenidia dieffenbachii	4.3	Grassland - Subantarctic
+Hypotaenidia pacifica	17	Other
+Hypotaenidia poeciloptera	1.6	Forest - Subtropical/Tropical Moist Lowland
+Hypotaenidia poeciloptera	1.9	Forest - Subtropical/Tropical Moist Montane
+Hypotaenidia wakensis	3.5	Shrubland - Subtropical/Tropical Dry
+Incilius periglenes	1.9	Forest - Subtropical/Tropical Moist Montane
+Incilius periglenes	5.8	Wetlands (inland) - Seasonal/Intermittent Freshwater Marshes/Pools (under 8ha)
+Islamia ateni	5.18	Wetlands (inland) - Karst and Other Subterranean Hydrological Systems (inland)
+Isolobodon montanus	18	Unknown
+Isolobodon montanus	1.9	Forest - Subtropical/Tropical Moist Montane
+Isolobodon portoricensis	18	Unknown
+Ixobrychus novaezelandiae	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Ixobrychus novaezelandiae	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Juscelinomys candango	18	Unknown
+Labeo worthingtoni	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Labidura herculeana	8.2	Desert - Temperate
+Lagorchestes asomatus	8.1	Desert - Hot
+Lagorchestes leporides	18	Unknown
+Lagostomus crassus	18	Unknown
+Leiocephalus cuneus	18	Unknown
+Leiocephalus eremitus	1.5	Forest - Subtropical/Tropical Dry
+Leiocephalus herminieri	18	Unknown
+Leiolopisma ceciliae	1.5	Forest - Subtropical/Tropical Dry
+Leiorhagium solemi	18	Unknown
+Leiostyla lamellosa	1.4	Forest - Temperate
+Lepidium amissum	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Lepidium obtusatum	12.3	Marine Intertidal - Shingle and/or Pebble Shoreline and/or Beaches
+Lepidium obtusatum	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Lepidium obtusatum	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Lepidochrysops hypopolia	4.5	Grassland - Subtropical/Tropical Dry
+Lepidomeda altivelis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Lepidomeda altivelis	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Leporillus apicalis	2.1	Savanna - Dry
+Leporillus apicalis	3.5	Shrubland - Subtropical/Tropical Dry
+Leporillus apicalis	4.5	Grassland - Subtropical/Tropical Dry
+Leporillus apicalis	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Leporillus apicalis	7.1	Caves and Subterranean Habitats (non-aquatic) - Caves
+Leporillus apicalis	8.1	Desert - Hot
+Leporillus apicalis	8.2	Desert - Temperate
+Lithobates fisheri	1.4	Forest - Temperate
+Lithobates fisheri	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Lithobates fisheri	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Logania depressa	18	Unknown
+Lophopsittacus bensoni	1.6	Forest - Subtropical/Tropical Moist Lowland
+Lophopsittacus mauritianus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Loxops wolstenholmei	1.9	Forest - Subtropical/Tropical Moist Montane
+Macrobrachium leptodactylus	18	Unknown
+Macropus greyi	2.2	Savanna - Moist
+Macropus greyi	4.4	Grassland - Temperate
+Macrotis leucura	2.1	Savanna - Dry
+Macrotis leucura	3.5	Shrubland - Subtropical/Tropical Dry
+Macrotis leucura	4.5	Grassland - Subtropical/Tropical Dry
+Margatteoidea amoena	1.6	Forest - Subtropical/Tropical Moist Lowland
+Marstonia olivacea	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Mascarenotus grucheti	1.6	Forest - Subtropical/Tropical Moist Lowland
+Mascarenotus murivorus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Mascarenotus sauzieri	1.6	Forest - Subtropical/Tropical Moist Lowland
+Mascarinus mascarin	1.6	Forest - Subtropical/Tropical Moist Lowland
+Medionidus mcglameriae	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Megalomys desmarestii	18	Unknown
+Megalomys luciae	18	Unknown
+Megaoryzomys curioi	3.4	Shrubland - Temperate
+Megupsilon aporus	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Melamprosops phaeosoma	1.5	Forest - Subtropical/Tropical Dry
+Melamprosops phaeosoma	1.9	Forest - Subtropical/Tropical Moist Montane
+Melanoplus spretus	14.1	Artificial/Terrestrial - Arable Land
+Melanoplus spretus	4.4	Grassland - Temperate
+Melicope macropus	1.5	Forest - Subtropical/Tropical Dry
+Melomys rubicola	3.6	Shrubland - Subtropical/Tropical Moist
+Mercuria letourneuxiana	5.12	Wetlands (inland) - Geothermal Wetlands
+Mercuria letourneuxiana	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Mergus australis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Mergus australis	9.10	Marine Neritic - Estuaries
+Metazalmoxis ferruginea	1.6	Forest - Subtropical/Tropical Moist Lowland
+Miconia abscondita	1.9	Forest - Subtropical/Tropical Moist Montane
+Microgoura meeki	1.6	Forest - Subtropical/Tropical Moist Lowland
+Microgoura meeki	1.8	Forest - Subtropical/Tropical Swamp
+Mirogrex hulensis	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Mirogrex hulensis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Moho apicalis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Moho bishopi	1.9	Forest - Subtropical/Tropical Moist Montane
+Moho braccatus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Moho braccatus	1.9	Forest - Subtropical/Tropical Moist Montane
+Moho nobilis	1.9	Forest - Subtropical/Tropical Moist Montane
+Moxostoma lacerum	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Mundia elpenor	3.5	Shrubland - Subtropical/Tropical Dry
+Myadestes myadestinus	1.9	Forest - Subtropical/Tropical Moist Montane
+Myadestes woahensis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Myiagra freycineti	1.6	Forest - Subtropical/Tropical Moist Lowland
+Myosotis laingii	4.4	Grassland - Temperate
+Nactus soniae	18	Unknown
+Namibcypris costata	5.18	Wetlands (inland) - Karst and Other Subterranean Hydrological Systems (inland)
+Namibcypris costata	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Nannococcyx psix	1.4	Forest - Temperate
+Nannophrys guentheri	18	Unknown
+Necropsar rodericanus	17	Other
+Necropsittacus rodricanus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Neocnemis occidentalis	1.4	Forest - Temperate
+Neomonachus tropicalis	10.1	Marine Oceanic - Epipelagic (0-200m)
+Neomonachus tropicalis	12.1	Marine Intertidal - Rocky Shoreline
+Neomonachus tropicalis	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Neomonachus tropicalis	12.3	Marine Intertidal - Shingle and/or Pebble Shoreline and/or Beaches
+Neomonachus tropicalis	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Neomonachus tropicalis	9.1	Marine Neritic - Pelagic
+Neoplanorbis tantillus	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Neovison macrodon	12.1	Marine Intertidal - Rocky Shoreline
+Neovison macrodon	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Neovison macrodon	12.3	Marine Intertidal - Shingle and/or Pebble Shoreline and/or Beaches
+Neovison macrodon	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Neovison macrodon	9.2	Marine Neritic - Subtidal Rock and Rocky Reefs
+Nesillas aldabrana	3.6	Shrubland - Subtropical/Tropical Moist
+Nesiota elliptica	1.9	Forest - Subtropical/Tropical Moist Montane
+Nesoenas cicur	18	Unknown
+Nesoenas duboisi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Nesoenas rodericanus	18	Unknown
+Nesophontes edithae	18	Unknown
+Nesophontes hypomicrus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Nesophontes major	18	Unknown
+Nesophontes micrus	18	Unknown
+Nesophontes paramicrus	18	Unknown
+Nesophontes zamicrus	18	Unknown
+Nesoryzomys darwini	3.6	Shrubland - Subtropical/Tropical Moist
+Nesoryzomys indefessus	3.6	Shrubland - Subtropical/Tropical Moist
+Nestor productus	1.4	Forest - Temperate
+Nobregaea latinervis	1.4	Forest - Temperate
+Noronhomys vespuccii	3.5	Shrubland - Subtropical/Tropical Dry
+Notomys amplus	18	Unknown
+Notomys longicaudatus	2.1	Savanna - Dry
+Notomys longicaudatus	3.5	Shrubland - Subtropical/Tropical Dry
+Notomys longicaudatus	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Notomys longicaudatus	4.5	Grassland - Subtropical/Tropical Dry
+Notomys longicaudatus	8.1	Desert - Hot
+Notomys macrotis	18	Unknown
+Notomys mordax	18	Unknown
+Notomys robustus	2.1	Savanna - Dry
+Notomys robustus	3.5	Shrubland - Subtropical/Tropical Dry
+Notomys robustus	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Notomys robustus	4.5	Grassland - Subtropical/Tropical Dry
+Notomys robustus	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Notropis aulidion	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Notropis orca	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Notropis saladonis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Noturus trautmani	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Nyctanassa carcinocatactes	18	Unknown
+Nycticorax duboisi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Nycticorax duboisi	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Nycticorax mauritianus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Nycticorax mauritianus	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Nycticorax megacephalus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Nycticorax megacephalus	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Oeceoclades seychellarum	1.6	Forest - Subtropical/Tropical Moist Lowland
+Ohridohauffenia drimica	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Oldenlandia adscensionis	3.5	Shrubland - Subtropical/Tropical Dry
+Oldenlandia adscensionis	3.7	Shrubland - Subtropical/Tropical High Altitude
+Oldenlandia adscensionis	4.5	Grassland - Subtropical/Tropical Dry
+Oligoryzomys victus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Oligoryzomys victus	18	Unknown
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	10.1	Marine Oceanic - Epipelagic (0-200m)
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	13.5	Marine Coastal/Supratidal - Coastal Freshwater Lakes
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	5.13	Wetlands (inland) - Permanent Inland Deltas
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	9.1	Marine Neritic - Pelagic
+Oncorhynchus nerka COLUMBIA RIVER: Payette R	9.10	Marine Neritic - Estuaries
+Pluchea glutinosa	18	Unknown
+Podiceps andinus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Podilymbus gigas	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Pogonichthys ciscoides	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Pogonichthys ciscoides	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Pomarea fluxa	1.5	Forest - Subtropical/Tropical Dry
+Pomarea fluxa	1.6	Forest - Subtropical/Tropical Moist Lowland
+Pomarea fluxa	3.6	Shrubland - Subtropical/Tropical Moist
+Pomarea nukuhivae	14.6	Artificial/Terrestrial - Subtropical/Tropical Heavily Degraded Former Forest
+Pomarea nukuhivae	1.6	Forest - Subtropical/Tropical Moist Lowland
+Pomarea nukuhivae	1.9	Forest - Subtropical/Tropical Moist Montane
+Pomarea pomarea	1.6	Forest - Subtropical/Tropical Moist Lowland
+Poodytes rufescens	3.2	Shrubland - Subantarctic
+Porphyrio albus	17	Other
+Porphyrio caerulescens	1.9	Forest - Subtropical/Tropical Moist Montane
+Porphyrio kukwiedei	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Porphyrio mantelli	4.7	Grassland - Subtropical/Tropical High Altitude
+Porphyrio paepae	18	Unknown
+Potorous platyops	5.16	Wetlands (inland) - Permanent Saline, Brackish or Alkaline Marshes/Pools
+Procambarus angustatus	18	Unknown
+Prolagus sardus	18	Unknown
+Prosobonia cancellata	12.1	Marine Intertidal - Rocky Shoreline
+Prosobonia cancellata	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Prosobonia cancellata	12.3	Marine Intertidal - Shingle and/or Pebble Shoreline and/or Beaches
+Prosobonia cancellata	12.6	Marine Intertidal - Tidepools
+Prosobonia cancellata	3.5	Shrubland - Subtropical/Tropical Dry
+Prosobonia ellisi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Prosobonia leucoptera	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Prototroctes oxyrhynchus	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Psephotellus pulcherrimus	2.1	Savanna - Dry
+Pseudamnicola barratei	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Pseudamnicola desertorum	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Pseudamnicola doumeti	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Pseudamnicola globulina	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Pseudamnicola globulina	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Pseudamnicola latasteana	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Pseudamnicola latasteana	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Pseudamnicola oudrefica	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Pseudamnicola ragia	18	Unknown
+Pseudamnicola singularis	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Pseudobactricia ridleyi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Pseudocampylaea lowii	18	Unknown
+Pseudoeurycea exspectata	14.6	Artificial/Terrestrial - Subtropical/Tropical Heavily Degraded Former Forest
+Pseudoeurycea exspectata	1.9	Forest - Subtropical/Tropical Moist Montane
+Pseudomys auritus	1.4	Forest - Temperate
+Pseudomys auritus	2.2	Savanna - Moist
+Pseudomys auritus	3.4	Shrubland - Temperate
+Pseudomys glaucus	1.5	Forest - Subtropical/Tropical Dry
+Pseudomys gouldii	1.5	Forest - Subtropical/Tropical Dry
+Pseudomys gouldii	3.5	Shrubland - Subtropical/Tropical Dry
+Pseudophilautus adspersus	18	Unknown
+Pseudophilautus dimbullae	18	Unknown
+Pseudophilautus eximius	18	Unknown
+Pseudophilautus extirpo	18	Unknown
+Pseudophilautus halyi	18	Unknown
+Pseudophilautus hypomelas	18	Unknown
+Pseudophilautus leucorhinus	18	Unknown
+Pseudophilautus maia	1.9	Forest - Subtropical/Tropical Moist Montane
+Pseudophilautus malcolmsmithi	18	Unknown
+Pseudophilautus nanus	18	Unknown
+Pseudophilautus nasutus	18	Unknown
+Pseudophilautus oxyrhynchus	18	Unknown
+Pseudophilautus rugatus	18	Unknown
+Pseudophilautus stellatus	18	Unknown
+Pseudophilautus temporalis	18	Unknown
+Pseudophilautus variabilis	18	Unknown
+Pseudophilautus zal	18	Unknown
+Pseudophilautus zimmeri	18	Unknown
+Pseudophoxinus handlirschi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Pseudoyersinia brevipennis	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Psiadia schweinfurthii	18	Unknown
+Psittacara labati	1.6	Forest - Subtropical/Tropical Moist Lowland
+Psittacula exsul	1.6	Forest - Subtropical/Tropical Moist Lowland
+Psittacula wardi	1.6	Forest - Subtropical/Tropical Moist Lowland
+Pterodroma rupinarum	10.1	Marine Oceanic - Epipelagic (0-200m)
+Pterodroma rupinarum	10.2	Marine Oceanic - Mesopelagic (200-1000m)
+Pterodroma rupinarum	1.5	Forest - Subtropical/Tropical Dry
+Pterodroma rupinarum	3.5	Shrubland - Subtropical/Tropical Dry
+Pterodroma rupinarum	9.1	Marine Neritic - Pelagic
+Pteropus allenorum	18	Unknown
+Pteropus brunneus	18	Unknown
+Pteropus coxi	18	Unknown
+Pteropus pilosus	18	Unknown
+Pteropus subniger	18	Unknown
+Pteropus subniger	1.9	Forest - Subtropical/Tropical Moist Montane
+Ptilinopus mercierii	1.6	Forest - Subtropical/Tropical Moist Lowland
+Ptychochromis onilahy	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Pycnandra micrantha	3.5	Shrubland - Subtropical/Tropical Dry
+Pyrocephalus dubius	1.5	Forest - Subtropical/Tropical Dry
+Quiscalus palustris	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Raphus cucullatus	1.5	Forest - Subtropical/Tropical Dry
+Raphus cucullatus	1.9	Forest - Subtropical/Tropical Moist Montane
+Rattus macleari	1.6	Forest - Subtropical/Tropical Moist Lowland
+Rattus nativitatis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Rheobatrachus silus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Rheobatrachus silus	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Rheobatrachus silus	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Rheobatrachus vitellinus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Rheobatrachus vitellinus	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Rhinichthys deaconi	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Rhinichthys deaconi	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Rhodacanthis flaviceps	1.5	Forest - Subtropical/Tropical Dry
+Rhodacanthis palmeri	1.5	Forest - Subtropical/Tropical Dry
+Rhyncogonus bryani	3.5	Shrubland - Subtropical/Tropical Dry
+Romanogobio antipai	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Rucervus schomburgki	4.6	Grassland - Subtropical/Tropical Seasonally Wet/Flooded
+Rucervus schomburgki	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Rucervus schomburgki	5.6	Wetlands (inland) - Seasonal/Intermittent Freshwater Lakes (over 8ha)
+Salmo pallaryi	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Salvelinus neocomensis	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Salvelinus profundus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Samoana inflata	1.6	Forest - Subtropical/Tropical Moist Lowland
+Sanicula kauaiensis	18	Unknown
+Sceloglaux albifacies	1.4	Forest - Temperate
+Sceloglaux albifacies	4.4	Grassland - Temperate
+Sceloglaux albifacies	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Scelotes guentheri	18	Unknown
+Schiedea amplexicaulis	1.5	Forest - Subtropical/Tropical Dry
+Scleria chevalieri	5.16	Wetlands (inland) - Permanent Saline, Brackish or Alkaline Marshes/Pools
+Scleria chevalieri	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Sicyos villosus	18	Unknown
+Sitalcicus gardineri	1.6	Forest - Subtropical/Tropical Moist Lowland
+Solenodon marcanoi	18	Unknown
+Somatogyrus amnicoloides	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Somatogyrus crassilabris	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Somatogyrus wheeleri	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Spirobolellus praslinus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Sporobolus durus	4.5	Grassland - Subtropical/Tropical Dry
+Sporobolus durus	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Stachytarpheta fallax	18	Unknown
+Stagnicola pilsbryi	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Stellaria elatinoides	4.4	Grassland - Temperate
+Stellaria elatinoides	5.2	Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks
+Stipax triangulifer	1.6	Forest - Subtropical/Tropical Moist Lowland
+Streblorrhiza speciosa	18	Unknown
+Stypodon signifer	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Stypodon signifer	5.9	Wetlands (inland) - Freshwater Springs and Oases
+Sus bucculentus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Sus bucculentus	1.9	Forest - Subtropical/Tropical Moist Montane
+Sympterichthys unipennis	18	Unknown
+Sympterichthys unipennis	9.2	Marine Neritic - Subtidal Rock and Rocky Reefs
+Sympterichthys unipennis	9.3	Marine Neritic - Subtidal Loose Rock/pebble/gravel
+Sympterichthys unipennis	9.4	Marine Neritic - Subtidal Sandy
+Sympterichthys unipennis	9.7	Marine Neritic - Macroalgal/Kelp
+Syncaris pasadenae	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Tachybaptus rufolavatus	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Tachybaptus rufolavatus	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Tachygyia microlepis	18	Unknown
+Taudactylus diurnus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Taudactylus diurnus	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Taudactylus diurnus	5.2	Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks
+Telestes ukliva	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Tetradactylus eastwoodae	4.7	Grassland - Subtropical/Tropical High Altitude
+Thomasettia seychellana	1.6	Forest - Subtropical/Tropical Moist Lowland
+Threskiornis solitarius	5.7	Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)
+Thylacinus cynocephalus	1.4	Forest - Temperate
+Thylacinus cynocephalus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Thylacinus cynocephalus	4.4	Grassland - Temperate
+Tokea orthostichon	17	Other
+Traversia lyalli	1.3	Forest - Subantarctic
+Traversia lyalli	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Tribonyx hodgenorum	18	Unknown
+Trigonoscuta rossi	13.3	Marine Coastal/Supratidal - Coastal Sand Dunes
+Trigonoscuta yorbalindae	8.1	Desert - Hot
+Trilepidea adamsii	1.6	Forest - Subtropical/Tropical Moist Lowland
+Trilepidea adamsii	3.6	Shrubland - Subtropical/Tropical Moist
+Tristramella intermedia	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Tristramella magdelainae	18	Unknown
+Tristramella sacra	5.5	Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)
+Trochetiopsis melanoxylon	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Trochetiopsis melanoxylon	3.5	Shrubland - Subtropical/Tropical Dry
+Trochetiopsis melanoxylon	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Trochetiopsis melanoxylon	8.1	Desert - Hot
+Turdus ravidus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Turnagra capensis	1.4	Forest - Temperate
+Turnagra tanagra	1.4	Forest - Temperate
+Unio madagascariensis	5.1	Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)
+Unio malgachensis	18	Unknown
+Upupa antaios	1.4	Forest - Temperate
+Urile perspicillatus	12.1	Marine Intertidal - Rocky Shoreline
+Vanvoorstia bennettiana	9.10	Marine Neritic - Estuaries
+Vanvoorstia bennettiana	9.5	Marine Neritic - Subtidal Sandy-Mud
+Vernonia sechellensis	1.6	Forest - Subtropical/Tropical Moist Lowland
+Viola cryana	6	Rocky areas (eg. inland cliffs, mountain peaks)
+Viridonia sagittirostris	1.6	Forest - Subtropical/Tropical Moist Lowland
+Vitrea storchi	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Wikstroemia hanalei	1.6	Forest - Subtropical/Tropical Moist Lowland
+Xenicus longipes	1.4	Forest - Temperate
+Xenicus longipes	3.4	Shrubland - Temperate
+Xenothrix mcgregori	18	Unknown
+Zalophus japonicus	10.1	Marine Oceanic - Epipelagic (0-200m)
+Zalophus japonicus	12.1	Marine Intertidal - Rocky Shoreline
+Zalophus japonicus	12.2	Marine Intertidal - Sandy Shoreline and/or Beaches, Sand Bars, Spits, Etc
+Zalophus japonicus	13.1	Marine Coastal/Supratidal - Sea Cliffs and Rocky Offshore Islands
+Zalophus japonicus	9.1	Marine Neritic - Pelagic
+Zapornia astrictocarpus	17	Other
+Zapornia monasa	12.5	Marine Intertidal - Salt Marshes (Emergent Grasses)
+Zapornia monasa	1.6	Forest - Subtropical/Tropical Moist Lowland
+Zapornia monasa	5.4	Wetlands (inland) - Bogs, Marshes, Swamps, Fens, Peatlands
+Zapornia nigra	17	Other
+Zapornia palmeri	4.5	Grassland - Subtropical/Tropical Dry
+Zapornia sandwichensis	1.9	Forest - Subtropical/Tropical Moist Montane
+Zonites santoriniensis	18	Unknown
+Zonites siphnicus	3.8	Shrubland - Mediterranean-type Shrubby Vegetation
+Zoothera terrestris	1.4	Forest - Temperate
+Zosterops conspicillatus	14.3	Artificial/Terrestrial - Plantations
+Zosterops conspicillatus	14.4	Artificial/Terrestrial - Rural Gardens
+Zosterops conspicillatus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Zosterops conspicillatus	3.6	Shrubland - Subtropical/Tropical Moist
+Zosterops semiflavus	1.5	Forest - Subtropical/Tropical Dry
+Zosterops semiflavus	1.6	Forest - Subtropical/Tropical Moist Lowland
+Zosterops semiflavus	1.7	Forest - Subtropical/Tropical Mangrove Vegetation Above High Tide Level
+Zosterops semiflavus	1.9	Forest - Subtropical/Tropical Moist Montane
+Zosterops strenuus	1.4	Forest - Temperate
+Zosterops strenuus	14.5	Artificial/Terrestrial - Urban Areas
+Zosterops strenuus	3.4	Shrubland - Temperate

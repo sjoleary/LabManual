@@ -14,14 +14,19 @@ output:
     css: msmb.css
 bibliography: labmanual.bib
 link-citations: yes
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r include=FALSE}
 
 library(msmbstyle)
+library(knitr)
+library(tidyverse)
 
 # invalidate cache when the tufte version changes
 knitr::opts_chunk$set(tidy = FALSE, 
+                      message=FALSE, warning=FALSE,
                       cache.extra = packageVersion('msmbstyle'))
 
 
@@ -29,29 +34,58 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-# Value of and Threats to Biodiversity
+# IUCN Redlist Evaluation
 
-**Date**: //2020
+**Date**: 9/16/2020
+
+Download the project folder [here](https://drive.google.com/drive/folders/1-OZamtkiYIc2Ra2EB_anxTfE2FwIkcyQ?usp=sharing).
 
 **Learning Objectives**
 
-`r tufte::margin_note(".")` 
-
 After completing this lab you should
 
-* 
+* know what the IUCN Redlist and its intended purpose is.
+* understand the IUCN Redlist categories used to assess the risk level of species.
+* be able to distinguish direct/indirect use value of organisms and ecological & relational value of species and how this can be used to assess the impact of a species going extinct.
+* understand that some habitats make species more vulnerable to extinction.
+* understand the five major categories of drivers of biodiversity loss (threats) and how they differ in impact.
+* be able to make a barplot using `ggplot`.
 
 
 ## IUCN Redlist
 
-The [IUCN Redlist](https://www.iucnredlist.org/) is "the world's most comprehensive inventory of global conservation status of plant and animal species". It is maintained by the International Union for Conservation of Nature (IUCN) which is comprises both government and civil society organizations with a focus of understanding biodiversity and the measures needed to safeguard it. 
+The [IUCN Redlist](https://www.iucnredlist.org/) is "*the world's most comprehensive inventory of global conservation status of plant and animal species*". It is maintained by the International Union for Conservation of Nature (IUCN) which is comprises both government and civil society organizations with a focus of understanding biodiversity and the measures needed to safeguard it. 
 
-The goal of the IUCN redlist is to assess the status of individual species to create a barometer of the health of the world's biodiversity to be able to guide scientific research, inform policy/conventions (e.g. listing of species), affect resource allocation, and inform conservation planning, management strategies, and improve decision making.
+The goal of the IUCN Redlist is to assess the status of individual species to create a barometer of the overall health of the world's biodiversity with the intent guide scientific research, inform policy/conventions (e.g. listing of species), affect resource allocation, and inform conservation planning, management strategies, and improve decision making.
 
-`r msmbstyle::question(label = "ques:one", text = "Go to the IUCN redlist website and record the proportion of various taxonomic groups (based on the number of **assessed** species) that are currently threatened with extinction. Are these numbers higher or lower than you expected? Why?")`
+`r msmbstyle::question(label = "ques:one", text = "Go to the IUCN redlist website and record the proportion of various taxonomic groups (based on the number of **assessed** species) that are currently threatened with extinction. Briefly discuss whether these numbers are higher or lower than you would have expected.")`
 
 ## IUCN Redlist Categories
 
+The IUCN Red List has nine categories to classify species' risk of global extinction. 
+
+`r msmbstyle::question(label = "ques:two", text = "Use the IUCN Redlist website to identify and briefly characterize these nine categories. Indicate which categories indicate whether or not species have been evaluated, have sufficient information to make an assessment and are referred to collectively as threatened.")`
+
+1. Extinct (EX)
+2. Extinct in the Wild (EW)
+3. Critically endangered (CR)
+4. Endangered (EN)
+5. Vulnerable (VU)
+6. Near Threatened (NT)
+7. Least Concern (LC)
+8. Data Deficient (DD)
+9. Not Evaluated (NE)
+
+
+Five criteria are used for assessment an classification of species:
+
+1. Population size reduction
+2. Extent of occurrence (eoo)/area of occupancy (aoo)
+3. Small population size and decline
+4. Very small or restricted population
+5. Quantitative analysis (probability of extinction within next 100 years).
+
+`r msmbstyle::question(label = "ques:three", text = "The IUCN Redlist is at times criticized in the primary literature and debated in some scientific venues. Use your textbook (Ch. 8) to briefly outline the issues and argue whether you think these are substantial issues that need to be addressed and how that could be achieved.")`
 
 
 ## Valueing Biodiversity
@@ -60,40 +94,626 @@ Value systems for biodiversity range from ethical and cultural/relational to eco
 
 One way to categorize species in terms of value is as (1) **Direct Use Value** and (2) **Indirect Use Value**.
 
-`r msmbstyle::question(label = "ques:one", text = "Briefly define each of these two categories and list specific examples for each.")`
+`r msmbstyle::question(label = "ques:four", text = "Briefly define each of these two categories and list specific examples for each.")`
 
-Two categories of Indirect Use Value are **Ecological Value** and **Cultural/Spiritual Value** 
+Two categories of Indirect Use Value are **Ecological Value** and **Cultural/Spiritual Value** (this latter category corresponds with our concept of relational value).
 
-`r msmbstyle::question(label = "ques:one", text = "Briefly define each of these two categories and list specific examples for each.")`
+`r msmbstyle::question(label = "ques:five", text = "Briefly describe each of these two categories and list specific examples for each.")`
 
-Being able to define the value of species is important because it allows us to assess what would be lost if a species went extinct and how this would affect their ecosystem and human well-being.
+Being able to define the value of species is important because it allows us to assess what would be lost if a species went extinct and how this would affect their ecosystem and/or human well-being.
 
-Go to the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) and identify one species each that is endangered or critically endangered in the New Hampshire, in another part of the USA, and outside of the US that has a **direct use**. 
+Go to the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) and identify one species each that is endangered or critically endangered in New Hampshire, in another part of the USA, and outside of the US that has a **direct use**. 
 
-An easy way to do this is to use the drop-down menus on the left-hand side of the webpate. Open the `Red List Category` panel and check the boxes for `endangered` and `critically endangered`, the use the `Land Regions` section to narrow your search to New Hampshire, USA and another part of the world to make your selections. This will likely be a long list - you can use e.g the `Systems` section to restrict your search to marine, terrestrial, or freshwater systems or the `Taxonomy` panel to look at specific groups of animal or plants. Finally, the `Use and Trade` panel will allow you to narrow your search to organisms with direct use value. For easy comparison, you may want to choose three species that share direct use value.
+An easy way to do this is to use the drop-down menus on the left-hand side of the webpage. Open the `Red List Category` panel and check the boxes for `vulnerable`, `endangered` and `critically endangered`. Then use the `Land Regions` section to narrow your search to New Hampshire, USA and another part of the world to make your selections. This will likely be a long list - you can use e.g the `Systems` section to restrict your search to marine, terrestrial, or freshwater systems or the `Taxonomy` panel to look at specific groups of animal or plants. Finally, the `Use and Trade` panel will allow you to narrow your search to organisms with direct use value^[For easy comparison, you may want to choose three species that share the same direct use value.].
 
-`r msmbstyle::question(label = "ques:one", text = "For each of the three species you selected pull up the page with their assessment. For each species give a brief synopsis of the name, range, habitat/ecology, major threats and direct use value. For each consider what the ecological value and/or cultural/spiritual value could be. Finally, describe the broad-scale effects of this species going extinct would be (use the "value categories" we've discussed) and argue whether you think significant efforts should be made to protect the species.")`
+`r msmbstyle::question(label = "ques:six", text = "For each of the three species you selected pull up the page with their assessment; give a brief synopsis of the name, range, habitat/ecology, major threats, and direct use value. For each consider what the ecological value and/or cultural/spiritual value could be. Finally, describe the broad-scale effects of this species going extinct would be (use the value categories we have discussed in lecture) and argue whether you think significant efforts should be made to protect the species.")`
 
 
-## Threats to Biodiversity
+## Threats (Drivers of loss) to Biodiversity
 
 For our course we are grouping drivers of biodiversity loss (threats) into five broad categories.
 
 1. Habitat loss, fragmentation & degradation
-2. Pollution^[at times this is grouped into the first category because it may result in habitat degradation]
-3. Overexploitation
+2. Pollution^[Our textbook considers pollution a type of habitat degradation]
+3. Overexploitation/Overharvesting
 4. Invasive Species
 5. Climate Change
 
 Open the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) again and open the `Threats` panel/section. You should see twelve categories. Go to the detailed description of these [categories](https://www.iucnredlist.org/resources/threat-classification-scheme). 
 
-`r msmbstyle::question(label = "ques:one", text = "Read over the groups of threats the IUCN Redlist uses to describe the mechanisms that are affecting individual species and organize them into the five broad categories listed above.")`
-
-`r msmbstyle::question(label = "ques:one", text = "At the bottom of this detailed descriptions of these categories you should find descriptions of the timing, scope, and severity options. Briefly describe how these are asssessed (categories) and explain why it is important to consider these categories/perspectives as well to better assess what the IUCN redlist status of each species is.")`
+`r msmbstyle::question(label = "ques:seven", text = "Read over the groups of threats the IUCN Redlist uses to describe the mechanisms that are affecting individual species and organize them into the five broad categories listed above.")`
 
 
-## Local and Global comparison of status and threats to biodiversity
+`r msmbstyle::question(label = "ques:eight", text = "At the bottom of this detailed descriptions of these categories you should find descriptions of the timing, scope, and severity options. Briefly describe how these are asssessed (categories) and explain why it is important to consider these categories/perspectives as well to better assess what the IUCN redlist status of each species is.")`
 
-We are going to use the IUCN Redlist database to compare the distribution of threat categories and threats to biodiversity for New Hampshire, the United States and across the planet. We will also determine if there are differences among taxonomic groups, habitats, and broad ecosystem categories.
 
+## Local and global comparisons of conservation status and threats to biodiversity
+
+### Querying the database
+
+We are going to use the IUCN Redlist database to compare the distribution of threat levels and threats to biodiversity for different geographic regions. We will also determine if there are differences among taxonomic groups, habitats, and broad ecosystem categories.
+
+We are going to directly query the IUCN redlist database using R. To do this we need to install an R package^[You only have to do this once.].
+
+```{r eval=FALSE}
+
+install.packages("rredlist")
+
+```
+
+Now we can query and download information from the database.
+
+```{r echo=FALSE}
+
+rlkey <- "4920c1351e60ef9727d5082509b56440fdaa063580ce403400da004458aae18e"
+
+```
+
+To do this you need an API key, I have obtained one for use in our class and will share it with you during lab so you can include it in the code.
+
+Let's query information on a species we are interested in - choose a species you are interested in and store it's scientific name as the `species` variable to query information^[If you have the website still open you might want to intentionally choose a species that has been evaluated and is threatened - your results will be more interesting.].
+
+`r tufte::margin_note("Instead of directly adding the key or species name into the function we are storing them as objects (in this case a string). \nThis makes it easier to make changes without having to go through the function to find the correct argument to change.")`
+
+```{r}
+
+# load library
+library(rredlist)
+
+# set key (cut and paste key here, then uncomment (i.e. remove the #))
+# rlkey <- "add key here"
+
+# set species
+sp <- "Propithecus verreauxi"
+
+# download threat category information for a certain species
+download <- rl_search(sp, key = rlkey)
+
+# get dataframe with results
+redlist_status <- download[["result"]]
+
+```
+
+You can use the function `colnames()` to query the column names for any dataframe.
+
+```{r}
+
+colnames(redlist_status)
+
+```
+
+`r msmbstyle::question(label = "ques:nine", text = "Take a look at the column names to get an idea of the type of information you can get from this dataframe (you may also want to pull up the dataframe itself in the view panel to be able to see the contents of each column).")`
+
+You can also download information on the main threats for each species.
+
+```{r}
+
+# download threat category information for a certain species
+download <- rl_threats(sp, key = rlkey)
+
+redlist_threats <- download[["result"]] %>%
+  mutate(species = sp)
+
+```
+
+`r msmbstyle::question(label = "ques:ten", text = "Take a look at the column names and dataframe content and assess the information you can get about the threats to this species.")`
+
+Details on the groups from the threat categories can be found [here](https://www.iucnredlist.org/resources/threat-classification-scheme).
+
+
+Similarly, instead of using the web page to get more detailed information you can directly query the database to get information on the species' habitat -
+
+`r tufte::margin_note("The downloaded information is stored as a list with two elements. The first is a string ($name) of the species scientific name while the second element ($result) contains a dataframe with the actual information being queried.")`
+
+```{r}
+
+# habitats by taxon name, IUCN id, and region
+rl_habitats(name = sp, key = rlkey)
+
+```
+
+Conservation measures -
+
+```{r}
+
+# species conservation measures
+rl_measures(name = sp, key = rlkey)
+
+
+```
+
+and the species' narrative information
+
+```{r}
+
+rl_narrative(name = sp, key = rlkey)
+
+```
+
+We will not be making use of this information for our lab but being able to compile the information allows scientists to use text-based analysis to understand large-scale patterns.
+
+
+### Comparing threat status of a group of species
+
+Getting information for a single species is helpful but the real power of using `R` to query the database is when we start to pull a lot of information at once. 
+For example, the `IUCN redlist` has so-called comprehensive groups which are more or less broad taxonomic groups.
+
+You can query a list of comprehensive groups using
+
+```{r}
+
+# get list of comprehensive groups
+rl_comp_groups(key = rlkey)
+
+```
+
+Let's pull the information for one of these groups.
+
+```{r}
+
+# group
+group <- "amphibians"
+
+# download information for one of these groups
+download <- rl_comp_groups(group = group, key = rlkey)
+
+```
+
+This will give us all the species and their conservation status in a single data frame; we can use this to determine the proportion of species in each conservation status group.
+
+```{r}
+
+# categories
+category_levels <- c("DD", "LC", "NT", "VU", "EN", "CR", "EW", "EX")
+
+# number of species in group
+n <- download[["count"]]
+
+download[["result"]] %>%
+  select(scientific_name, category) %>%
+  group_by(category) %>%
+  summarize(n_species = n()) %>%
+  mutate(proportion_species = n_species/n,
+         category = ordered(category, levels = category_levels)) %>%
+  arrange(desc(category))
+
+```
+
+`r msmbstyle::question(label = "ques:eleven", text = "Choose another group from the list you are interested in, and query the databse to descibe the number of species in that group and use the proportion of species in each category to describe the threat status of the group as a whole.")`
+
+
+`r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
+
+Remember, that species categorized as CR, EN, and VU are often grouped together as threatened.
+
+`r msmbstyle::solution_end()`
+
+### Comparison of distribution of habitats for different conservations status groups.
+
+You can also query all the species of specific category. 
+
+For example, to get all the species that are categorized as extinct (EX), you can pull a list of species as such.
+
+```{r}
+
+# choose category
+cat <- "EX"
+
+# query database
+download <- rl_sp_category(category = cat, key =rlkey)
+
+```
+
+You can then determine how many species are in that category using `nrows()` to count the number of entries in the results.
+
+```{r}
+
+# number of species
+nrow(download[["result"]])
+
+```
+
+Now that we have all the species we are interested in we can write a loop that will look up the habitat for each of these species and compile them into a single data frame.
+
+`r tufte::margin_note("Querying this amount of information takes a significant amount of time, there also are some issues with the API to access the database... so we will not run this code chunk, instead I have written the output to the data folder and and we'll be able to read it directly into Rstudio. \nThere also are some discrepancies between the species list we can generate and those we can query information from the database API. \nThe central function we are using is rl_habitats() the rest of the code tells the computer to work its way through each species in the vector (as opposed to us having to manually pull information for each species and add it to the dataframe.")`
+
+```{r eval=FALSE}
+
+# extract vector of species
+SpeciesList <- download[["result"]]$scientific_name
+
+# need to split into sets of 50
+SL <- split(SpeciesList, ceiling(seq_along(SpeciesList)/50))
+
+# create empty data frame for results
+habitat <- data.frame(species = character(),
+                      code = character(),
+                      habitat = character())
+
+
+for(i in 1:length(SL)){
+  
+  set <- (SL[[i]])
+  
+  for(sp in set){
+    
+    # download habitat information for species
+    download <- rl_habitats(name = sp, key = rlkey)
+
+    results <- download[["result"]]
+  
+    # keep if dataframe
+    if(is.data.frame(results) == TRUE){
+    
+      results <- results %>%
+         mutate(species = download$name) %>%
+         select(species, code, habitat)
+    
+       habitat <- rbind(habitat, results)
+    
+      cat(sp,"... done\n")
+    }
+  
+    # move on if not dataframe
+    else {
+    
+      cat(sp, "... not in database\n")
+    
+    }
+  }
+  
+  cat("set", i, "complete\n")
+
+}
+
+# write to file
+write_delim(habitat, "data/habitat_ex.txt", delim = "\t")
+
+```
+
+Let's read that information in as a dataframe and determine the species count for each habitat type.
+
+Using your new found `tidyverse`/datawrangling skills, what functions can you use to do this?
+
+`r msmbstyle::solution_begin(header = "Solution", toggle = TRUE)`
+
+That's right, grouping the rows with matching code & habitat and then counting the number of observations will give us the results we want.
+
+```{r}
+
+habitat <- read_delim("data/habitat_ex.txt", delim = "\t") %>%
+  group_by(code, habitat) %>%
+  summarize(species_count = n())
+
+```
+
+`r msmbstyle::solution_end()`
+
+Let's take a look at the first few rows using the function `head()`.
+
+```{r}
+
+head(habitat)
+
+```
+
+You can find the habitat codes used in the IUCN Redlist data base [here](https://www.iucnredlist.org/resources/habitat-classification-scheme). If you take a look at that scheme you see that each major category has several subcategories. For our intents and purposes the major categories should be sufficient. 
+
+If you look carefully, the habitat column has a `-` between the major category and the more detailed information; that means we can use the `separate()` function to split that informatio across to columns and add the species counts in each categories for a final tally.
+
+```{r}
+
+major_cat <- habitat %>%
+  separate(habitat, into = c("major_category", "subcategory"), sep = " - ") %>%
+  group_by(major_category) %>%
+  summarise(species_count = sum(species_count)) %>%
+  ungroup()
+
+```
+
+Let's take a look at what that gives us.
+
+```{r}
+
+head(major_cat)
+
+```
+
+Now we can use `ggplot` to create a simple plot to visualize our results; previoiusly, we used `geom_point()` to create a scatterplot, for this comparison a bar plot (using `geom_bar()`) will be more helpful.
+
+`r tufte::margin_note("Again, the first line of code tells R which object (major_cat) the information we want to plot is stored in, and we use aes() to specify what we want to plot on the x- and y-axis. \nThe geom_bar() function tells R that we want our data plotted as bars, the argument stat is used to tell R that we want the value (identity) to determine length of the bar. \nlabs() is used to create labels for the x and y axis, you may remember that we can also use title = to add a figure title. \n finally the last line is turning the x-axis labels by 90 degrees so we cn read them better.")`
+
+```{r fig.cap="Number of species classified as extinct in the IUCN database for each of the major habitat categories.", fig.height=8, fig.width=7}
+
+ggplot(major_cat, aes(x = major_category, y = species_count)) +
+  geom_bar(stat = "identity", color = "black", fill = "darkorange") +
+  labs(x = "habitat", y = "species count") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+
+`r msmbstyle::question(label = "ques:twelve", text = "Use these results to identify patterns of certain habitats being home to more (less) extinct species.")`
+
+`r msmbstyle::question(label = "ques:thirteen", text = "For each of the three categories identifying species as threatened, I queried the habitat information for a random subset of 750 - 1000 species (the API is not my friend). You can find those text files in the data folder of this Rproject. Use your new found barplotting powers to compare patterns of habitat for species in each of the threatened categories alongside the extinct species. Explain your results.")`
+
+
+`r msmbstyle::solution_begin(header = "Some advice", toggle = TRUE)`
+
+Remember, these descriptions should be 2-3 sentences each + a short comparison of the categories. Identify whether there are consistent patterns across all "threatened" vs. "extinct" species of if there are distinct differences, determine if there are differences within the three threatened categories. When you explain your results, discuss/argue how certain habitats could increase the intrinsic vulnerability of a species, thus making them more likly to go extinct or become threatened.
+
+`r msmbstyle::solution_end()`
+
+
+### Comparison of conservation status for different geographic scales and regions
+
+Finally, let's identify species occurring in certain countries or regions and compare the number of species in different risk categories as well as the major threats contributing to species being threatened.
+
+The IUCN red list allows you to access a list of all the species occurring in a given country. Each country has a specified abbreviation. You can access these using the function `rl_countries()`^[We are using `head` to only print the first few of the whole list to get access to the entire list run the `rl_countries()` function on its own.].
+
+```{r}
+
+# countries in the database
+head(rl_countries(key = rlkey)$results)
+
+```
+
+Similarly, some countries are grouped into geographic regions - to view the regions and abbreviations you can use the function `rl_regions`.
+
+```{r}
+
+# regions in the database
+rl_regions(key = rlkey)$results
+
+```
+
+Let's query the threat status of all species for country - I am choosing Germany.
+
+```{r}
+
+country <- "DE"
+
+threat_status <- rl_sp_country(country = country, key = rlkey)$result %>%
+  select(scientific_name, category) %>%
+  mutate(category = substr(category, 1, 2))
+
+```
+
+Using your ever-growing `tidyverse`/data wrangling skills - how could you determine the number of species in each conservation status category?
+
+`r msmbstyle::solution_begin(header = "Solution", toggle = TRUE)`
+
+That's right! Group the observations (rows) by conservation status category and count the number of observations.
+
+```{r}
+
+threat_counts <- threat_status %>%
+  group_by(category) %>%
+  summarize(species_count = n()) %>%
+  ungroup()
+
+```
+
+`r msmbstyle::solution_end()`
+
+Let's make a nice table for our country of choice using the function `kable()` - you may remember this function from our `Intro to R` lab. It gives us formatting options and the ability to add a caption. 
+
+We are going to use a little trick to make sure our table has the categories organized by threat level^[Old entries might still have species categorized as `LR` (low risk) which is equivalent to least concern/near threatened.].
+
+```{r}
+
+category_levels <- c("DD", "LC", "LR", "NT", "VU", "EN", "CR", "EW", "EX")
+
+kable(
+  threat_counts %>%
+    mutate(category = ordered(category, levels = category_levels)) %>%
+    arrange(desc(category)),
+  caption = "Number of species found in Germany according to their IUCN redlist conservation status."
+)
+
+```
+
+We can also create a list of countries from around the world to compare patterns across the globe by looking up the abbreviations for a range of countries we are interested in^[I have added the United States as an example, we will come up with a list as a class during lab.].
+
+`r tufte::margin_note("Instead of having to look up each countries information individually we are going to use a loop to query the conservation status for all species found in a given country. The central function we are using is rl_sp_country(), the rest of the code is making sure all the individual dataframes a compiled into a single dataframe for our use. For each tidy dataframe we are also including the total number of species recorded for that country. That way we can determine both species counts and the proportion of species in each category.")`
+
+```{r}
+
+category_levels <- c("DD", "LC", "LR", "NT", "VU", "EN", "CR", "EW", "EX")
+
+# countries we are interested in
+country <- c("DE", "US")
+
+# data frame for results
+threat_status <- data.frame(scientific_name = character(),
+                      category = character(),
+                      country = character(),
+                      total_species = numeric())
+
+# download information for each country
+for(c in country){
+  
+  results <- rl_sp_country(country = c, key = rlkey)$result %>%
+  select(scientific_name, category) %>%
+  mutate(country = c,
+         category = substr(category, 1, 2),
+         total_species = rl_sp_country(country = c, key = rlkey)$count)
+  
+  threat_status <- rbind(threat_status, results)
+  
+}
+
+# calculate species counts/proportions
+threat_counts <- threat_status %>%
+  group_by(country, category, total_species) %>%
+  summarize(species_count = n()) %>%
+  ungroup() %>%
+  mutate(prop_species = round(species_count/total_species*100, digits = 2),
+         category = ordered(category, levels = category_levels))
+
+```
+
+Let's check out that dataframe -
+
+```{r}
+
+head(threat_counts)
+
+```
+
+That's a start but for comparisons we probably want to format the table so that each threat category is its own column. Any ideas how we can accomplish that?
+
+`r msmbstyle::solution_begin(header = "Solution", toggle = TRUE)`
+
+Remember `pivot_wider()` and `pivot_longer`?
+
+```{r}
+
+kable(
+  threat_counts %>%
+    arrange(desc(category)) %>%
+    select(country, species_count, category) %>%
+    pivot_wider(names_from = category, values_from = species_count),
+  caption = "Number of species in each conservation status category for each country."
+)
+
+```
+
+And we can create the same table using species proportions using
+
+```{r}
+
+kable(
+  threat_counts %>%
+    arrange(desc(category)) %>%
+    select(country, prop_species, category) %>%
+    pivot_wider(names_from = category, values_from = prop_species),
+  caption = "Proportion of species in each conservation status category for each country."
+)
+
+```
+
+
+`r msmbstyle::solution_end()`
+
+
+`r msmbstyle::question(label = "ques:fourteen", text = "Decide whether you think the species counts or proportion of species in each country are more informative to use for a comparison across countries (explain your choice). Then make a comparison of the patterns you have observed.")`
+
+### Comparison of drivers of biodiversity loss
+
+We have now compared habitats that are more/less susceptible to biodiversity loss and identified geographic patterns among different countries.
+
+A final parameter of interest is which threats (drivers of biodiversity loss) are contributing and whether those are consistent across geographic locations.
+
+Again, we can query a list of species and retain only species in the threatened category and the use a loop to download the threat information. We will randomly draw 500 species as a representative sample. Again, I have already queried this information and stored it as a dataframe that we can read directly into Rstudio for analysis.
+
+```{r eval=FALSE}
+
+# choose a country
+country <- "US"
+
+# query database - keep only threatened species
+download <- rl_sp_country(country = country, key = rlkey)$result %>%
+  filter(category %in% c("VU", "EN", "CR"))
+
+# extract vector of species
+SpeciesList <- download$scientific_name
+
+# sample 1000 randomly
+tmp <- sample(SpeciesList, 500, replace = FALSE)
+
+# need to split into sets of 50
+SL <- split(tmp, ceiling(seq_along(tmp)/50))
+
+# create empty data frame for results
+threat <- data.frame(code = character(),
+                     title = character(),
+                     scope = character(),
+                     severity = character(),
+                     score = character(),
+                     invasive = character())
+
+
+for(i in 5:length(SL)){
+  
+  set <- (SL[[i]])
+  
+  for(sp in set){
+    
+    # download threat information for species
+    results <- rl_threats(name = sp, key = rlkey)$result
+    
+    # keep if dataframe
+    if(is.data.frame(results) == TRUE){
+      
+      results <- results %>%
+        mutate(species = download$name)
+      
+      threat <- rbind(threat, results)
+      
+      Sys.sleep(2)
+      
+      cat(sp,"... done\n")
+    }
+    
+    # move on if not dataframe
+    else {
+      
+      cat(sp, "... not in database\n")
+      
+    }
+  }
+  
+  cat("set", i, "complete\n")
+  
+  # pause 10 seconds until next set
+  Sys.sleep(300)
+  
+}
+
+# write to file
+write_delim(threat, "data/threats_us.txt", delim = "\t")
+
+```
+
+We can read in that information to analyze it in a similar way we did the habitat data sets.
+
+```{r}
+
+threat <- read_delim("data/threats_us.txt", delim = "\t")
+
+```
+
+Let's take a look at our dataframe.
+
+```{r}
+
+head(threat)
+
+```
+
+Remember, the drivers of biodiversity loss are categorized in one of twelve [categories](https://www.iucnredlist.org/resources/threat-classification-scheme). 
+
+It is probably sufficient that we only retain information to place them in those major categories. We can do this using the function `substr()` which allows us to keep only the first character in the code column; then we can count the number of species in each category and use a barplot to visualize the data.
+
+```{r fig.cap="Number of species affected by each major driver of biodiversity loss.", fig.width=8, fig.height=6}
+
+threat <- threat %>%
+  mutate(code = substr(code, 1, 1)) %>%
+  group_by(code) %>%
+  summarize(species_count = n()) %>%
+  ungroup()
+
+ggplot(threat, aes(x = code, y = species_count)) +
+  geom_bar(stat = "identity", color = "black", fill = "darkorange") +
+  labs(x = "drivers of biodiversity loss", y = "species count") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+`r msmbstyle::question(label = "ques:fifteen", text = "Describe & discuss your results; remember that while the IUCN Redlist uses twelve categories, we have identified five major drivers of biodiversity loss - you can use the classification page and your answer to Q7 to relate your results to those five drivers.")`.
+
+In the `data` folder you will find a second data set for Madagascar. 
+
+`r msmbstyle::question(label = "ques:sixteen", text = "Summarize and visualize the data as above, then descibe and compare your results to the US data set and discuss your results.")`.
 

@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="7 IUCN Redlist Evaluation | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-09-16" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="7 IUCN Redlist Evaluation | Lab Manual Conservation Biology Fall 2020">
+
+<title>7 IUCN Redlist Evaluation | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a id="active-page" href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a><ul class="toc-sections">
+<li class="toc"><a href="#iucn-redlist"> IUCN Redlist</a></li>
+<li class="toc"><a href="#iucn-redlist-categories"> IUCN Redlist Categories</a></li>
+<li class="toc"><a href="#valueing-biodiversity"> Valueing Biodiversity</a></li>
+<li class="toc"><a href="#threats-drivers-of-loss-to-biodiversity"> Threats (Drivers of loss) to Biodiversity</a></li>
+<li class="toc"><a href="#local-and-global-comparisons-of-conservation-status-and-threats-to-biodiversity"> Local and global comparisons of conservation status and threats to biodiversity</a></li>
+</ul>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="iucn-redlist-evaluation" class="section level1">
+<h1>
+<span class="header-section-number">7</span> IUCN Redlist Evaluation</h1>
+<p><strong>Date</strong>: 9/16/2020</p>
+<p>Download the project folder <a href="https://drive.google.com/drive/folders/1-OZamtkiYIc2Ra2EB_anxTfE2FwIkcyQ?usp=sharing">here</a>.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this lab you should</p>
+<ul>
+<li>know what the IUCN Redlist and its intended purpose is.</li>
+<li>understand the IUCN Redlist categories used to assess the risk level of species.</li>
+<li>be able to distinguish direct/indirect use value of organisms and ecological &amp; relational value of species and how this can be used to assess the impact of a species going extinct.</li>
+<li>understand that some habitats make species more vulnerable to extinction.</li>
+<li>understand the five major categories of drivers of biodiversity loss (threats) and how they differ in impact.</li>
+<li>be able to make a barplot using <code>ggplot</code>.</li>
+</ul>
+<div id="iucn-redlist" class="section level2">
+<h2>
+<span class="header-section-number">7.1</span> IUCN Redlist</h2>
+<p>The <a href="https://www.iucnredlist.org/">IUCN Redlist</a> is “<em>the world’s most comprehensive inventory of global conservation status of plant and animal species</em>”. It is maintained by the International Union for Conservation of Nature (IUCN) which is comprises both government and civil society organizations with a focus of understanding biodiversity and the measures needed to safeguard it.</p>
+<p>The goal of the IUCN Redlist is to assess the status of individual species to create a barometer of the overall health of the world’s biodiversity with the intent guide scientific research, inform policy/conventions (e.g. listing of species), affect resource allocation, and inform conservation planning, management strategies, and improve decision making.</p>
+<div id="ques:one" class="question">
+<p class="question-begin">
+► Question 7.1
+</p>
+<div class="question-body">
+<p>
+Go to the IUCN redlist website and record the proportion of various taxonomic groups (based on the number of <strong>assessed</strong> species) that are currently threatened with extinction. Briefly discuss whether these numbers are higher or lower than you would have expected.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="iucn-redlist-categories" class="section level2">
+<h2>
+<span class="header-section-number">7.2</span> IUCN Redlist Categories</h2>
+<p>The IUCN Red List has nine categories to classify species’ risk of global extinction.</p>
+<div id="ques:two" class="question">
+<p class="question-begin">
+► Question 7.2
+</p>
+<div class="question-body">
+<p>
+Use the IUCN Redlist website to identify and briefly characterize these nine categories. Indicate which categories indicate whether or not species have been evaluated, have sufficient information to make an assessment and are referred to collectively as threatened.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<ol style="list-style-type: decimal">
+<li>Extinct (EX)</li>
+<li>Extinct in the Wild (EW)</li>
+<li>Critically endangered (CR)</li>
+<li>Endangered (EN)</li>
+<li>Vulnerable (VU)</li>
+<li>Near Threatened (NT)</li>
+<li>Least Concern (LC)</li>
+<li>Data Deficient (DD)</li>
+<li>Not Evaluated (NE)</li>
+</ol>
+<p>Five criteria are used for assessment an classification of species:</p>
+<ol style="list-style-type: decimal">
+<li>Population size reduction</li>
+<li>Extent of occurrence (eoo)/area of occupancy (aoo)</li>
+<li>Small population size and decline</li>
+<li>Very small or restricted population</li>
+<li>Quantitative analysis (probability of extinction within next 100 years).</li>
+</ol>
+<div id="ques:three" class="question">
+<p class="question-begin">
+► Question 7.3
+</p>
+<div class="question-body">
+<p>
+The IUCN Redlist is at times criticized in the primary literature and debated in some scientific venues. Use your textbook (Ch. 8) to briefly outline the issues and argue whether you think these are substantial issues that need to be addressed and how that could be achieved.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="valueing-biodiversity" class="section level2">
+<h2>
+<span class="header-section-number">7.3</span> Valueing Biodiversity</h2>
+<p>Value systems for biodiversity range from ethical and cultural/relational to ecological and economic systems. With a growing number of species being threatened, endangered, or going extinct it is important to consider the value of biodiversity and what irreversible loss will mean for the ecosystems they exist in, the economy, and human well-being in the broadest sense.</p>
+<p>One way to categorize species in terms of value is as (1) <strong>Direct Use Value</strong> and (2) <strong>Indirect Use Value</strong>.</p>
+<div id="ques:four" class="question">
+<p class="question-begin">
+► Question 7.4
+</p>
+<div class="question-body">
+<p>
+Briefly define each of these two categories and list specific examples for each.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Two categories of Indirect Use Value are <strong>Ecological Value</strong> and <strong>Cultural/Spiritual Value</strong> (this latter category corresponds with our concept of relational value).</p>
+<div id="ques:five" class="question">
+<p class="question-begin">
+► Question 7.5
+</p>
+<div class="question-body">
+<p>
+Briefly describe each of these two categories and list specific examples for each.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Being able to define the value of species is important because it allows us to assess what would be lost if a species went extinct and how this would affect their ecosystem and/or human well-being.</p>
+<p>Go to the IUCN Redlist <a href="https://www.iucnredlist.org/search">Search Page</a> and identify one species each that is endangered or critically endangered in New Hampshire, in another part of the USA, and outside of the US that has a <strong>direct use</strong>.</p>
+<p>An easy way to do this is to use the drop-down menus on the left-hand side of the webpage. Open the <code>Red List Category</code> panel and check the boxes for <code>vulnerable</code>, <code>endangered</code> and <code>critically endangered</code>. Then use the <code>Land Regions</code> section to narrow your search to New Hampshire, USA and another part of the world to make your selections. This will likely be a long list - you can use e.g the <code>Systems</code> section to restrict your search to marine, terrestrial, or freshwater systems or the <code>Taxonomy</code> panel to look at specific groups of animal or plants. Finally, the <code>Use and Trade</code> panel will allow you to narrow your search to organisms with direct use value<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> For easy comparison, you may want to choose three species that share the same direct use value.</span>.</p>
+<div id="ques:six" class="question">
+<p class="question-begin">
+► Question 7.6
+</p>
+<div class="question-body">
+<p>
+For each of the three species you selected pull up the page with their assessment; give a brief synopsis of the name, range, habitat/ecology, major threats, and direct use value. For each consider what the ecological value and/or cultural/spiritual value could be. Finally, describe the broad-scale effects of this species going extinct would be (use the value categories we have discussed in lecture) and argue whether you think significant efforts should be made to protect the species.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="threats-drivers-of-loss-to-biodiversity" class="section level2">
+<h2>
+<span class="header-section-number">7.4</span> Threats (Drivers of loss) to Biodiversity</h2>
+<p>For our course we are grouping drivers of biodiversity loss (threats) into five broad categories.</p>
+<ol style="list-style-type: decimal">
+<li>Habitat loss, fragmentation &amp; degradation</li>
+<li>Pollution<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Our textbook considers pollution a type of habitat degradation</span>
+</li>
+<li>Overexploitation/Overharvesting</li>
+<li>Invasive Species</li>
+<li>Climate Change</li>
+</ol>
+<p>Open the IUCN Redlist <a href="https://www.iucnredlist.org/search">Search Page</a> again and open the <code>Threats</code> panel/section. You should see twelve categories. Go to the detailed description of these <a href="https://www.iucnredlist.org/resources/threat-classification-scheme">categories</a>.</p>
+<div id="ques:seven" class="question">
+<p class="question-begin">
+► Question 7.7
+</p>
+<div class="question-body">
+<p>
+Read over the groups of threats the IUCN Redlist uses to describe the mechanisms that are affecting individual species and organize them into the five broad categories listed above.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:eight" class="question">
+<p class="question-begin">
+► Question 7.8
+</p>
+<div class="question-body">
+<p>
+At the bottom of this detailed descriptions of these categories you should find descriptions of the timing, scope, and severity options. Briefly describe how these are asssessed (categories) and explain why it is important to consider these categories/perspectives as well to better assess what the IUCN redlist status of each species is.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="local-and-global-comparisons-of-conservation-status-and-threats-to-biodiversity" class="section level2">
+<h2>
+<span class="header-section-number">7.5</span> Local and global comparisons of conservation status and threats to biodiversity</h2>
+<div id="querying-the-database" class="section level3">
+<h3>
+<span class="header-section-number">7.5.1</span> Querying the database</h3>
+<p>We are going to use the IUCN Redlist database to compare the distribution of threat levels and threats to biodiversity for different geographic regions. We will also determine if there are differences among taxonomic groups, habitats, and broad ecosystem categories.</p>
+<p>We are going to directly query the IUCN redlist database using R. To do this we need to install an R package<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> You only have to do this once.</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="iucn-redlist-evaluation.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"rredlist"</span>)</span></code></pre></div>
+<p>Now we can query and download information from the database.</p>
+<p>To do this you need an API key, I have obtained one for use in our class and will share it with you during lab so you can include it in the code.</p>
+<p>Let’s query information on a species we are interested in - choose a species you are interested in and store it’s scientific name as the <code>species</code> variable to query information<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> If you have the website still open you might want to intentionally choose a species that has been evaluated and is threatened - your results will be more interesting.</span>.</p>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote">Instead of directly adding the key or species name into the function we are storing them as objects (in this case a string).
+This makes it easier to make changes without having to go through the function to find the correct argument to change.</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="iucn-redlist-evaluation.html#cb2-1"></a><span class="co"># load library</span></span>
+<span id="cb2-2"><a href="iucn-redlist-evaluation.html#cb2-2"></a><span class="kw">library</span>(rredlist)</span>
+<span id="cb2-3"><a href="iucn-redlist-evaluation.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="iucn-redlist-evaluation.html#cb2-4"></a><span class="co"># set key (cut and paste key here, then uncomment (i.e. remove the #))</span></span>
+<span id="cb2-5"><a href="iucn-redlist-evaluation.html#cb2-5"></a><span class="co"># rlkey &lt;- "add key here"</span></span>
+<span id="cb2-6"><a href="iucn-redlist-evaluation.html#cb2-6"></a></span>
+<span id="cb2-7"><a href="iucn-redlist-evaluation.html#cb2-7"></a><span class="co"># set species</span></span>
+<span id="cb2-8"><a href="iucn-redlist-evaluation.html#cb2-8"></a>sp &lt;-<span class="st"> "Propithecus verreauxi"</span></span>
+<span id="cb2-9"><a href="iucn-redlist-evaluation.html#cb2-9"></a></span>
+<span id="cb2-10"><a href="iucn-redlist-evaluation.html#cb2-10"></a><span class="co"># download threat category information for a certain species</span></span>
+<span id="cb2-11"><a href="iucn-redlist-evaluation.html#cb2-11"></a>download &lt;-<span class="st"> </span><span class="kw">rl_search</span>(sp, <span class="dt">key =</span> rlkey)</span>
+<span id="cb2-12"><a href="iucn-redlist-evaluation.html#cb2-12"></a></span>
+<span id="cb2-13"><a href="iucn-redlist-evaluation.html#cb2-13"></a><span class="co"># get dataframe with results</span></span>
+<span id="cb2-14"><a href="iucn-redlist-evaluation.html#cb2-14"></a>redlist_status &lt;-<span class="st"> </span>download[[<span class="st">"result"</span>]]</span></code></pre></div>
+<p>You can use the function <code>colnames()</code> to query the column names for any dataframe.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="iucn-redlist-evaluation.html#cb3-1"></a><span class="kw">colnames</span>(redlist_status)</span></code></pre></div>
+<pre><code>##  [1] "taxonid"            "scientific_name"    "kingdom"           
+##  [4] "phylum"             "class"              "order"             
+##  [7] "family"             "genus"              "main_common_name"  
+## [10] "authority"          "published_year"     "assessment_date"   
+## [13] "category"           "criteria"           "population_trend"  
+## [16] "marine_system"      "freshwater_system"  "terrestrial_system"
+## [19] "assessor"           "reviewer"           "aoo_km2"           
+## [22] "eoo_km2"            "elevation_upper"    "elevation_lower"   
+## [25] "depth_upper"        "depth_lower"        "errata_flag"       
+## [28] "errata_reason"      "amended_flag"       "amended_reason"</code></pre>
+<div id="ques:nine" class="question">
+<p class="question-begin">
+► Question 7.9
+</p>
+<div class="question-body">
+<p>
+Take a look at the column names to get an idea of the type of information you can get from this dataframe (you may also want to pull up the dataframe itself in the view panel to be able to see the contents of each column).
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>You can also download information on the main threats for each species.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="iucn-redlist-evaluation.html#cb5-1"></a><span class="co"># download threat category information for a certain species</span></span>
+<span id="cb5-2"><a href="iucn-redlist-evaluation.html#cb5-2"></a>download &lt;-<span class="st"> </span><span class="kw">rl_threats</span>(sp, <span class="dt">key =</span> rlkey)</span>
+<span id="cb5-3"><a href="iucn-redlist-evaluation.html#cb5-3"></a></span>
+<span id="cb5-4"><a href="iucn-redlist-evaluation.html#cb5-4"></a>redlist_threats &lt;-<span class="st"> </span>download[[<span class="st">"result"</span>]] <span class="op">%&gt;%</span></span>
+<span id="cb5-5"><a href="iucn-redlist-evaluation.html#cb5-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> sp)</span></code></pre></div>
+<div id="ques:ten" class="question">
+<p class="question-begin">
+► Question 7.10
+</p>
+<div class="question-body">
+<p>
+Take a look at the column names and dataframe content and assess the information you can get about the threats to this species.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Details on the groups from the threat categories can be found <a href="https://www.iucnredlist.org/resources/threat-classification-scheme">here</a>.</p>
+<p>Similarly, instead of using the web page to get more detailed information you can directly query the database to get information on the species’ habitat -</p>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote">The downloaded information is stored as a list with two elements. The first is a string (<span class="math inline">\(name) of the species scientific name while the second element (\)</span>result) contains a dataframe with the actual information being queried.</span></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="iucn-redlist-evaluation.html#cb6-1"></a><span class="co"># habitats by taxon name, IUCN id, and region</span></span>
+<span id="cb6-2"><a href="iucn-redlist-evaluation.html#cb6-2"></a><span class="kw">rl_habitats</span>(<span class="dt">name =</span> sp, <span class="dt">key =</span> rlkey)</span></code></pre></div>
+<pre><code>## $name
+## [1] "Propithecus verreauxi"
+## 
+## $result
+##   code                                     habitat suitability   season
+## 1  1.5           Forest - Subtropical/Tropical Dry    Suitable Resident
+## 2  1.6 Forest - Subtropical/Tropical Moist Lowland    Suitable Resident
+## 3  3.5        Shrubland - Subtropical/Tropical Dry    Suitable Resident
+##   majorimportance
+## 1             Yes
+## 2             Yes
+## 3             Yes</code></pre>
+<p>Conservation measures -</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="iucn-redlist-evaluation.html#cb8-1"></a><span class="co"># species conservation measures</span></span>
+<span id="cb8-2"><a href="iucn-redlist-evaluation.html#cb8-2"></a><span class="kw">rl_measures</span>(<span class="dt">name =</span> sp, <span class="dt">key =</span> rlkey)</span></code></pre></div>
+<pre><code>## $name
+## [1] "Propithecus verreauxi"
+## 
+## $result
+##    code                title
+## 1   2.1 Site/area management
+## 2   3.1   Species management
+## 3 3.1.1   Harvest management</code></pre>
+<p>and the species’ narrative information</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="iucn-redlist-evaluation.html#cb10-1"></a><span class="kw">rl_narrative</span>(<span class="dt">name =</span> sp, <span class="dt">key =</span> rlkey)</span></code></pre></div>
+<pre><code>## $name
+## [1] "Propithecus verreauxi"
+## 
+## $result
+##   species_id
+## 1      18354
+##                                                                                                                                                                                                                         taxonomicnotes
+## 1 Formerly considered the nominate subspecies of &lt;em&gt;Propithecus verreauxi&lt;/em&gt; (e.g. Groves 1993), but elevated to full species status by Groves (2001) and Mayor &lt;em&gt;et al.&lt;/em&gt; (2004), along with several other former subspecies.
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       rationale
+## 1 &lt;p&gt;                  &lt;/p&gt;&lt;p&gt;This species is suspected to have undergone a population reduction of =80% over the past 30 years (three generations, assuming a generation length of 10 years) due to observed and inferred continuing decline in area, extent and quality of habitat caused by the logging of the spiny, riparian or gallery forest; slash-and-burn agriculture (this practice is done to harvest cassava which is a system applied in primarily southern Madagascar or for corn and then peanut cultivation before land is abandoned which is implemented primarily in western Madagascar) and charcoal and fuel wood production; deliberate and accidental fires due to deliberate burning to create savannah for feeding cattle; selective logging for dugout canoes and schooner construction; and exploitation through unsustainable levels of hunting. &lt;span class="apple-converted-space"&gt;These numerous actions have not ceased and will to a large extent not be easily reversible. A future population reduction of =90% over a 30-year period is also suspected due to the same reasons. Inferring population reductions to continue, based on these premises, the species is listed as &lt;span class="apple-converted-space"&gt;Critically Endangered.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             geographicrange
+## 1 &lt;p&gt;Verreaux’s Sifaka is distributed in southern, south-western and western Madagascar. The Tsiribihina River is considered the northern limit of the range in the west. The south-eastern extent is formed by the western slope of the Anosy mountain range which has its boundary formed by the Andohahela National Park and World Heritage Site transitional forest parcel of Tsimelahy and the spiny forest parcels of Ihazofotsy and Mangatsiaka. There is also a private reserve, Nahampoana, east of the Andohahela National Park parcels and just north of) Tolagnaro (= Fort-Dauphin) which has a small population of Verreaux’s Sifaka; however, this population was probably introduced there as it is not a part of its historical range. The range limit in the southern Madagascar which represents the Spiny Forest Ecosystem&lt;strong&gt; &lt;/strong&gt;includes&lt;strong&gt; &lt;/strong&gt;the Mahafaly Plateau as its western portion and the spiny and gallery forests of the Mandrare Valley and its hinterland (Amboasary, Ifotaka, Angavo, Ankodida and Anadabolava) as its eastern portion. In summary, the regional distribution of the Verreaux’s sifaka extends from the Tsiribihina River south through Menabe-Antimena Protected Area, across the Morondava River to Kirindy Mitea National Park between the Kambatomena and Mangoky Rivers, extending southward from the region north of the Onilahy River which includes the Makay Mountain Protected Area and the Zombitse-Vohibasia and Isalo National Parks, then courses through the Beza-Mahafaly Protected area, Tsimanampetsotse National Park, Mahafaly Plateau Protected area and eastward to Mandrare Valley Protected area, Berenty Reserve and Andohahela National Park. It occurs from 7 metres below sea level to 1,770 metres above sea level (avg. 364 metres).&lt;/p&gt;  &lt;p&gt; &lt;span lang="EN-CA"&gt;&lt;/p&gt;
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       population
+## 1 &lt;p&gt;Overall population numbers are in decline due to habitat destruction. This species is suspected to have undergone a population reduction of =80% over the past 30 years (three generations) due to observed and inferred continuing decline in area, extent and quality of habitat caused by the logging of the spiny, riparian or gallery forest; slash-and-burn agriculture (this practice is done to harvest cassava which is a system applied in primarily southern Madagascar or for corn and then peanut cultivation before land is abandoned which is implemented primarily in western Madagascar) and charcoal and fuel wood production; deliberate and accidental fires due to deliberate burning to create savannah for feeding cattle; selective logging for dugout canoes and schooner construction; and exploitation through unsustainable levels of hunting.&amp;#160;&lt;span class="apple-converted-space"&gt;These numerous actions have not ceased and will to a large extent not be easily reversible. A future population reduction of =90% over a 30-year period is also suspected due to the same reasons.&lt;/p&gt;&lt;p&gt;There is significant variation in population densities noted in different forest types (Mittermeier&lt;em&gt; et al. &lt;/em&gt;2010, and references therein). In general, densities are lower in areas of degraded habitat which includes protected and nonprotected areas, but even very small forest patches can support sizeable numbers of this species. Reported estimates include 41 individuals/km² in Kirindy Mitea National Park, 150–200/km² at Berenty, and 400–500/km² at Antserananomby.&lt;/p&gt;&lt;p&gt;Furthermore, although this range including the EOO would be normally considered quite large, the spiny forest habitat in south-western Madagascar has become severely fragmented, decreasing in area by 28% from 1950 to 2000 and undergoing the highest annual rate of deforestation (1.2%) during the 1990’s than any other forest type or region in Madagascar (Harper &lt;em&gt;et al.&lt;/em&gt; 2007). This trend has persisted between 2000 to present, continuing the decline in area, extent and quality of habitat. Moreover, the primary threat to &lt;em&gt;Propithecus verreauxi &lt;/em&gt;and other regionally endemic biodiversity in the Menabe-Antimena and other regions in western Madagascar is habitat loss to agricultural shift to corn and then peanuts before the land is abandoned. Between 2000 and 2009, deforestation was around 1,000 hectares (2,500 acres) per year; by 2014, it was 4,000 hectares per year. By 2017, it is estimated that 29.7 percent was lost. Because 2017 and 2018 were catastrophic with a record number of fires, it is now predicted that the loss could be as high as 44.9 percent in 2020 and 83.1 percent by 2025 (Filou 2019).&amp;#160;&lt;/p&gt;&lt;p&gt;Furthermore, the habitat in southern Madagascar has been altered with the introduction of &lt;em&gt;Opuntia&lt;/em&gt; prickly pear cactus in the 1700s. With its current use as a cheap, quick growing, and readily available option as a living fence, the spiny forest is cleared for cassava and corn which the productivity of the land is short term. Large international mining concessions in southern Madagascar and the subsequent immigration from other ethnic groups into the region have also driven the deterioration of the regional cultural taboos or &lt;em&gt;fady &lt;/em&gt;which further threatens this species’ long term survivability.&lt;/p&gt;
+##   populationtrend
+## 1      decreasing
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    habitat
+## 1 &lt;p&gt;Verreaux’s Sifaka is a diurnal lemur that inhabits tropical dry lowland and montane forest, including spiny bush, brush-and scrub thickets, and riparian forests, and is also recorded in lowland rainforest in the south-eastern Madagascar; however, most likely introduced in this forest habitat. The diet is seasonally variable but consists mainly of young and mature leaves, fruits and seeds, supplemented with bark, dead wood, and termite soil (Mittermeier &lt;em&gt;et al.&lt;/em&gt; 2010, and references therein), and invertebrates (R.J. Lewis, unpublished data). &lt;em&gt;Propithecus verreauxi&lt;/em&gt; tends to live in small to medium, single and multi-male, groups that range from 2-14 (average five to six individuals), with home ranges varying from 4-20 ha depending on habitat. Breeding is seasonal, with mating taking place in January through to early March. Infants are almost completely independent at six months (Mittermeier &lt;em&gt;et al.&lt;/em&gt; 2010, and references therein). The age of first reproduction is typically 5 or 6 years but can occur as early as 3 years. A single offspring is born in June to September after a gestation of 162–170 days (Mittermeier &lt;em&gt;et al.&lt;/em&gt; 2010, and references therein).&amp;#160;&lt;/p&gt;
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  threats
+## 1 &lt;p&gt;Despite its wide distribution, the two principal habitats upon which this species depends for survival (spiny forest and riparian or gallery forest), are under continual threat because of logging, slash-and-burn agriculture (habitat loss has increased dramatically since 2009 where the loss at Menabe-Antimena was estimated at only 4.1%; however, as of 2017, the loss had increased to 29.7% due to immigration and agricultural shifts to corn followed by peanuts) and charcoal and fuelwood production. The habitat in southern Madagascar has been altered with the introduction of&amp;#160;&lt;em&gt;Opuntia&lt;/em&gt;&amp;#160;prickly pear cactus in the 1700s .Fires due to deliberate burning to create savanna for feeding cattle, as well as accidental burning due to the dry nature of the forest are also a major cause of habitat loss in some areas especially the long-term drought in southwestern and western Madagascar. The boat-making industry in the southern Menabe region is a source of substantial selective logging of food and sleep site resources. Although hunting is both illegal as well as &lt;em&gt;fady&lt;/em&gt; (taboo) to several of the tribes living within its range (e.g., Antandroy, Mahafaly); it is nevertheless hunted for food by other tribes (e.g., Sakalava) and by immigrants to the region. In the Isalo region, this lemur is known as “&lt;em&gt;sifaka-bilany&lt;/em&gt;” (“sifaka of the cooking pot”), but it is unclear whether this is because of its popularity as a food item or because of the sooty black appearance of individuals from this part of the species’ range. Populations are also genetically impoverished in terms of heterozygosity in some areas (Mittermeier &lt;em&gt;et al.&lt;/em&gt; 2010, and references therein).&lt;/p&gt;
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        conservationmeasures
+## 1 &lt;span lang="EN-CA"&gt;                  &lt;p&gt;&lt;em&gt;Propithecus verreauxi&lt;/em&gt; is listed on Appendix I of CITES. It is known to occur in five national parks (Andohahela, Isalo, Tsimanampetsotsa, Kirindy Mitea and Zombitse-Vohibasia), two special reserves (Andranomena and Beza-Mahafaly), and two private reserves (Analabe and Berenty) and several large Protected Areas (Menabe-Antimena, Mahafaly, Mandrare Valley, Makay Mountain Protected Areas). Despite its presence in multiple protected areas and a large Extent of Occurrence, these sites are significantly impacted by the numerous threats listed above and burgeoning human population growth. As of 2010, there are no animals held in captivity (I. J. Porton&lt;em&gt; pers. comm.&lt;/em&gt;).&lt;/p&gt;
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         usetrade
+## 1 Although hunting is both illegal as well as &lt;em&gt;fady&lt;/em&gt; (taboo) to several of the tribes living within its range (e.g. Antandroy, Mahafaly), it is nevertheless hunted for food by other tribes (e.g. Sakalava) and by immigrants to the region. In the Isalo region, this lemur is known as “&lt;em&gt;sifaka-bilany&lt;/em&gt;” (“sifaka of the cooking pot”), but it is unclear whether this is because of its popularity as a food item or because of the sooty black appearance of individuals from this part of the species’ range. The species is occasionally kept as an illegal pet (Reuter and Schaefer 2017).</code></pre>
+<p>We will not be making use of this information for our lab but being able to compile the information allows scientists to use text-based analysis to understand large-scale patterns.</p>
+</div>
+<div id="comparing-threat-status-of-a-group-of-species" class="section level3">
+<h3>
+<span class="header-section-number">7.5.2</span> Comparing threat status of a group of species</h3>
+<p>Getting information for a single species is helpful but the real power of using <code>R</code> to query the database is when we start to pull a lot of information at once.
+For example, the <code>IUCN redlist</code> has so-called comprehensive groups which are more or less broad taxonomic groups.</p>
+<p>You can query a list of comprehensive groups using</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="iucn-redlist-evaluation.html#cb12-1"></a><span class="co"># get list of comprehensive groups</span></span>
+<span id="cb12-2"><a href="iucn-redlist-evaluation.html#cb12-2"></a><span class="kw">rl_comp_groups</span>(<span class="dt">key =</span> rlkey)</span></code></pre></div>
+<pre><code>## $count
+## [1] 31
+## 
+## $result
+##                    group_name
+## 1        reef_building_corals
+## 2                  chameleons
+## 3                     mammals
+## 4             mangrove_plants
+## 5                  seagrasses
+## 6                      cycads
+## 7                    blennies
+## 8                 cone_snails
+## 9                   magnolias
+## 10                  seasnakes
+## 11        fw_caridean_shrimps
+## 12                fw_crayfish
+## 13       tunas_and_billfishes
+## 14           butterfly_fishes
+## 15                   groupers
+## 16               pufferfishes
+## 17                   conifers
+## 18              surgeonfishes
+## 19                      birds
+## 20  crocodiles_and_alligators
+## 21            sharks_and_rays
+## 22                   fw_crabs
+## 23                      cacti
+## 24     tarpons_and_ladyfishes
+## 25                  sturgeons
+## 26                angelfishes
+## 27                   lobsters
+## 28                 amphibians
+## 29 seabreams_porgies_picarels
+## 30                  hagfishes
+## 31   wrasses_and_parrotfishes</code></pre>
+<p>Let’s pull the information for one of these groups.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="iucn-redlist-evaluation.html#cb14-1"></a><span class="co"># group</span></span>
+<span id="cb14-2"><a href="iucn-redlist-evaluation.html#cb14-2"></a>group &lt;-<span class="st"> "amphibians"</span></span>
+<span id="cb14-3"><a href="iucn-redlist-evaluation.html#cb14-3"></a></span>
+<span id="cb14-4"><a href="iucn-redlist-evaluation.html#cb14-4"></a><span class="co"># download information for one of these groups</span></span>
+<span id="cb14-5"><a href="iucn-redlist-evaluation.html#cb14-5"></a>download &lt;-<span class="st"> </span><span class="kw">rl_comp_groups</span>(<span class="dt">group =</span> group, <span class="dt">key =</span> rlkey)</span></code></pre></div>
+<p>This will give us all the species and their conservation status in a single data frame; we can use this to determine the proportion of species in each conservation status group.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="iucn-redlist-evaluation.html#cb15-1"></a><span class="co"># categories</span></span>
+<span id="cb15-2"><a href="iucn-redlist-evaluation.html#cb15-2"></a>category_levels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"DD"</span>, <span class="st">"LC"</span>, <span class="st">"NT"</span>, <span class="st">"VU"</span>, <span class="st">"EN"</span>, <span class="st">"CR"</span>, <span class="st">"EW"</span>, <span class="st">"EX"</span>)</span>
+<span id="cb15-3"><a href="iucn-redlist-evaluation.html#cb15-3"></a></span>
+<span id="cb15-4"><a href="iucn-redlist-evaluation.html#cb15-4"></a><span class="co"># number of species in group</span></span>
+<span id="cb15-5"><a href="iucn-redlist-evaluation.html#cb15-5"></a>n &lt;-<span class="st"> </span>download[[<span class="st">"count"</span>]]</span>
+<span id="cb15-6"><a href="iucn-redlist-evaluation.html#cb15-6"></a></span>
+<span id="cb15-7"><a href="iucn-redlist-evaluation.html#cb15-7"></a>download[[<span class="st">"result"</span>]] <span class="op">%&gt;%</span></span>
+<span id="cb15-8"><a href="iucn-redlist-evaluation.html#cb15-8"></a><span class="st">  </span><span class="kw">select</span>(scientific_name, category) <span class="op">%&gt;%</span></span>
+<span id="cb15-9"><a href="iucn-redlist-evaluation.html#cb15-9"></a><span class="st">  </span><span class="kw">group_by</span>(category) <span class="op">%&gt;%</span></span>
+<span id="cb15-10"><a href="iucn-redlist-evaluation.html#cb15-10"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_species =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb15-11"><a href="iucn-redlist-evaluation.html#cb15-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">proportion_species =</span> n_species<span class="op">/</span>n,</span>
+<span id="cb15-12"><a href="iucn-redlist-evaluation.html#cb15-12"></a>         <span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> category_levels)) <span class="op">%&gt;%</span></span>
+<span id="cb15-13"><a href="iucn-redlist-evaluation.html#cb15-13"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(category))</span></code></pre></div>
+<pre><code>## # A tibble: 8 x 3
+##   category n_species proportion_species
+##   &lt;ord&gt;        &lt;int&gt;              &lt;dbl&gt;
+## 1 EX              35           0.00508 
+## 2 EW               2           0.000290
+## 3 CR             611           0.0886  
+## 4 EN             993           0.144   
+## 5 VU             673           0.0976  
+## 6 NT             387           0.0561  
+## 7 LC            2856           0.414   
+## 8 DD            1336           0.194</code></pre>
+<div id="ques:eleven" class="question">
+<p class="question-begin">
+► Question 7.11
+</p>
+<div class="question-body">
+<p>
+Choose another group from the list you are interested in, and query the databse to descibe the number of species in that group and use the proportion of species in each category to describe the threat status of the group as a whole.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Hint<span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-1', 'sol-start-1')"></span>
+</p>
+<div id="sol-body-1" class="solution-body" style="display: none;">
+<p>Remember, that species categorized as CR, EN, and VU are often grouped together as threatened.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comparison-of-distribution-of-habitats-for-different-conservations-status-groups." class="section level3">
+<h3>
+<span class="header-section-number">7.5.3</span> Comparison of distribution of habitats for different conservations status groups.</h3>
+<p>You can also query all the species of specific category.</p>
+<p>For example, to get all the species that are categorized as extinct (EX), you can pull a list of species as such.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="iucn-redlist-evaluation.html#cb17-1"></a><span class="co"># choose category</span></span>
+<span id="cb17-2"><a href="iucn-redlist-evaluation.html#cb17-2"></a>cat &lt;-<span class="st"> "EX"</span></span>
+<span id="cb17-3"><a href="iucn-redlist-evaluation.html#cb17-3"></a></span>
+<span id="cb17-4"><a href="iucn-redlist-evaluation.html#cb17-4"></a><span class="co"># query database</span></span>
+<span id="cb17-5"><a href="iucn-redlist-evaluation.html#cb17-5"></a>download &lt;-<span class="st"> </span><span class="kw">rl_sp_category</span>(<span class="dt">category =</span> cat, <span class="dt">key =</span>rlkey)</span></code></pre></div>
+<p>You can then determine how many species are in that category using <code>nrows()</code> to count the number of entries in the results.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="iucn-redlist-evaluation.html#cb18-1"></a><span class="co"># number of species</span></span>
+<span id="cb18-2"><a href="iucn-redlist-evaluation.html#cb18-2"></a><span class="kw">nrow</span>(download[[<span class="st">"result"</span>]])</span></code></pre></div>
+<pre><code>## [1] 919</code></pre>
+<p>Now that we have all the species we are interested in we can write a loop that will look up the habitat for each of these species and compile them into a single data frame.</p>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote">Querying this amount of information takes a significant amount of time, there also are some issues with the API to access the database… so we will not run this code chunk, instead I have written the output to the data folder and and we’ll be able to read it directly into Rstudio.
+There also are some discrepancies between the species list we can generate and those we can query information from the database API.
+The central function we are using is rl_habitats() the rest of the code tells the computer to work its way through each species in the vector (as opposed to us having to manually pull information for each species and add it to the dataframe.</span></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="iucn-redlist-evaluation.html#cb20-1"></a><span class="co"># extract vector of species</span></span>
+<span id="cb20-2"><a href="iucn-redlist-evaluation.html#cb20-2"></a>SpeciesList &lt;-<span class="st"> </span>download[[<span class="st">"result"</span>]]<span class="op">$</span>scientific_name</span>
+<span id="cb20-3"><a href="iucn-redlist-evaluation.html#cb20-3"></a></span>
+<span id="cb20-4"><a href="iucn-redlist-evaluation.html#cb20-4"></a><span class="co"># need to split into sets of 50</span></span>
+<span id="cb20-5"><a href="iucn-redlist-evaluation.html#cb20-5"></a>SL &lt;-<span class="st"> </span><span class="kw">split</span>(SpeciesList, <span class="kw">ceiling</span>(<span class="kw">seq_along</span>(SpeciesList)<span class="op">/</span><span class="dv">50</span>))</span>
+<span id="cb20-6"><a href="iucn-redlist-evaluation.html#cb20-6"></a></span>
+<span id="cb20-7"><a href="iucn-redlist-evaluation.html#cb20-7"></a><span class="co"># create empty data frame for results</span></span>
+<span id="cb20-8"><a href="iucn-redlist-evaluation.html#cb20-8"></a>habitat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">species =</span> <span class="kw">character</span>(),</span>
+<span id="cb20-9"><a href="iucn-redlist-evaluation.html#cb20-9"></a>                      <span class="dt">code =</span> <span class="kw">character</span>(),</span>
+<span id="cb20-10"><a href="iucn-redlist-evaluation.html#cb20-10"></a>                      <span class="dt">habitat =</span> <span class="kw">character</span>())</span>
+<span id="cb20-11"><a href="iucn-redlist-evaluation.html#cb20-11"></a></span>
+<span id="cb20-12"><a href="iucn-redlist-evaluation.html#cb20-12"></a></span>
+<span id="cb20-13"><a href="iucn-redlist-evaluation.html#cb20-13"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(SL)){</span>
+<span id="cb20-14"><a href="iucn-redlist-evaluation.html#cb20-14"></a>  </span>
+<span id="cb20-15"><a href="iucn-redlist-evaluation.html#cb20-15"></a>  set &lt;-<span class="st"> </span>(SL[[i]])</span>
+<span id="cb20-16"><a href="iucn-redlist-evaluation.html#cb20-16"></a>  </span>
+<span id="cb20-17"><a href="iucn-redlist-evaluation.html#cb20-17"></a>  <span class="cf">for</span>(sp <span class="cf">in</span> set){</span>
+<span id="cb20-18"><a href="iucn-redlist-evaluation.html#cb20-18"></a>    </span>
+<span id="cb20-19"><a href="iucn-redlist-evaluation.html#cb20-19"></a>    <span class="co"># download habitat information for species</span></span>
+<span id="cb20-20"><a href="iucn-redlist-evaluation.html#cb20-20"></a>    download &lt;-<span class="st"> </span><span class="kw">rl_habitats</span>(<span class="dt">name =</span> sp, <span class="dt">key =</span> rlkey)</span>
+<span id="cb20-21"><a href="iucn-redlist-evaluation.html#cb20-21"></a></span>
+<span id="cb20-22"><a href="iucn-redlist-evaluation.html#cb20-22"></a>    results &lt;-<span class="st"> </span>download[[<span class="st">"result"</span>]]</span>
+<span id="cb20-23"><a href="iucn-redlist-evaluation.html#cb20-23"></a>  </span>
+<span id="cb20-24"><a href="iucn-redlist-evaluation.html#cb20-24"></a>    <span class="co"># keep if dataframe</span></span>
+<span id="cb20-25"><a href="iucn-redlist-evaluation.html#cb20-25"></a>    <span class="cf">if</span>(<span class="kw">is.data.frame</span>(results) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>){</span>
+<span id="cb20-26"><a href="iucn-redlist-evaluation.html#cb20-26"></a>    </span>
+<span id="cb20-27"><a href="iucn-redlist-evaluation.html#cb20-27"></a>      results &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span></span>
+<span id="cb20-28"><a href="iucn-redlist-evaluation.html#cb20-28"></a><span class="st">         </span><span class="kw">mutate</span>(<span class="dt">species =</span> download<span class="op">$</span>name) <span class="op">%&gt;%</span></span>
+<span id="cb20-29"><a href="iucn-redlist-evaluation.html#cb20-29"></a><span class="st">         </span><span class="kw">select</span>(species, code, habitat)</span>
+<span id="cb20-30"><a href="iucn-redlist-evaluation.html#cb20-30"></a>    </span>
+<span id="cb20-31"><a href="iucn-redlist-evaluation.html#cb20-31"></a>       habitat &lt;-<span class="st"> </span><span class="kw">rbind</span>(habitat, results)</span>
+<span id="cb20-32"><a href="iucn-redlist-evaluation.html#cb20-32"></a>    </span>
+<span id="cb20-33"><a href="iucn-redlist-evaluation.html#cb20-33"></a>      <span class="kw">cat</span>(sp,<span class="st">"... done</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb20-34"><a href="iucn-redlist-evaluation.html#cb20-34"></a>    }</span>
+<span id="cb20-35"><a href="iucn-redlist-evaluation.html#cb20-35"></a>  </span>
+<span id="cb20-36"><a href="iucn-redlist-evaluation.html#cb20-36"></a>    <span class="co"># move on if not dataframe</span></span>
+<span id="cb20-37"><a href="iucn-redlist-evaluation.html#cb20-37"></a>    <span class="cf">else</span> {</span>
+<span id="cb20-38"><a href="iucn-redlist-evaluation.html#cb20-38"></a>    </span>
+<span id="cb20-39"><a href="iucn-redlist-evaluation.html#cb20-39"></a>      <span class="kw">cat</span>(sp, <span class="st">"... not in database</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb20-40"><a href="iucn-redlist-evaluation.html#cb20-40"></a>    </span>
+<span id="cb20-41"><a href="iucn-redlist-evaluation.html#cb20-41"></a>    }</span>
+<span id="cb20-42"><a href="iucn-redlist-evaluation.html#cb20-42"></a>  }</span>
+<span id="cb20-43"><a href="iucn-redlist-evaluation.html#cb20-43"></a>  </span>
+<span id="cb20-44"><a href="iucn-redlist-evaluation.html#cb20-44"></a>  <span class="kw">cat</span>(<span class="st">"set"</span>, i, <span class="st">"complete</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb20-45"><a href="iucn-redlist-evaluation.html#cb20-45"></a></span>
+<span id="cb20-46"><a href="iucn-redlist-evaluation.html#cb20-46"></a>}</span>
+<span id="cb20-47"><a href="iucn-redlist-evaluation.html#cb20-47"></a></span>
+<span id="cb20-48"><a href="iucn-redlist-evaluation.html#cb20-48"></a><span class="co"># write to file</span></span>
+<span id="cb20-49"><a href="iucn-redlist-evaluation.html#cb20-49"></a><span class="kw">write_delim</span>(habitat, <span class="st">"data/habitat_ex.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<p>Let’s read that information in as a dataframe and determine the species count for each habitat type.</p>
+<p>Using your new found <code>tidyverse</code>/datawrangling skills, what functions can you use to do this?</p>
+<div class="solution">
+<p class="solution-begin">
+Solution<span id="sol-start-2" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-2', 'sol-start-2')"></span>
+</p>
+<div id="sol-body-2" class="solution-body" style="display: none;">
+<p>That’s right, grouping the rows with matching code &amp; habitat and then counting the number of observations will give us the results we want.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="iucn-redlist-evaluation.html#cb21-1"></a>habitat &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/habitat_ex.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb21-2"><a href="iucn-redlist-evaluation.html#cb21-2"></a><span class="st">  </span><span class="kw">group_by</span>(code, habitat) <span class="op">%&gt;%</span></span>
+<span id="cb21-3"><a href="iucn-redlist-evaluation.html#cb21-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">species_count =</span> <span class="kw">n</span>())</span></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Let’s take a look at the first few rows using the function <code>head()</code>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="iucn-redlist-evaluation.html#cb22-1"></a><span class="kw">head</span>(habitat)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+## # Groups:   code [6]
+##    code habitat                                                    species_count
+##   &lt;dbl&gt; &lt;chr&gt;                                                              &lt;int&gt;
+## 1   1.3 Forest - Subantarctic                                                  2
+## 2   1.4 Forest - Temperate                                                    33
+## 3   1.5 Forest - Subtropical/Tropical Dry                                     27
+## 4   1.6 Forest - Subtropical/Tropical Moist Lowland                          106
+## 5   1.7 Forest - Subtropical/Tropical Mangrove Vegetation Above H~             1
+## 6   1.8 Forest - Subtropical/Tropical Swamp                                    2</code></pre>
+<p>You can find the habitat codes used in the IUCN Redlist data base <a href="https://www.iucnredlist.org/resources/habitat-classification-scheme">here</a>. If you take a look at that scheme you see that each major category has several subcategories. For our intents and purposes the major categories should be sufficient.</p>
+<p>If you look carefully, the habitat column has a <code>-</code> between the major category and the more detailed information; that means we can use the <code>separate()</code> function to split that informatio across to columns and add the species counts in each categories for a final tally.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="iucn-redlist-evaluation.html#cb24-1"></a>major_cat &lt;-<span class="st"> </span>habitat <span class="op">%&gt;%</span></span>
+<span id="cb24-2"><a href="iucn-redlist-evaluation.html#cb24-2"></a><span class="st">  </span><span class="kw">separate</span>(habitat, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"major_category"</span>, <span class="st">"subcategory"</span>), <span class="dt">sep =</span> <span class="st">" - "</span>) <span class="op">%&gt;%</span></span>
+<span id="cb24-3"><a href="iucn-redlist-evaluation.html#cb24-3"></a><span class="st">  </span><span class="kw">group_by</span>(major_category) <span class="op">%&gt;%</span></span>
+<span id="cb24-4"><a href="iucn-redlist-evaluation.html#cb24-4"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">species_count =</span> <span class="kw">sum</span>(species_count)) <span class="op">%&gt;%</span></span>
+<span id="cb24-5"><a href="iucn-redlist-evaluation.html#cb24-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<p>Let’s take a look at what that gives us.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="iucn-redlist-evaluation.html#cb25-1"></a><span class="kw">head</span>(major_cat)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   major_category                                species_count
+##   &lt;chr&gt;                                                 &lt;int&gt;
+## 1 Artificial/Aquatic                                        4
+## 2 Artificial/Terrestrial                                    9
+## 3 Caves and Subterranean Habitats (non-aquatic)             1
+## 4 Desert                                                   10
+## 5 Forest                                                  211
+## 6 Grassland                                                29</code></pre>
+<p>Now we can use <code>ggplot</code> to create a simple plot to visualize our results; previoiusly, we used <code>geom_point()</code> to create a scatterplot, for this comparison a bar plot (using <code>geom_bar()</code>) will be more helpful.</p>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote">Again, the first line of code tells R which object (major_cat) the information we want to plot is stored in, and we use aes() to specify what we want to plot on the x- and y-axis.
+The geom_bar() function tells R that we want our data plotted as bars, the argument stat is used to tell R that we want the value (identity) to determine length of the bar.
+labs() is used to create labels for the x and y axis, you may remember that we can also use title = to add a figure title.
+finally the last line is turning the x-axis labels by 90 degrees so we cn read them better.</span></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="iucn-redlist-evaluation.html#cb27-1"></a><span class="kw">ggplot</span>(major_cat, <span class="kw">aes</span>(<span class="dt">x =</span> major_category, <span class="dt">y =</span> species_count)) <span class="op">+</span></span>
+<span id="cb27-2"><a href="iucn-redlist-evaluation.html#cb27-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"identity"</span>, <span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
+<span id="cb27-3"><a href="iucn-redlist-evaluation.html#cb27-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"habitat"</span>, <span class="dt">y =</span> <span class="st">"species count"</span>) <span class="op">+</span></span>
+<span id="cb27-4"><a href="iucn-redlist-evaluation.html#cb27-4"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-20"></span>
+<p class="caption marginnote shownote">
+Figure 7.1: Number of species classified as extinct in the IUCN database for each of the major habitat categories.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-20-1.png" alt="Number of species classified as extinct in the IUCN database for each of the major habitat categories." width="672">
+</div>
+<div id="ques:twelve" class="question">
+<p class="question-begin">
+► Question 7.12
+</p>
+<div class="question-body">
+<p>
+Use these results to identify patterns of certain habitats being home to more (less) extinct species.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:thirteen" class="question">
+<p class="question-begin">
+► Question 7.13
+</p>
+<div class="question-body">
+<p>
+For each of the three categories identifying species as threatened, I queried the habitat information for a random subset of 750 - 1000 species (the API is not my friend). You can find those text files in the data folder of this Rproject. Use your new found barplotting powers to compare patterns of habitat for species in each of the threatened categories alongside the extinct species. Explain your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Some advice<span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-3', 'sol-start-3')"></span>
+</p>
+<div id="sol-body-3" class="solution-body" style="display: none;">
+<p>Remember, these descriptions should be 2-3 sentences each + a short comparison of the categories. Identify whether there are consistent patterns across all “threatened” vs. “extinct” species of if there are distinct differences, determine if there are differences within the three threatened categories. When you explain your results, discuss/argue how certain habitats could increase the intrinsic vulnerability of a species, thus making them more likly to go extinct or become threatened.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comparison-of-conservation-status-for-different-geographic-scales-and-regions" class="section level3">
+<h3>
+<span class="header-section-number">7.5.4</span> Comparison of conservation status for different geographic scales and regions</h3>
+<p>Finally, let’s identify species occurring in certain countries or regions and compare the number of species in different risk categories as well as the major threats contributing to species being threatened.</p>
+<p>The IUCN red list allows you to access a list of all the species occurring in a given country. Each country has a specified abbreviation. You can access these using the function <code>rl_countries()</code><label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> We are using <code>head</code> to only print the first few of the whole list to get access to the entire list run the <code>rl_countries()</code> function on its own.</span>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="iucn-redlist-evaluation.html#cb28-1"></a><span class="co"># countries in the database</span></span>
+<span id="cb28-2"><a href="iucn-redlist-evaluation.html#cb28-2"></a><span class="kw">head</span>(<span class="kw">rl_countries</span>(<span class="dt">key =</span> rlkey)<span class="op">$</span>results)</span></code></pre></div>
+<pre><code>##   isocode      country
+## 1      UZ   Uzbekistan
+## 2      QA        Qatar
+## 3      SA Saudi Arabia
+## 4      AF  Afghanistan
+## 5      LB      Lebanon
+## 6      BH      Bahrain</code></pre>
+<p>Similarly, some countries are grouped into geographic regions - to view the regions and abbreviations you can use the function <code>rl_regions</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="iucn-redlist-evaluation.html#cb30-1"></a><span class="co"># regions in the database</span></span>
+<span id="cb30-2"><a href="iucn-redlist-evaluation.html#cb30-2"></a><span class="kw">rl_regions</span>(<span class="dt">key =</span> rlkey)<span class="op">$</span>results</span></code></pre></div>
+<pre><code>##                   name          identifier
+## 1  Northeastern Africa northeastern_africa
+## 2       Eastern Africa      eastern_africa
+## 3       Western Africa      western_africa
+## 4               Global              global
+## 5      Northern Africa     northern_africa
+## 6       Central Africa      central_africa
+## 7           Pan-Africa          pan-africa
+## 8      Southern Africa     southern_africa
+## 9        Mediterranean       mediterranean
+## 10              Europe              europe</code></pre>
+<p>Let’s query the threat status of all species for country - I am choosing Germany.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="iucn-redlist-evaluation.html#cb32-1"></a>country &lt;-<span class="st"> "DE"</span></span>
+<span id="cb32-2"><a href="iucn-redlist-evaluation.html#cb32-2"></a></span>
+<span id="cb32-3"><a href="iucn-redlist-evaluation.html#cb32-3"></a>threat_status &lt;-<span class="st"> </span><span class="kw">rl_sp_country</span>(<span class="dt">country =</span> country, <span class="dt">key =</span> rlkey)<span class="op">$</span>result <span class="op">%&gt;%</span></span>
+<span id="cb32-4"><a href="iucn-redlist-evaluation.html#cb32-4"></a><span class="st">  </span><span class="kw">select</span>(scientific_name, category) <span class="op">%&gt;%</span></span>
+<span id="cb32-5"><a href="iucn-redlist-evaluation.html#cb32-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">substr</span>(category, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<p>Using your ever-growing <code>tidyverse</code>/data wrangling skills - how could you determine the number of species in each conservation status category?</p>
+<div class="solution">
+<p class="solution-begin">
+Solution<span id="sol-start-4" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-4', 'sol-start-4')"></span>
+</p>
+<div id="sol-body-4" class="solution-body" style="display: none;">
+<p>That’s right! Group the observations (rows) by conservation status category and count the number of observations.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="iucn-redlist-evaluation.html#cb33-1"></a>threat_counts &lt;-<span class="st"> </span>threat_status <span class="op">%&gt;%</span></span>
+<span id="cb33-2"><a href="iucn-redlist-evaluation.html#cb33-2"></a><span class="st">  </span><span class="kw">group_by</span>(category) <span class="op">%&gt;%</span></span>
+<span id="cb33-3"><a href="iucn-redlist-evaluation.html#cb33-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">species_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb33-4"><a href="iucn-redlist-evaluation.html#cb33-4"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Let’s make a nice table for our country of choice using the function <code>kable()</code> - you may remember this function from our <code>Intro to R</code> lab. It gives us formatting options and the ability to add a caption.</p>
+<p>We are going to use a little trick to make sure our table has the categories organized by threat level<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> Old entries might still have species categorized as <code>LR</code> (low risk) which is equivalent to least concern/near threatened.</span>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="iucn-redlist-evaluation.html#cb34-1"></a>category_levels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"DD"</span>, <span class="st">"LC"</span>, <span class="st">"LR"</span>, <span class="st">"NT"</span>, <span class="st">"VU"</span>, <span class="st">"EN"</span>, <span class="st">"CR"</span>, <span class="st">"EW"</span>, <span class="st">"EX"</span>)</span>
+<span id="cb34-2"><a href="iucn-redlist-evaluation.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="iucn-redlist-evaluation.html#cb34-3"></a><span class="kw">kable</span>(</span>
+<span id="cb34-4"><a href="iucn-redlist-evaluation.html#cb34-4"></a>  threat_counts <span class="op">%&gt;%</span></span>
+<span id="cb34-5"><a href="iucn-redlist-evaluation.html#cb34-5"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> category_levels)) <span class="op">%&gt;%</span></span>
+<span id="cb34-6"><a href="iucn-redlist-evaluation.html#cb34-6"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(category)),</span>
+<span id="cb34-7"><a href="iucn-redlist-evaluation.html#cb34-7"></a>  <span class="dt">caption =</span> <span class="st">"Number of species found in Germany according to their IUCN redlist conservation status."</span></span>
+<span id="cb34-8"><a href="iucn-redlist-evaluation.html#cb34-8"></a>)</span></code></pre></div>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-25">Table 7.1: </span>Number of species found in Germany according to their IUCN redlist conservation status.</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="left">category</th>
+<th align="right">species_count</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">EX</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="right">43</td>
+</tr>
+<tr class="odd">
+<td align="left">EN</td>
+<td align="right">60</td>
+</tr>
+<tr class="even">
+<td align="left">VU</td>
+<td align="right">125</td>
+</tr>
+<tr class="odd">
+<td align="left">NT</td>
+<td align="right">118</td>
+</tr>
+<tr class="even">
+<td align="left">LR</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="left">LC</td>
+<td align="right">1694</td>
+</tr>
+<tr class="even">
+<td align="left">DD</td>
+<td align="right">115</td>
+</tr>
+</tbody>
+</table>
+<p>We can also create a list of countries from around the world to compare patterns across the globe by looking up the abbreviations for a range of countries we are interested in<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> I have added the United States as an example, we will come up with a list as a class during lab.</span>.</p>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote">Instead of having to look up each countries information individually we are going to use a loop to query the conservation status for all species found in a given country. The central function we are using is rl_sp_country(), the rest of the code is making sure all the individual dataframes a compiled into a single dataframe for our use. For each tidy dataframe we are also including the total number of species recorded for that country. That way we can determine both species counts and the proportion of species in each category.</span></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="iucn-redlist-evaluation.html#cb35-1"></a>category_levels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"DD"</span>, <span class="st">"LC"</span>, <span class="st">"LR"</span>, <span class="st">"NT"</span>, <span class="st">"VU"</span>, <span class="st">"EN"</span>, <span class="st">"CR"</span>, <span class="st">"EW"</span>, <span class="st">"EX"</span>)</span>
+<span id="cb35-2"><a href="iucn-redlist-evaluation.html#cb35-2"></a></span>
+<span id="cb35-3"><a href="iucn-redlist-evaluation.html#cb35-3"></a><span class="co"># countries we are interested in</span></span>
+<span id="cb35-4"><a href="iucn-redlist-evaluation.html#cb35-4"></a>country &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"DE"</span>, <span class="st">"US"</span>)</span>
+<span id="cb35-5"><a href="iucn-redlist-evaluation.html#cb35-5"></a></span>
+<span id="cb35-6"><a href="iucn-redlist-evaluation.html#cb35-6"></a><span class="co"># data frame for results</span></span>
+<span id="cb35-7"><a href="iucn-redlist-evaluation.html#cb35-7"></a>threat_status &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">scientific_name =</span> <span class="kw">character</span>(),</span>
+<span id="cb35-8"><a href="iucn-redlist-evaluation.html#cb35-8"></a>                      <span class="dt">category =</span> <span class="kw">character</span>(),</span>
+<span id="cb35-9"><a href="iucn-redlist-evaluation.html#cb35-9"></a>                      <span class="dt">country =</span> <span class="kw">character</span>(),</span>
+<span id="cb35-10"><a href="iucn-redlist-evaluation.html#cb35-10"></a>                      <span class="dt">total_species =</span> <span class="kw">numeric</span>())</span>
+<span id="cb35-11"><a href="iucn-redlist-evaluation.html#cb35-11"></a></span>
+<span id="cb35-12"><a href="iucn-redlist-evaluation.html#cb35-12"></a><span class="co"># download information for each country</span></span>
+<span id="cb35-13"><a href="iucn-redlist-evaluation.html#cb35-13"></a><span class="cf">for</span>(c <span class="cf">in</span> country){</span>
+<span id="cb35-14"><a href="iucn-redlist-evaluation.html#cb35-14"></a>  </span>
+<span id="cb35-15"><a href="iucn-redlist-evaluation.html#cb35-15"></a>  results &lt;-<span class="st"> </span><span class="kw">rl_sp_country</span>(<span class="dt">country =</span> c, <span class="dt">key =</span> rlkey)<span class="op">$</span>result <span class="op">%&gt;%</span></span>
+<span id="cb35-16"><a href="iucn-redlist-evaluation.html#cb35-16"></a><span class="st">  </span><span class="kw">select</span>(scientific_name, category) <span class="op">%&gt;%</span></span>
+<span id="cb35-17"><a href="iucn-redlist-evaluation.html#cb35-17"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">country =</span> c,</span>
+<span id="cb35-18"><a href="iucn-redlist-evaluation.html#cb35-18"></a>         <span class="dt">category =</span> <span class="kw">substr</span>(category, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb35-19"><a href="iucn-redlist-evaluation.html#cb35-19"></a>         <span class="dt">total_species =</span> <span class="kw">rl_sp_country</span>(<span class="dt">country =</span> c, <span class="dt">key =</span> rlkey)<span class="op">$</span>count)</span>
+<span id="cb35-20"><a href="iucn-redlist-evaluation.html#cb35-20"></a>  </span>
+<span id="cb35-21"><a href="iucn-redlist-evaluation.html#cb35-21"></a>  threat_status &lt;-<span class="st"> </span><span class="kw">rbind</span>(threat_status, results)</span>
+<span id="cb35-22"><a href="iucn-redlist-evaluation.html#cb35-22"></a>  </span>
+<span id="cb35-23"><a href="iucn-redlist-evaluation.html#cb35-23"></a>}</span>
+<span id="cb35-24"><a href="iucn-redlist-evaluation.html#cb35-24"></a></span>
+<span id="cb35-25"><a href="iucn-redlist-evaluation.html#cb35-25"></a><span class="co"># calculate species counts/proportions</span></span>
+<span id="cb35-26"><a href="iucn-redlist-evaluation.html#cb35-26"></a>threat_counts &lt;-<span class="st"> </span>threat_status <span class="op">%&gt;%</span></span>
+<span id="cb35-27"><a href="iucn-redlist-evaluation.html#cb35-27"></a><span class="st">  </span><span class="kw">group_by</span>(country, category, total_species) <span class="op">%&gt;%</span></span>
+<span id="cb35-28"><a href="iucn-redlist-evaluation.html#cb35-28"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">species_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb35-29"><a href="iucn-redlist-evaluation.html#cb35-29"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></span>
+<span id="cb35-30"><a href="iucn-redlist-evaluation.html#cb35-30"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop_species =</span> <span class="kw">round</span>(species_count<span class="op">/</span>total_species<span class="op">*</span><span class="dv">100</span>, <span class="dt">digits =</span> <span class="dv">2</span>),</span>
+<span id="cb35-31"><a href="iucn-redlist-evaluation.html#cb35-31"></a>         <span class="dt">category =</span> <span class="kw">ordered</span>(category, <span class="dt">levels =</span> category_levels))</span></code></pre></div>
+<p>Let’s check out that dataframe -</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="iucn-redlist-evaluation.html#cb36-1"></a><span class="kw">head</span>(threat_counts)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   country category total_species species_count prop_species
+##   &lt;chr&gt;   &lt;ord&gt;            &lt;int&gt;         &lt;int&gt;        &lt;dbl&gt;
+## 1 DE      CR                2176            43         1.98
+## 2 DE      DD                2176           115         5.28
+## 3 DE      EN                2176            60         2.76
+## 4 DE      EX                2176             4         0.18
+## 5 DE      LC                2176          1694        77.8 
+## 6 DE      LR                2176            17         0.78</code></pre>
+<p>That’s a start but for comparisons we probably want to format the table so that each threat category is its own column. Any ideas how we can accomplish that?</p>
+<div class="solution">
+<p class="solution-begin">
+Solution<span id="sol-start-5" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-5', 'sol-start-5')"></span>
+</p>
+<div id="sol-body-5" class="solution-body" style="display: none;">
+<p>Remember <code>pivot_wider()</code> and <code>pivot_longer</code>?</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="iucn-redlist-evaluation.html#cb38-1"></a><span class="kw">kable</span>(</span>
+<span id="cb38-2"><a href="iucn-redlist-evaluation.html#cb38-2"></a>  threat_counts <span class="op">%&gt;%</span></span>
+<span id="cb38-3"><a href="iucn-redlist-evaluation.html#cb38-3"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(category)) <span class="op">%&gt;%</span></span>
+<span id="cb38-4"><a href="iucn-redlist-evaluation.html#cb38-4"></a><span class="st">    </span><span class="kw">select</span>(country, species_count, category) <span class="op">%&gt;%</span></span>
+<span id="cb38-5"><a href="iucn-redlist-evaluation.html#cb38-5"></a><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> category, <span class="dt">values_from =</span> species_count),</span>
+<span id="cb38-6"><a href="iucn-redlist-evaluation.html#cb38-6"></a>  <span class="dt">caption =</span> <span class="st">"Number of species in each conservation status category for each country."</span></span>
+<span id="cb38-7"><a href="iucn-redlist-evaluation.html#cb38-7"></a>)</span></code></pre></div>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-28">Table 7.2: </span>Number of species in each conservation status category for each country.</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="left">country</th>
+<th align="right">EX</th>
+<th align="right">EW</th>
+<th align="right">CR</th>
+<th align="right">EN</th>
+<th align="right">VU</th>
+<th align="right">NT</th>
+<th align="right">LR</th>
+<th align="right">LC</th>
+<th align="right">DD</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">DE</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">43</td>
+<td align="right">60</td>
+<td align="right">125</td>
+<td align="right">118</td>
+<td align="right">17</td>
+<td align="right">1694</td>
+<td align="right">115</td>
+</tr>
+<tr class="even">
+<td align="left">US</td>
+<td align="right">290</td>
+<td align="right">10</td>
+<td align="right">592</td>
+<td align="right">542</td>
+<td align="right">744</td>
+<td align="right">385</td>
+<td align="right">99</td>
+<td align="right">8073</td>
+<td align="right">765</td>
+</tr>
+</tbody>
+</table>
+<p>And we can create the same table using species proportions using</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="iucn-redlist-evaluation.html#cb39-1"></a><span class="kw">kable</span>(</span>
+<span id="cb39-2"><a href="iucn-redlist-evaluation.html#cb39-2"></a>  threat_counts <span class="op">%&gt;%</span></span>
+<span id="cb39-3"><a href="iucn-redlist-evaluation.html#cb39-3"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(category)) <span class="op">%&gt;%</span></span>
+<span id="cb39-4"><a href="iucn-redlist-evaluation.html#cb39-4"></a><span class="st">    </span><span class="kw">select</span>(country, prop_species, category) <span class="op">%&gt;%</span></span>
+<span id="cb39-5"><a href="iucn-redlist-evaluation.html#cb39-5"></a><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> category, <span class="dt">values_from =</span> prop_species),</span>
+<span id="cb39-6"><a href="iucn-redlist-evaluation.html#cb39-6"></a>  <span class="dt">caption =</span> <span class="st">"Proportion of species in each conservation status category for each country."</span></span>
+<span id="cb39-7"><a href="iucn-redlist-evaluation.html#cb39-7"></a>)</span></code></pre></div>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-29">Table 7.3: </span>Proportion of species in each conservation status category for each country.</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="left">country</th>
+<th align="right">EX</th>
+<th align="right">EW</th>
+<th align="right">CR</th>
+<th align="right">EN</th>
+<th align="right">VU</th>
+<th align="right">NT</th>
+<th align="right">LR</th>
+<th align="right">LC</th>
+<th align="right">DD</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">DE</td>
+<td align="right">0.18</td>
+<td align="right">NA</td>
+<td align="right">1.98</td>
+<td align="right">2.76</td>
+<td align="right">5.74</td>
+<td align="right">5.42</td>
+<td align="right">0.78</td>
+<td align="right">77.85</td>
+<td align="right">5.28</td>
+</tr>
+<tr class="even">
+<td align="left">US</td>
+<td align="right">2.52</td>
+<td align="right">0.09</td>
+<td align="right">5.15</td>
+<td align="right">4.71</td>
+<td align="right">6.47</td>
+<td align="right">3.35</td>
+<td align="right">0.86</td>
+<td align="right">70.20</td>
+<td align="right">6.65</td>
+</tr>
+</tbody>
+</table>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:fourteen" class="question">
+<p class="question-begin">
+► Question 7.14
+</p>
+<div class="question-body">
+<p>
+Decide whether you think the species counts or proportion of species in each country are more informative to use for a comparison across countries (explain your choice). Then make a comparison of the patterns you have observed.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comparison-of-drivers-of-biodiversity-loss" class="section level3">
+<h3>
+<span class="header-section-number">7.5.5</span> Comparison of drivers of biodiversity loss</h3>
+<p>We have now compared habitats that are more/less susceptible to biodiversity loss and identified geographic patterns among different countries.</p>
+<p>A final parameter of interest is which threats (drivers of biodiversity loss) are contributing and whether those are consistent across geographic locations.</p>
+<p>Again, we can query a list of species and retain only species in the threatened category and the use a loop to download the threat information. We will randomly draw 500 species as a representative sample. Again, I have already queried this information and stored it as a dataframe that we can read directly into Rstudio for analysis.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="iucn-redlist-evaluation.html#cb40-1"></a><span class="co"># choose a country</span></span>
+<span id="cb40-2"><a href="iucn-redlist-evaluation.html#cb40-2"></a>country &lt;-<span class="st"> "US"</span></span>
+<span id="cb40-3"><a href="iucn-redlist-evaluation.html#cb40-3"></a></span>
+<span id="cb40-4"><a href="iucn-redlist-evaluation.html#cb40-4"></a><span class="co"># query database - keep only threatened species</span></span>
+<span id="cb40-5"><a href="iucn-redlist-evaluation.html#cb40-5"></a>download &lt;-<span class="st"> </span><span class="kw">rl_sp_country</span>(<span class="dt">country =</span> country, <span class="dt">key =</span> rlkey)<span class="op">$</span>result <span class="op">%&gt;%</span></span>
+<span id="cb40-6"><a href="iucn-redlist-evaluation.html#cb40-6"></a><span class="st">  </span><span class="kw">filter</span>(category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"VU"</span>, <span class="st">"EN"</span>, <span class="st">"CR"</span>))</span>
+<span id="cb40-7"><a href="iucn-redlist-evaluation.html#cb40-7"></a></span>
+<span id="cb40-8"><a href="iucn-redlist-evaluation.html#cb40-8"></a><span class="co"># extract vector of species</span></span>
+<span id="cb40-9"><a href="iucn-redlist-evaluation.html#cb40-9"></a>SpeciesList &lt;-<span class="st"> </span>download<span class="op">$</span>scientific_name</span>
+<span id="cb40-10"><a href="iucn-redlist-evaluation.html#cb40-10"></a></span>
+<span id="cb40-11"><a href="iucn-redlist-evaluation.html#cb40-11"></a><span class="co"># sample 1000 randomly</span></span>
+<span id="cb40-12"><a href="iucn-redlist-evaluation.html#cb40-12"></a>tmp &lt;-<span class="st"> </span><span class="kw">sample</span>(SpeciesList, <span class="dv">500</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb40-13"><a href="iucn-redlist-evaluation.html#cb40-13"></a></span>
+<span id="cb40-14"><a href="iucn-redlist-evaluation.html#cb40-14"></a><span class="co"># need to split into sets of 50</span></span>
+<span id="cb40-15"><a href="iucn-redlist-evaluation.html#cb40-15"></a>SL &lt;-<span class="st"> </span><span class="kw">split</span>(tmp, <span class="kw">ceiling</span>(<span class="kw">seq_along</span>(tmp)<span class="op">/</span><span class="dv">50</span>))</span>
+<span id="cb40-16"><a href="iucn-redlist-evaluation.html#cb40-16"></a></span>
+<span id="cb40-17"><a href="iucn-redlist-evaluation.html#cb40-17"></a><span class="co"># create empty data frame for results</span></span>
+<span id="cb40-18"><a href="iucn-redlist-evaluation.html#cb40-18"></a>threat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">code =</span> <span class="kw">character</span>(),</span>
+<span id="cb40-19"><a href="iucn-redlist-evaluation.html#cb40-19"></a>                     <span class="dt">title =</span> <span class="kw">character</span>(),</span>
+<span id="cb40-20"><a href="iucn-redlist-evaluation.html#cb40-20"></a>                     <span class="dt">scope =</span> <span class="kw">character</span>(),</span>
+<span id="cb40-21"><a href="iucn-redlist-evaluation.html#cb40-21"></a>                     <span class="dt">severity =</span> <span class="kw">character</span>(),</span>
+<span id="cb40-22"><a href="iucn-redlist-evaluation.html#cb40-22"></a>                     <span class="dt">score =</span> <span class="kw">character</span>(),</span>
+<span id="cb40-23"><a href="iucn-redlist-evaluation.html#cb40-23"></a>                     <span class="dt">invasive =</span> <span class="kw">character</span>())</span>
+<span id="cb40-24"><a href="iucn-redlist-evaluation.html#cb40-24"></a></span>
+<span id="cb40-25"><a href="iucn-redlist-evaluation.html#cb40-25"></a></span>
+<span id="cb40-26"><a href="iucn-redlist-evaluation.html#cb40-26"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">5</span><span class="op">:</span><span class="kw">length</span>(SL)){</span>
+<span id="cb40-27"><a href="iucn-redlist-evaluation.html#cb40-27"></a>  </span>
+<span id="cb40-28"><a href="iucn-redlist-evaluation.html#cb40-28"></a>  set &lt;-<span class="st"> </span>(SL[[i]])</span>
+<span id="cb40-29"><a href="iucn-redlist-evaluation.html#cb40-29"></a>  </span>
+<span id="cb40-30"><a href="iucn-redlist-evaluation.html#cb40-30"></a>  <span class="cf">for</span>(sp <span class="cf">in</span> set){</span>
+<span id="cb40-31"><a href="iucn-redlist-evaluation.html#cb40-31"></a>    </span>
+<span id="cb40-32"><a href="iucn-redlist-evaluation.html#cb40-32"></a>    <span class="co"># download threat information for species</span></span>
+<span id="cb40-33"><a href="iucn-redlist-evaluation.html#cb40-33"></a>    results &lt;-<span class="st"> </span><span class="kw">rl_threats</span>(<span class="dt">name =</span> sp, <span class="dt">key =</span> rlkey)<span class="op">$</span>result</span>
+<span id="cb40-34"><a href="iucn-redlist-evaluation.html#cb40-34"></a>    </span>
+<span id="cb40-35"><a href="iucn-redlist-evaluation.html#cb40-35"></a>    <span class="co"># keep if dataframe</span></span>
+<span id="cb40-36"><a href="iucn-redlist-evaluation.html#cb40-36"></a>    <span class="cf">if</span>(<span class="kw">is.data.frame</span>(results) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>){</span>
+<span id="cb40-37"><a href="iucn-redlist-evaluation.html#cb40-37"></a>      </span>
+<span id="cb40-38"><a href="iucn-redlist-evaluation.html#cb40-38"></a>      results &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span></span>
+<span id="cb40-39"><a href="iucn-redlist-evaluation.html#cb40-39"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">species =</span> download<span class="op">$</span>name)</span>
+<span id="cb40-40"><a href="iucn-redlist-evaluation.html#cb40-40"></a>      </span>
+<span id="cb40-41"><a href="iucn-redlist-evaluation.html#cb40-41"></a>      threat &lt;-<span class="st"> </span><span class="kw">rbind</span>(threat, results)</span>
+<span id="cb40-42"><a href="iucn-redlist-evaluation.html#cb40-42"></a>      </span>
+<span id="cb40-43"><a href="iucn-redlist-evaluation.html#cb40-43"></a>      <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb40-44"><a href="iucn-redlist-evaluation.html#cb40-44"></a>      </span>
+<span id="cb40-45"><a href="iucn-redlist-evaluation.html#cb40-45"></a>      <span class="kw">cat</span>(sp,<span class="st">"... done</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb40-46"><a href="iucn-redlist-evaluation.html#cb40-46"></a>    }</span>
+<span id="cb40-47"><a href="iucn-redlist-evaluation.html#cb40-47"></a>    </span>
+<span id="cb40-48"><a href="iucn-redlist-evaluation.html#cb40-48"></a>    <span class="co"># move on if not dataframe</span></span>
+<span id="cb40-49"><a href="iucn-redlist-evaluation.html#cb40-49"></a>    <span class="cf">else</span> {</span>
+<span id="cb40-50"><a href="iucn-redlist-evaluation.html#cb40-50"></a>      </span>
+<span id="cb40-51"><a href="iucn-redlist-evaluation.html#cb40-51"></a>      <span class="kw">cat</span>(sp, <span class="st">"... not in database</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb40-52"><a href="iucn-redlist-evaluation.html#cb40-52"></a>      </span>
+<span id="cb40-53"><a href="iucn-redlist-evaluation.html#cb40-53"></a>    }</span>
+<span id="cb40-54"><a href="iucn-redlist-evaluation.html#cb40-54"></a>  }</span>
+<span id="cb40-55"><a href="iucn-redlist-evaluation.html#cb40-55"></a>  </span>
+<span id="cb40-56"><a href="iucn-redlist-evaluation.html#cb40-56"></a>  <span class="kw">cat</span>(<span class="st">"set"</span>, i, <span class="st">"complete</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb40-57"><a href="iucn-redlist-evaluation.html#cb40-57"></a>  </span>
+<span id="cb40-58"><a href="iucn-redlist-evaluation.html#cb40-58"></a>  <span class="co"># pause 10 seconds until next set</span></span>
+<span id="cb40-59"><a href="iucn-redlist-evaluation.html#cb40-59"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">300</span>)</span>
+<span id="cb40-60"><a href="iucn-redlist-evaluation.html#cb40-60"></a>  </span>
+<span id="cb40-61"><a href="iucn-redlist-evaluation.html#cb40-61"></a>}</span>
+<span id="cb40-62"><a href="iucn-redlist-evaluation.html#cb40-62"></a></span>
+<span id="cb40-63"><a href="iucn-redlist-evaluation.html#cb40-63"></a><span class="co"># write to file</span></span>
+<span id="cb40-64"><a href="iucn-redlist-evaluation.html#cb40-64"></a><span class="kw">write_delim</span>(threat, <span class="st">"data/threats_us.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<p>We can read in that information to analyze it in a similar way we did the habitat data sets.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="iucn-redlist-evaluation.html#cb41-1"></a>threat &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/threats_us.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<p>Let’s take a look at our dataframe.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="iucn-redlist-evaluation.html#cb42-1"></a><span class="kw">head</span>(threat)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   code  title                timing  scope     severity       score     invasive
+##   &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;   
+## 1 11.1  Habitat shifting &amp; ~ Ongoing Whole (&gt;~ Slow, Signifi~ Medium I~ &lt;NA&gt;    
+## 2 7.1   Fire &amp; fire suppres~ Ongoing Majority~ Rapid Declines Medium I~ &lt;NA&gt;    
+## 3 7.1.1 Increase in fire fr~ Ongoing Majority~ Rapid Declines Medium I~ &lt;NA&gt;    
+## 4 8.1   Invasive non-native~ Ongoing &lt;NA&gt;      &lt;NA&gt;           Low Impa~ &lt;NA&gt;    
+## 5 8.1.1 Unspecified species  Ongoing &lt;NA&gt;      &lt;NA&gt;           Low Impa~ &lt;NA&gt;    
+## 6 11.2  Droughts             Ongoing &lt;NA&gt;      &lt;NA&gt;           Low Impa~ &lt;NA&gt;</code></pre>
+<p>Remember, the drivers of biodiversity loss are categorized in one of twelve <a href="https://www.iucnredlist.org/resources/threat-classification-scheme">categories</a>.</p>
+<p>It is probably sufficient that we only retain information to place them in those major categories. We can do this using the function <code>substr()</code> which allows us to keep only the first character in the code column; then we can count the number of species in each category and use a barplot to visualize the data.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="iucn-redlist-evaluation.html#cb44-1"></a>threat &lt;-<span class="st"> </span>threat <span class="op">%&gt;%</span></span>
+<span id="cb44-2"><a href="iucn-redlist-evaluation.html#cb44-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">code =</span> <span class="kw">substr</span>(code, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb44-3"><a href="iucn-redlist-evaluation.html#cb44-3"></a><span class="st">  </span><span class="kw">group_by</span>(code) <span class="op">%&gt;%</span></span>
+<span id="cb44-4"><a href="iucn-redlist-evaluation.html#cb44-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">species_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb44-5"><a href="iucn-redlist-evaluation.html#cb44-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
+<span id="cb44-6"><a href="iucn-redlist-evaluation.html#cb44-6"></a></span>
+<span id="cb44-7"><a href="iucn-redlist-evaluation.html#cb44-7"></a><span class="kw">ggplot</span>(threat, <span class="kw">aes</span>(<span class="dt">x =</span> code, <span class="dt">y =</span> species_count)) <span class="op">+</span></span>
+<span id="cb44-8"><a href="iucn-redlist-evaluation.html#cb44-8"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"identity"</span>, <span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
+<span id="cb44-9"><a href="iucn-redlist-evaluation.html#cb44-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"drivers of biodiversity loss"</span>, <span class="dt">y =</span> <span class="st">"species count"</span>) <span class="op">+</span></span>
+<span id="cb44-10"><a href="iucn-redlist-evaluation.html#cb44-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-33"></span>
+<p class="caption marginnote shownote">
+Figure 7.2: Number of species affected by each major driver of biodiversity loss.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-33-1.png" alt="Number of species affected by each major driver of biodiversity loss." width="768">
+</div>
+<div id="ques:fifteen" class="question">
+<p class="question-begin">
+► Question 7.15
+</p>
+<div class="question-body">
+<p>
+Describe &amp; discuss your results; remember that while the IUCN Redlist uses twelve categories, we have identified five major drivers of biodiversity loss - you can use the classification page and your answer to Q7 to relate your results to those five drivers.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>.</p>
+<p>In the <code>data</code> folder you will find a second data set for Madagascar.</p>
+<div id="ques:sixteen" class="question">
+<p class="question-begin">
+► Question 7.16
+</p>
+<div class="question-body">
+<p>
+Summarize and visualize the data as above, then descibe and compare your results to the US data set and discuss your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>.</p>
+
+</div>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="island-biogeography.html"><button class="btn btn-default">Previous</button></a>
+<a href="references.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-09-16
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
