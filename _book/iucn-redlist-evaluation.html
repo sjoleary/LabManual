@@ -147,6 +147,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#threats-drivers-of-loss-to-biodiversity"> Threats (Drivers of loss) to Biodiversity</a></li>
 <li class="toc"><a href="#local-and-global-comparisons-of-conservation-status-and-threats-to-biodiversity"> Local and global comparisons of conservation status and threats to biodiversity</a></li>
 </ul>
+<a href="bioindicators-for-pollution.html"><span class="toc-section-number">8</span> Bioindicators for pollution</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -744,9 +745,9 @@ Some advice<span id="sol-start-3" class="fa fa-plus-square solution-icon clickab
 <span id="cb30-2"><a href="iucn-redlist-evaluation.html#cb30-2"></a><span class="kw">rl_regions</span>(<span class="dt">key =</span> rlkey)<span class="op">$</span>results</span></code></pre></div>
 <pre><code>##                   name          identifier
 ## 1  Northeastern Africa northeastern_africa
-## 2       Eastern Africa      eastern_africa
-## 3       Western Africa      western_africa
-## 4               Global              global
+## 2               Global              global
+## 3       Eastern Africa      eastern_africa
+## 4       Western Africa      western_africa
 ## 5      Northern Africa     northern_africa
 ## 6       Central Africa      central_africa
 ## 7           Pan-Africa          pan-africa
@@ -1082,12 +1083,12 @@ Decide whether you think the species counts or proportion of species in each cou
 <p>Remember, the drivers of biodiversity loss are categorized in one of twelve <a href="https://www.iucnredlist.org/resources/threat-classification-scheme">categories</a>.</p>
 <p>It is probably sufficient that we only retain information to place them in those major categories. We can do this using the function <code>substr()</code> which allows us to keep only the first character in the code column; then we can count the number of species in each category and use a barplot to visualize the data.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="iucn-redlist-evaluation.html#cb44-1"></a>threat &lt;-<span class="st"> </span>threat <span class="op">%&gt;%</span></span>
-<span id="cb44-2"><a href="iucn-redlist-evaluation.html#cb44-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">code =</span> <span class="kw">substr</span>(code, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb44-3"><a href="iucn-redlist-evaluation.html#cb44-3"></a><span class="st">  </span><span class="kw">group_by</span>(code) <span class="op">%&gt;%</span></span>
-<span id="cb44-4"><a href="iucn-redlist-evaluation.html#cb44-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">species_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb44-5"><a href="iucn-redlist-evaluation.html#cb44-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
-<span id="cb44-6"><a href="iucn-redlist-evaluation.html#cb44-6"></a></span>
-<span id="cb44-7"><a href="iucn-redlist-evaluation.html#cb44-7"></a><span class="kw">ggplot</span>(threat, <span class="kw">aes</span>(<span class="dt">x =</span> code, <span class="dt">y =</span> species_count)) <span class="op">+</span></span>
+<span id="cb44-2"><a href="iucn-redlist-evaluation.html#cb44-2"></a><span class="st">  </span><span class="kw">separate</span>(code, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"major_cat"</span>, <span class="st">"subcat-1"</span>, <span class="st">"subcat-2"</span>), <span class="dt">extra =</span> <span class="st">"merge"</span>,</span>
+<span id="cb44-3"><a href="iucn-redlist-evaluation.html#cb44-3"></a>           <span class="dt">sep =</span> <span class="st">"</span><span class="ch">\\</span><span class="st">."</span>, <span class="dt">remove =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb44-4"><a href="iucn-redlist-evaluation.html#cb44-4"></a><span class="st">  </span><span class="kw">group_by</span>(major_cat) <span class="op">%&gt;%</span></span>
+<span id="cb44-5"><a href="iucn-redlist-evaluation.html#cb44-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">species_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb44-6"><a href="iucn-redlist-evaluation.html#cb44-6"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
+<span id="cb44-7"><a href="iucn-redlist-evaluation.html#cb44-7"></a><span class="kw">ggplot</span>(threat, <span class="kw">aes</span>(<span class="dt">x =</span> major_cat, <span class="dt">y =</span> species_count)) <span class="op">+</span></span>
 <span id="cb44-8"><a href="iucn-redlist-evaluation.html#cb44-8"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"identity"</span>, <span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
 <span id="cb44-9"><a href="iucn-redlist-evaluation.html#cb44-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"drivers of biodiversity loss"</span>, <span class="dt">y =</span> <span class="st">"species count"</span>) <span class="op">+</span></span>
 <span id="cb44-10"><a href="iucn-redlist-evaluation.html#cb44-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
@@ -1134,7 +1135,7 @@ Summarize and visualize the data as above, then descibe and compare your results
 
 <p style="text-align: center;">
 <a href="island-biogeography.html"><button class="btn btn-default">Previous</button></a>
-<a href="references.html"><button class="btn btn-default">Next</button></a>
+<a href="bioindicators-for-pollution.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
 2020-09-16

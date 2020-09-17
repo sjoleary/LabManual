@@ -699,12 +699,12 @@ It is probably sufficient that we only retain information to place them in those
 ```{r fig.cap="Number of species affected by each major driver of biodiversity loss.", fig.width=8, fig.height=6}
 
 threat <- threat %>%
-  mutate(code = substr(code, 1, 1)) %>%
-  group_by(code) %>%
+  separate(code, into = c("major_cat", "subcat-1", "subcat-2"), extra = "merge",
+           sep = "\\.", remove = FALSE) %>%
+  group_by(major_cat) %>%
   summarize(species_count = n()) %>%
   ungroup()
-
-ggplot(threat, aes(x = code, y = species_count)) +
+ggplot(threat, aes(x = major_cat, y = species_count)) +
   geom_bar(stat = "identity", color = "black", fill = "darkorange") +
   labs(x = "drivers of biodiversity loss", y = "species count") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
