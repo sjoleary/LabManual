@@ -123,6 +123,7 @@ Let's start by reading in our results.
 
 ```{r}
 
+# read data
 effort <- read_delim("data/sampling_effort.txt", delim = "\t")
 
 ```
@@ -158,6 +159,7 @@ Next, let's look at the number of species caught in each sample.
 
 ```{r fig.cap="Number of species (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval.", fig.height=6, fig.width=6}
 
+# plot data
 ggplot(effort, aes(x = TIME, y = N_SPECIES)) +
   stat_smooth(method = "loess") +
   geom_point(shape = 21, size = 2, color = "black", fill = "darkorange") +
@@ -217,6 +219,7 @@ Then we can read the data into `Rstudio` for analysis.
 
 ```{r}
 
+# read data
 comp <- read_delim("data/pollut_comp.txt", delim = "\t")
 
 ```
@@ -233,8 +236,10 @@ That's correct `pivot_longer()` is the function we're looking for!
 
 ```{r}
 
+# set pollution levels
 pollution <- c("none", "moderate", "severe")
 
+# format data
 tidy <- comp %>%
   pivot_longer(cols = 4:19, names_to = "SPECIES", values_to = "N_INDV") %>%
   mutate(POLLUTION = ordered(POLLUTION, levels = pollution))
@@ -245,6 +250,7 @@ Let's take a look at the first few lines of the data frame to make sure it worke
 
 ```{r}
 
+# test if tidy
 head(tidy)
 
 ```
@@ -280,6 +286,7 @@ That's right, once again we can combine `group_by()` to group our observations b
 
 ```{r}
 
+# format data
 total <- tidy %>%
   group_by(POLLUTION, TIME, SAMPLE) %>%
   summarize(N_TOTAL = sum(N_INDV)) %>%
@@ -295,6 +302,7 @@ One way to visualize distributions is box plots (also known as box and whiskers 
 
 ```{r fig.cap="Distribution of total of individuals caught for different levels of pollution and sampling effort. \nTukey boxplots as visualized by `ggplot()` contain the following information. \nThe box shows the interquartile range (IQR), the top and bottom are the 25th and 75th quartile, the center line is the 50th percentile (median). \nThe upper whisker is Q3 + 1.5 * IQR while the lower whisker is Q_1 - 1.5 * IQR. \nThe dots (if present) are outliers of the distrubtion, here a data point is classified as an outlier of it is < Q1 - 1.5 * IQR or > Q3 + 1.5 * IQR."}
 
+# plot boxplots
 ggplot(total, aes(x = POLLUTION, y = N_TOTAL)) +
   geom_boxplot(fill = "darkorange") +
   facet_grid(. ~ TIME) +
@@ -319,6 +327,7 @@ Frequently the smallest sample size is used - we can determine this number from 
 
 ```{r}
 
+# determine smallest sample size
 min_size <- min(total$N_TOTAL)
 
 ```
@@ -327,7 +336,7 @@ Now, we can calculate species richness using rarefaction and without to determin
 
 ```{r}
 
-
+# calculate richness
 richn <- tidy %>%
   group_by(POLLUTION, TIME, SAMPLE) %>%
   summarize(RICHN = specnumber(N_INDV),
@@ -342,9 +351,11 @@ Instead of creating individuals plots, we are going to convert our data into a `
 
 ```{r fig.cap="Distribution species richness for different levels of pollution and sampling effort."}
 
+# format data
 richn <- richn %>%
   pivot_longer(4:5, names_to = "RICHNESS", values_to = "VALUES")
 
+# plot data
 ggplot(richn, aes(x = POLLUTION, y = VALUES)) +
   geom_boxplot(fill = "darkorange") +
   facet_grid(RICHNESS ~ TIME) +
@@ -367,6 +378,7 @@ We are going to use three different measures of diversity using the function `ve
 
 ```{r}
 
+# calculate diversity stats
 diversity <- tidy %>%
   group_by(POLLUTION, TIME, SAMPLE) %>%
   summarize(SHANNON = diversity(N_INDV, index = "shannon"),
@@ -379,11 +391,13 @@ Now we can compare our data.
 
 Similar to the way we modified the richness data set, we are going to convert our data into a `tidy` data set, so we can use `facet_grid()` to plot `TIME` in the columns as we have been doing previously but in addition we can plot `DIVERSITY` in rows.
 
-```{r fig.cap="Comparison of species diversity using three different measures for different levels of pollution and sampling time." fig.width = 8, fig.height=9}
+```{r fig.cap="Comparison of species diversity using three different measures for different levels of pollution and sampling time.", fig.width = 8, fig.height=9}
 
+# format data for plotting
 diversity <- diversity %>%
   pivot_longer(cols = 4:6, names_to = "DIVERSITY", values_to = "VALUE")
 
+# plot data
 ggplot(diversity, aes(x = POLLUTION, y = VALUE)) +
   geom_boxplot(fill = "darkorange") +
   facet_grid(DIVERSITY ~ TIME, scales = "free") +
@@ -400,8 +414,9 @@ We now have a pretty good idea of how stream diversity compares overall and how 
 
 Let's visualize our results.
 
-```{r}
+```{r fig.cap="Number of individuals per species at varying degrees of pollution.", fig.width=8, fig.height=5}
 
+# plot number of individuals per species
 ggplot(tidy, aes(x = SPECIES, y = N_INDV, fill = POLLUTION)) +
   geom_boxplot() +
   facet_grid(TIME ~ ., scales = "free") +
