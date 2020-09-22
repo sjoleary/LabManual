@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="8 Stream Diversity | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-09-21" />
+
+
+<meta name="description" content="8 Stream Diversity | Lab Manual Conservation Biology Fall 2020">
+
+<title>8 Stream Diversity | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a>
+<a id="active-page" href="stream-diversity.html"><span class="toc-section-number">8</span> Stream Diversity</a><ul class="toc-sections">
+<li class="toc"><a href="#stream-diversity-simulator"> Stream Diversity Simulator</a></li>
+<li class="toc"><a href="#determining-sampling-effort"> Determining sampling effort</a></li>
+<li class="toc"><a href="#comparing-abundance-species-richness-and-species-diversity-of-stream-with-varying-degrees-of-pollution"> Comparing abundance, species richness and species diversity of stream with varying degrees of pollution</a></li>
+<li class="toc"><a href="#ecological-indicators-and-bioindicators"> Ecological Indicators and Bioindicators</a></li>
+</ul>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="stream-diversity" class="section level1">
+<h1>
+<span class="header-section-number">8</span> Stream Diversity</h1>
+<p><strong>Date</strong>: 9/23/2020</p>
+<p>Download the project folder <a href="https://drive.google.com/drive/folders/159Beuy3eEsbU7AfdDFmViMpqM1E7YAu-?usp=sharing">here</a>.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this lab you should</p>
+<ul>
+<li>understand the relationship of sampling effort and accuracy of estimates.</li>
+<li>be able to use <code>vegan</code> to calculate a range of diversity indices.</li>
+<li>be able to use <code>ggplot</code> to create box plots.</li>
+<li>understand the concept of ecological indicators/bioindicators.</li>
+<li>understand how aquatic invertebrates can be used to monitor degrees of pollution in aquatic habitats.</li>
+</ul>
+<p><strong>Before we start</strong></p>
+<p>To be able to calculate various species diversity for each sample, we are going to need to install a new library for these calculations (you only need to do this once).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stream-diversity.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"vegan"</span>)</span></code></pre></div>
+<p>Now we can load that library<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Remember, if you restart <code>Rstudio</code>, reload the <code>Rproject</code>, or start a new <code>R session</code> in any other way you need to re-run the two code chunks above to make sure you libraries are loaded.</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="stream-diversity.html#cb2-1"></a><span class="kw">library</span>(<span class="st">"vegan"</span>)</span></code></pre></div>
+<div id="stream-diversity-simulator" class="section level2">
+<h2>
+<span class="header-section-number">8.1</span> Stream Diversity Simulator</h2>
+<p>Open the <a href="http://virtualbiologylab.org/NetWebHTML_FilesJan2016/StreamDiversityModel.html">simulator</a>.</p>
+<p>When you open the simulator, you will be able to see a section of a stream (blue rectangle). Click on the blue <code>Go</code> button in the top right and the stream will begin to flow. Clicking on <code>Go</code> again, will stop the flow, and <code>Reset</code> will clear the simulation.</p>
+<p>At the bottom of the window are three more blue buttons to open the seine (net for catching inverts), close the seine, and release any aquatic invertebrates caught during sampling. Once you open the seine while the stream is running inverts caught will be sorted into the sixteen sampling/sorting buckets below the stream. Underneath those, there are yellow counters for each of the sixteen species in the model which will indicate how many individuals of each species have been caught.</p>
+<p>To the right there are three larger counters that will count the total number of species, total catch, and sampling time. You can determine the sampling time using the green slider at the bottom left of your window.</p>
+<p>You can adjust the speed of the model using the slider at the very beginning of the screen. To make sure we gather our data correctly, each sample will be taken following these five steps<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Make sure you always reset the model to clear the previous sample!</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Click <code>Reset</code>.</li>
+<li>Set/check the sampling time.</li>
+<li>Click <code>Open Seine</code> (will close automatically after set time).</li>
+<li>Click <code>Go</code> to run the simulation.</li>
+<li>After the seine has close, click <code>Go</code> to stop simulation.</li>
+</ol>
+</div>
+<div id="determining-sampling-effort" class="section level2">
+<h2>
+<span class="header-section-number">8.2</span> Determining sampling effort</h2>
+<p>Sampling methods &amp; effort are an important component of designing a field study estimating species assemblage. It is important that methods are consistent to be able to compare data within one study and among studies.</p>
+<p>We will start by running a series of simulations to determine how sampling effort affects the number of different species and the total number of individuals caught.</p>
+<p>The central question we want to answer is how long must we sample to ensure that we get a representative sample and avoid sampling error. In the real world, we would be attempting to balance this with trying to avoid putting in more effort than necessary and removing as few organisms as necessary (and being less disruptive to the system).</p>
+<div id="gather-your-data" class="section level3">
+<h3>
+<span class="header-section-number">8.2.1</span> Gather your data</h3>
+<p>We will split the simulation runs among the students in the class. Each of you will generate your own data but we will combine them for better sampling sizes.</p>
+<p>We have three different levels of pollution, you will set your pollution level depending on your row in the class room:</p>
+<ul>
+<li>Row 1: none</li>
+<li>Row 2: moderate</li>
+<li>Row 3: severe</li>
+</ul>
+<p>Now, run the model for a range of values from 0 - 500 (see excel spreadsheet in the data folder for specific values). You are only recording the <code>total species</code> and <code>total catch</code><label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Once you reach higher sampling times, consider adjusting the speed slider at the top of the screen for quicker sampling.</span>. Make sure to <strong>reset</strong> the model after each run.</p>
+<p>After you have completed your sampling upload your data to the <a href="https://docs.google.com/spreadsheets/d/1hGCtdVYZD1arkkLkl6aZReibpmo460bRZ38jUHcNqLI/edit?usp=sharing">shared google spreadsheet</a>.</p>
+<p>Once everyone has completed their data collection, cut and paste the complete data set from the google spreadsheet and save it as a tab-delimited file (<code>sampling_effort.txt</code>) in the data-folder.</p>
+</div>
+<div id="analyze-results" class="section level3">
+<h3>
+<span class="header-section-number">8.2.2</span> Analyze results</h3>
+<p>Let’s start by reading in our results.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="stream-diversity.html#cb3-1"></a>effort &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/sampling_effort.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<div id="ques:one" class="question">
+<p class="question-begin">
+► Question 8.1
+</p>
+<div class="question-body">
+<p>
+Describe the expected relationship for of the number of individuals caught with increasing sampling effort.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Let’s plot our data; we will also learn how to use the function <code>ggsave()</code> to export our figure.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stream-diversity.html#cb4-1"></a><span class="co"># plot data</span></span>
+<span id="cb4-2"><a href="stream-diversity.html#cb4-2"></a><span class="kw">ggplot</span>(effort, <span class="kw">aes</span>(<span class="dt">x =</span> TIME, <span class="dt">y =</span> N_INDV)) <span class="op">+</span></span>
+<span id="cb4-3"><a href="stream-diversity.html#cb4-3"></a><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">"loess"</span>) <span class="op">+</span></span>
+<span id="cb4-4"><a href="stream-diversity.html#cb4-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(POLLUTION <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb4-5"><a href="stream-diversity.html#cb4-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"gold"</span>) <span class="op">+</span></span>
+<span id="cb4-6"><a href="stream-diversity.html#cb4-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"sampling effort"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-5"></span>
+<p class="caption marginnote shownote">
+Figure 8.1: Number of individuals (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-5-1.png" alt="Number of individuals (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval." width="576">
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="stream-diversity.html#cb5-1"></a><span class="co"># save last plot as png in results folder</span></span>
+<span id="cb5-2"><a href="stream-diversity.html#cb5-2"></a><span class="kw">ggsave</span>(<span class="dt">plot =</span> <span class="kw">last_plot</span>(), </span>
+<span id="cb5-3"><a href="stream-diversity.html#cb5-3"></a>       <span class="dt">filename =</span> <span class="st">"results/sampling_effort_none.png"</span>,</span>
+<span id="cb5-4"><a href="stream-diversity.html#cb5-4"></a>       <span class="dt">dpi =</span> <span class="dv">300</span>, <span class="dt">units =</span> <span class="st">"cm"</span>,</span>
+<span id="cb5-5"><a href="stream-diversity.html#cb5-5"></a>       <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">height =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p>Another way to export a figure from <code>Rstudio</code> is to click the <code>Export</code> button in the <code>Plots</code> panel and select <code>Save as Image</code>, in the pop-up window you can use the <code>Directory</code> button to select your <code>results</code> directory and then name the file. You can use the <code>Width</code> and <code>Height</code> windows to determine the dimensions of your figure. Selecting <code>Update Preview</code> will allow you to see what that figure would look like.</p>
+<div id="ques:two" class="question">
+<p class="question-begin">
+► Question 8.2
+</p>
+<div class="question-body">
+<p>
+Briefly describe your results by comparing differences among the varying levels of pollution.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Next, let’s look at the number of species caught in each sample.</p>
+<div id="ques:three" class="question">
+<p class="question-begin">
+► Question 8.3
+</p>
+<div class="question-body">
+<p>
+Describe the expected relationship for of the number of species caught with increasing sampling effort. Then plot your data as a scatterplot to see if you are correct.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="stream-diversity.html#cb6-1"></a><span class="kw">ggplot</span>(effort, <span class="kw">aes</span>(<span class="dt">x =</span> TIME, <span class="dt">y =</span> N_SPECIES)) <span class="op">+</span></span>
+<span id="cb6-2"><a href="stream-diversity.html#cb6-2"></a><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">"loess"</span>) <span class="op">+</span></span>
+<span id="cb6-3"><a href="stream-diversity.html#cb6-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
+<span id="cb6-4"><a href="stream-diversity.html#cb6-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"sampling effort"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-6"></span>
+<p class="caption marginnote shownote">
+Figure 8.2: Number of species (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-6-1.png" alt="Number of species (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval." width="576">
+</div>
+<div id="ques:four" class="question">
+<p class="question-begin">
+► Question 8.4
+</p>
+<div class="question-body">
+<p>
+Briefly describe your results by comparing differences among the varying levels of pollution.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Finally, let’s use our results to design our sampling scheme.</p>
+<div id="ques:five" class="question">
+<p class="question-begin">
+► Question 8.5
+</p>
+<div class="question-body">
+<p>
+Given this information, briefly discuss how you would design your sampling scheme to compare species assemblages amoung streams with varying levels of pollution.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Note<span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-1', 'sol-start-1')"></span>
+</p>
+<div id="sol-body-1" class="solution-body" style="display: none;">
+<p>This should be a description of your experimental design and an explanation of <strong>why</strong> you are setting it up this way.</p>
+<p>Things you should touching on:</p>
+<ol style="list-style-type: decimal">
+<li>Sampling effort &amp; replicates</li>
+<li>Data your will record</li>
+<li>How you will analyze your results</li>
+</ol>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="comparing-abundance-species-richness-and-species-diversity-of-stream-with-varying-degrees-of-pollution" class="section level2">
+<h2>
+<span class="header-section-number">8.3</span> Comparing abundance, species richness and species diversity of stream with varying degrees of pollution</h2>
+<div id="data-collection" class="section level3">
+<h3>
+<span class="header-section-number">8.3.1</span> Data Collection</h3>
+<p>Again, we will split the data collection across the class. Each of you will run ten replicates for one of the three levels of pollution (none, moderate, severe) for a set sampling time based on our seating plan.</p>
+<p>Pollution level:</p>
+<ul>
+<li>Row 1: none</li>
+<li>Row 2: moderate</li>
+<li>Row 3: severe</li>
+</ul>
+<p>Sampling Time</p>
+<ul>
+<li>Column 1: 150</li>
+<li>Column 2: 250</li>
+<li>Column 3: 400</li>
+<li>Column 4: 500</li>
+</ul>
+<p>Use the excel spreadsheet in the <code>data</code> directory to record the sampling time, pollution level and the abundance of each sampled species for each replicate. Make sure to number of samples 1 through 10.</p>
+<p>Once you are done with your sampling be sure to upload your data to the <a href="https://docs.google.com/spreadsheets/d/12JXFtV8OEs4LBzJ7ROaFpa8WLG9zCu1xFzpmW9DEuIU/edit?usp=sharing">shared google spreadsheet</a>.</p>
+</div>
+<div id="data-analysis" class="section level3">
+<h3>
+<span class="header-section-number">8.3.2</span> Data Analysis</h3>
+<p>Once all the data has been added to the google spreadsheet, cut and paste it into a excel spreadsheet and save it as a tab-delimited file (<code>pollut_comp.txt</code>) in your <code>data</code> sub-directory.</p>
+<p>Then we can read the data into <code>Rstudio</code> for analysis.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stream-diversity.html#cb7-1"></a>comp &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/pollut_comp.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<p>The data set is in a wide format, i.e. the observed number of individuals per species are each in their own column.</p>
+<p>For efficient analysis and visualization in using functions you have become familiar with over the last few weeks in the <code>tidyverse</code> and <code>ggplot</code> packages we need to convert it to a <code>tidy</code> data set where each row is an observation.</p>
+<p>Do you remember what function we use to do that? What would that code look like?</p>
+<div class="solution">
+<p class="solution-begin">
+Solution<span id="sol-start-2" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-2', 'sol-start-2')"></span>
+</p>
+<div id="sol-body-2" class="solution-body" style="display: none;">
+<p>That’s correct <code>pivot_longer()</code> is the function we’re looking for!</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="stream-diversity.html#cb8-1"></a>pollution &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"none"</span>, <span class="st">"moderate"</span>, <span class="st">"severe"</span>)</span>
+<span id="cb8-2"><a href="stream-diversity.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="stream-diversity.html#cb8-3"></a>tidy &lt;-<span class="st"> </span>comp <span class="op">%&gt;%</span></span>
+<span id="cb8-4"><a href="stream-diversity.html#cb8-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">19</span>, <span class="dt">names_to =</span> <span class="st">"SPECIES"</span>, <span class="dt">values_to =</span> <span class="st">"N_INDV"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb8-5"><a href="stream-diversity.html#cb8-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">POLLUTION =</span> <span class="kw">ordered</span>(POLLUTION, <span class="dt">levels =</span> pollution))</span></code></pre></div>
+<p>Let’s take a look at the first few lines of the data frame to make sure it worked.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="stream-diversity.html#cb9-1"></a><span class="kw">head</span>(tidy)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   POLLUTION  TIME SAMPLE SPECIES    N_INDV
+##   &lt;ord&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 none        500      1 Caddisfly       7
+## 2 none        500      1 Mayfly          3
+## 3 none        500      1 Stonefly        9
+## 4 none        500      1 Rif_Beetle      4
+## 5 none        500      1 W_Penny         2
+## 6 none        500      1 Gill_Snail      0</code></pre>
+<p>We now have a dataframe consisting of four columns, indicating the level of pollution (<code>POLLUTION</code>), the sample (<code>SAMPLE</code>), the sampling effort (<code>TIME</code>), the species name (<code>SPECIES</code>), and the observed number of individuals (<code>N_INDV</code>).</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Now that our data is formatted as a tidy data set we can start to look at our data.</p>
+<div id="ques:six" class="question">
+<p class="question-begin">
+► Question 8.6
+</p>
+<div class="question-body">
+<p>
+Consider which parameters we can compare to understand differences in species diversity among streams with no, moderate, and severe levels of parameters. For each parameter briefly describe what you are measuring and discuss the patterns you expect to see. You may use bullet points.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Hint<span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-3', 'sol-start-3')"></span>
+</p>
+<div id="sol-body-3" class="solution-body" style="display: none;">
+<p>Here are parameters we can compare using our data set:</p>
+<ol style="list-style-type: decimal">
+<li>Total number of individuals caught (total catch).</li>
+<li>Total number of species observed (species abundance/richness).</li>
+<li>Species diversity.</li>
+<li>Differences in abundance of each individual species.</li>
+</ol>
+<p>Remember, we not only are testing for differences among levels of pollution, we also have four different sampling efforts. So you should include in your discussion which differences you expect to see among those groups as well.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Let’s start with the <strong>total number of individuals</strong> caught for each sampling effort.</p>
+<p>What <code>tidyverse</code> functions we are familiar with can we use to calculate the total number of individuals caught for each sampling effort?</p>
+<div class="solution">
+<p class="solution-begin">
+► Solution<span id="sol-start-4" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-4', 'sol-start-4')"></span>
+</p>
+<div id="sol-body-4" class="solution-body" style="display: none;">
+<p>That’s right, once again we can combine <code>group_by()</code> to group our observations by pollution level (<code>POLLUTION</code>), sample (<code>SAMPLE</code>), and sampling effort (<code>TIME</code>) and then use <code>summarize()</code> to add up all the values in the <code>N_INDV</code> column to get the total catch using <code>sum()</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="stream-diversity.html#cb11-1"></a>total &lt;-<span class="st"> </span>tidy <span class="op">%&gt;%</span></span>
+<span id="cb11-2"><a href="stream-diversity.html#cb11-2"></a><span class="st">  </span><span class="kw">group_by</span>(POLLUTION, TIME, SAMPLE) <span class="op">%&gt;%</span></span>
+<span id="cb11-3"><a href="stream-diversity.html#cb11-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">N_TOTAL =</span> <span class="kw">sum</span>(N_INDV)) <span class="op">%&gt;%</span></span>
+<span id="cb11-4"><a href="stream-diversity.html#cb11-4"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We have multiple measurements for each sample, so we are interested in comparing the distribution of values.</p>
+<p>One way to visualize distributions is box plots (also known as box and whiskers plots).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="stream-diversity.html#cb12-1"></a><span class="kw">ggplot</span>(total, <span class="kw">aes</span>(<span class="dt">x =</span> POLLUTION, <span class="dt">y =</span> N_TOTAL)) <span class="op">+</span></span>
+<span id="cb12-2"><a href="stream-diversity.html#cb12-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
+<span id="cb12-3"><a href="stream-diversity.html#cb12-3"></a><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>TIME) <span class="op">+</span></span>
+<span id="cb12-4"><a href="stream-diversity.html#cb12-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"pollution level"</span>, <span class="dt">y =</span> <span class="st">"total catch"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-11"></span>
+<p class="caption marginnote shownote">
+Figure 8.3: Distribution of total of individuals caught for different levels of pollution and sampling effort.
+Tukey boxplots as visualized by <code>ggplot()</code> contain the following information.
+The box shows the interquartile range (IQR), the top and bottom are the 25th and 75th quartile, the center line is the 50th percentile (median).
+The upper whisker is Q3 + 1.5 * IQR while the lower whisker is Q_1 - 1.5 * IQR.
+The dots (if present) are outliers of the distrubtion, here a data point is classified as an outlier of it is &lt; Q1 - 1.5 * IQR or &gt; Q3 + 1.5 * IQR.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-11-1.png" alt="Distribution of total of individuals caught for different levels of pollution and sampling effort. 
+Tukey boxplots as visualized by `ggplot()` contain the following information. 
+The box shows the interquartile range (IQR), the top and bottom are the 25th and 75th quartile, the center line is the 50th percentile (median). 
+The upper whisker is Q3 + 1.5 * IQR while the lower whisker is Q_1 - 1.5 * IQR. 
+The dots (if present) are outliers of the distrubtion, here a data point is classified as an outlier of it is &lt; Q1 - 1.5 * IQR or &gt; Q3 + 1.5 * IQR." width="672">
+</div>
+<div id="ques:seven" class="question">
+<p class="question-begin">
+► Question 8.7
+</p>
+<div class="question-body">
+<p>
+Discuss your results. Remember, discuss means that you should both briefly describe and interpret them.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Next, let’s compare the <strong>total number of species</strong> caught per sampling effort.</p>
+<p>Previously, we’ve used <code>tidyverse</code> functions to determine the number of species. Today, we are going to make use of the fact that the package <code>vegan</code> has built-in functions to calculate a range of diversity measures.</p>
+<p>Similar to what we’ve done previously, we’ll use <code>group_by()</code> and <code>summarize()</code> to calculate these statistics for each sample, but this time we will apply specialized functions to calcualte the statistics.</p>
+<p>The most straightforward way to calculate species richness is to just determine the number of species occurring in a sample. This can be done using <code>vegan::specnumber()</code>.</p>
+<p>One thing we have not yet considered is that we standardized our sampling effort by seining for the same amount of time to make sure that we catch all species present in the stream. But from our comparison above, we know that this has resulted in very different numbers of individuals caught. One way to adjust for differences in sample size is called rarefaction which means that for every sample a set number of individuals are drawn and then the number of species is counted, i.e. larger samples are randomly sub-sampled to the same level as smaller samples. As a result every sample is the same size and comparable. We can do this using the function <code>vegan::rarefy()</code>.</p>
+<p>Frequently the smallest sample size is used - we can determine this number from the data frame we just generated.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="stream-diversity.html#cb13-1"></a>min_size &lt;-<span class="st"> </span><span class="kw">min</span>(total<span class="op">$</span>N_TOTAL)</span></code></pre></div>
+<p>Now, we can calculate species richness using rarefaction and without to determine differences between these measures.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="stream-diversity.html#cb14-1"></a>richn &lt;-<span class="st"> </span>tidy <span class="op">%&gt;%</span></span>
+<span id="cb14-2"><a href="stream-diversity.html#cb14-2"></a><span class="st">  </span><span class="kw">group_by</span>(POLLUTION, TIME, SAMPLE) <span class="op">%&gt;%</span></span>
+<span id="cb14-3"><a href="stream-diversity.html#cb14-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">RICHN =</span> <span class="kw">specnumber</span>(N_INDV),</span>
+<span id="cb14-4"><a href="stream-diversity.html#cb14-4"></a>            <span class="dt">RAREFY =</span> <span class="kw">rarefy</span>(N_INDV, min_size)) <span class="op">%&gt;%</span></span>
+<span id="cb14-5"><a href="stream-diversity.html#cb14-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<p>Let’s visualize our results to determine differences among pollution levels and related to sampling effort.</p>
+<p>Instead of creating individuals plots, we are going to convert our data into a <code>tidy</code> data set. That way we can use <code>facet_grid()</code> to plot <code>TIME</code> in the columns as we have been doing previously but in addition we can plot <code>RICHNESS</code> in rows.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="stream-diversity.html#cb15-1"></a>richn &lt;-<span class="st"> </span>richn <span class="op">%&gt;%</span></span>
+<span id="cb15-2"><a href="stream-diversity.html#cb15-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">names_to =</span> <span class="st">"RICHNESS"</span>, <span class="dt">values_to =</span> <span class="st">"VALUES"</span>)</span>
+<span id="cb15-3"><a href="stream-diversity.html#cb15-3"></a></span>
+<span id="cb15-4"><a href="stream-diversity.html#cb15-4"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> POLLUTION, <span class="dt">y =</span> VALUES)) <span class="op">+</span></span>
+<span id="cb15-5"><a href="stream-diversity.html#cb15-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
+<span id="cb15-6"><a href="stream-diversity.html#cb15-6"></a><span class="st">  </span><span class="kw">facet_grid</span>(RICHNESS <span class="op">~</span><span class="st"> </span>TIME) <span class="op">+</span></span>
+<span id="cb15-7"><a href="stream-diversity.html#cb15-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"pollution level"</span>, <span class="dt">y =</span> <span class="st">"species richness"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-14"></span>
+<p class="caption marginnote shownote">
+Figure 8.4: Distribution species richness for different levels of pollution and sampling effort.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-14-1.png" alt="Distribution species richness for different levels of pollution and sampling effort." width="672">
+</div>
+<div id="ques:eight" class="question">
+<p class="question-begin">
+► Question 8.8
+</p>
+<div class="question-body">
+<p>
+Discuss your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Of course, species richness is problematic for other reasons than sample size so let’s take a look at <strong>species diversity</strong> as well.</p>
+<div id="ques:nine" class="question">
+<p class="question-begin">
+► Question 8.9
+</p>
+<div class="question-body">
+<p>
+Explain the difference between how species richness and species diversity are calculated and briefly discuss the advantages of using species diversity instead of abundance specificially for our experiment comparing diversity of aquatic invertebrates in streams with varying levels of pollution.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We are going to use three different measures of diversity using the function <code>vegan::diversity()</code>. Each measure varies slightly in how it is calculated and should be interpreted, differences come down to whether/how they have been standardized and the emphasis is put on rare species. Overall, each is a measure of evenness, i.e. the larger the number, the higher the diversity which means abundances are more similar across observed species.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Shannon diversity</strong>: this can be interpreted as how difficult it is to predict the identity of a randomly chosen individual.</li>
+<li>
+<strong>Simpson diversity</strong>: this is the probability that two randomly chosen individuals are the same species; this measure is more sensitive to rare species.</li>
+<li>
+<strong>Inverse Simpson</strong>: an easy way to interpret this is to interpret this number as the number of species in an idealized community where all species are equally abundant.</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="stream-diversity.html#cb16-1"></a>diversity &lt;-<span class="st"> </span>tidy <span class="op">%&gt;%</span></span>
+<span id="cb16-2"><a href="stream-diversity.html#cb16-2"></a><span class="st">  </span><span class="kw">group_by</span>(POLLUTION, TIME, SAMPLE) <span class="op">%&gt;%</span></span>
+<span id="cb16-3"><a href="stream-diversity.html#cb16-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">SHANNON =</span> <span class="kw">diversity</span>(N_INDV, <span class="dt">index =</span> <span class="st">"shannon"</span>),</span>
+<span id="cb16-4"><a href="stream-diversity.html#cb16-4"></a>            <span class="dt">SIMPSON =</span> <span class="kw">diversity</span>(N_INDV, <span class="dt">index =</span> <span class="st">"simpson"</span>),</span>
+<span id="cb16-5"><a href="stream-diversity.html#cb16-5"></a>            <span class="dt">INVSIMPSON =</span> <span class="kw">diversity</span>(N_INDV, <span class="dt">index =</span> <span class="st">"invsimpson"</span>))</span></code></pre></div>
+<p>Now we can compare our data.</p>
+<p>Similar to the way we modified the richness data set, we are going to convert our data into a <code>tidy</code> data set, so we can use <code>facet_grid()</code> to plot <code>TIME</code> in the columns as we have been doing previously but in addition we can plot <code>DIVERSITY</code> in rows.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="stream-diversity.html#cb17-1"></a>diversity &lt;-<span class="st"> </span>diversity <span class="op">%&gt;%</span></span>
+<span id="cb17-2"><a href="stream-diversity.html#cb17-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"DIVERSITY"</span>, <span class="dt">values_to =</span> <span class="st">"VALUE"</span>)</span>
+<span id="cb17-3"><a href="stream-diversity.html#cb17-3"></a></span>
+<span id="cb17-4"><a href="stream-diversity.html#cb17-4"></a><span class="kw">ggplot</span>(diversity, <span class="kw">aes</span>(<span class="dt">x =</span> POLLUTION, <span class="dt">y =</span> VALUE)) <span class="op">+</span></span>
+<span id="cb17-5"><a href="stream-diversity.html#cb17-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">"darkorange"</span>) <span class="op">+</span></span>
+<span id="cb17-6"><a href="stream-diversity.html#cb17-6"></a><span class="st">  </span><span class="kw">facet_grid</span>(DIVERSITY <span class="op">~</span><span class="st"> </span>TIME, <span class="dt">scales =</span> <span class="st">"free"</span>) <span class="op">+</span></span>
+<span id="cb17-7"><a href="stream-diversity.html#cb17-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"pollution level"</span>, <span class="dt">y =</span> <span class="st">"diversity"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-16"></span>
+<p class="caption marginnote shownote">
+Figure 8.5: Comparison of species diversity using three different measures for different levels of pollution and sampling time.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-16-1.png" alt="Comparison of species diversity using three different measures for different levels of pollution and sampling time." width="672">
+</div>
+<div id="ques:ten" class="question">
+<p class="question-begin">
+► Question 8.10
+</p>
+<div class="question-body">
+<p>
+Discuss your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We now have a pretty good idea of how stream diversity compares overall and how sampling effort (or most specifically a lack thereof) may bias our results - but the question that remains open is whether or not we have species-specific effects, i.e. we could have just an overall reduction in the number of species present due to less individuals being caught (i.e. essentially a sampling effect) or we might have some species that are more or less sensitive to pollution resulting in them being more abundant under certain conditions and less so under others or the sample overall may be dominated by one or another species depending on the pollution level..</p>
+<div id="ques:eleven" class="question">
+<p class="question-begin">
+► Question 8.11
+</p>
+<div class="question-body">
+<p>
+Briefly consider how you would expect your figure to differ for each of those two scenarios.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Let’s visualize our results.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="stream-diversity.html#cb18-1"></a><span class="kw">ggplot</span>(tidy, <span class="kw">aes</span>(<span class="dt">x =</span> SPECIES, <span class="dt">y =</span> N_INDV, <span class="dt">fill =</span> POLLUTION)) <span class="op">+</span></span>
+<span id="cb18-2"><a href="stream-diversity.html#cb18-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb18-3"><a href="stream-diversity.html#cb18-3"></a><span class="st">  </span><span class="kw">facet_grid</span>(TIME <span class="op">~</span><span class="st"> </span>., <span class="dt">scales =</span> <span class="st">"free"</span>) <span class="op">+</span></span>
+<span id="cb18-4"><a href="stream-diversity.html#cb18-4"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"gold"</span>, <span class="st">"darkorange"</span>, <span class="st">"red"</span>)) <span class="op">+</span></span>
+<span id="cb18-5"><a href="stream-diversity.html#cb18-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"species"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>) <span class="op">+</span></span>
+<span id="cb18-6"><a href="stream-diversity.html#cb18-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672"></p>
+<div id="ques:twelve" class="question">
+<p class="question-begin">
+► Question 8.12
+</p>
+<div class="question-body">
+<p>
+Discuss your results and argue whether differences you are seeing are the result of sampling effects or if there are species-specific effects due to different levels of pollution. Refer to your answer to the question above.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="ecological-indicators-and-bioindicators" class="section level2">
+<h2>
+<span class="header-section-number">8.4</span> Ecological Indicators and Bioindicators</h2>
+<div id="ques:thirteen" class="question">
+<p class="question-begin">
+► Question 8.13
+</p>
+<div class="question-body">
+<p>
+In our discussion of the strategic value of species diversity, we briefly touched on the concept of indicator species. Briefly outline what an indicator species is and how it differs from a flagship and umbrella species, two groups that also carry significant stratgic value for conservation efforts. Use specific examples as needed and consider whether a species could fall into all three categories.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><strong>Ecological indicators</strong> are used as proxies to identify and communicate the impact of human activities on ecosystem to policy-makers. Effective indicators share certain characteristics that allow us to monitor change.</p>
+<p>Overall they must be …</p>
+<ol style="list-style-type: decimal">
+<li>sensitive enough to detect important changes but not too sensitive to avoid picking up natural variation. This means they need to be able to detect changes at the appropriate temporal &amp; spatial scale without being overwhelmed by variability.</li>
+<li>based on well understood &amp; generally accepted conceptual models of the system to which they are applied.</li>
+<li>based on reliable data that is available to assess trends/collected in straightforward process and for which monitoring systems are in place.</li>
+<li>easily understood by policy-makers.</li>
+</ol>
+<div id="ques:fourteen" class="question">
+<p class="question-begin">
+► Question 8.14
+</p>
+<div class="question-body">
+<p>
+Based on these characteristics, argue whether you think aquatic invertebrates could be an effective ecological indicator. Your answer should explicitely state which ecosystem(s) they could be applied to and what change in the ecosystem they could be used to monitor.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><strong>Bioindicators</strong> are a subset of ecological indicators. Here, species assemblage and population abundance is used to measure ecosystem health and habitat quality. Frequently, they are used as a proxy for environmental contamination and pollution. Aquatic invertebrates are frequently used as bioindicators to assess the level of pollution of streams or other freshwater habitats due to their varying degree of sensitivity to a polluted environment<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> yes, this essentially is the answer to the question above, but you should be arguing <em>your</em> answer based on the four characteristics of ecological indicators.</span>.</p>
+<div id="ques:fifteen" class="question">
+<p class="question-begin">
+► Question 8.15
+</p>
+<div class="question-body">
+<p>
+Congratulations, you were just hired to develop a project to monitor and compare levels of pollution across a range of freshwater habitats! Use all the the concepts you have learned during this lab regarding experimental design and the sensitivity of aquative invertebrates to pollution to design a monitoring plan. Be specific about your experimental design (sampling effort, replicates) and how you would intepret results, i.e. create a key of pollution sensitive, less-sensitive, and tolerant species that you and your colleagues could use to evaluate streams (explain how/why you are categorizing them that way). Argue the benefits of using this type of monitoring plan over directly measuring pollution.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Some additional help<span id="sol-start-5" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-5', 'sol-start-5')"></span>
+</p>
+<div id="sol-body-5" class="solution-body" style="display: none;">
+<p>To aid you in your efforts of generating a key with different categories of species I am going to give you some code to re-plot your data reflecting real world data on how sensitive to pollution the species in our model are (yes, using aquatic inverts as bioindicators is a commonly used technique). Remember, you still need to explain your criteria for generating the different groups.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="stream-diversity.html#cb19-1"></a>tidy &lt;-<span class="st"> </span>tidy <span class="op">%&gt;%</span></span>
+<span id="cb19-2"><a href="stream-diversity.html#cb19-2"></a><span class="st">  </span><span class="kw">filter</span>(TIME <span class="op">==</span><span class="st"> </span><span class="dv">500</span>) <span class="op">%&gt;%</span></span>
+<span id="cb19-3"><a href="stream-diversity.html#cb19-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SENSITIVITY =</span> <span class="kw">case_when</span>(SPECIES <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"Caddisfly"</span>, <span class="st">"Mayfly"</span>, <span class="st">"Stonefly"</span>, <span class="st">"Rif_Beetle"</span>, <span class="st">"W_Penny"</span>, <span class="st">"Gill_Snail"</span>) <span class="op">~</span><span class="st"> "sensitive"</span>,</span>
+<span id="cb19-4"><a href="stream-diversity.html#cb19-4"></a>                                 SPECIES <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"Dobsonfly"</span>, <span class="st">"Cranefly"</span>, <span class="st">"Dragonfly"</span>, <span class="st">"Crayfish"</span>, <span class="st">"Sowbug"</span>) <span class="op">~</span><span class="st"> "less sensitive"</span>,</span>
+<span id="cb19-5"><a href="stream-diversity.html#cb19-5"></a>                                 SPECIES <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"Worm"</span>, <span class="st">"Black_Fly"</span>, <span class="st">"Midge"</span>, <span class="st">"Leech"</span>, <span class="st">"Lung_Snail"</span>) <span class="op">~</span><span class="st"> "tolerant"</span>),</span>
+<span id="cb19-6"><a href="stream-diversity.html#cb19-6"></a>         <span class="dt">SENSITIVITY =</span> <span class="kw">ordered</span>(SENSITIVITY, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"sensitive"</span>, <span class="st">"less sensitive"</span>, <span class="st">"tolerant"</span>)))</span>
+<span id="cb19-7"><a href="stream-diversity.html#cb19-7"></a></span>
+<span id="cb19-8"><a href="stream-diversity.html#cb19-8"></a><span class="kw">ggplot</span>(tidy, <span class="kw">aes</span>(<span class="dt">x =</span> SPECIES, <span class="dt">y =</span> N_INDV, <span class="dt">fill =</span> POLLUTION)) <span class="op">+</span></span>
+<span id="cb19-9"><a href="stream-diversity.html#cb19-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb19-10"><a href="stream-diversity.html#cb19-10"></a><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>SENSITIVITY, <span class="dt">scales =</span> <span class="st">"free"</span>, <span class="dt">space =</span> <span class="st">"free"</span>) <span class="op">+</span></span>
+<span id="cb19-11"><a href="stream-diversity.html#cb19-11"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"gold"</span>, <span class="st">"darkorange"</span>, <span class="st">"red"</span>)) <span class="op">+</span></span>
+<span id="cb19-12"><a href="stream-diversity.html#cb19-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"species"</span>, <span class="dt">y =</span> <span class="st">"number of individuals"</span>) <span class="op">+</span></span>
+<span id="cb19-13"><a href="stream-diversity.html#cb19-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>),</span>
+<span id="cb19-14"><a href="stream-diversity.html#cb19-14"></a>        <span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-18"></span>
+<p class="caption marginnote shownote">
+Figure 8.6: Number of individuals per species for varying degrees of pollution for aquatic invertebrates sensitive, less sensitive and tolerant to pollution.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-18-1.png" alt="Number of individuals per species for varying degrees of pollution for aquatic invertebrates sensitive, less sensitive and tolerant to pollution." width="768">
+</div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="iucn-redlist-evaluation.html"><button class="btn btn-default">Previous</button></a>
+<a href="references.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-09-21
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

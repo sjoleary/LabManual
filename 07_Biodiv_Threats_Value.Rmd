@@ -26,7 +26,8 @@ library(tidyverse)
 
 # invalidate cache when the tufte version changes
 knitr::opts_chunk$set(tidy = FALSE, 
-                      message=FALSE, warning=FALSE,
+                      message=FALSE, 
+                      warning=FALSE,
                       cache.extra = packageVersion('msmbstyle'))
 
 
