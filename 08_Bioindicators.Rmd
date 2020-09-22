@@ -20,17 +20,18 @@ editor_options:
 
 ```{r include=FALSE}
 
+# load libraries
 library(msmbstyle)
 library(knitr)
 library(tidyverse)
 
-# invalidate cache when the tufte version changes
+# global settings for code chunks
 knitr::opts_chunk$set(tidy = FALSE, 
                       message=FALSE, 
                       warning=FALSE,
                       cache.extra = packageVersion('msmbstyle'))
 
-
+# invalidate cache when the tufte version changes
 options(htmltools.dir.version = FALSE)
 
 ```
@@ -57,6 +58,7 @@ To be able to calculate various species diversity for each sample, we are going 
 
 ```{r eval=FALSE}
 
+# install package
 install.packages("vegan")
 
 ```
@@ -65,6 +67,7 @@ Now we can load that library^[Remember, if you restart `Rstudio`, reload the `Rp
 
 ```{r}
 
+# load library
 library("vegan")
 
 ```
