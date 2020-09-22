@@ -57,6 +57,15 @@ You will be receiving lab homework in some format almost every lab, part of the 
 **Due by the following Wednesday 12pm** unless otherwise specified.  
 *No late or incomplete homework will be accepted or receive credit.*
 
+
+### Due Wednesday, Sept. 30th {-}
+
+Complete lab 8 ([Stream Biodiversity](https://labmanual.netlify.app/stream-diversity.html)) and the knitted `html`-file through Canvas (`HW-6`)
+
+
+<br>
+
+
 ### Due Wednesday, Sept. 23rd {-}
 
 Complete lab 7 ([IUCN Redlist Evaluation](https://labmanual.netlify.app/iucn-redlist-evaluation.html)) and the knitted `html`-file through Canvas (`HW-5`)
