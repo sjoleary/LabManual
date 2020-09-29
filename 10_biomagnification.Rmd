@@ -1,0 +1,137 @@
+---
+title: "Lab Manual Conservation Biology Fall 2020"
+subtitle: "Conservation Biology Fall 2020"
+author: "Shannon J. O'Leary"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+output:
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    margin_references: FALSE
+    css: msmb.css
+bibliography: labmanual.bib
+link-citations: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+
+# load libraries
+library(msmbstyle)
+library(knitr)
+library(tidyverse)
+
+# global settings for code chunks
+knitr::opts_chunk$set(tidy = FALSE, 
+                      message=FALSE, 
+                      warning=FALSE,
+                      cache.extra = packageVersion('msmbstyle'))
+
+# invalidate cache when the tufte version changes
+options(htmltools.dir.version = FALSE)
+
+```
+
+# Biomagnification
+
+**Date**: 9/30/2020
+
+Download the project folder [here](https://drive.google.com/drive/folders/1gLiUyhjUBMQ8Km532AtiyAlS-qyEx9y1?usp=sharing).
+
+**Learning Objectives**
+
+After completing this lab you should
+
+* be able to list the primary players in a food web according to their trophic level.
+* understand what the "10%-rule" is for loss of energy between trophic levels.
+* understand the concept of biomagnification.
+
+Food webs can be used to summarize species interactions (consumption, competition) as well as trophic interactions, including the transfer of energy between trophic levels and the recycling of nutrients through the system. Both energy and matter are conserved *per se*, i.e. they are neihter created nor destroyed though they do take different routes through the ecosystem. Nutrients are recycled while, energy flows through the system in a unidirectional fashion, generally entering as light and exiting as heat. 
+
+Organisms can be categorized by their role in the ecosystem according to their trophic levels as primary producers, primary, secondary, tertiary consumers^[generally consumers at the highest trophic level are designated as top predators], and decomposers.
+
+Energy usually enters an ecosystem as sunlight and is captured in chemical form by primary producers through photosynthesis. This is called energy fixation. This energy is now available to other organisms in the the ecosystem. As the energy travels up the trophic chains it changes forms as organisms consume other species, metabolize  biomass, and eventually die. 
+
+Each time an organism is consumed, only a portion of the energy in the prey is actually incorporated into the biomass of the consumer - the rest of the energy is "burned off" during metabolism or passes through the consumer undigested. This process of energy loss occurs at each trophic level. As a rule of thumb, approximately 10% of energy consumed is used for growth/biomass production and thus made available for organisms at the next trophic level. This also results in an decrease of biomass with increasing trophic levels. In reality, the efficiency of energy transfer, i.e. how much energy is transferred to the next trophic level and how much energy dissipates as heat during cellular respiration varies depending on the proportion of organisms that die without being eaten, how much of a food item is not digested (and therefor not used). So energy does not "disappear" it just winds up as heat instead of being available to the ecosystem.
+
+`r msmbstyle::question(label = "ques:one", text = "Assuming the 10%-rule, if you have a simple food chain consisting of grass being eaten by rabbits (each weighing about 10kg - for the sake of math these are very large rabbits), which are then consumed by 100kg lions (it's a young lion again, for the sake of math). Calculate how many rabbits and how many kg of grass you need for small lion.")`
+
+Heavy metals, some pesticides, and other organic compounds are not broken down during consumption and are incorporated into the biomass of the consumer. This means that the amount of the compound remains the same - though the amount of biomass it is "diluted in" becomes increasingly smaller as it "travels" up the food chain. In addition, it does not break down, so as an organisms consume food containing this type of compound they will retain all the compounds they eat.
+
+This process is called biomagnification or bioaccumulation. Rachel Carson's 1962 book "Silent Spring" was one of the first times this concept was illustrated for the general public as she described how DDT in near-shore waters accumulates across trophic levels of a food web resulting in bird population being decimated by thinning egg-shells.
+
+In this [model](http://virtualbiologylab.org/NetWebHTML_FilesJan2016/BiomagnificationModel.html), we will use a simple food chain consisting of phytoplankton, zooplankton, smelt, salmon, and pelicans.
+
+`r msmbstyle::question(label = "ques:two", text = "Designate the role of each of these organisms in the food chain and determine how many trophic levels are present.")`
+
+When you open the model you can see a virtual shore line. Click the blue `Go` button (clicking it again will stop the simulation) and observe the phytoplankton and zooplankton drift by in the current while the smelt and salmon swim around them too feed on them. Pelican will attack the fish from above. Whenever an individual dies or is eaten it is replaced by a new individual with a DDT concentration at zero.
+
+Below the shoreline model, you can see yellow boxes that will show the current average concentration of DDT among individuals in each population. Hitting `Reset` will reset the model. You can control the DDT contamination and there is a switch (check box) to begin a rolling average of DDT levels by species. `Clear means` will reset those. 
+
+DDT levels in the water can be set to six levels:
+
+0, 0.00002, 0.00004, 0.00006, 0.00008, and 0.0001.
+
+Every student will make measurements for sampling points from 0 - 2,000 in 100 tick increments for the assigned water DDT concentration. 
+
+At each sampling point record the **current DDT contamination in parts per million** (not the rolling mean!). Record at least four digits.
+
+`r msmbstyle::question(label = "ques:three", text = "As you take your measurements note the pattern of differences of standard deviations per trophic level. You do not have to record them, but give a brief description of the pattern here.")`
+
+We will share results on a shared google drive. Once all the measurements have been made, copy and paste the results into an excel spreadsheet an export it as a tab-delimited file and save it in the `data` directory of the project folder as `biomagnification.txt`.
+
+Now, we can analyze our results. First, we will plot changes in current DDT concentration over time.
+
+```{r eval=FALSE}
+
+# read data
+biomagn <- read_delim("data/biomagnification.txt", delim = "\t")
+
+# make tidy data set to plot facets
+tidy <- biomagn %>%
+  pivot_longer(cols = 4:8, names_to = "ORGANISM", values_to = "CONCENTRATION")
+
+# plot results
+ggplot(tidy, aes(x = TIME, y = CONCENTRATION, color = ORGANISM)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(CONC_WATER ~ .) +
+  labs(x = "time", y = "DDT [ppm]") +
+  theme(legend.position = "bottom")
+
+```
+
+Next, let's compare the ratios among adjacent trophic levels. 
+
+```{r eval=FALSE}
+
+# calculate ratios
+ratios <- biomagn %>%
+  mutate(wat_phyto = phytoplankton/CONC_WATER,
+         phyto_zoop = zooplankton/phytoplankton,
+         zoopl_smelt = smelt/zooplankton,
+         smelt_salm = salmon/smelt,
+         salm_peli = pelicans/smelt,
+         smelt_peli = pelicans/smelt) %>%
+  select(-phytoplankton, -zooplankton, -smelt, -salmon, -pelicans)
+
+# create tidy data set to plot
+tidy <- ratios %>%
+  pivot_longer(cols = 4:9, names_to = "RATIO", values_to = "VALUES")
+
+# plot ratios over time
+ggplot(tidy, aes(x = TIME, y = VALUES, color = RATIO)) +
+  geom_line() +
+  geom_point() +
+  facet_grid(RATIO ~ CONC_WATER, scales = "free") +
+  labs(x = "time", y = "ratio DDT concentration") +
+  theme(legend.position = "bottom")
+
+```
+
+`r msmbstyle::question(label = "ques:four", text = "Describe your results from both figures and compare differences for different levels of background concentration of DDT in the water. Then use the concept of biomagnification to explain the changes in mean concentration over time - be sure to also explain the observations you made for the standard deviations.")`
+
