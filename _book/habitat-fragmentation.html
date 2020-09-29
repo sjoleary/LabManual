@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="9 Habitat Fragmentation | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-09-29" />
+
+
+<meta name="description" content="9 Habitat Fragmentation | Lab Manual Conservation Biology Fall 2020">
+
+<title>9 Habitat Fragmentation | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a>
+<a href="stream-diversity.html"><span class="toc-section-number">8</span> Stream Diversity</a>
+<a id="active-page" href="habitat-fragmentation.html"><span class="toc-section-number">9</span> Habitat Fragmentation</a><ul class="toc-sections">
+<li class="toc"><a href="#edge-habitat"> Edge habitat</a></li>
+<li class="toc"><a href="#patch-isolation"> Patch isolation</a></li>
+</ul>
+<a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="habitat-fragmentation" class="section level1">
+<h1>
+<span class="header-section-number">9</span> Habitat Fragmentation</h1>
+<p><strong>Date</strong>: 9/30/2020</p>
+<p>Download the project folder <a href="https://drive.google.com/drive/folders/1a3yt89V_vmSrClLhEgLKEmHOX_-HYbJQ?usp=sharing">here</a>.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this lab you should</p>
+<ul>
+<li>be able to define habitat fragmentation</li>
+<li>understand the relationship habitat loss and the proportion of edge vs interior habitat of the remaining habitat patches.</li>
+<li>understand how increasing habitat fragmentation reduced connectivity among populations in separate habitat patches</li>
+</ul>
+<p>Habitat fragmentation occurs when processes habitat loss and degradation result in a large landscape characterized by a specific habitat type transformed into a heterogeneous landscape consisting of smaller habitat patches isolated from each other by a ‘matrix’ consisting of a different habitat type or by barriers (e.g. roads in terrestrial systems or dams in rivers). The matrix is generally composed of degraded habitat with fewer native species characterized by rural/urban or agricultural development.</p>
+<p>Fragmentation has three main effects on the habitat (pathes):</p>
+<ol style="list-style-type: decimal">
+<li>Patch area is reduced.</li>
+<li>Isolation among population associated with each habitat patch in increased.</li>
+<li>Edge habitat between habitat patches and matrix habitat.</li>
+</ol>
+<p>Each of these effects in turn impact biodiversity in a negative way.</p>
+<ol style="list-style-type: decimal">
+<li>Patch area/overall available habitat is lost; smaller areas support fewer species and individuals<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Species-Area relationship; see Island Biogeography</span>. Smaller populations are more vulnerable to stochastic events &amp; processes.</li>
+<li>More isolated populations (direct or resistance distance from other populations/habitat patches) the less change immigrants from other population can ‘rescue’ a population if there is a local extirpation or other stochastic events<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Relationship of Immigration rate/distance; see Island Biogeography - also see Metapopulations</span>.</li>
+<li>Edge habitat is already degraded habitat, in addition there can be changes in the microclimate changing the abiotic conditions (ecological niche is altered), invasive species frequently infiltrate and may outcompete native species, all this can result in positive feedback loops that increasing degrade and fragment the habitat landscape.</li>
+</ol>
+<p>In sum, habitat fragmentation results in the drastic decline of the quantity &amp; quality of habitats resulting in habitats too small to support specific species (e.g. need large territory) or support high species richness, large amount of degraded edge habitat is created, and finally species may be forced into meta-population structures that are increasingly vulnerable to stochastic effects.</p>
+<div id="edge-habitat" class="section level2">
+<h2>
+<span class="header-section-number">9.1</span> Edge habitat</h2>
+<div id="ques:one" class="question">
+<p class="question-begin">
+► Question 9.1
+</p>
+<div class="question-body">
+<p>
+Consider a square patch that is 16x16km in size. Calculate the area, the perimeter length, and the perimeter to area ratio. Now, consider a second square habitat patch for which each side is half as long (8km) calculate the area, perimeter length, and perimeter to area ratio. Compare those relationships.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:two" class="question">
+<p class="question-begin">
+► Question 9.2
+</p>
+<div class="question-body">
+<p>
+Patch shape can also affect the amount of edge habitat. Which shape do you think has the most/least amount of edge habitat associate with it - a cricle, a square, or a rectangle. To figure this out choose an area, then figure out what the perimeter for each of those shapes would be.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>To explore how the habitat loss resulting from habitat fragmentation affects the relationship of the proportion of edge and interior habitat in the remaining habitat patches we will use a handy little <a href="http://virtualbiologylab.org/NetWebHTML_FilesJan2016/Fragmentation.html">model</a>.</p>
+<p>When you open the model you will see a landscape. Below there is a slider that will allow you to determine the proportion of remaining habitat. Once you click <code>Reset</code> the model will fragment the habitat into irregular habitat patches and you will see the percent of edge habitat and interior habitat displayed in the yellow boxes below the landscape.</p>
+<p>Start at 100% remaining habitat and hit reset. Use the provided excel spreadsheet to record the percent edge habitat and interior habitat as you work your way down to 0% remaining habitat in 5% increments.</p>
+<p>Save your results as a tab-delimited file in the <code>data</code> sub-directory of your project folder as <code>habitat_fragmentation.txt</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="habitat-fragmentation.html#cb1-1"></a><span class="co"># read data</span></span>
+<span id="cb1-2"><a href="habitat-fragmentation.html#cb1-2"></a>fragm &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/habitat_fragmentation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-3"><a href="habitat-fragmentation.html#cb1-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to =</span> <span class="st">"HABITAT_TYPE"</span>, <span class="dt">values_to =</span> <span class="st">"PERCENT"</span>)</span>
+<span id="cb1-4"><a href="habitat-fragmentation.html#cb1-4"></a></span>
+<span id="cb1-5"><a href="habitat-fragmentation.html#cb1-5"></a><span class="kw">ggplot</span>(fragm, <span class="kw">aes</span>(<span class="dt">x =</span> HABITAT_REMAINING, <span class="dt">y =</span> PERCENT, <span class="dt">color =</span> HABITAT_TYPE)) <span class="op">+</span></span>
+<span id="cb1-6"><a href="habitat-fragmentation.html#cb1-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb1-7"><a href="habitat-fragmentation.html#cb1-7"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb1-8"><a href="habitat-fragmentation.html#cb1-8"></a><span class="st">  </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span></span>
+<span id="cb1-9"><a href="habitat-fragmentation.html#cb1-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"percent remaining habitat"</span>, <span class="dt">y =</span> <span class="st">"percent habitat type"</span>) <span class="op">+</span></span>
+<span id="cb1-10"><a href="habitat-fragmentation.html#cb1-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
+<div id="ques:three" class="question">
+<p class="question-begin">
+► Question 9.3
+</p>
+<div class="question-body">
+<p>
+Describe and interpret your results (this should include both comparing/contrasting the relationship of both parameters to the percent of total habitat remaining and explaining why you observe this pattern.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:four" class="question">
+<p class="question-begin">
+► Question 9.4
+</p>
+<div class="question-body">
+<p>
+Define edge habitat and explain why it generally has a negative impact on biodiversity.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="patch-isolation" class="section level2">
+<h2>
+<span class="header-section-number">9.2</span> Patch isolation</h2>
+<p>Increasing fragmentation results in less habitat being available overall, individual habitat patches being smaller, in addition results in individual habitat patches and the populations inhabiting them becoming increasingly isolated from each other.</p>
+<p>In this context, one effect of fragmentation is that species may be forced into a meta-population structure.</p>
+<div id="ques:five" class="question">
+<p class="question-begin">
+► Question 9.5
+</p>
+<div class="question-body">
+<p>
+Define what a meta-population is by briefly describing its defining characteristics.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We are going to use a <a href="http://virtualbiologylab.org/NetWebHTML_FilesJan2016/Dispersal.html">model</a> to explore how the increasing loss of habitat associated with fragmentation will reduce the connectivity among habitat patches as organisms are not able to reach other habitat patches and the populations inhabiting them through dispersal and/or migration or how organisms with ontogenetic shifts in their habitat are not able to reach an important habitat for the next stage in their life cycle.</p>
+<p>When you open the model you will see a habitat patch (green) near a river (blue). To the right there is a frog that needs to cross the green habitat to reach the blue habitat during its spawning migration.</p>
+<p>To the right there are four blue direction buttons labeled <code>Up</code>, <code>Left</code>, <code>Right</code>, and <code>Down</code>. These can be used to move the frog, below is a yellow box that will record the number of moves made.</p>
+<p>Underneath the habitat viewer is a blue <code>Reset</code> button and next to it a slider that allows you to determine the proportion of habitat remaining.</p>
+<p>Start with the slider set to 100 and hit <code>Reset</code>. The habitat should be a solid green (all habitat intact). Now use the direction buttons to have the frog cross the habitat with the fewest number of moves and record the number of moves in the excel spreadsheet in the <code>data</code> directory of your project folder; record it as a “success” in the <code>CROSS</code> column.</p>
+<p>Now set the slider to <code>95</code> and hit <code>Reset</code>. This will fragment your habitat which will now include some brown-ish areas that the frog cannot pass through. Guide the frog across the remaining habitat with the fewest moves possible and record the number of moves, again, flag it as a “success” in the <code>CROSS</code> column.</p>
+<p>You will keep working your way in 5% increments of remaining habitat to 25% and make 5 attempts for the frog to cross at each level. When the frog is not able to cross, record the maximum moves the frog was able to make (including if you had to move it up or down a few moves to enter green habitat) and flag it as “failed” in the <code>CROSS</code> column.</p>
+<p>You may choose a buddy to split the workload with. Please note if you are sharing a data set with somebody in your homework submission.</p>
+<p>Once you have a complete data set, save it as a tab-delimited file <code>isolation.txt</code> in your <code>data</code> directory.</p>
+<p>Let’s check out our results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="habitat-fragmentation.html#cb2-1"></a><span class="co"># read data</span></span>
+<span id="cb2-2"><a href="habitat-fragmentation.html#cb2-2"></a>isol &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/isolation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb2-3"><a href="habitat-fragmentation.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="habitat-fragmentation.html#cb2-4"></a><span class="co"># plot data</span></span>
+<span id="cb2-5"><a href="habitat-fragmentation.html#cb2-5"></a><span class="kw">ggplot</span>(isol, <span class="kw">aes</span>(<span class="dt">x =</span> REMAINING_HABITAT, <span class="dt">y =</span> MOVES, <span class="dt">color =</span> CROSS)) <span class="op">+</span></span>
+<span id="cb2-6"><a href="habitat-fragmentation.html#cb2-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb2-7"><a href="habitat-fragmentation.html#cb2-7"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb2-8"><a href="habitat-fragmentation.html#cb2-8"></a><span class="st">  </span><span class="kw">facet_grid</span>(CROSS <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb2-9"><a href="habitat-fragmentation.html#cb2-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"% remaining habitat"</span>, <span class="dt">y =</span> <span class="st">"moves needed/possible"</span>) <span class="op">+</span></span>
+<span id="cb2-10"><a href="habitat-fragmentation.html#cb2-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
+<div id="ques:six" class="question">
+<p class="question-begin">
+► Question 9.6
+</p>
+<div class="question-body">
+<p>
+Describe and interpret your results in the context of habitat fragmentation leading to increasing isolation among habitat patches.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="stream-diversity.html"><button class="btn btn-default">Previous</button></a>
+<a href="biomagnification.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-09-29
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

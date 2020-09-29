@@ -134,4 +134,3 @@ ggplot(tidy, aes(x = TIME, y = VALUES, color = RATIO)) +
 ```
 
 `r msmbstyle::question(label = "ques:four", text = "Describe your results from both figures and compare differences for different levels of background concentration of DDT in the water. Then use the concept of biomagnification to explain the changes in mean concentration over time - be sure to also explain the observations you made for the standard deviations.")`
-
