@@ -95,13 +95,29 @@ biomagn <- read_delim("data/biomagnification.txt", delim = "\t")
 
 # make tidy data set to plot facets
 tidy <- biomagn %>%
-  pivot_longer(cols = 4:8, names_to = "ORGANISM", values_to = "CONCENTRATION")
+  pivot_longer(cols = 4:8, names_to = "ORGANISM", values_to = "CONCENTRATION") %>%
+  mutate(ORGANISM = ordered(ORGANISM, levels = c("phytoplankton", "zooplankton", "smelt", "salmon", "pelicans")))
 
 # plot results
-ggplot(tidy, aes(x = TIME, y = CONCENTRATION, color = ORGANISM)) +
-  geom_line() +
-  geom_point() +
-  facet_grid(CONC_WATER ~ .) +
+ggplot(tidy, aes(x = TIME, y = CONCENTRATION, fill = ORGANISM)) +
+  geom_smooth(color = "black") +
+  geom_point(shape = 21, color = "black", size = 1.5) +
+  facet_grid(CONC_WATER ~ ., scales = "free") +
+  labs(x = "time", y = "DDT [ppm]") +
+  theme(legend.position = "bottom")
+
+
+```
+
+To get a better look, let's create a separate plot for each organism at each background concentration level. Note that the y-axis has different units.
+
+```{r eval=FALSE}
+
+# plot results
+ggplot(tidy, aes(x = TIME, y = CONCENTRATION, fill = ORGANISM)) +
+  geom_smooth(color = "black") +
+  geom_point(shape = 21, color = "black", size = 1.5) +
+  facet_grid(ORGANISM ~ CONC_WATER, scales = "free") +
   labs(x = "time", y = "DDT [ppm]") +
   theme(legend.position = "bottom")
 
@@ -123,12 +139,13 @@ ratios <- biomagn %>%
 
 # create tidy data set to plot
 tidy <- ratios %>%
-  pivot_longer(cols = 4:9, names_to = "RATIO", values_to = "VALUES")
+  pivot_longer(cols = 4:9, names_to = "RATIO", values_to = "VALUES") %>%
+  mutate(RATIO = ordered(RATIO, levels = c("wat_phyto", "phyto_zoop", "zoopl_smelt", "smelt_salm", "salm_peli", "smelt_peli")))
 
 # plot ratios over time
-ggplot(tidy, aes(x = TIME, y = VALUES, color = RATIO)) +
-  geom_line() +
-  geom_point() +
+ggplot(tidy, aes(x = TIME, y = VALUES, fill = RATIO)) +
+  geom_smooth(color = "black") +
+  geom_point(shape = 21, color = "black", size = 1.5) +
   facet_grid(RATIO ~ CONC_WATER, scales = "free") +
   labs(x = "time", y = "ratio DDT concentration") +
   theme(legend.position = "bottom")
