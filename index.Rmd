@@ -57,9 +57,18 @@ You will be receiving lab homework in some format almost every lab, part of the 
 **Due by the following Wednesday 12pm** unless otherwise specified.  
 *No late or incomplete homework will be accepted or receive credit.*
 
+### Due Wednesday, Oct. 14th {-}
+
+Complete lab 11 ([Species Distribution Modeling](https://labmanual.netlify.app/species-distribution-modeling.html))) and submit the knitted `html`-files through Canvas (`HW-8`).
+
+
+<br>
+
+
+
 ### Due Wednesday, Oct. 7th {-}
 
-Complete lab 9 ([Habitat Fragmentation](https://labmanual.netlify.app/habitat-fragmentation.html)) and lab 10 ([Biomagnification](https://labmanual.netlify.app/biomagnification.html)) and submit the knitted `html`-files through Canvas (`HW-7`)
+Complete lab 9 ([Habitat Fragmentation](https://labmanual.netlify.app/habitat-fragmentation.html)) and lab 10 ([Biomagnification](https://labmanual.netlify.app/biomagnification.html)) and submit the knitted `html`-files through Canvas (`HW-7a` and `HW-7b`).
 
 
 <br>
@@ -67,7 +76,7 @@ Complete lab 9 ([Habitat Fragmentation](https://labmanual.netlify.app/habitat-fr
 
 ### Due Wednesday, Sept. 30th {-}
 
-Complete lab 8 ([Stream Biodiversity](https://labmanual.netlify.app/stream-diversity.html)) and the knitted `html`-file through Canvas (`HW-6`)
+Complete lab 8 ([Stream Biodiversity](https://labmanual.netlify.app/stream-diversity.html)) and the knitted `html`-file through Canvas (`HW-6`).
 
 
 <br>
@@ -75,7 +84,7 @@ Complete lab 8 ([Stream Biodiversity](https://labmanual.netlify.app/stream-diver
 
 ### Due Wednesday, Sept. 23rd {-}
 
-Complete lab 7 ([IUCN Redlist Evaluation](https://labmanual.netlify.app/iucn-redlist-evaluation.html)) and the knitted `html`-file through Canvas (`HW-5`)
+Complete lab 7 ([IUCN Redlist Evaluation](https://labmanual.netlify.app/iucn-redlist-evaluation.html)) and the knitted `html`-file through Canvas (`HW-5`).
 
 
 <br>
