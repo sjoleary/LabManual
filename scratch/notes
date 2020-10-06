@@ -1,0 +1,149 @@
+
+## Explore occurence data
+
+
+Map the occurrences
+
+
+```{r}
+
+# get map
+worldmap <- ne_countries(scale = 'medium', type = 'map_units',
+                         returnclass = 'sf')
+
+# PLOT MAP ----
+ggplot() +
+  geom_sf(data=worldmap) +
+  # coord_sf(xlim = mapRange[c(1:2)], ylim = mapRange[c(3:4)]) +
+  geom_point(data = xy, aes(x = longitude, y = latitude)) +
+  theme_map()
+
+```
+
+Let's zoom into the United States
+
+```{r}
+
+# set mapping boundaries
+mapRange <- c(min(xy$longitude)+1, max(xy$longitude)+1,   # x-coordinates
+              min(xy$latitude)+1, max(xy$latitude)+1)       # y-coordinates
+
+ggplot() +
+  geom_sf(data=worldmap, color = "black") +
+  coord_sf(xlim = mapRange[c(1:2)], ylim = mapRange[c(3:4)]) +
+  geom_point(data = xy, aes(x = longitude, y = latitude),
+             size = 1, shape = 21, color = "black", fill = "darkorange") +
+  theme_bw()
+
+```
+
+
+based on the plot you just made, describe the rough spatial distribution of occurence records, where do they appear random, clustered or dispersed in different areas?
+
+discuss some possible explanations for observed patterns
+
+Do you think plotted observations are reasonable rerpresentation of ecological niche of the sasquatch
+
+## Explore climate data
+
+now that we have located our occurence records, we need to access climate variables so we can determine the environmental parameters that make up the abiotic components of the habitats the species is found in.
+
+We are going to use the bioclim data set
+
+```{r}
+
+bioclim <- getData(name = "worldclim",
+                   download = TRUE,
+                   res=10, var="bio")
+
+bioclim.data <- getData(name = "worldclim",
+                        var = "bio",
+                        res = 2.5,
+                        path = "data/")
+
+
+
+```
+
+we are using a spatial resolution of 10 () - how do you think spatial resolution of climate data can affect model interpetation
+
+descriptions of data set can be found at www.worldclim.org/bioclim
+
+
+## Accessing occurence data from GBIF
+
+Online data bases with publically available data on thousands of species that have been collected & curated
+
+GBIF is ....
+
+Publicly available data sets
+
+Let's determine how many total records we found
+
+```{r}
+
+occ(query='Chrysemys picta', from=c('gbif','bison','inat','ebird',
+'ecoengine','vertnet'), has_coords=T)
+
+```
+
+How many total records found? which databases could we use to download occurence records, surprised that ebirds no data
+
+
+
+Download occurrence data from gbif
+
+```{r}
+
+# download occurrence data
+dat <- gbif(genus = "Chrysemys",
+            species = "picta",
+            removeZeros = TRUE,
+            geo = TRUE,
+            download = TRUE)
+
+```
+
+Let's check out our data set
+
+```{r}
+
+head(dat)
+
+```
+
+What information do we have, how many entries (rows), what data?
+
+We need to clean up our data
+
+Remove entries without lat/long information
+
+```{r}
+
+dat <- dat %>%
+  filter(!is.na(lon),
+         !is.na(lat))
+
+```
+
+Why might some species occurrence records not include coordinates? how could lack of coordinates affect a presence onl SDM fora given species
+
+How could we increase the number of occurrence records that have coordinates? (colnames(dat), look at names of columns 98-101)
+
+```{r}
+
+# import shapefile
+usa <-  readOGR('usa/cb_2016_us_state_20m.shp')
+
+# plot georeferenced occurence records
+plot(usa, xlim=c(-125, -60), ylim=c(30,50), axes=T, cex.axis=2, col='light
+gray')
+points(dat$lon[dat$country=='United States'], dat$lat[dat$country=='United
+States'], col='dark red', pch=20, cex=0.75)
+
+```
+
+xlim and ylim arguments
+
+
+Load libraries

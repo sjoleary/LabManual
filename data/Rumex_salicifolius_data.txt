@@ -1,0 +1,31 @@
+id	latitude	longitude	species_guess	scientific_name	common_name	iconic_taxon_name	taxon_id
+287697	32.829414	-116.85958	Rumex salicifolius	Rumex salicifolius	willow dock	Plantae	60233
+294427	32.8283255	-116.8565297	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+328952	38.080744	-122.954865	willow dock (Rumex salicifolius)	Rumex salicifolius	willow dock	Plantae	60233
+588351	37.793335	-122.455234	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+591674	37.829044	-122.534173	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+593930	37.793723	-122.455433	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+623495	37.829125	-122.5349083	Rumex salicifolius	Rumex salicifolius	willow dock	Plantae	60233
+1558946	38.190233	-122.96446	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+1704231	38.11936264	-122.9513534	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+2829748	36.49285	-121.209925	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+3261496	36.47852	-121.1584862	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+3382896	48.892842	-123.392107	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+3543080	49.012789	-123.572556	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+4105804	56.24916806	-134.6475363	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+4434467	34.42344925	-119.8823552	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+5812354	37.80468833	-122.463425	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6165049	37.44996475	-122.4439275	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6354483	37.5596	-122.514	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6505118	37.22695556	-122.4102028	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6802657	37.11878475	-122.3159409	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6948855	52.1515195	-131.1136778	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6950992	52.35705414	-131.2648884	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6951807	52.3537	-131.34735	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6961718	52.35362167	-131.3478867	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6963655	52.57772	-131.4385383	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+6989007	37.78992063	-122.475194	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+7355714	33.55022167	-117.3835967	Willow dock	Rumex salicifolius	willow dock	Plantae	60233
+7434106	38.12002334	-122.9558516	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+7435646	33.7935568	-117.4739535	willow dock	Rumex salicifolius	willow dock	Plantae	60233
+8090745	33.81196	-116.71911	Rumex salicifolius salicifolius	Rumex salicifolius salicifolius		Plantae	58989
