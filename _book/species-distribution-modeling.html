@@ -140,7 +140,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
 <a id="active-page" href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a><ul class="toc-sections">
 <li class="toc"><a href="#species-distribution-modeling-1"> Species distribution modeling</a></li>
-<li class="toc"><a href="#get-ocurrence-data"> Get ocurrence data</a></li>
+<li class="toc"><a href="#get-occurrence-data"> Get occurrence data</a></li>
 <li class="toc"><a href="#get-environmental-data"> Get environmental data</a></li>
 <li class="toc"><a href="#create-species-distribution-model"> Create species distribution model</a></li>
 <li class="toc"><a href="#future-climate-change"> Future climate change</a></li>
@@ -161,18 +161,21 @@ if(f.classList.contains('fa-plus-square')) {
 <h1>
 <span class="header-section-number">11</span> Species distribution modeling</h1>
 <p><strong>Date</strong>: 10/7/2020</p>
-<p>Download the project folder <a href="https://drive.google.com/drive/folders/1SQHRRyfk_XhX4jb1PD9MY0ndQKDoW_I9?usp=sharing">here</a>. Make sure to download the <strong>entire</strong> folder (not just the contents). You can open the <code>Rproject</code> directly by double-clicking on the file which will launch <code>Rstudio</code>, or once you have opened <code>Rstudio</code> open the project folder using <code>File -&gt; Open Project</code> or using the <code>Rproj</code> icon in the top right corner above the environment panel.</p>
+<p>Download the project folder <a href="https://drive.google.com/drive/folders/1SQHRRyfk_XhX4jb1PD9MY0ndQKDoW_I9?usp=sharing">here</a>.</p>
+<p>Make sure to download the <strong>entire</strong> folder (not just the contents).</p>
+<p>You can open the <code>Rproject</code> directly by double-clicking on the file which will launch <code>Rstudio</code>, or once you have opened <code>Rstudio</code> open the project folder using <code>File -&gt; Open Project</code> or using the <code>Rproj</code> icon in the top right corner above the environment panel.</p>
 <p><strong>Learning Objectives</strong></p>
 <p>After completing this lab you should</p>
 <ul>
-<li>visualize and describe spatial patterns in ocurrence data of a given species</li>
-<li>understand the information contained climate/bioclimate data sets and how those can be used to build species distribution models.</li>
-<li>understand how the <code>bioclim</code> algorithm fits species ocurrence records.</li>
-<li>understand the difference between presence-only and presence-absence SDMs and their strengths &amp; limitations</li>
+<li>be able to visualize and describe spatial patterns in occurrence data of a given species.</li>
+<li>understand the information contained climate/bioclim data sets and how they can be used to build species distribution models.</li>
+<li>understand how the <code>bioclim</code> algorithm fits species occurrence records.</li>
+<li>understand the difference between presence-only and presence-absence SDMs and their strengths &amp; limitations.</li>
+<li>be able to explain how shifts in geographic ranges may result in a population asynchrony.</li>
 </ul>
+<p><br></p>
 <p><strong>Before we start</strong></p>
-<p>There are several packages that need to be downloaded and installed before we can run this analysis.
-Remember, you only need to install them once - but any time you restart your <code>R session</code> e.g. by restarting <code>Rstudio</code> you need to make sure to run the code that loads the libraries.</p>
+<p>There are several packages that need to be downloaded and installed before we can run this analysis<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Remember, you only need to install them once - but any time you restart your <code>R session</code> e.g. by restarting <code>Rstudio</code> you need to make sure to run the code that loads the libraries.</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="species-distribution-modeling.html#cb1-1"></a><span class="co"># install libraries</span></span>
 <span id="cb1-2"><a href="species-distribution-modeling.html#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">"sp"</span>)</span>
 <span id="cb1-3"><a href="species-distribution-modeling.html#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">"raster"</span>)</span>
@@ -183,7 +186,7 @@ Remember, you only need to install them once - but any time you restart your <co
 <div id="species-distribution-modeling-1" class="section level2">
 <h2>
 <span class="header-section-number">11.1</span> Species distribution modeling</h2>
-<p>In this tutorial we are going to learn the fundamental principles of building an occurrence-based<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> As a side-product in writing this tutorial, I think I might actually learn how to currectly spell ‘occurrence’.</span> species distribution models (SDM).</p>
+<p>In this tutorial we are going to learn the fundamental principles of building an occurrence-based<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> As a side-product in writing this tutorial, I think I might actually learn how to correctly spell ‘occurrence’.</span> species distribution models (SDM).</p>
 <p>One of the fundamental questions of ecology is how environmental conditions shape geographic species distributions.</p>
 <div id="ques:one" class="question">
 <p class="question-begin">
@@ -191,18 +194,17 @@ Remember, you only need to install them once - but any time you restart your <co
 </p>
 <div class="question-body">
 <p>
-The concept of an ecological niche has three facets, first it refers to the specific area where an orgniams lives (comparable to its habitat), second, it describes the role of an organism in an ecoystem, and finally it describes the interrelationship of an organism with all the abiotic and biotic factors it interacts with. Briefly outline what a fundamental and a realized niche is with a focus on how both abiotic and biotic conditions shape a species’ niche.
+The concept of an ecological niche has three facets, first it refers to the specific area where an organism lives (comparable to its habitat), second, it describes the role of an organism in an ecoystem, and finally it describes the interrelationship of an organism with all the abiotic and biotic factors it interacts with. Briefly outline what a fundamental and a realized niche is with a focus on how both abiotic and biotic conditions shape a species’ niche.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>We can use this concept to understand how species distribution models are built. In short, we can identify climatic conditions in locations were a species has been observed (occurs) and use those to build a model of to predict the theoretical distribution of a species by identifying locations that have a high probability of being good habitat based on abiotic predictors. Essentially species distribution models are mathematical representations of the environmental conditions correlated with observed geographic distribution of a species.</p>
-<p>Of course, more sophisticated version of species distribution models account not only for abiotic parameters but also for biotic factors that could further affect as species actual distribution.</p>
-<p>One of the advantages of using climatic data as predictors is that we can also use future climate conditions that have been modeled based on various climate scenarios to understand how species distributions could change based on changes in local environmental conditions driven by climate change.</p>
-<p>For this tutorial, we will not assess how “good” our generated model is, instead we will focus on the principles of <em>how</em> such a model is built. We will also use a very simple model and a general set of climate variables to illustrate the fundamental principles. Currently, more sophisticated models are usually used and machine learning is becoming an increasingly important technique. In the end though, the fundamental principles are the same.</p>
-<p>Now, let’s load the necessary libraries and get rolling<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Remember, any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run</span>.</p>
+<p>We can use this fundamental concept to understand how species distribution models are built. In short, we can identify climatic conditions in locations were a species has been observed (occurs) and use those to build a model of to predict the theoretical distribution of a species by identifying locations that have a high probability of being good habitat based on abiotic predictors. Essentially, species distribution models are mathematical representations of the environmental conditions correlated with observed geographic distribution of a species<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Of course, more sophisticated version of species distribution models account not only for abiotic parameters but also for biotic factors that could further affect as species actual distribution; though that is a lot more difficult to model!</span>.</p>
+<p>One of the advantages of using climatic data as predictors is that we can also use data sets of future climate conditions that have been modeled based on various climate scenarios to understand how species distributions will change as a result of climate-driven shifts in local environmental conditions.</p>
+<p>For this tutorial, we will not assess how “good” our generated model is, instead we will focus on the principles of <em>how</em> such a model is built. We will use a very simple model and a general set of climate variables to illustrate the fundamental principles, though currently more sophisticated models are usually used and machine learning is becoming an increasingly important technique. In the end though, the fundamental principles are the same.</p>
+<p>Now, let’s load the necessary libraries and get rolling<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="species-distribution-modeling.html#cb2-1"></a><span class="co"># load libraries</span></span>
 <span id="cb2-2"><a href="species-distribution-modeling.html#cb2-2"></a><span class="kw">library</span>(<span class="st">"sp"</span>)</span>
 <span id="cb2-3"><a href="species-distribution-modeling.html#cb2-3"></a><span class="kw">library</span>(<span class="st">"raster"</span>)</span>
@@ -211,19 +213,18 @@ The concept of an ecological niche has three facets, first it refers to the spec
 <span id="cb2-6"><a href="species-distribution-modeling.html#cb2-6"></a><span class="kw">library</span>(<span class="st">"dismo"</span>)</span>
 <span id="cb2-7"><a href="species-distribution-modeling.html#cb2-7"></a><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
 </div>
-<div id="get-ocurrence-data" class="section level2">
+<div id="get-occurrence-data" class="section level2">
 <h2>
-<span class="header-section-number">11.2</span> Get ocurrence data</h2>
-<p>To learn the fundamental steps we are going to create species distribution model for the Sasquatch, a large, hairy, bipedal ape-like creature found (or is it?) throughout North America<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Well, technically, since we were venturing into cryptozoology here it is not a species, but rather a cryptid distribution model</span>.</p>
-<p>The first think we need is data on species occurrence, i.e. specific locations where individuals of same species have been observed in the wild.</p>
-<p>We turn to the Bigfoot Field Researchers Organization (<a href="https://www.bfro.net/">BFRO</a>), founded in 1995 as the “only scientific research organization exploring the bigfoot/sasquatch mystery. You can turn to their website for answers on important <a href="https://www.bfro.net/gdb/show_FAQ.asp?id=405">FAQs</a>, including”Do Bigfoot Sasquatch bury their dead?“,”Where is the physical evidence?“,”Wasn’t this all shown to be a fake?“, and”Why do you want scientists to recognize the sasquatch as a species? Isn’t it better to just leave them alone?". Their main focus though is on compiling reports of sightings and investigating them.</p>
-<p>In other words, they have a database full of geo-coded species occurrence data<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> And even better, it has already been downloaded and wrangled and is accessible (with sightings through 2018) right <a href="https://data.world/timothyrenner/bfro-sightings-data">here</a></span>.</p>
-<p>Let’s read in the data and take a look at the information we can glean by looking at the column names.</p>
+<span class="header-section-number">11.2</span> Get occurrence data</h2>
+<p>To learn the fundamental steps of building a SDM, we are going to create species distribution model for the Sasquatch, a large, hairy, bipedal ape-like creature found (or is it?) throughout North America<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> I suppose, technically, since we were venturing into cryptozoology here it is not a species, but rather a cryptid distribution model</span>.</p>
+<p>The first think we need for any SDM is a data set documenting species occurrence, i.e. geo-coded observations of a given species in the wild.</p>
+<p>Four our purposes, we turn to the Bigfoot Field Researchers Organization (<a href="https://www.bfro.net/">BFRO</a>), founded in 1995 as the “<em>only scientific research organization exploring the Bigfoot/Sasquatch mystery</em>”. You can turn to their website for answers on important <a href="https://www.bfro.net/gdb/show_FAQ.asp?id=405">FAQs</a>, including ‘Do Bigfoot Sasquatch bury their dead?’, ‘Where is the physical evidence?’, ‘Wasn’t this all shown to be a fake?, and ’Why do you want scientists to recognize the Sasquatch as a species? Isn’t it better to just leave them alone?’. Their main focus though is on compiling reports of sightings and investigating them. In other words, they have a database full of geo-coded reported sightings<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> And even better, it has already been downloaded and wrangled and is accessible (with sightings through 2018) right <a href="https://data.world/timothyrenner/bfro-sightings-data">here</a>.</span>.</p>
+<p>Let’s read in the data and then we can take a look at the information we can glean from this data set by looking at the column names.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="species-distribution-modeling.html#cb3-1"></a><span class="co"># read data</span></span>
-<span id="cb3-2"><a href="species-distribution-modeling.html#cb3-2"></a>ocurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb3-2"><a href="species-distribution-modeling.html#cb3-2"></a>occurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
 <span id="cb3-3"><a href="species-distribution-modeling.html#cb3-3"></a></span>
 <span id="cb3-4"><a href="species-distribution-modeling.html#cb3-4"></a><span class="co"># take a look at the data</span></span>
-<span id="cb3-5"><a href="species-distribution-modeling.html#cb3-5"></a><span class="kw">colnames</span>(ocurrence)</span></code></pre></div>
+<span id="cb3-5"><a href="species-distribution-modeling.html#cb3-5"></a><span class="kw">colnames</span>(occurrence)</span></code></pre></div>
 <pre><code>##  [1] "observed"         "location_details" "county"           "state"           
 ##  [5] "season"           "title"            "latitude"         "longitude"       
 ##  [9] "date"             "number"           "classification"   "geohash"</code></pre>
@@ -233,15 +234,15 @@ The concept of an ecological niche has three facets, first it refers to the spec
 </p>
 <div class="question-body">
 <p>
-Take a look at the column names and describe what type of information we have available for sasquatch. Argue which you think will be the most informative to build our species distribution model and discuss which additional information would be helpful to have.
+Take a look at the column names and describe what type of information we have available for Sasquatch. Argue which you think will be the most informative to build our species distribution model and discuss which additional information would be helpful to have.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>We are going to remove any observations that do not have latitude and longitude information.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="species-distribution-modeling.html#cb5-1"></a>ocurrence &lt;-<span class="st"> </span>ocurrence <span class="op">%&gt;%</span></span>
+<p>Because we need to be able to identify the exact locations Sasquatch occur, we are going to remove any observations that do not have latitude and longitude information.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="species-distribution-modeling.html#cb5-1"></a>occurrence &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
 <span id="cb5-2"><a href="species-distribution-modeling.html#cb5-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
 <span id="cb5-3"><a href="species-distribution-modeling.html#cb5-3"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude))</span></code></pre></div>
 <div id="ques:three" class="question">
@@ -257,14 +258,14 @@ Note how many reports we loose through this filtering step. Can you think of an 
 </p>
 </div>
 </div>
-<p>We have queried only sightings in the United states, one of the first questions we should consider is what their geographic extent is and how they are distributed on a map<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> To keep it simple, we are going to use <code>base R</code> plotting functions instead of our usual <code>ggplot</code> layers</span>.</p>
+<p>We have queried only sightings in the United states, one of the first questions we should consider is what their geographic extent is and how they are distributed on a map<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> To keep it simple, we are going to use <code>base R</code> plotting functions instead of our usual <code>ggplot</code> layers</span>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="species-distribution-modeling.html#cb6-1"></a><span class="co"># get minimum and maximum lat/longs</span></span>
-<span id="cb6-2"><a href="species-distribution-modeling.html#cb6-2"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(ocurrence<span class="op">$</span>latitude))</span>
-<span id="cb6-3"><a href="species-distribution-modeling.html#cb6-3"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(ocurrence<span class="op">$</span>latitude))</span>
-<span id="cb6-4"><a href="species-distribution-modeling.html#cb6-4"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(ocurrence<span class="op">$</span>longitude))</span>
-<span id="cb6-5"><a href="species-distribution-modeling.html#cb6-5"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(ocurrence<span class="op">$</span>longitude))</span>
+<span id="cb6-2"><a href="species-distribution-modeling.html#cb6-2"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb6-3"><a href="species-distribution-modeling.html#cb6-3"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb6-4"><a href="species-distribution-modeling.html#cb6-4"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>longitude))</span>
+<span id="cb6-5"><a href="species-distribution-modeling.html#cb6-5"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>longitude))</span>
 <span id="cb6-6"><a href="species-distribution-modeling.html#cb6-6"></a></span>
-<span id="cb6-7"><a href="species-distribution-modeling.html#cb6-7"></a><span class="co"># create an extent object</span></span>
+<span id="cb6-7"><a href="species-distribution-modeling.html#cb6-7"></a><span class="co"># create an extent object of the range of observations</span></span>
 <span id="cb6-8"><a href="species-distribution-modeling.html#cb6-8"></a>geo_range &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="dt">x =</span> <span class="kw">c</span>(min.lon, max.lon, min.lat, max.lat))</span>
 <span id="cb6-9"><a href="species-distribution-modeling.html#cb6-9"></a></span>
 <span id="cb6-10"><a href="species-distribution-modeling.html#cb6-10"></a><span class="co"># get base map</span></span>
@@ -278,8 +279,8 @@ Note how many reports we loose through this filtering step. Can you think of an 
 <span id="cb6-18"><a href="species-distribution-modeling.html#cb6-18"></a>     <span class="dt">col =</span> <span class="st">"grey75"</span>)</span>
 <span id="cb6-19"><a href="species-distribution-modeling.html#cb6-19"></a></span>
 <span id="cb6-20"><a href="species-distribution-modeling.html#cb6-20"></a><span class="co"># add individual occurrences</span></span>
-<span id="cb6-21"><a href="species-distribution-modeling.html#cb6-21"></a><span class="kw">points</span>(<span class="dt">x =</span> ocurrence<span class="op">$</span>longitude, </span>
-<span id="cb6-22"><a href="species-distribution-modeling.html#cb6-22"></a>       <span class="dt">y =</span> ocurrence<span class="op">$</span>latitude, </span>
+<span id="cb6-21"><a href="species-distribution-modeling.html#cb6-21"></a><span class="kw">points</span>(<span class="dt">x =</span> occurrence<span class="op">$</span>longitude, </span>
+<span id="cb6-22"><a href="species-distribution-modeling.html#cb6-22"></a>       <span class="dt">y =</span> occurrence<span class="op">$</span>latitude, </span>
 <span id="cb6-23"><a href="species-distribution-modeling.html#cb6-23"></a>       <span class="dt">col =</span> <span class="st">"darkorange"</span>, </span>
 <span id="cb6-24"><a href="species-distribution-modeling.html#cb6-24"></a>       <span class="dt">pch =</span> <span class="dv">20</span>, </span>
 <span id="cb6-25"><a href="species-distribution-modeling.html#cb6-25"></a>       <span class="dt">cex =</span> <span class="fl">0.75</span>)</span>
@@ -289,9 +290,9 @@ Note how many reports we loose through this filtering step. Can you think of an 
 <div class="figure">
 <span id="fig:unnamed-chunk-6"></span>
 <p class="caption marginnote shownote">
-Figure 11.1: Map of sasquatch sighting in the United States based on the bfro database (current 2018).
+Figure 11.1: Map of Sasquatch sighting in the United States based on the BFRO database as of 2018.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-6-1.png" alt="Map of sasquatch sighting in the United States based on the bfro database (current 2018)." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-6-1.png" alt="Map of Sasquatch sighting in the United States based on the BFRO database as of 2018." width="768">
 </div>
 <div id="ques:four" class="question">
 <p class="question-begin">
@@ -299,7 +300,7 @@ Figure 11.1: Map of sasquatch sighting in the United States based on the bfro da
 </p>
 <div class="question-body">
 <p>
-Give a brief descriptions of the spatial distribution of the occurrence of sasquatch in the United States. Note areas where sightings appear to be random, clustered or more dispersed, determine if you think any points should be removed.
+Give a brief descriptions of the spatial distribution of the occurrence of Sasquatch in the United States. Note areas where sightings appear to be random, clustered or more dispersed, determine if you think any points should be removed.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -312,26 +313,27 @@ Give a brief descriptions of the spatial distribution of the occurrence of sasqu
 </p>
 <div class="question-body">
 <p>
-Discuss some possible explanations for the patterns you have observed to determine whether you think this data set is a reasonable representation of the ecological niche of the sasquatch and can be used to create a species distribution model.
+Discuss some possible explanations for the patterns you have observed to determine whether you think this data set is a reasonable representation of the ecological niche of the Sasquatch and can be used to create a species distribution model.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>Good catch - those sightings in the middle of the ocean are probably errors in the geo-coding, further, we don’t know how reliable the data for Alaska is as this data set is based on opportunity. The data for for observations in the lower 48 seems much more reliable, so let’s restrict our data to those observations.</p>
+<p>Good catch - those sightings in the middle of the ocean are probably errors in the geo-coding. Further, we don’t know how reliable the data for Alaska is as this data set is based on opportunistic sightings<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> Well, admittedly if you poke around the BFRO website you will find that people do plan expeditions.</span>.</p>
+<p>The data for for observations in the lower 48 seems much more reliable, so let’s restrict our data to those observations.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="species-distribution-modeling.html#cb7-1"></a><span class="co"># load and filter data</span></span>
-<span id="cb7-2"><a href="species-distribution-modeling.html#cb7-2"></a>ocurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb7-2"><a href="species-distribution-modeling.html#cb7-2"></a>occurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb7-3"><a href="species-distribution-modeling.html#cb7-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
 <span id="cb7-4"><a href="species-distribution-modeling.html#cb7-4"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude),</span>
 <span id="cb7-5"><a href="species-distribution-modeling.html#cb7-5"></a>         longitude <span class="op">&gt;</span><span class="st"> </span><span class="dv">-130</span>,</span>
 <span id="cb7-6"><a href="species-distribution-modeling.html#cb7-6"></a>         latitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">55</span>)</span>
 <span id="cb7-7"><a href="species-distribution-modeling.html#cb7-7"></a></span>
 <span id="cb7-8"><a href="species-distribution-modeling.html#cb7-8"></a><span class="co"># get minimum and maximum lat/longs</span></span>
-<span id="cb7-9"><a href="species-distribution-modeling.html#cb7-9"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(ocurrence<span class="op">$</span>latitude))</span>
-<span id="cb7-10"><a href="species-distribution-modeling.html#cb7-10"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(ocurrence<span class="op">$</span>latitude))</span>
-<span id="cb7-11"><a href="species-distribution-modeling.html#cb7-11"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(ocurrence<span class="op">$</span>longitude))</span>
-<span id="cb7-12"><a href="species-distribution-modeling.html#cb7-12"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(ocurrence<span class="op">$</span>longitude))</span>
+<span id="cb7-9"><a href="species-distribution-modeling.html#cb7-9"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb7-10"><a href="species-distribution-modeling.html#cb7-10"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb7-11"><a href="species-distribution-modeling.html#cb7-11"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>longitude))</span>
+<span id="cb7-12"><a href="species-distribution-modeling.html#cb7-12"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>longitude))</span>
 <span id="cb7-13"><a href="species-distribution-modeling.html#cb7-13"></a></span>
 <span id="cb7-14"><a href="species-distribution-modeling.html#cb7-14"></a><span class="co"># create an extent object</span></span>
 <span id="cb7-15"><a href="species-distribution-modeling.html#cb7-15"></a>geo_range &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="dt">x =</span> <span class="kw">c</span>(min.lon, max.lon, min.lat, max.lat))</span>
@@ -347,8 +349,8 @@ Discuss some possible explanations for the patterns you have observed to determi
 <span id="cb7-25"><a href="species-distribution-modeling.html#cb7-25"></a>     <span class="dt">col =</span> <span class="st">"grey75"</span>)</span>
 <span id="cb7-26"><a href="species-distribution-modeling.html#cb7-26"></a></span>
 <span id="cb7-27"><a href="species-distribution-modeling.html#cb7-27"></a><span class="co"># add individual occurrences</span></span>
-<span id="cb7-28"><a href="species-distribution-modeling.html#cb7-28"></a><span class="kw">points</span>(<span class="dt">x =</span> ocurrence<span class="op">$</span>longitude, </span>
-<span id="cb7-29"><a href="species-distribution-modeling.html#cb7-29"></a>       <span class="dt">y =</span> ocurrence<span class="op">$</span>latitude, </span>
+<span id="cb7-28"><a href="species-distribution-modeling.html#cb7-28"></a><span class="kw">points</span>(<span class="dt">x =</span> occurrence<span class="op">$</span>longitude, </span>
+<span id="cb7-29"><a href="species-distribution-modeling.html#cb7-29"></a>       <span class="dt">y =</span> occurrence<span class="op">$</span>latitude, </span>
 <span id="cb7-30"><a href="species-distribution-modeling.html#cb7-30"></a>       <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
 <span id="cb7-31"><a href="species-distribution-modeling.html#cb7-31"></a>       <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
 <span id="cb7-32"><a href="species-distribution-modeling.html#cb7-32"></a>       <span class="dt">col =</span> <span class="st">"darkorange"</span>, </span>
@@ -360,23 +362,24 @@ Discuss some possible explanations for the patterns you have observed to determi
 <div class="figure">
 <span id="fig:unnamed-chunk-7"></span>
 <p class="caption marginnote shownote">
-Figure 11.2: Map of sasquatch sighting in the lower 48 states based on the bfro database (current 2018).
+Figure 11.2: Map of Sasquatch sighting in the lower 48 states based on the BFRO database as of 2018.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-7-1.png" alt="Map of sasquatch sighting in the lower 48 states based on the bfro database (current 2018)." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-7-1.png" alt="Map of Sasquatch sighting in the lower 48 states based on the BFRO database as of 2018." width="768">
 </div>
+<p>This should work - on to the next step!</p>
 </div>
 <div id="get-environmental-data" class="section level2">
 <h2>
 <span class="header-section-number">11.3</span> Get environmental data</h2>
-<p>The next thing we need is a set of predictor variables. Climate is complex, and multidimensional though at its core determined by (long-term patterns in mean and variability of temperature and precipitation)[<a href="https://openoregon.pressbooks.pub/envirobiology/chapter/3-3-terrestrial-biomes/" class="uri">https://openoregon.pressbooks.pub/envirobiology/chapter/3-3-terrestrial-biomes/</a>].</p>
-<p>We are going to use the bio-clim data set from (CliMond)[<a href="https://www.climond.org/BioclimRegistry.aspx#Table1" class="uri">https://www.climond.org/BioclimRegistry.aspx#Table1</a>]. Bioclim variables are commonly used for species distribution modeling as they are based on long-term trends (as opposed to e.g. the current conditions when the species was observed).</p>
+<p>The next thing we need is a set of predictor variables. Climate is complex and multidimensional, though at its core climate is determined by <a href="https://openoregon.pressbooks.pub/envirobiology/chapter/3-3-terrestrial-biomes/">long-term patterns in mean and variability of temperature and precipitation</a>.</p>
+<p>We are going to use the bioclim data set from <a href="https://www.climond.org/BioclimRegistry.aspx#Table1">CliMond</a>. Bioclim variables are commonly used for species distribution modeling as they are based on long-term trends (as opposed to e.g. the exact conditions when the species was observed).</p>
 <div id="ques:six" class="question">
 <p class="question-begin">
 ► Question 11.6
 </p>
 <div class="question-body">
 <p>
-Look up the descriptions of the (bioclim variables)[<a href="https://www.climond.org/BioclimRegistry.aspx#Table1" class="uri">https://www.climond.org/BioclimRegistry.aspx#Table1</a>] and give a brief description of the four abiotic parameters that are included and how they are being parameterized. Argue which you think are most important to describe a species distribution/ecological niche and whether you think overall this data set will help us understand sasquatch species distribution.
+Look up the descriptions of the <a href="https://www.climond.org/BioclimRegistry.aspx#Table1">bioclim variables</a> and give a brief description of the four abiotic parameters that are included and how they are being parameterized. Argue which you think are most important to describe a species distribution/ecological niche and whether you think overall this data set will help us understand Sasquatch species distribution.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -384,13 +387,13 @@ Look up the descriptions of the (bioclim variables)[<a href="https://www.climond
 </div>
 </div>
 <p>The data set we are using includes a core set of 19 variables that describe temperature and precipitation, along with an additional 16 variables that describe solar radiation and soil moisture.</p>
-<p>I have already downloaded the raster files of the historical (contemporary) bioclim data sets at a resolution of 10’ (minutes) into the data folder. The “historical” data set consists of data from 1961 - 1990 centered on 1975. A raster file is an image file consisting of pixels with data associated with it. In this case our “pixels” are 10’ x 10’ and depending on the layer the value associated with each pixel is the value for that bioclim value at that geographic location.</p>
+<p>I have already downloaded the raster files of the historical (contemporary) bioclim data sets at a resolution of 10’ (minutes) into the data folder. The “historical” data set consists of data from 1961 - 1990 centered on 1975. A raster file is an image file consisting of pixels with data associated with it. In this case, our “pixels” are 10’ x 10’ and depending on the layer the value associated with each pixel is the value for that bioclim value at that geographic location.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="species-distribution-modeling.html#cb8-1"></a><span class="co"># get list of files</span></span>
 <span id="cb8-2"><a href="species-distribution-modeling.html#cb8-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_1975H'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
 <span id="cb8-3"><a href="species-distribution-modeling.html#cb8-3"></a></span>
 <span id="cb8-4"><a href="species-distribution-modeling.html#cb8-4"></a><span class="co"># import and convert to raster stack</span></span>
 <span id="cb8-5"><a href="species-distribution-modeling.html#cb8-5"></a>predictors &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span></code></pre></div>
-<p>We have created an object that at its core consists of a list where each element is a layer (bioclim variable raster).</p>
+<p>We have now created an object that at its core consists of a list where each element is a layer (bioclim variable raster).</p>
 <p>Let’s plot the first bioclim variable (Bio01, annual mean temperature).</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="species-distribution-modeling.html#cb9-1"></a><span class="kw">plot</span>(predictors<span class="op">@</span>layers[[<span class="dv">1</span>]])</span></code></pre></div>
 <div class="figure">
@@ -400,7 +403,7 @@ Figure 11.3: Global distribution of annual mean temperature (1961 - 1990, center
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-9-1.png" alt="Global distribution of annual mean temperature (1961 - 1990, centered on 1975)." width="768">
 </div>
-<p>We see the pattern we would intuitively expect, with temperatures decreasing pole-ward and being warmest around the poles.</p>
+<p>We see the pattern we would intuitively expect, with temperatures decreasing as you move poleward and being warmest around the poles.</p>
 <div id="ques:seven" class="question">
 <p class="question-begin">
 ► Question 11.7
@@ -418,9 +421,10 @@ Choose a range of 5 bioclim variables (this means, don’t just plot the first f
 <div id="create-species-distribution-model" class="section level2">
 <h2>
 <span class="header-section-number">11.4</span> Create species distribution model</h2>
-<p>Now we have all the information we need to build out model. The first thing we need to do is extract the values of each bioclim variable at our occurrence points (observations).</p>
+<p>Now we have all the information we need to build out model.</p>
+<p>The first thing we need to do is extract the values for each bioclim variable at our occurrence points (observations).</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="species-distribution-modeling.html#cb10-1"></a><span class="co"># create df with just xy coordinates</span></span>
-<span id="cb10-2"><a href="species-distribution-modeling.html#cb10-2"></a>xy &lt;-<span class="st"> </span>ocurrence <span class="op">%&gt;%</span></span>
+<span id="cb10-2"><a href="species-distribution-modeling.html#cb10-2"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
 <span id="cb10-3"><a href="species-distribution-modeling.html#cb10-3"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
 <span id="cb10-4"><a href="species-distribution-modeling.html#cb10-4"></a></span>
 <span id="cb10-5"><a href="species-distribution-modeling.html#cb10-5"></a><span class="co"># crop bioclim data to geographic range</span></span>
@@ -429,21 +433,14 @@ Choose a range of 5 bioclim variables (this means, don’t just plot the first f
 <span id="cb10-8"><a href="species-distribution-modeling.html#cb10-8"></a><span class="co"># extract values</span></span>
 <span id="cb10-9"><a href="species-distribution-modeling.html#cb10-9"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span></code></pre></div>
 <p>Let’s take a quick look at the first few rows and columns of the matrix we just created.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="species-distribution-modeling.html#cb11-1"></a><span class="kw">head</span>(presence[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="species-distribution-modeling.html#cb11-1"></a><span class="kw">head</span>(presence[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
 <pre><code>##      CM10_1975H_Bio01_V1.2 CM10_1975H_Bio02_V1.2 CM10_1975H_Bio03_V1.2
 ## [1,]              6.222110              12.33702             0.3082512
 ## [2,]              9.368294              12.92369             0.2992488
 ## [3,]              4.625152              12.45517             0.2672966
 ## [4,]              9.857348              12.10535             0.3889973
 ## [5,]              2.780401              14.78537             0.3965279
-## [6,]              3.327682              14.78337             0.3814484
-##      CM10_1975H_Bio04_V1.2 CM10_1975H_Bio05_V1.2
-## [1,]            0.03360733               26.0194
-## [2,]            0.03746580               30.5065
-## [3,]            0.04201742               27.7355
-## [4,]            0.02401861               24.8355
-## [5,]            0.02735707               23.4226
-## [6,]            0.02871981               24.7226</code></pre>
+## [6,]              3.327682              14.78337             0.3814484</code></pre>
 <div id="ques:eight" class="question">
 <p class="question-begin">
 ► Question 11.8
@@ -460,10 +457,10 @@ Briefly state what these values represent.
 <p>Our next step is to fit a bioclim model to the data set we just generated.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="species-distribution-modeling.html#cb13-1"></a><span class="co"># fit bioclim model</span></span>
 <span id="cb13-2"><a href="species-distribution-modeling.html#cb13-2"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span></code></pre></div>
-<p>The bioclim model is a classic climate-envelope-model.</p>
-<p>In short, the algorithm computes the similarity of a given location by comparing the values of the environmental variables being used (our bioclim data set) to a distribution of the values at location with known presence<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> Also called the training sites; these are our occurrence points</span>. The closer that value is to the median (50th percentile), the more suitable that location is assumed to be (suitability scores are between 0 and 1 with 1 indicating a “perfect suitability”.)</p>
-<p>In general, there is no distinction between the tails of the distribution (i.e. the 90th and 10th percentile are equivalent), though in some implementations you can specify those to be treated as distinct, as a result e.g. low levels of precipitation could be limiting but high levels would not.</p>
-<p>Finally, we will use our suitability scores and the bioclim raster data set to generate a predictive map of the Sasquatch species distribution.</p>
+<p>The bioclim model is a classic climate-envelope-model<label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><input type="checkbox" id="tufte-sn-9" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">9</span> You may remember reading about this in your reading assignments.</span>.</p>
+<p>Briefly, the algorithm computes the similarity of locations by comparing the value of each environmental variables being used (our bioclim data set) to a distribution of that values at all locations with known presence<label for="tufte-sn-10" class="margin-toggle sidenote-number">10</label><input type="checkbox" id="tufte-sn-10" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">10</span> Also called the training sites; these are our occurrence points.</span>. The closer that value is to the median (50th percentile), the more suitable that location is assumed to be. Suitability scores are between 0 and 1, with 1 indicating a “perfect suitability”.)</p>
+<p>In general, there is no distinction between the tails of the distribution (i.e. the 90th and 10th percentile are equivalent), though in some implementations you can specify those to be treated as distinct. As a result e.g. low levels of precipitation could be limiting but high levels would not be.</p>
+<p>Finally, we will use our suitability scores and the bioclim raster data set to generate a predictive map of the Sasquatch species distribution. This means that the algorithm will assign a suitability score to each pixel based on the model and create a new raster layer.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="species-distribution-modeling.html#cb14-1"></a><span class="co"># generate raster with predicted distribution</span></span>
 <span id="cb14-2"><a href="species-distribution-modeling.html#cb14-2"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
 <span id="cb14-3"><a href="species-distribution-modeling.html#cb14-3"></a>                             <span class="dt">object =</span> model.fit,</span>
@@ -493,7 +490,7 @@ Figure 11.4: Species distribution model for Sasquatch. Color indicates the proba
 </p>
 <div class="question-body">
 <p>
-Give a brief description of the habitat suitability map, including the maximum probabilities. Describe whether this fit your expectations based on the distribution of reports. According to our map, if you were planning a Sasquatch research trips where would you be headed?
+Give a brief description of the habitat suitability map, including the maximum probabilities. Describe wether this result fits your expectations based on the distribution map of reports we looked at earlier. According to our map, if you were planning a Sasquatch research trip, where would you be headed?
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -520,7 +517,7 @@ The alternative to presence-only models is to have presence-absence data. Discus
 </p>
 <div class="question-body">
 <p>
-A work-around of not having absence data is to generate pseudo-absence data. This is done by generating random points within the geographic range and using those as proxies for absence data. Briefly argue the merits of such an approach.
+A work-around of not having absence data is to generate pseudo-absence data. This is done by generating random points within the geographic range and using those as proxies for absence data. Briefly argue the merits and limitations of such an approach.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -531,12 +528,10 @@ A work-around of not having absence data is to generate pseudo-absence data. Thi
 <div id="future-climate-change" class="section level2">
 <h2>
 <span class="header-section-number">11.5</span> Future climate change</h2>
-<p>Projections of future climate change are heavily dependent on human activity and the resulting greenhouse gas emissions. Therefore the IPCC’s Assessment Reports contain scenario families that represent projected climate conditions based on greenhouse gas emission scenarios resulting from future technological and economic development.</p>
+<p>Projections of future climate change are heavily dependent on human activity and the resulting greenhouse gas emissions. Therefore the IPCC’s Assessment Reports contain scenario families that represent projected climate conditions based on emission scenarios resulting from future technological and economic development as defined by each scenario.</p>
 <p>Let’s look at how the species distribution map might change in response to a shift in environmental parameters.</p>
-<p>In your <code>data</code> directory I have placed a set of bioclim raster files for 2100 generated using the A1B and A2 scenarios.</p>
-<p>The A1 climate scenarios assume a more integrated world characterized by rapid economic growth, a global population that peaks at 9 billion (2050) and the gradually declines, rapid spread of new/efficient technologies and an convergent world characterized by extensive worldwide social and cultural interactions. Scenario A1B further assumes a balanced emphasis on fossil and non-fossil fuels.</p>
-<p>By contrast, A2 scenarios assume a more divided world consisting of independently operating and self-reliant nations and regionally-oriented economic development. The population is assumed to continuously grow. Finally, this scenario is characterized by high emissions.</p>
-<p>Let’s start with the A1 climate scenario to create our species distribution model.</p>
+<p>In your <code>data</code> directory I have placed a set of bioclim raster files for 2100 generated using the A1B and A2 scenarios. The A1 climate scenarios assume a more integrated world characterized by rapid economic growth, a global population that peaks at 9 billion (2050) and the gradually declines, rapid spread of new/efficient technologies, and a convergent world characterized by extensive worldwide social and cultural interactions. Scenario A1B further assumes a balanced emphasis on fossil and non-fossil fuels. By contrast, A2 scenarios assume a more divided world consisting of independently operating and self-reliant nations and regionally-oriented economic development. The population is assumed to continuously grow. Finally, this scenario is characterized by high emissions.</p>
+<p>Let’s start with the <strong>A1 climate scenario</strong> to create our species distribution model.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="species-distribution-modeling.html#cb16-1"></a><span class="co"># get list of files</span></span>
 <span id="cb16-2"><a href="species-distribution-modeling.html#cb16-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_2100_A1B'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
 <span id="cb16-3"><a href="species-distribution-modeling.html#cb16-3"></a></span>
@@ -548,7 +543,7 @@ A work-around of not having absence data is to generate pseudo-absence data. Thi
 </p>
 <div class="question-body">
 <p>
-Use the same set of bioclim variables you plotted earlier and plot each one with a desciption of the variable you are plotting and a 1-2 sentence description of the overall pattern and a note as to who this has changed compared to the current (historical) bioclim variables.
+Use the same set of bioclim variables you plotted earlier and plot each one with a desciption of the variable you are plotting and a 1-2 sentence description of the overall pattern and a note as to who this has changed compared to the current (historical) bioclim variables. Consider how you think these changes might affect the species distribution model for Sasquatch.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -559,7 +554,7 @@ Use the same set of bioclim variables you plotted earlier and plot each one with
 <p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672"></p>
 <p>Now let’s fit our model and create predictive map.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="species-distribution-modeling.html#cb18-1"></a><span class="co"># create df with just xy coordinates</span></span>
-<span id="cb18-2"><a href="species-distribution-modeling.html#cb18-2"></a>xy &lt;-<span class="st"> </span>ocurrence <span class="op">%&gt;%</span></span>
+<span id="cb18-2"><a href="species-distribution-modeling.html#cb18-2"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
 <span id="cb18-3"><a href="species-distribution-modeling.html#cb18-3"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
 <span id="cb18-4"><a href="species-distribution-modeling.html#cb18-4"></a></span>
 <span id="cb18-5"><a href="species-distribution-modeling.html#cb18-5"></a><span class="co"># crop bioclim data to geographic range</span></span>
@@ -615,7 +610,7 @@ Give a brief description of the habitat suitability map, including the maximum p
 <span id="cb20-5"><a href="species-distribution-modeling.html#cb20-5"></a>predictors_A2 &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span>
 <span id="cb20-6"><a href="species-distribution-modeling.html#cb20-6"></a></span>
 <span id="cb20-7"><a href="species-distribution-modeling.html#cb20-7"></a><span class="co"># create df with just xy coordinates</span></span>
-<span id="cb20-8"><a href="species-distribution-modeling.html#cb20-8"></a>xy &lt;-<span class="st"> </span>ocurrence <span class="op">%&gt;%</span></span>
+<span id="cb20-8"><a href="species-distribution-modeling.html#cb20-8"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
 <span id="cb20-9"><a href="species-distribution-modeling.html#cb20-9"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
 <span id="cb20-10"><a href="species-distribution-modeling.html#cb20-10"></a></span>
 <span id="cb20-11"><a href="species-distribution-modeling.html#cb20-11"></a><span class="co"># crop bioclim data to geographic range</span></span>
@@ -669,7 +664,7 @@ Briefly compare this model to the previous two. Comment on whether you expected 
 </p>
 <div class="question-body">
 <p>
-Discuss whether you think bioclim variables are good models to predict a specis’s respone to climate change. In your discussion consider how future bioclim data sets are generated as well as whether abiotic conditions along will determine range changes.
+Discuss whether you think bioclim variables are good models to predict a species’ respone to climate change. In your discussion consider how future bioclim data sets are generated, as well as, whether abiotic conditions along will determine range changes.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -693,21 +688,21 @@ Our species distribution models and projected change with shifting environmental
 </p>
 </div>
 </div>
-<p>Species do not live in isolation, rather they are interact with other species in the ecosystem they inhabit. This means that they will not only be impacted by changes in abiotic conditions but also by changes in biotic conditions. This means that as other species they interact with and rely on for example as prey or as hosts are affected by climate change, species interactions will be affected as a whole.</p>
+<p>Species do not live in isolation their ecological niche merely defined by the sum of the appropriate abiotic conditions, rather they also interact with other species in the ecosystem they inhabit. This means that they will not only be impacted by changes in abiotic conditions but also by changes in biotic conditions. This means that as other species they interact with and rely on for example as prey or as hosts are affected by climate change, species interactions will be affected as a whole and may have indirect effects that alter a species’ distribution and ultimately persistence.</p>
 <div id="ques:seventeen" class="question">
 <p class="question-begin">
 ► Question 11.17
 </p>
 <div class="question-body">
 <p>
-In class we have discussed how climate change impacting the distribution and phenology of species can lead to population asynchronies. Give a short explanation of what a population asynchrony is using an example and briefly discuss how this can lead to population decay and local extirpations.
+In class we have discussed how climate change impacting the distribution and phenology of species can lead to an population asynchrony. Give a short explanation of what a population asynchrony is using an example and briefly discuss how this can lead to population decay and local extirpations.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>One relationship that has been well-documented as being susceptible to population asynchronies contributing to population declines are butterfly-host interactions, specifically larval host plants. While adult butterly drink the nectar of the flowers of the specific plants (sometimes called ‘nectar plants’), caterpillars usually have a specific plants they eat (‘host plants’); depending on the species caterpillars may have one specific host or multiple host species (generalists vs specialists). The more specialized the relationship of caterpillar and host plant, the more sensitive a species is to changes in the availability of that plant.</p>
+<p>One type of relationship that has been well-documented as being susceptible to the development of a population asynchrony is butterfly-host interactions, specifically larval host plants. While adult butterflies drink the nectar of the flowers of the specific plants (sometimes called ‘nectar plants’), caterpillars usually have specific plants they eat (‘host plants’); depending on the species caterpillars may have one specific host or multiple host species (generalists vs specialists). The more specialized the relationship of caterpillar and host plant, the more sensitive a species is to changes in the availability of that plant.</p>
 <p>Here is a set of butterfly and corresponding host species:</p>
 <table>
 <colgroup>
@@ -744,7 +739,7 @@ In class we have discussed how climate change impacting the distribution and phe
 </p>
 <div class="question-body">
 <p>
-Describe some factors that could make some of these host interactions more or less suceptible to population asynchronies leading to population decay - you can use bullet points to outline factors that would make caterpillar more or less reliable on hosts, and factors that could contribute to a host no longer being in sync with the butterflies).
+Describe some factors that could make some of these host interactions being more or less suceptible to the development of a population asynchrony leading to population decay - you can use bullet points to outline factors that would make caterpillar more or less reliable on hosts, and factors that could contribute to a host no longer being in sync with the butterflies).
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -752,10 +747,10 @@ Describe some factors that could make some of these host interactions more or le
 </div>
 </div>
 <p>One effect of climate change could be that changes in the distribution of one or both species would result in less geographic overlap.</p>
-<p>In the <code>data</code> directory you will find tab-delimited files corresponding to the six species listed above. They contain occurrence data accessed from <code>iNaturalist</code>. <code>iNaturalist</code> is an app-based citizen science project where users upload pictures of species they observe in the wild and experts validate their observations to make the data more reliable.</p>
-<p>For the final component of this lab you will choose one of the butterfly-host species pairs and do the following.</p>
+<p>In the <code>data</code> directory you will find tab-delimited files corresponding to the six species listed above. They contain occurrence data accessed from <code>iNaturalist</code><label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> You may remember iNaturalist as an app-based citizen science project where users upload pictures of species they observe in the wild and experts validate their observations to make the data more reliable.</span>.</p>
+<p>For the final component of this lab you will choose one of the butterfly-host species pairs and do the following. You may find it helpful to find a lab/coding bud to work through this final component. You may split the work looking up the species and compiling the necessary code and discuss your results but both of you should write up your own answers and you should make a note in your submission who your lab/coding bud is.</p>
 <ol style="list-style-type: decimal">
-<li><p>Use the IUCN red list data base to look up the two species, for each list their conservation status and their habitat/geographic range as described on the database (use bullet points to keep it short).</p></li>
+<li><p>Use the IUCN red list data base to look up the two species. For each list their conservation status and their habitat/geographic range as described on the database (use bullet points to keep it short).</p></li>
 <li><p>A. Import the occurrence data for the butterfly species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.</p></li>
 <li><p>B. Import the occurrence data for the corresponding host species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.</p></li>
 <li><p>C. Compare the two species distribution maps to each other and comment how well it matches up with the information you got on habitat/geographic range from the IUCN Redlist database.</p></li>
@@ -768,7 +763,7 @@ Describe some factors that could make some of these host interactions more or le
 <div id="acknowledgments" class="section level2">
 <h2>
 <span class="header-section-number">11.7</span> Acknowledgments</h2>
-<p>Since I’m not the first person to create a lab/tutorial on species distribution modeling I drew inspiration from various educators, R and data enthusiasts, most notably:</p>
+<p>Since I’m not the first person to create a lab/tutorial on species distribution modeling, I drew inspiration from various educators, R and data enthusiasts to shape this tutorial, most notably:</p>
 <p>Anna L. Carter. November 2017, posting date. Painting turtles: an introduction to species distribution modeling in R. Teaching Issues and Experiments in Ecology, Vol. 13: Practice #1 [online]. <a href="http://tiee.esa.org/vol/v13/issues/data_sets/carter/abstract.html" class="uri">http://tiee.esa.org/vol/v13/issues/data_sets/carter/abstract.html</a></p>
 <p>Wendy L. Clement, Kathleen L. Prudic, and Jeffrey C. Oliver. 16 August 2018, posting date. Exploring how climate will impact plant-insect distributions and interactions using open data and informatics. Teaching Issues and Experiments in Ecology, Vol. 14: Experiment #1 [online]. <a href="http://tiee.esa.org/vol/v14/experiments/clement/abstract.html" class="uri">http://tiee.esa.org/vol/v14/experiments/clement/abstract.html</a></p>
 <p><a href="https://jcoliver.github.io/learn-r/011-species-distribution-models.html" class="uri">https://jcoliver.github.io/learn-r/011-species-distribution-models.html</a></p>
