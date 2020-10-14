@@ -57,6 +57,16 @@ You will be receiving lab homework in some format almost every lab, part of the 
 **Due by the following Wednesday 12pm** unless otherwise specified.  
 *No late or incomplete homework will be accepted or receive credit.*
 
+### Due Wednesday, Oct. 21st {-}
+
+Complete lab 11 ([Shark Fin Market Analysis](https://labmanual.netlify.app/shark-fin-trade-monitorings.html))) and submit the knitted `html`-files through Canvas (`HW-8`).
+
+
+<br>
+
+
+
+
 ### Due Wednesday, Oct. 14th {-}
 
 Complete lab 11 ([Species Distribution Modeling](https://labmanual.netlify.app/species-distribution-modeling.html))) and submit the knitted `html`-files through Canvas (`HW-8`).

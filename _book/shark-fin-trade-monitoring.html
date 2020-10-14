@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="11 Shark fin trade monitoring | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-10-14" />
+
+
+<meta name="description" content="11 Shark fin trade monitoring | Lab Manual Conservation Biology Fall 2020">
+
+<title>11 Shark fin trade monitoring | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a>
+<a href="stream-diversity.html"><span class="toc-section-number">8</span> Stream Diversity</a>
+<a href="habitat-fragmentation.html"><span class="toc-section-number">9</span> Habitat Fragmentation</a>
+<a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
+<a id="active-page" href="shark-fin-trade-monitoring.html"><span class="toc-section-number">11</span> Shark fin trade monitoring</a><ul class="toc-sections">
+<li class="toc"><a href="#molecular-ecology-conservation-genetics"> Molecular Ecology &amp; Conservation Genetics</a></li>
+<li class="toc"><a href="#genetic-barcoding"> Genetic Barcoding</a></li>
+<li class="toc"><a href="#shark-finsfishery"> Shark Fins/fishery</a></li>
+<li class="toc"><a href="#how-to-use-blast-to-identify-dna-sequences"> How to use blast to identify DNA sequences</a></li>
+<li class="toc"><a href="#species-composition-of-a-shark-fin-market"> Species composition of a shark fin market</a></li>
+</ul>
+<a href="species-distribution-modeling.html"><span class="toc-section-number">12</span> Species distribution modeling</a>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="shark-fin-trade-monitoring" class="section level1">
+<h1>
+<span class="header-section-number">11</span> Shark fin trade monitoring</h1>
+<p><strong>Date</strong>: 10/14/2020</p>
+<p>Download the project folder <a href="">here</a>.</p>
+<p>Make sure to download the <strong>entire</strong> folder (not just the contents).</p>
+<p>You can open the <code>Rproject</code> directly by double-clicking on the file which will launch <code>Rstudio</code>, or once you have opened <code>Rstudio</code> open the project folder using <code>File -&gt; Open Project</code> or using the <code>Rproj</code> icon in the top right corner above the environment panel.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this lab you should</p>
+<ul>
+<li>understand what genetic barcoding is.</li>
+<li>understand how genetic barcoding can be used as a tool for wildlife forensics.</li>
+<li>understand how to use the ncbi genbank database to identify a species using COI.</li>
+<li>understand how genetic barcoding can be used to determine the species composition of a shark fin market.</li>
+<li>understand how to use fishbase to get basic information of the ecology, biology, conservation status and CITES listing of a species.</li>
+</ul>
+<p><br></p>
+<div id="molecular-ecology-conservation-genetics" class="section level2">
+<h2>
+<span class="header-section-number">11.1</span> Molecular Ecology &amp; Conservation Genetics</h2>
+<p>The central question of ecology is to understand how organisms interact with each other and their environment and the resulting observed patterns of distribution and abundance. The field of molecular ecology has arisen as a reaction to the limited ability to observe certain biological processes <em>in situ</em> and directly obtain data. Instead, molecular genetics techniques and population genetics theory are applied to understand questions in ecology, evolution, behavior, and conservation biology. This toolkit includes a variety of approaches, both in terms of available genetic markers and the analytic methods used to analyze them.</p>
+<p>One of the central paradigms of molecular ecology is the assumption that we can use signals in genomic data sets to understand the ecology and demographic history of populations because evolutionary forces shape the patterns of within and between group patterns of genetic diversity - the specific application of these methods to small populations is studied in the field of <strong>Conservation Genetics</strong>.</p>
+<p>We can also use genetics to characterize and identify (groups of) individuals (DNA fingerprinting), populations (mixed stock analysis), and species (Genetic Barcoding).</p>
+<p>Genetic barcoding is a technique that is increasingly used for wildlife forensics because it allows identification of unknown and frequently degraded samples that cannot be morphologically identified. Under certain circumstances, it can also be used to identify the geographic region of origin.</p>
+<p>Today, we will learn how to use genetic markers (barcodes) to be able to distinguish between species and identify unknown specimen for a variety of tissue and other samples. We are going to apply this in the context of monitoring the trade of shark fins in the Guangzhou (mainland China) market. This data set has been published as</p>
+<p>Cardeñosa et al. (2020). Species composition of the largest shark fin retail-market in mainland China. Scientific Reports, 10(1), 1-10.</p>
+<p>the lastest study in a series of paper using genetic barcoding to understand the species composition of the Hong Kong shark fin market:</p>
+<ul>
+<li>Clarke et al. (2006). Identification of shark species composition and proportion in the Hong Kong shark fin market based on molecular genetics and trade records. Conservation Biology, 20(1), 201-211.</li>
+<li>Clarke et al. (2005). Estimates of shark species composition and numbers associated with the shark fin trade based on Hong Kong auction data. Journal of Northwest Atlantic Fishery Science, 35, 453-465.</li>
+<li>Fields et al. (2018). Species composition of the international shark fin trade assessed through a retail‐market survey in Hong Kong. Conservation Biology, 32(2), 376-389.</li>
+</ul>
+</div>
+<div id="genetic-barcoding" class="section level2">
+<h2>
+<span class="header-section-number">11.2</span> Genetic Barcoding</h2>
+<p>Genetic barcoding allows for identification of an unknown specimen for which DNA can be obtained using a short section of DNA using a specific gene or genes. To be able to do this you need a gene that is present in all (or a large group of species), flanked by regions that are conserved across a wide range of species so that universal primers can be designed. Further, the gene must be variable among species but conserved within a species.</p>
+<div id="ques:one" class="question">
+<p class="question-begin">
+► Question 11.1
+</p>
+<div class="question-body">
+<p>
+For eukaryones Cytochromeoxidase I has emerged as the barcoding gene. Explain how this gene fulfulls all the requirements.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Next to an appropriate gene you need a reference database, i.e. sequences for the barcoding gene from vouchered specimen. That way, as long as you can extract DNA from a sample you can identify the species even if it is too degraded or “incomplete” for a morphological ID.</p>
+<div id="ques:two" class="question">
+<p class="question-begin">
+► Question 11.2
+</p>
+<div class="question-body">
+<p>
+DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, … this means that you can also use non-lethal sampling. Explain how barcoding could be a useful tool for conservation in general, and specifically for wildlife forensics and enforcing regulations in the wildlife trade (For your argument, consider how the fact that you can use non-lethal sampling and obtain DNA from a wide array of samples is particularly useful).
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Barcoding is widely applied
+* conservation efforts
+* identify/stop illegal trading (ivory, shark fins)
+* food fraud (proper labeling, fish/sushi)
+* identify life stages otherwise hard to identify (larval stage of insects, amphibians, fish)</p>
+<p>Genetic barcoding usually consists of these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Obtain sample</li>
+<li>Extract DNA</li>
+<li>Perform PCR using universal primers to amplify barcoding gene (for animals usually COI)</li>
+<li>Sequence amplified gene</li>
+<li>Compare sequence to reference database to get sample ID</li>
+</ol>
+</div>
+<div id="shark-finsfishery" class="section level2">
+<h2>
+<span class="header-section-number">11.3</span> Shark Fins/fishery</h2>
+<p>Shark fin soup is considered a delicacy in Chinese culture and is generally served as a luxury item at special occasions, including weddings and banquets. The taste itself comes from other ingredients while the shark fins provide texture.</p>
+<p>Increasing wealth of the middle class increased demand for fins resulting in an increase in shark fin prices. As a result, the practice of shark fining became increasingly lucrative. Because the fins were so much more valuable than the meat, the fins were cut off of sharks that were caught and the carcasses tossed back into the water. Ethical concerns compounded with concerns over unsustainable shark fishing resulted in public outcry and campaigns to ban fining and in the some countries there has been increasing pressure for restaurants to stop serving shark fin soup completely.</p>
+<p>In the late 90s and early 2000s, fisheries-driven declines of some shark species were linked to the fin trade. Despite the fin trade being a valuable global trade, monitoring it on a species-specific basis is difficult as few countries with commercial or subsistence shark fisheries keep accurate records or regulate specific shark fisheries. As a result, it can be difficult to quantify the impact of the fin trade on shark populations and their declines.</p>
+<div id="ques:three" class="question">
+<p class="question-begin">
+► Question 11.3
+</p>
+<div class="question-body">
+<p>
+Based on sharks position in the trophic level, their habitat, geographic range(s), and life history, argue whether you think shark populations are intrinsically vulnerable to local extinctions due to increased fishing mortality.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Historically, mainland China is the world’s second largest importer of shark fins and primary consumer of shark fin soup. The fins used for shark fin soup are the cartilaginous dorsal, pectoral, and caudal fins. Most global shark catch and trade data is aggregated and due to the use of a variety of common names for (groups of sharks) it is difficult to trace products through supply chains and understand the pressure on shark populations due to fishing. Understanding the species composition of shark fin markets and monitoring the trade is becoming increasingly important, partially to regulate trade of CITES-listed sharks.</p>
+<div id="ques:four" class="question">
+<p class="question-begin">
+► Question 11.4
+</p>
+<div class="question-body">
+<p>
+Consider what type of information/samples you would need to identify illegally traded fins and species composition if you were to use traditional methods like morphologically identifications compared to genetic barcoding.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Because there is a general apprehension of importers and retailers to donate fins for genetic testing and buying samples is expensive, there have been several studies that use trimmings produced during processing at which time excess skin, muscle, and cartilage removed. These trimmings are collected and sold for comparatively low prices.</p>
+<div id="ques:five" class="question">
+<p class="question-begin">
+► Question 11.5
+</p>
+<div class="question-body">
+<p>
+Briefly discuss the advantages and limitations of using trimmings as proxy for fins sold in a market to determine species composition of a shark fin market.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>For this study, the shark fin retail marget of Gangzhou was sampled ten times from 2015 - 2017. A list of vendors was generated and for each sampling event a list of 10 vendors was randomly generated and two bags of trimmings sampled from each. From each bag, ten trimmings were randomly selected, DNA was extracted and COI was amplified and sequenced.</p>
+</div>
+<div id="how-to-use-blast-to-identify-dna-sequences" class="section level2">
+<h2>
+<span class="header-section-number">11.4</span> How to use blast to identify DNA sequences</h2>
+<p>Your <code>data</code> folder contains a file called <code>shark_fins.fasta</code>. A <code>fasta</code> file is a file format for storing genetic information it consists of a header line in the format <code>&gt;name</code> followed be the sequence in the subsequent line(s). A multi-fasta file like the one in your <code>data</code> folder contains multiple sequences, each sequence has its own header line with unique identifiers.</p>
+<p>Genbank is a “comprehensive public database of nucleotide sequences and supporting bibliographical and biological annotation”. We can use the Basic Local Alignment Tool, <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to compare our sequences to COI sequences that have been deposited in genbank.</p>
+<p>To do this go to the BLAST <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">website</a>. Here, you can choose a BLAST program to run. We will be doing a nucleotide blast.</p>
+<p>Now, open the multi-fasta file - you can do this by clicking on it in the file navigation pane (bottom left), it will then open in your Viewer pane in Rstudio (top right). Select a random sequence, highlight and copy it.</p>
+<p>Now, in blast paste your sequence into the box <code>Enter Query Sequence</code>.</p>
+<p>Next, select the database to be searched. Select Nucleotide Collection (nr/nt) to identify an unknown sequence.</p>
+<p>In general, your Program Selection will be based on the goal of your search. Here, you are attempting to identify an unknown sample – use highly similar sequences (megablast). Other options are more dissimilar sequences (discontinuous megablast) to be used to find closely related species and somewhat similar sequences (blastn) to be used for short (&lt;20bp) searches.</p>
+<p>Finally, click the BLAST button to initiate your query. A BLAST search is a pairwise comparison between the DNA sequence you have uploaded and all the DNA sequences deposited in Genbank.</p>
+<p>Within a few seconds, you will receive a BLAST report once the search is completed. It consists of a header giving you the basic information on the sequence you uploaded, a graphical overview and a list of your search results detailing the Accession number, species ID and scores &amp; statistics ranking your results.</p>
+<p>Your results are ranked by the <strong>Max Score/Total score</strong> which scores the pairwise comparison between your DNA sequence and the search results. Higher scores mean better alignments. Further, you will receive and <strong>e-value</strong> which indicates if the results would be expected by chance alone. The lower the E-value the less likely the results will be obtained by chance.</p>
+<p>For more information on your query results select a result by clicking on the hyperlink.</p>
+<p>The detailed description contains information on the Accession number (a unique identifier code for a sequence), a description of the species, BLAST scores &amp; Percent identity and a Pairwise Alignment of your query DNA sequence and the result.</p>
+<p>For even more information on the sequence it has been matched to, you can clikc on the accession number</p>
+<p>The pairwise alignment compares your query (unknown) sequence to the subject (result) sequence. Your query will generally begin at nucleotide 1 though the best matching subject sequence might not.</p>
+<div id="ques:six" class="question">
+<p class="question-begin">
+► Question 11.6
+</p>
+<div class="question-body">
+<p>
+Select five sequences from the fasta file and perform a blast. For each record the identified species, e-value, and percent match for the five best matches.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Don’t worry, you will not have to perform a blast for every species in the <code>fasta</code> file. I have used a more efficient method using a local blast data base and a command line interface to get our results.</p>
+</div>
+<div id="species-composition-of-a-shark-fin-market" class="section level2">
+<h2>
+<span class="header-section-number">11.5</span> Species composition of a shark fin market</h2>
+<p>Let’s load our <code>tidyverse</code> libraries so we can analyze the data set<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="shark-fin-trade-monitoring.html#cb1-1"></a><span class="co"># load libraries</span></span>
+<span id="cb1-2"><a href="shark-fin-trade-monitoring.html#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="shark-fin-trade-monitoring.html#cb1-3"></a><span class="kw">library</span>(ggthemes)</span>
+<span id="cb1-4"><a href="shark-fin-trade-monitoring.html#cb1-4"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<p>The first thing we need to do is read in our blast results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="shark-fin-trade-monitoring.html#cb2-1"></a>fins &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/fin_blastresults.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<p>Let’s take a look at the information in the data frame.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="shark-fin-trade-monitoring.html#cb3-1"></a><span class="kw">head</span>(fins)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 9
+##   qseqid    qlen sacc     slen   evalue pident length qcovhsp sp                
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;             
+## 1 GZ11_154   122 KF0208~ 16692 1.81e-53   99.2    122      99 Alopias_pelagicus 
+## 2 GZ3_145    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
+## 3 GZ3_181    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
+## 4 GZ3_182    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
+## 5 GZ3_183    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
+## 6 GZ3_184    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~</code></pre>
+<p>The first column gives us the squence ID and the last column the species ID. You should recognize the information from the column <code>evalue</code> and <code>pident</code> from your blast searches.</p>
+<p>Currently, the species information is in a single column. let’s turn that into two, one for the genus and one for the species name.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="shark-fin-trade-monitoring.html#cb5-1"></a>fins &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
+<span id="cb5-2"><a href="shark-fin-trade-monitoring.html#cb5-2"></a><span class="st">  </span><span class="kw">separate</span>(sp, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"genus"</span>, <span class="st">"species"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>, <span class="dt">remove =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p>Now, our first question is how many different species do we have in the data set and how many samples do we have per species, let’s also calculate the relative proportions per species.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="shark-fin-trade-monitoring.html#cb6-1"></a>sp_counts &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
+<span id="cb6-2"><a href="shark-fin-trade-monitoring.html#cb6-2"></a><span class="st">  </span><span class="kw">group_by</span>(genus, species) <span class="op">%&gt;%</span></span>
+<span id="cb6-3"><a href="shark-fin-trade-monitoring.html#cb6-3"></a><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span></span>
+<span id="cb6-4"><a href="shark-fin-trade-monitoring.html#cb6-4"></a><span class="st">  </span>ungroup <span class="op">%&gt;%</span></span>
+<span id="cb6-5"><a href="shark-fin-trade-monitoring.html#cb6-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> (n<span class="op">/</span><span class="kw">sum</span>(n))<span class="op">*</span><span class="dv">100</span>)</span></code></pre></div>
+<p>Let’s print that table and arrange it by number of samples.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="shark-fin-trade-monitoring.html#cb7-1"></a><span class="kw">kable</span>(</span>
+<span id="cb7-2"><a href="shark-fin-trade-monitoring.html#cb7-2"></a>  sp_counts <span class="op">%&gt;%</span></span>
+<span id="cb7-3"><a href="shark-fin-trade-monitoring.html#cb7-3"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)),</span>
+<span id="cb7-4"><a href="shark-fin-trade-monitoring.html#cb7-4"></a>  <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb7-5"><a href="shark-fin-trade-monitoring.html#cb7-5"></a>  <span class="dt">caption =</span> <span class="st">"Number and relative proportions of samples species."</span></span>
+<span id="cb7-6"><a href="shark-fin-trade-monitoring.html#cb7-6"></a>)</span></code></pre></div>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-7">Table 11.1: </span>Number and relative proportions of samples species.</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="left">genus</th>
+<th align="left">species</th>
+<th align="right">n</th>
+<th align="right">percent</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Prionace</td>
+<td align="left">glauca</td>
+<td align="right">610</td>
+<td align="right">36.46</td>
+</tr>
+<tr class="even">
+<td align="left">Lamna</td>
+<td align="left">ditropis</td>
+<td align="right">369</td>
+<td align="right">22.06</td>
+</tr>
+<tr class="odd">
+<td align="left">Isurus</td>
+<td align="left">oxyrinchus</td>
+<td align="right">96</td>
+<td align="right">5.74</td>
+</tr>
+<tr class="even">
+<td align="left">Sphyrna</td>
+<td align="left">lewini</td>
+<td align="right">73</td>
+<td align="right">4.36</td>
+</tr>
+<tr class="odd">
+<td align="left">Sphyrna</td>
+<td align="left">zygaena</td>
+<td align="right">61</td>
+<td align="right">3.65</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">longimanus</td>
+<td align="right">46</td>
+<td align="right">2.75</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">tilstoni</td>
+<td align="right">35</td>
+<td align="right">2.09</td>
+</tr>
+<tr class="even">
+<td align="left">Rhizoprionodon</td>
+<td align="left">acutus</td>
+<td align="right">35</td>
+<td align="right">2.09</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">sorrah</td>
+<td align="right">31</td>
+<td align="right">1.85</td>
+</tr>
+<tr class="even">
+<td align="left">Mustelus</td>
+<td align="left">punctulatus</td>
+<td align="right">30</td>
+<td align="right">1.79</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">falciformis</td>
+<td align="right">29</td>
+<td align="right">1.73</td>
+</tr>
+<tr class="even">
+<td align="left">Mustelus</td>
+<td align="left">schmitti</td>
+<td align="right">29</td>
+<td align="right">1.73</td>
+</tr>
+<tr class="odd">
+<td align="left">Alopias</td>
+<td align="left">pelagicus</td>
+<td align="right">27</td>
+<td align="right">1.61</td>
+</tr>
+<tr class="even">
+<td align="left">Callorhinchus</td>
+<td align="left">callorynchus</td>
+<td align="right">19</td>
+<td align="right">1.14</td>
+</tr>
+<tr class="odd">
+<td align="left">Scoliodon</td>
+<td align="left">macrorhynchos</td>
+<td align="right">17</td>
+<td align="right">1.02</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">amboinensis</td>
+<td align="right">13</td>
+<td align="right">0.78</td>
+</tr>
+<tr class="odd">
+<td align="left">Galeocerdo</td>
+<td align="left">cuvier</td>
+<td align="right">13</td>
+<td align="right">0.78</td>
+</tr>
+<tr class="even">
+<td align="left">Hydrolagus</td>
+<td align="left">novaezealandiae</td>
+<td align="right">13</td>
+<td align="right">0.78</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">leucas</td>
+<td align="right">11</td>
+<td align="right">0.66</td>
+</tr>
+<tr class="even">
+<td align="left">Alopias</td>
+<td align="left">superciliosus</td>
+<td align="right">9</td>
+<td align="right">0.54</td>
+</tr>
+<tr class="odd">
+<td align="left">Mustelus</td>
+<td align="left">mustelus</td>
+<td align="right">8</td>
+<td align="right">0.48</td>
+</tr>
+<tr class="even">
+<td align="left">Rhizoprionodon</td>
+<td align="left">taylori</td>
+<td align="right">7</td>
+<td align="right">0.42</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">albimarginatus</td>
+<td align="right">6</td>
+<td align="right">0.36</td>
+</tr>
+<tr class="even">
+<td align="left">Callorhinchus</td>
+<td align="left">capensis</td>
+<td align="right">5</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">melanopterus</td>
+<td align="right">5</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="even">
+<td align="left">Hemigaleus</td>
+<td align="left">australiensis</td>
+<td align="right">5</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="odd">
+<td align="left">Hemipristis</td>
+<td align="left">elongata</td>
+<td align="right">5</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="even">
+<td align="left">Lamna</td>
+<td align="left">nasus</td>
+<td align="right">5</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="odd">
+<td align="left">Mustelus</td>
+<td align="left">mosis</td>
+<td align="right">4</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="even">
+<td align="left">Rhizoprionodon</td>
+<td align="left">terraenovae</td>
+<td align="right">4</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="odd">
+<td align="left">Rhynchobatus</td>
+<td align="left">australiae</td>
+<td align="right">4</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="even">
+<td align="left">Squalus</td>
+<td align="left">acanthias</td>
+<td align="right">4</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">altimus</td>
+<td align="right">3</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">amblyrhynchos</td>
+<td align="right">3</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">brachyurus</td>
+<td align="right">3</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">porosus</td>
+<td align="right">3</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="odd">
+<td align="left">Galeorhinus</td>
+<td align="left">galeus</td>
+<td align="right">3</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">Mustelus</td>
+<td align="left">canis</td>
+<td align="right">3</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">dussumieri</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">fitzroyensis</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">sealei</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">Loxodon</td>
+<td align="left">macrorhinus</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Negaprion</td>
+<td align="left">brevirostris</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">Rhizoprionodon</td>
+<td align="left">porosus</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Squalus</td>
+<td align="left">suckleyi</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">Triaenodon</td>
+<td align="left">obesus</td>
+<td align="right">2</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Prionace</td>
+<td align="left">glauca</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">brevipinna</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">leiodon</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="even">
+<td align="left">Carcharhinus</td>
+<td align="left">plumbeus</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="odd">
+<td align="left">Carcharhinus</td>
+<td align="left">tjutjot</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="even">
+<td align="left">Eusphyra</td>
+<td align="left">blochii</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="odd">
+<td align="left">Glyphis</td>
+<td align="left">fowlerae</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="even">
+<td align="left">Mustelus</td>
+<td align="left">antarcticus</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="odd">
+<td align="left">Mustelus</td>
+<td align="left">asterias</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="even">
+<td align="left">Mustelus</td>
+<td align="left">henlei</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="odd">
+<td align="left">Mustelus</td>
+<td align="left">mento</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+</tr>
+</tbody>
+</table>
+<div id="ques:seven" class="question">
+<p class="question-begin">
+► Question 11.7
+</p>
+<div class="question-body">
+<p>
+Describe your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:eight" class="question">
+<p class="question-begin">
+► Question 11.8
+</p>
+<div class="question-body">
+<p>
+Instead of looking at species composition, determine the number of samples and relative proportions per genus and describe your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Okay, that’s some what helpful but depending on how up you are on your scientific names for sharks and general shark knowledge not super informative. Let’s get some additional information for our sharks.</p>
+<p><a href="https://www.fishbase.de">Fishbase</a> is a “global biodiversity information system on fin fishes” (though information for most sharks should be able to be found here as well).</p>
+<p>In our google drive folder for this lab, there is a spreadsheet - we are going to use fishbase to collaboratively gather some additional information. To do this, go to the <a href="https://www.fishbase.de/search.php">Fishbase search site</a> to pull up the information page for each species. If the species is not on fishbase another good resource is the IUCN redlist.</p>
+<div id="ques:nine" class="question">
+<p class="question-begin">
+► Question 11.9
+</p>
+<div class="question-body">
+<p>
+Pull up a fish info page for any fish and briefly describe the type of information you can find there.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Here is the data we are going to gather for each species:</p>
+<ol style="list-style-type: decimal">
+<li>Common Name</li>
+<li>Family</li>
+<li>Habitat type where the species completes most of its life cycle: oceanic (off continental shelf in surface waters), coastal (over continental shelf), deep_benthic (off the shelf and close to sediment/water interface).</li>
+<li>Size-at-maturity: small (&lt;100 cm total length/TL), large (&gt;100cm TL).</li>
+<li>IUCN conservation status</li>
+<li>CITES listing: AppxI, AppxII, AppxIII, not_eval</li>
+<li>Fisheries - commercial &amp; gamefish</li>
+</ol>
+<p>Once all the information for every species has been gathered, use excel to save as a <code>tab-delimited</code> file in your <code>data</code> folder.</p>
+<p>Then you can read in the file to analyze:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="shark-fin-trade-monitoring.html#cb8-1"></a>specie_info &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/shark_info.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<div id="ques:ten" class="question">
+<p class="question-begin">
+► Question 11.10
+</p>
+<div class="question-body">
+<p>
+Generate a summary table for each category and give a brief description of your results.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:eleven" class="question">
+<p class="question-begin">
+► Question 11.11
+</p>
+<div class="question-body">
+<p>
+Discuss your results and formulate a set of conclusions on what this data set reveals about the shark fin market and trade in the Gangzhou market. This should be a full paragraph and should include a discussion of your results and what we can learn from them, as well as, touching on limitations and advantages of using genetic barcoding as a forensic tool.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="biomagnification.html"><button class="btn btn-default">Previous</button></a>
+<a href="species-distribution-modeling.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-10-14
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
