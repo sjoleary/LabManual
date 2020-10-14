@@ -143,7 +143,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#molecular-ecology-conservation-genetics"> Molecular Ecology &amp; Conservation Genetics</a></li>
 <li class="toc"><a href="#genetic-barcoding"> Genetic Barcoding</a></li>
 <li class="toc"><a href="#shark-finsfishery"> Shark Fins/fishery</a></li>
-<li class="toc"><a href="#how-to-use-blast-to-identify-dna-sequences"> How to use blast to identify DNA sequences</a></li>
+<li class="toc"><a href="#using-blast-to-identify-dna-sequences"> Using blast to identify DNA sequences</a></li>
 <li class="toc"><a href="#species-composition-of-a-shark-fin-market"> Species composition of a shark fin market</a></li>
 </ul>
 <a href="references.html">References</a>
@@ -168,21 +168,24 @@ if(f.classList.contains('fa-plus-square')) {
 <ul>
 <li>understand what genetic barcoding is.</li>
 <li>understand how genetic barcoding can be used as a tool for wildlife forensics.</li>
-<li>understand how to use the ncbi genbank database to identify a species using COI.</li>
+<li>understand how to use <code>NCBI</code>s <code>Genbank</code> database and the <code>BLAST</code> to identify a species for an unknown COI sequence.</li>
 <li>understand how genetic barcoding can be used to determine the species composition of a shark fin market.</li>
-<li>understand how to use fishbase to get basic information of the ecology, biology, conservation status and CITES listing of a species.</li>
+<li>understand how to use <code>fishbase</code> and other online resources to get basic information for the ecology, biology, conservation status, and CITES listing of a fish species.</li>
 </ul>
 <p><br></p>
 <div id="molecular-ecology-conservation-genetics" class="section level2">
 <h2>
 <span class="header-section-number">12.1</span> Molecular Ecology &amp; Conservation Genetics</h2>
-<p>The central question of ecology is to understand how organisms interact with each other and their environment and the resulting observed patterns of distribution and abundance. The field of molecular ecology has arisen as a reaction to the limited ability to observe certain biological processes <em>in situ</em> and directly obtain data. Instead, molecular genetics techniques and population genetics theory are applied to understand questions in ecology, evolution, behavior, and conservation biology. This toolkit includes a variety of approaches, both in terms of available genetic markers and the analytic methods used to analyze them.</p>
-<p>One of the central paradigms of molecular ecology is the assumption that we can use signals in genomic data sets to understand the ecology and demographic history of populations because evolutionary forces shape the patterns of within and between group patterns of genetic diversity - the specific application of these methods to small populations is studied in the field of <strong>Conservation Genetics</strong>.</p>
-<p>We can also use genetics to characterize and identify (groups of) individuals (DNA fingerprinting), populations (mixed stock analysis), and species (Genetic Barcoding).</p>
-<p>Genetic barcoding is a technique that is increasingly used for wildlife forensics because it allows identification of unknown and frequently degraded samples that cannot be morphologically identified. Under certain circumstances, it can also be used to identify the geographic region of origin.</p>
-<p>Today, we will learn how to use genetic markers (barcodes) to be able to distinguish between species and identify unknown specimen for a variety of tissue and other samples. We are going to apply this in the context of monitoring the trade of shark fins in the Guangzhou (mainland China) market. This data set has been published as</p>
-<p>Cardeñosa et al. (2020). Species composition of the largest shark fin retail-market in mainland China. Scientific Reports, 10(1), 1-10.</p>
-<p>the lastest study in a series of paper using genetic barcoding to understand the species composition of the Hong Kong shark fin market:</p>
+<p>The central question of ecology is how organisms interact with each other and their environment and understanding the resulting observed patterns of distribution and abundance. The field of molecular ecology has arisen as a reaction to the limited ability to be able to observe some biological processes <em>in situ</em> and directly obtain data. Instead, molecular genetics techniques, population genetics theory and techniques from fields such as landscape genetics ecology, and bioformatics are applied to understand questions in ecology, evolution, behavior, and conservation biology.</p>
+<p>This toolkit includes a variety of approaches, both in terms of available genetic markers and the analytic methods used to analyze them. In general, methods fall into two broad categories.</p>
+<ol style="list-style-type: decimal">
+<li><p>One of the central paradigms of molecular ecology is the assumption that we can use signals in genomic data sets to understand the ecology and demographic history of populations because evolutionary forces shape the patterns of within and between group patterns of genetic diversity - the specific application of these methods to small populations is studied in the field of <strong>Conservation Genetics</strong>.</p></li>
+<li><p>We can also use genetics to characterize and identify (groups of) individuals (DNA fingerprinting), populations (mixed stock analysis), and species (genetic barcoding).</p></li>
+</ol>
+<p><strong>Genetic barcoding</strong> is a technique that is increasingly used for wildlife forensics because it allows identification of unknown and frequently degraded samples that cannot be morphologically identified. Under certain circumstances, it can also be used to identify the geographic region of origin.</p>
+<p>Today, we will learn how to use genetic markers (barcodes) to be able to identify unknown specimen using a variety of tissue and other samples types. We are going to apply this in the context of monitoring the trade of shark fins in the Guangzhou (mainland China) market. We will be using the raw data set from</p>
+<p><strong>Cardeñosa et al. (2020). Species composition of the largest shark fin retail-market in mainland China. Scientific Reports, 10(1), 1-10.</strong></p>
+<p>This is one of the most recent studies in a series of efforts using genetic barcoding to understand the species composition of the Hong Kong shark fin market:</p>
 <ul>
 <li>Clarke et al. (2006). Identification of shark species composition and proportion in the Hong Kong shark fin market based on molecular genetics and trade records. Conservation Biology, 20(1), 201-211.</li>
 <li>Clarke et al. (2005). Estimates of shark species composition and numbers associated with the shark fin trade based on Hong Kong auction data. Journal of Northwest Atlantic Fishery Science, 35, 453-465.</li>
@@ -192,40 +195,29 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="genetic-barcoding" class="section level2">
 <h2>
 <span class="header-section-number">12.2</span> Genetic Barcoding</h2>
-<p>Genetic barcoding allows for identification of an unknown specimen for which DNA can be obtained using a short section of DNA using a specific gene or genes. To be able to do this you need a gene that is present in all (or a large group of species), flanked by regions that are conserved across a wide range of species so that universal primers can be designed. Further, the gene must be variable among species but conserved within a species.</p>
+<p>Genetic barcoding allows for identification of an unknown specimen for which DNA can be obtained using a short section of DNA using the same specific gene or set of genes across a very broad taxonomic group.</p>
+<p>To be able to do this you need a gene that is present in all (or a significantly large group of species), flanked by conserved regions across a wide range of species so that universal primers can be designed. Further, the gene must be variable among species but conserved within a species.</p>
 <div id="ques:one" class="question">
 <p class="question-begin">
 ► Question 12.1
 </p>
 <div class="question-body">
 <p>
-For eukaryones Cytochromeoxidase I has emerged as the barcoding gene. Explain how this gene fulfulls all the requirements.
+For Eukaryotes Cytochromeoxidase I has emerged as the barcoding gene. Explain how this gene fulfills all the requirements.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>Next to an appropriate gene you need a reference database, i.e. sequences for the barcoding gene from vouchered specimen. That way, as long as you can extract DNA from a sample you can identify the species even if it is too degraded or “incomplete” for a morphological ID.</p>
-<div id="ques:two" class="question">
-<p class="question-begin">
-► Question 12.2
-</p>
-<div class="question-body">
-<p>
-DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, … this means that you can also use non-lethal sampling. Explain how barcoding could be a useful tool for conservation in general, and specifically for wildlife forensics and enforcing regulations in the wildlife trade (For your argument, consider how the fact that you can use non-lethal sampling and obtain DNA from a wide array of samples is particularly useful).
-</p>
-<p class="question-end">
-<span class="fa fa-square-o solution-icon"></span>
-</p>
-</div>
-</div>
-<p>Barcoding is widely applied
-* conservation efforts
-* identify/stop illegal trading (ivory, shark fins)
-* food fraud (proper labeling, fish/sushi)
-* identify life stages otherwise hard to identify (larval stage of insects, amphibians, fish)</p>
-<p>Genetic barcoding usually consists of these steps:</p>
+<p>Next to an appropriate gene, you will also need a reference database, i.e. sequences for the barcoding gene from a set of vouchered specimen. That way, as long as you can extract DNA from a sample you can identify the species even if it is too degraded or “incomplete” for a morphological ID.</p>
+<p>Barcoding is widely applied in the context of conservation biology, specifically to</p>
+<ul>
+<li>identify/stop illegal trading (ivory, shark fins)</li>
+<li>identify food fraud (proper labeling, fish/sushi)</li>
+<li>identify life stages otherwise hard difficult to distinguish (larval stage of insects, amphibians, fish)</li>
+</ul>
+<p>In practice, genetic barcoding usually consists of these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Obtain sample</li>
 <li>Extract DNA</li>
@@ -233,13 +225,26 @@ DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, �
 <li>Sequence amplified gene</li>
 <li>Compare sequence to reference database to get sample ID</li>
 </ol>
+<div id="ques:two" class="question">
+<p class="question-begin">
+► Question 12.2
+</p>
+<div class="question-body">
+<p>
+DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, … this means that you can also use non-lethal sampling. In this light, explain how barcoding could be a useful tool for conservation in general, and specifically for wildlife forensics and enforcing regulations in the wildlife trade (For your argument, consider how the fact that you can use non-lethal sampling, obtain DNA from a wide array of samples is particularly useful and assess how complicated/straightforward the labwork/analysis is).
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 <div id="shark-finsfishery" class="section level2">
 <h2>
 <span class="header-section-number">12.3</span> Shark Fins/fishery</h2>
-<p>Shark fin soup is considered a delicacy in Chinese culture and is generally served as a luxury item at special occasions, including weddings and banquets. The taste itself comes from other ingredients while the shark fins provide texture.</p>
-<p>Increasing wealth of the middle class increased demand for fins resulting in an increase in shark fin prices. As a result, the practice of shark fining became increasingly lucrative. Because the fins were so much more valuable than the meat, the fins were cut off of sharks that were caught and the carcasses tossed back into the water. Ethical concerns compounded with concerns over unsustainable shark fishing resulted in public outcry and campaigns to ban fining and in the some countries there has been increasing pressure for restaurants to stop serving shark fin soup completely.</p>
-<p>In the late 90s and early 2000s, fisheries-driven declines of some shark species were linked to the fin trade. Despite the fin trade being a valuable global trade, monitoring it on a species-specific basis is difficult as few countries with commercial or subsistence shark fisheries keep accurate records or regulate specific shark fisheries. As a result, it can be difficult to quantify the impact of the fin trade on shark populations and their declines.</p>
+<p>Shark fin soup is considered a delicacy in Chinese culture and is frequently served as a luxury item and on special occasions, including weddings and banquets. While the taste itself comes from other ingredients, the shark fins mainly provide texture.</p>
+<p>Increasing wealth of the middle class resulted in an increased demand for fins. As a result shark fin prices rapidly increased and the practice of shark fining became increasingly lucrative. Because the fins are so much more valuable than the meat of the fish, it became common practice for fins to be cut off of sharks and the carcasses to be tossed back into the water. Ethical concerns compounded with concerns over unsustainable shark fishing in general, resulted in public outcry and campaigns to ban shark fining and in the some countries there has been increasing pressure for restaurants to stop serving shark fin soup all together.</p>
+<p>In the late 90s and early 2000s, fisheries-driven declines of some shark species were linked to the fin trade. Despite the fin trade comprising a valuable global trade, monitoring it on a species-specific basis is difficult as few countries with commercial or subsistence shark fisheries keep accurate records or regulate specific shark fisheries. As a result, it can be difficult to quantify the impact of the fin trade on specific shark populations/species and resulting declines.</p>
 <div id="ques:three" class="question">
 <p class="question-begin">
 ► Question 12.3
@@ -253,7 +258,7 @@ Based on sharks position in the trophic level, their habitat, geographic range(s
 </p>
 </div>
 </div>
-<p>Historically, mainland China is the world’s second largest importer of shark fins and primary consumer of shark fin soup. The fins used for shark fin soup are the cartilaginous dorsal, pectoral, and caudal fins. Most global shark catch and trade data is aggregated and due to the use of a variety of common names for (groups of sharks) it is difficult to trace products through supply chains and understand the pressure on shark populations due to fishing. Understanding the species composition of shark fin markets and monitoring the trade is becoming increasingly important, partially to regulate trade of CITES-listed sharks.</p>
+<p>Historically, mainland China is the world’s second largest importer of shark fins after Hong Kong and primary consumer of shark fin soup. The fins used for shark fin soup are the cartilaginous dorsal, pectoral, and caudal fins. Most global shark catch and trade data is aggregated and due to the use of a variety of common names for (groups of sharks) it is difficult to trace products through supply chains and understand the pressure on shark populations due to fishing. Understanding the species composition of shark fin markets and monitoring the trade is becoming increasingly important, partially to regulate trade of CITES-listed sharks. Agency challenged with enforcing trade restrictions and uncovering illegal trade frequently cite difficulties for species identification of fins once they have been cut-off of the shark<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> The argument is that all shark fins look the same - <a href="https://www.identifyingsharkfins.org/">or do they</a>? Significant efforts have been made to develop dichotomous keys to allow for straightforward identification by law enforcement.</span></p>
 <div id="ques:four" class="question">
 <p class="question-begin">
 ► Question 12.4
@@ -267,46 +272,50 @@ Consider what type of information/samples you would need to identify illegally t
 </p>
 </div>
 </div>
-<p>Because there is a general apprehension of importers and retailers to donate fins for genetic testing and buying samples is expensive, there have been several studies that use trimmings produced during processing at which time excess skin, muscle, and cartilage removed. These trimmings are collected and sold for comparatively low prices.</p>
+<p>Because there is a general apprehension of importers and retailers to donate fins or provide other samples for genetic testing and buying fins at a sufficiently large scale is prohibitively expensive, there have been several studies that use trimmings produced during processing of fins at which time excess skin, muscle, and cartilage is removed. These trimmings are collected and sold for comparatively low prices.</p>
 <div id="ques:five" class="question">
 <p class="question-begin">
 ► Question 12.5
 </p>
 <div class="question-body">
 <p>
-Briefly discuss the advantages and limitations of using trimmings as proxy for fins sold in a market to determine species composition of a shark fin market.
+Briefly discuss the advantages and limitations of using trimmings as proxy for fins sold in a market to determine species composition.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>For this study, the shark fin retail marget of Gangzhou was sampled ten times from 2015 - 2017. A list of vendors was generated and for each sampling event a list of 10 vendors was randomly generated and two bags of trimmings sampled from each. From each bag, ten trimmings were randomly selected, DNA was extracted and COI was amplified and sequenced.</p>
+<p>For this study, the shark fin retail market of Gangzhou was sampled ten times (2015 - 2017). To obtain a random and representative sample, first, a list of known vendors was generated. Then, a list of 10 vendors was randomly generated for each sampling event and two bags of trimmings obtained. From each bag, ten trimmings were randomly selected, DNA was extracted and COI (barcoding gene) was amplified and sequenced.</p>
 </div>
-<div id="how-to-use-blast-to-identify-dna-sequences" class="section level2">
+<div id="using-blast-to-identify-dna-sequences" class="section level2">
 <h2>
-<span class="header-section-number">12.4</span> How to use blast to identify DNA sequences</h2>
-<p>Your <code>data</code> folder contains a file called <code>shark_fins.fasta</code>. A <code>fasta</code> file is a file format for storing genetic information it consists of a header line in the format <code>&gt;name</code> followed be the sequence in the subsequent line(s). A multi-fasta file like the one in your <code>data</code> folder contains multiple sequences, each sequence has its own header line with unique identifiers.</p>
-<p>Genbank is a “comprehensive public database of nucleotide sequences and supporting bibliographical and biological annotation”. We can use the Basic Local Alignment Tool, <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to compare our sequences to COI sequences that have been deposited in genbank.</p>
-<p>To do this go to the BLAST <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">website</a>. Here, you can choose a BLAST program to run. We will be doing a nucleotide blast.</p>
-<p>Now, open the multi-fasta file - you can do this by clicking on it in the file navigation pane (bottom left), it will then open in your Viewer pane in Rstudio (top right). Select a random sequence, highlight and copy it.</p>
-<p>Now, in blast paste your sequence into the box <code>Enter Query Sequence</code>.</p>
-<p>Next, select the database to be searched. Select Nucleotide Collection (nr/nt) to identify an unknown sequence.</p>
-<p>In general, your Program Selection will be based on the goal of your search. Here, you are attempting to identify an unknown sample – use highly similar sequences (megablast). Other options are more dissimilar sequences (discontinuous megablast) to be used to find closely related species and somewhat similar sequences (blastn) to be used for short (&lt;20bp) searches.</p>
-<p>Finally, click the BLAST button to initiate your query. A BLAST search is a pairwise comparison between the DNA sequence you have uploaded and all the DNA sequences deposited in Genbank.</p>
-<p>Within a few seconds, you will receive a BLAST report once the search is completed. It consists of a header giving you the basic information on the sequence you uploaded, a graphical overview and a list of your search results detailing the Accession number, species ID and scores &amp; statistics ranking your results.</p>
-<p>Your results are ranked by the <strong>Max Score/Total score</strong> which scores the pairwise comparison between your DNA sequence and the search results. Higher scores mean better alignments. Further, you will receive and <strong>e-value</strong> which indicates if the results would be expected by chance alone. The lower the E-value the less likely the results will be obtained by chance.</p>
+<span class="header-section-number">12.4</span> Using blast to identify DNA sequences</h2>
+<p>Your <code>data</code> folder contains a file called <code>shark_fins.fasta</code>.</p>
+<p><code>fasta</code> files are a specific format for storing genetic information it consisting of a header line starting with <code>&gt;</code> and followed by information like a sample name, species information … to identify the sequence. This is followed be the DNA sequence itself in the subsequent line(s).</p>
+<p>A <code>multi-fasta</code> file like the one in your <code>data</code> folder contains multiple sequences, each sequence has its own header line with unique identifiers.</p>
+<p><code>Genbank</code> is a “comprehensive public database of nucleotide sequences and supporting bibliographical and biological annotation” and serves as a repository for sequence information generated for published (and some unpublished) scientific studies. Most journal require you to submit the sequence data you generate to a database, in the last few years some alternatives to <code>genbank</code> have arisen, though genbank still remains the most comprehensive to date.</p>
+<p>We will use the Basic Local Alignment Tool, <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to compare our sequences to COI sequences that have been deposited in <code>genbank</code>.</p>
+<p>To do this go to the BLAST <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">website</a>. Here, you can choose a BLAST program to run. We will be doing a nucleotide blast, so select that option.</p>
+<p>Now, open the <code>multi-fasta</code> file so you can take a look at the sequences. You can do this by clicking on it in the file navigation pane (bottom left), it will then open in your Viewer pane in Rstudio (top right).</p>
+<p>Chose a random sequence, highlight just the sequence information and copy it to your clipboard<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> You can use <code>CTRL+C</code>/<code>Command+C</code> or <code>right click</code> and select <code>copy</code>.</span>.</p>
+<p>Now, in the browser window with <code>Blast</code> open, paste your sequence into the box <code>Enter Query Sequence</code>.</p>
+<p>Next, select the database to be searched: <code>Nucleotide Collection (nr/nt)</code>.</p>
+<p>In general, your <code>Program Selection</code> will be based on the goal of your search. Here, you are attempting to identify an unknown sample – so we will use <code>highly similar sequences (megablast)</code>. Other options are more dissimilar sequences (<code>discontinuous megablast</code>) to be used to find closely related species and somewhat similar sequences (<code>blastn</code>) to be used for short (&lt;20bp) searches.</p>
+<p>Finally, click the <code>BLAST</code> button to initiate your query. A <code>BLAST</code> search is a pairwise comparison between the DNA sequence you have uploaded and all the DNA sequences deposited in <code>Genbank</code>; so this might take a few seconds.</p>
+<p>You will receive a BLAST report once the search is completed. It consists of a list of your search results detailing the Accession number, species ID, and scores &amp; statistics ranking your results.</p>
+<p>Your results are ranked by the <strong>Max Score/Total score</strong> which scores the pairwise comparison between your DNA sequence and the search results. Higher scores mean better alignments. Further, you will receive and <strong>e-value</strong> which indicates if the results would be expected by chance alone. The lower the <code>e-value</code> the less likely the results will be obtained by chance.</p>
 <p>For more information on your query results select a result by clicking on the hyperlink.</p>
 <p>The detailed description contains information on the Accession number (a unique identifier code for a sequence), a description of the species, BLAST scores &amp; Percent identity and a Pairwise Alignment of your query DNA sequence and the result.</p>
-<p>For even more information on the sequence it has been matched to, you can clikc on the accession number</p>
-<p>The pairwise alignment compares your query (unknown) sequence to the subject (result) sequence. Your query will generally begin at nucleotide 1 though the best matching subject sequence might not.</p>
+<p>For even more information on the sequence it has been matched to, you can click on the accession number.</p>
+<p>The pairwise alignment compares your query (unknown) sequence to the subject (result) sequence. Your query will generally begin at nucleotide 1, though the best matching subject sequence might not.</p>
 <div id="ques:six" class="question">
 <p class="question-begin">
 ► Question 12.6
 </p>
 <div class="question-body">
 <p>
-Select five sequences from the fasta file and perform a blast. For each record the identified species, e-value, and percent match for the five best matches.
+Select a set of five random sequences from the fasta file and perform a blast. For each record the identified species, e-value, and percent match for the five best matches.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -318,7 +327,7 @@ Select five sequences from the fasta file and perform a blast. For each record t
 <div id="species-composition-of-a-shark-fin-market" class="section level2">
 <h2>
 <span class="header-section-number">12.5</span> Species composition of a shark fin market</h2>
-<p>Let’s load our <code>tidyverse</code> libraries so we can analyze the data set<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
+<p>Let’s load our <code>tidyverse</code> libraries so we can analyze the data set<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="shark-fin-trade-monitoring.html#cb1-1"></a><span class="co"># load libraries</span></span>
 <span id="cb1-2"><a href="shark-fin-trade-monitoring.html#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="shark-fin-trade-monitoring.html#cb1-3"></a><span class="kw">library</span>(ggthemes)</span>
@@ -337,7 +346,7 @@ Select five sequences from the fasta file and perform a blast. For each record t
 ## 5 GZ3_183    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
 ## 6 GZ3_184    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~</code></pre>
 <p>The first column gives us the squence ID and the last column the species ID. You should recognize the information from the column <code>evalue</code> and <code>pident</code> from your blast searches.</p>
-<p>Currently, the species information is in a single column. let’s turn that into two, one for the genus and one for the species name.</p>
+<p>Currently, the species information is in a single column. Let’s turn that into two, one for the genus and one for the species name.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="shark-fin-trade-monitoring.html#cb5-1"></a>fins &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
 <span id="cb5-2"><a href="shark-fin-trade-monitoring.html#cb5-2"></a><span class="st">  </span><span class="kw">separate</span>(sp, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"genus"</span>, <span class="st">"species"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>, <span class="dt">remove =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>Now, our first question is how many different species do we have in the data set and how many samples do we have per species, let’s also calculate the relative proportions per species.</p>
@@ -735,14 +744,14 @@ Instead of looking at species composition, determine the number of samples and r
 </div>
 <p>Okay, that’s some what helpful but depending on how up you are on your scientific names for sharks and general shark knowledge not super informative. Let’s get some additional information for our sharks.</p>
 <p><a href="https://www.fishbase.de">Fishbase</a> is a “global biodiversity information system on fin fishes” (though information for most sharks should be able to be found here as well).</p>
-<p>In our google drive folder for this lab, there is a spreadsheet - we are going to use fishbase to collaboratively gather some additional information. To do this, go to the <a href="https://www.fishbase.de/search.php">Fishbase search site</a> to pull up the information page for each species. If the species is not on fishbase another good resource is the IUCN redlist.</p>
+<p>In our google drive folder for this lab, there is a spreadsheet - we are going to use fishbase to collaboratively gather some additional information. To do this, go to the <a href="https://www.fishbase.de/search.php">Fishbase search site</a> to pull up the information page for each species. If the species is not on <code>fishbase</code> another good resource to get this information is the <code>IUCN redlist</code>.</p>
 <div id="ques:nine" class="question">
 <p class="question-begin">
 ► Question 12.9
 </p>
 <div class="question-body">
 <p>
-Pull up a fish info page for any fish and briefly describe the type of information you can find there.
+Pull up a fish info page on genbank for any fish and briefly describe the type of information you can find there.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -751,16 +760,35 @@ Pull up a fish info page for any fish and briefly describe the type of informati
 </div>
 <p>Here is the data we are going to gather for each species:</p>
 <ol style="list-style-type: decimal">
-<li>Common Name</li>
+<li>Common Name (this one is just for us to have a better idea of what we are talking about).</li>
 <li>Family</li>
-<li>Habitat type where the species completes most of its life cycle: oceanic (off continental shelf in surface waters), coastal (over continental shelf), deep_benthic (off the shelf and close to sediment/water interface).</li>
-<li>Size-at-maturity: small (&lt;100 cm total length/TL), large (&gt;100cm TL).</li>
+<li>Habitat type where the species completes most of its life cycle
+<ul>
+<li>oceanic (off continental shelf in surface waters)</li>
+<li>coastal (over continental shelf)</li>
+<li>deep_benthic (off the shelf and close to sediment/water interface).</li>
+</ul>
+</li>
+<li>Size-at-maturity
+<ul>
+<li>small (&lt;100 cm total length/TL)</li>
+<li>large (&gt;100cm TL)</li>
+</ul>
+</li>
 <li>IUCN conservation status</li>
-<li>CITES listing: AppxI, AppxII, AppxIII, not_eval</li>
-<li>Fisheries - commercial &amp; gamefish</li>
+<li>CITES listing
+<ul>
+<li>AppxI</li>
+<li>AppxII</li>
+<li>AppxIII</li>
+<li>not_eval</li>
+</ul>
+</li>
+<li>Commercial fisheries</li>
+<li>Gamefish (yes/no)</li>
 </ol>
-<p>Once all the information for every species has been gathered, use excel to save as a <code>tab-delimited</code> file in your <code>data</code> folder.</p>
-<p>Then you can read in the file to analyze:</p>
+<p>Once all the information for every species has been gathered, use <code>excel</code> to save as a <code>tab-delimited</code> file in your <code>data</code> folder.</p>
+<p>Then you can read in the file to analyze (make sure to match the file path depending on what you name your file):</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="shark-fin-trade-monitoring.html#cb8-1"></a>specie_info &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/shark_info.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
 <div id="ques:ten" class="question">
 <p class="question-begin">
@@ -768,7 +796,7 @@ Pull up a fish info page for any fish and briefly describe the type of informati
 </p>
 <div class="question-body">
 <p>
-Generate a summary table for each category and give a brief description of your results.
+Generate a summary table for each category (excluding common name) and give a brief description of your results.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -781,7 +809,7 @@ Generate a summary table for each category and give a brief description of your 
 </p>
 <div class="question-body">
 <p>
-Discuss your results and formulate a set of conclusions on what this data set reveals about the shark fin market and trade in the Gangzhou market. This should be a full paragraph and should include a discussion of your results and what we can learn from them, as well as, touching on limitations and advantages of using genetic barcoding as a forensic tool.
+Discuss your results and formulate a set of conclusions on what this data set reveals about the shark fin market and trade in the Gangzhou market. This should be a full paragraph and should include a discussion of your results and what we can learn from them about the shark fin trade how it could potentially impact shark poulations, as well as, touching on limitations and advantages of using genetic barcoding as a forensic tool.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>

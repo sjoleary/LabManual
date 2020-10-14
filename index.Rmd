@@ -50,6 +50,7 @@ You are required to bring your laptop for use during lab; a tablet will not be s
 <br>
 
 
+
 ## Lab homework/reports {-}
 
 You will be receiving lab homework in some format almost every lab, part of the assignments will be completed in lab, other parts your will finish on your own time. Make sure you start early enough to get help if necessary.  
