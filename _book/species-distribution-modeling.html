@@ -16,6 +16,12 @@
 
 <meta name="date" content="2020-10-28" />
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="11 Species distribution modeling | Lab Manual Conservation Biology Fall 2020">
 
@@ -177,22 +183,26 @@ if(f.classList.contains('fa-plus-square')) {
 </ul>
 <p><br></p>
 <p><strong>Before we start</strong></p>
-<p>There are several packages that need to be downloaded and installed before we can run this analysis<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Remember, you only need to install them once - but any time you restart your <code>R session</code> e.g. by restarting <code>Rstudio</code> you need to make sure to run the code that loads the libraries.</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="species-distribution-modeling.html#cb1-1"></a><span class="co"># install libraries</span></span>
-<span id="cb1-2"><a href="species-distribution-modeling.html#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">"sp"</span>)</span>
-<span id="cb1-3"><a href="species-distribution-modeling.html#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">"raster"</span>)</span>
-<span id="cb1-4"><a href="species-distribution-modeling.html#cb1-4"></a><span class="kw">install.packages</span>(<span class="st">"maptools"</span>)</span>
-<span id="cb1-5"><a href="species-distribution-modeling.html#cb1-5"></a><span class="kw">install.packages</span>(<span class="st">"rgdal"</span>)</span>
-<span id="cb1-6"><a href="species-distribution-modeling.html#cb1-6"></a><span class="kw">install.packages</span>(<span class="st">"dismo"</span>)</span>
-<span id="cb1-7"><a href="species-distribution-modeling.html#cb1-7"></a><span class="kw">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
+<p>There are several packages that need to be downloaded and installed before we can run this analysis<label for="tufte-sn-50" class="margin-toggle sidenote-number">50</label><input type="checkbox" id="tufte-sn-50" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">50</span> Remember, you only need to install them once - but any time you restart your <code>R session</code> e.g. by restarting <code>Rstudio</code> you need to make sure to run the code that loads the libraries.</span>.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="species-distribution-modeling.html#cb158-1"></a><span class="co"># install libraries</span></span>
+<span id="cb158-2"><a href="species-distribution-modeling.html#cb158-2"></a><span class="kw">install.packages</span>(<span class="st">"sp"</span>)</span>
+<span id="cb158-3"><a href="species-distribution-modeling.html#cb158-3"></a><span class="kw">install.packages</span>(<span class="st">"raster"</span>)</span>
+<span id="cb158-4"><a href="species-distribution-modeling.html#cb158-4"></a><span class="kw">install.packages</span>(<span class="st">"maptools"</span>)</span>
+<span id="cb158-5"><a href="species-distribution-modeling.html#cb158-5"></a><span class="kw">install.packages</span>(<span class="st">"rgdal"</span>)</span>
+<span id="cb158-6"><a href="species-distribution-modeling.html#cb158-6"></a><span class="kw">install.packages</span>(<span class="st">"dismo"</span>)</span>
+<span id="cb158-7"><a href="species-distribution-modeling.html#cb158-7"></a><span class="kw">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb158-8"><a href="species-distribution-modeling.html#cb158-8"></a></span>
+<span id="cb158-9"><a href="species-distribution-modeling.html#cb158-9"></a><span class="kw">library</span>(conflicted)</span>
+<span id="cb158-10"><a href="species-distribution-modeling.html#cb158-10"></a><span class="kw">conflict_prefer</span>(<span class="st">"select"</span>, <span class="st">"dplyr"</span>)</span>
+<span id="cb158-11"><a href="species-distribution-modeling.html#cb158-11"></a><span class="kw">conflict_prefer</span>(<span class="st">"filter"</span>, <span class="st">"dplyr"</span>)</span></code></pre></div>
 <div id="species-distribution-modeling-1" class="section level2">
 <h2>
 <span class="header-section-number">11.1</span> Species distribution modeling</h2>
-<p>In this tutorial we are going to learn the fundamental principles of building an occurrence-based<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> As a side-product in writing this tutorial, I think I might actually learn how to correctly spell ‘occurrence’.</span> species distribution models (SDM).</p>
+<p>In this tutorial we are going to learn the fundamental principles of building an occurrence-based<label for="tufte-sn-51" class="margin-toggle sidenote-number">51</label><input type="checkbox" id="tufte-sn-51" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">51</span> As a side-product in writing this tutorial, I think I might actually learn how to correctly spell ‘occurrence’.</span> species distribution models (SDM).</p>
 <p>One of the fundamental questions of ecology is how environmental conditions shape geographic species distributions.</p>
 <div id="ques:one" class="question">
 <p class="question-begin">
-► Question 11.1
+► Question 3.1
 </p>
 <div class="question-body">
 <p>
@@ -203,36 +213,35 @@ The concept of an ecological niche has three facets, first it refers to the spec
 </p>
 </div>
 </div>
-<p>We can use this fundamental concept to understand how species distribution models are built. In short, we can identify climatic conditions in locations were a species has been observed (occurs) and use those to build a model of to predict the theoretical distribution of a species by identifying locations that have a high probability of being good habitat based on abiotic predictors. Essentially, species distribution models are mathematical representations of the environmental conditions correlated with observed geographic distribution of a species<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Of course, more sophisticated version of species distribution models account not only for abiotic parameters but also for biotic factors that could further affect as species actual distribution; though that is a lot more difficult to model!</span>.</p>
+<p>We can use this fundamental concept to understand how species distribution models are built. In short, we can identify climatic conditions in locations were a species has been observed (occurs) and use those to build a model of to predict the theoretical distribution of a species by identifying locations that have a high probability of being good habitat based on abiotic predictors. Essentially, species distribution models are mathematical representations of the environmental conditions correlated with observed geographic distribution of a species<label for="tufte-sn-52" class="margin-toggle sidenote-number">52</label><input type="checkbox" id="tufte-sn-52" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">52</span> Of course, more sophisticated version of species distribution models account not only for abiotic parameters but also for biotic factors that could further affect as species actual distribution; though that is a lot more difficult to model!</span>.</p>
 <p>One of the advantages of using climatic data as predictors is that we can also use data sets of future climate conditions that have been modeled based on various climate scenarios to understand how species distributions will change as a result of climate-driven shifts in local environmental conditions.</p>
 <p>For this tutorial, we will not assess how “good” our generated model is, instead we will focus on the principles of <em>how</em> such a model is built. We will use a very simple model and a general set of climate variables to illustrate the fundamental principles, though currently more sophisticated models are usually used and machine learning is becoming an increasingly important technique. In the end though, the fundamental principles are the same.</p>
-<p>Now, let’s load the necessary libraries and get rolling<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="species-distribution-modeling.html#cb2-1"></a><span class="co"># load libraries</span></span>
-<span id="cb2-2"><a href="species-distribution-modeling.html#cb2-2"></a><span class="kw">library</span>(<span class="st">"sp"</span>)</span>
-<span id="cb2-3"><a href="species-distribution-modeling.html#cb2-3"></a><span class="kw">library</span>(<span class="st">"raster"</span>)</span>
-<span id="cb2-4"><a href="species-distribution-modeling.html#cb2-4"></a><span class="kw">library</span>(<span class="st">"maptools"</span>)</span>
-<span id="cb2-5"><a href="species-distribution-modeling.html#cb2-5"></a><span class="kw">library</span>(<span class="st">"rgdal"</span>)</span>
-<span id="cb2-6"><a href="species-distribution-modeling.html#cb2-6"></a><span class="kw">library</span>(<span class="st">"dismo"</span>)</span>
-<span id="cb2-7"><a href="species-distribution-modeling.html#cb2-7"></a><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
+<p>Now, let’s load the necessary libraries and get rolling<label for="tufte-sn-53" class="margin-toggle sidenote-number">53</label><input type="checkbox" id="tufte-sn-53" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">53</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="species-distribution-modeling.html#cb159-1"></a><span class="co"># load libraries</span></span>
+<span id="cb159-2"><a href="species-distribution-modeling.html#cb159-2"></a><span class="kw">library</span>(<span class="st">"sp"</span>)</span>
+<span id="cb159-3"><a href="species-distribution-modeling.html#cb159-3"></a><span class="kw">library</span>(<span class="st">"raster"</span>)</span>
+<span id="cb159-4"><a href="species-distribution-modeling.html#cb159-4"></a><span class="kw">library</span>(<span class="st">"maptools"</span>)</span>
+<span id="cb159-5"><a href="species-distribution-modeling.html#cb159-5"></a><span class="kw">library</span>(<span class="st">"rgdal"</span>)</span>
+<span id="cb159-6"><a href="species-distribution-modeling.html#cb159-6"></a><span class="kw">library</span>(<span class="st">"dismo"</span>)</span>
+<span id="cb159-7"><a href="species-distribution-modeling.html#cb159-7"></a><span class="kw">library</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div>
 </div>
 <div id="get-occurrence-data" class="section level2">
 <h2>
 <span class="header-section-number">11.2</span> Get occurrence data</h2>
-<p>To learn the fundamental steps of building a SDM, we are going to create species distribution model for the Sasquatch, a large, hairy, bipedal ape-like creature found (or is it?) throughout North America<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> I suppose, technically, since we were venturing into cryptozoology here it is not a species, but rather a cryptid distribution model</span>.</p>
+<p>To learn the fundamental steps of building a SDM, we are going to create species distribution model for the Sasquatch, a large, hairy, bipedal ape-like creature found (or is it?) throughout North America<label for="tufte-sn-54" class="margin-toggle sidenote-number">54</label><input type="checkbox" id="tufte-sn-54" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">54</span> I suppose, technically, since we were venturing into cryptozoology here it is not a species, but rather a cryptid distribution model</span>.</p>
 <p>The first think we need for any SDM is a data set documenting species occurrence, i.e. geo-coded observations of a given species in the wild.</p>
-<p>Four our purposes, we turn to the Bigfoot Field Researchers Organization (<a href="https://www.bfro.net/">BFRO</a>), founded in 1995 as the “<em>only scientific research organization exploring the Bigfoot/Sasquatch mystery</em>”. You can turn to their website for answers on important <a href="https://www.bfro.net/gdb/show_FAQ.asp?id=405">FAQs</a>, including ‘Do Bigfoot Sasquatch bury their dead?’, ‘Where is the physical evidence?’, ‘Wasn’t this all shown to be a fake?, and ’Why do you want scientists to recognize the Sasquatch as a species? Isn’t it better to just leave them alone?’. Their main focus though is on compiling reports of sightings and investigating them. In other words, they have a database full of geo-coded reported sightings<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> And even better, it has already been downloaded and wrangled and is accessible (with sightings through 2018) right <a href="https://data.world/timothyrenner/bfro-sightings-data">here</a>.</span>.</p>
+<p>Four our purposes, we turn to the Bigfoot Field Researchers Organization (<a href="https://www.bfro.net/">BFRO</a>), founded in 1995 as the “<em>only scientific research organization exploring the Bigfoot/Sasquatch mystery</em>”. You can turn to their website for answers on important <a href="https://www.bfro.net/gdb/show_FAQ.asp?id=405">FAQs</a>, including ‘Do Bigfoot Sasquatch bury their dead?’, ‘Where is the physical evidence?’, ‘Wasn’t this all shown to be a fake?, and ’Why do you want scientists to recognize the Sasquatch as a species? Isn’t it better to just leave them alone?’. Their main focus though is on compiling reports of sightings and investigating them. In other words, they have a database full of geo-coded reported sightings<label for="tufte-sn-55" class="margin-toggle sidenote-number">55</label><input type="checkbox" id="tufte-sn-55" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">55</span> And even better, it has already been downloaded and wrangled and is accessible (with sightings through 2018) right <a href="https://data.world/timothyrenner/bfro-sightings-data">here</a>.</span>.</p>
 <p>Let’s read in the data and then we can take a look at the information we can glean from this data set by looking at the column names.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="species-distribution-modeling.html#cb3-1"></a><span class="co"># read data</span></span>
-<span id="cb3-2"><a href="species-distribution-modeling.html#cb3-2"></a>occurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
-<span id="cb3-3"><a href="species-distribution-modeling.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="species-distribution-modeling.html#cb3-4"></a><span class="co"># take a look at the data</span></span>
-<span id="cb3-5"><a href="species-distribution-modeling.html#cb3-5"></a><span class="kw">colnames</span>(occurrence)</span></code></pre></div>
-<pre><code>##  [1] "observed"         "location_details" "county"           "state"           
-##  [5] "season"           "title"            "latitude"         "longitude"       
-##  [9] "date"             "number"           "classification"   "geohash"</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="species-distribution-modeling.html#cb160-1"></a><span class="co"># read data</span></span>
+<span id="cb160-2"><a href="species-distribution-modeling.html#cb160-2"></a>occurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb160-3"><a href="species-distribution-modeling.html#cb160-3"></a></span>
+<span id="cb160-4"><a href="species-distribution-modeling.html#cb160-4"></a><span class="co"># take a look at the data</span></span>
+<span id="cb160-5"><a href="species-distribution-modeling.html#cb160-5"></a><span class="kw">colnames</span>(occurrence)</span></code></pre></div>
+<pre><code>##  [1] "observed"         "location_details" "county"           "state"            "season"           "title"           
+##  [7] "latitude"         "longitude"        "date"             "number"           "classification"   "geohash"</code></pre>
 <div id="ques:two" class="question">
 <p class="question-begin">
-► Question 11.2
+► Question 3.2
 </p>
 <div class="question-body">
 <p>
@@ -244,12 +253,12 @@ Take a look at the column names and describe what type of information we have av
 </div>
 </div>
 <p>Because we need to be able to identify the exact locations Sasquatch occur, we are going to remove any observations that do not have latitude and longitude information.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="species-distribution-modeling.html#cb5-1"></a>occurrence &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
-<span id="cb5-2"><a href="species-distribution-modeling.html#cb5-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
-<span id="cb5-3"><a href="species-distribution-modeling.html#cb5-3"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude))</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="species-distribution-modeling.html#cb162-1"></a>occurrence &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
+<span id="cb162-2"><a href="species-distribution-modeling.html#cb162-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
+<span id="cb162-3"><a href="species-distribution-modeling.html#cb162-3"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude))</span></code></pre></div>
 <div id="ques:three" class="question">
 <p class="question-begin">
-► Question 11.3
+► Question 3.3
 </p>
 <div class="question-body">
 <p>
@@ -260,45 +269,45 @@ Note how many reports we loose through this filtering step. Can you think of an 
 </p>
 </div>
 </div>
-<p>We have queried only sightings in the United states, one of the first questions we should consider is what their geographic extent is and how they are distributed on a map<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> To keep it simple, we are going to use <code>base R</code> plotting functions instead of our usual <code>ggplot</code> layers</span>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="species-distribution-modeling.html#cb6-1"></a><span class="co"># get minimum and maximum lat/longs</span></span>
-<span id="cb6-2"><a href="species-distribution-modeling.html#cb6-2"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>latitude))</span>
-<span id="cb6-3"><a href="species-distribution-modeling.html#cb6-3"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>latitude))</span>
-<span id="cb6-4"><a href="species-distribution-modeling.html#cb6-4"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>longitude))</span>
-<span id="cb6-5"><a href="species-distribution-modeling.html#cb6-5"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>longitude))</span>
-<span id="cb6-6"><a href="species-distribution-modeling.html#cb6-6"></a></span>
-<span id="cb6-7"><a href="species-distribution-modeling.html#cb6-7"></a><span class="co"># create an extent object of the range of observations</span></span>
-<span id="cb6-8"><a href="species-distribution-modeling.html#cb6-8"></a>geo_range &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="dt">x =</span> <span class="kw">c</span>(min.lon, max.lon, min.lat, max.lat))</span>
-<span id="cb6-9"><a href="species-distribution-modeling.html#cb6-9"></a></span>
-<span id="cb6-10"><a href="species-distribution-modeling.html#cb6-10"></a><span class="co"># get base map</span></span>
-<span id="cb6-11"><a href="species-distribution-modeling.html#cb6-11"></a><span class="kw">data</span>(wrld_simpl)</span>
-<span id="cb6-12"><a href="species-distribution-modeling.html#cb6-12"></a></span>
-<span id="cb6-13"><a href="species-distribution-modeling.html#cb6-13"></a><span class="co"># plot the base map</span></span>
-<span id="cb6-14"><a href="species-distribution-modeling.html#cb6-14"></a><span class="kw">plot</span>(wrld_simpl, </span>
-<span id="cb6-15"><a href="species-distribution-modeling.html#cb6-15"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
-<span id="cb6-16"><a href="species-distribution-modeling.html#cb6-16"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
-<span id="cb6-17"><a href="species-distribution-modeling.html#cb6-17"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb6-18"><a href="species-distribution-modeling.html#cb6-18"></a>     <span class="dt">col =</span> <span class="st">"grey75"</span>)</span>
-<span id="cb6-19"><a href="species-distribution-modeling.html#cb6-19"></a></span>
-<span id="cb6-20"><a href="species-distribution-modeling.html#cb6-20"></a><span class="co"># add individual occurrences</span></span>
-<span id="cb6-21"><a href="species-distribution-modeling.html#cb6-21"></a><span class="kw">points</span>(<span class="dt">x =</span> occurrence<span class="op">$</span>longitude, </span>
-<span id="cb6-22"><a href="species-distribution-modeling.html#cb6-22"></a>       <span class="dt">y =</span> occurrence<span class="op">$</span>latitude, </span>
-<span id="cb6-23"><a href="species-distribution-modeling.html#cb6-23"></a>       <span class="dt">col =</span> <span class="st">"darkorange"</span>, </span>
-<span id="cb6-24"><a href="species-distribution-modeling.html#cb6-24"></a>       <span class="dt">pch =</span> <span class="dv">20</span>, </span>
-<span id="cb6-25"><a href="species-distribution-modeling.html#cb6-25"></a>       <span class="dt">cex =</span> <span class="fl">0.75</span>)</span>
-<span id="cb6-26"><a href="species-distribution-modeling.html#cb6-26"></a></span>
-<span id="cb6-27"><a href="species-distribution-modeling.html#cb6-27"></a><span class="co"># draw box around figure</span></span>
-<span id="cb6-28"><a href="species-distribution-modeling.html#cb6-28"></a><span class="kw">box</span>()</span></code></pre></div>
+<p>We have queried only sightings in the United states, one of the first questions we should consider is what their geographic extent is and how they are distributed on a map<label for="tufte-sn-56" class="margin-toggle sidenote-number">56</label><input type="checkbox" id="tufte-sn-56" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">56</span> To keep it simple, we are going to use <code>base R</code> plotting functions instead of our usual <code>ggplot</code> layers</span>.</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="species-distribution-modeling.html#cb163-1"></a><span class="co"># get minimum and maximum lat/longs</span></span>
+<span id="cb163-2"><a href="species-distribution-modeling.html#cb163-2"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb163-3"><a href="species-distribution-modeling.html#cb163-3"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb163-4"><a href="species-distribution-modeling.html#cb163-4"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>longitude))</span>
+<span id="cb163-5"><a href="species-distribution-modeling.html#cb163-5"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>longitude))</span>
+<span id="cb163-6"><a href="species-distribution-modeling.html#cb163-6"></a></span>
+<span id="cb163-7"><a href="species-distribution-modeling.html#cb163-7"></a><span class="co"># create an extent object of the range of observations</span></span>
+<span id="cb163-8"><a href="species-distribution-modeling.html#cb163-8"></a>geo_range &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="dt">x =</span> <span class="kw">c</span>(min.lon, max.lon, min.lat, max.lat))</span>
+<span id="cb163-9"><a href="species-distribution-modeling.html#cb163-9"></a></span>
+<span id="cb163-10"><a href="species-distribution-modeling.html#cb163-10"></a><span class="co"># get base map</span></span>
+<span id="cb163-11"><a href="species-distribution-modeling.html#cb163-11"></a><span class="kw">data</span>(wrld_simpl)</span>
+<span id="cb163-12"><a href="species-distribution-modeling.html#cb163-12"></a></span>
+<span id="cb163-13"><a href="species-distribution-modeling.html#cb163-13"></a><span class="co"># plot the base map</span></span>
+<span id="cb163-14"><a href="species-distribution-modeling.html#cb163-14"></a><span class="kw">plot</span>(wrld_simpl, </span>
+<span id="cb163-15"><a href="species-distribution-modeling.html#cb163-15"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
+<span id="cb163-16"><a href="species-distribution-modeling.html#cb163-16"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
+<span id="cb163-17"><a href="species-distribution-modeling.html#cb163-17"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb163-18"><a href="species-distribution-modeling.html#cb163-18"></a>     <span class="dt">col =</span> <span class="st">"grey75"</span>)</span>
+<span id="cb163-19"><a href="species-distribution-modeling.html#cb163-19"></a></span>
+<span id="cb163-20"><a href="species-distribution-modeling.html#cb163-20"></a><span class="co"># add individual occurrences</span></span>
+<span id="cb163-21"><a href="species-distribution-modeling.html#cb163-21"></a><span class="kw">points</span>(<span class="dt">x =</span> occurrence<span class="op">$</span>longitude, </span>
+<span id="cb163-22"><a href="species-distribution-modeling.html#cb163-22"></a>       <span class="dt">y =</span> occurrence<span class="op">$</span>latitude, </span>
+<span id="cb163-23"><a href="species-distribution-modeling.html#cb163-23"></a>       <span class="dt">col =</span> <span class="st">"darkorange"</span>, </span>
+<span id="cb163-24"><a href="species-distribution-modeling.html#cb163-24"></a>       <span class="dt">pch =</span> <span class="dv">20</span>, </span>
+<span id="cb163-25"><a href="species-distribution-modeling.html#cb163-25"></a>       <span class="dt">cex =</span> <span class="fl">0.75</span>)</span>
+<span id="cb163-26"><a href="species-distribution-modeling.html#cb163-26"></a></span>
+<span id="cb163-27"><a href="species-distribution-modeling.html#cb163-27"></a><span class="co"># draw box around figure</span></span>
+<span id="cb163-28"><a href="species-distribution-modeling.html#cb163-28"></a><span class="kw">box</span>()</span></code></pre></div>
 <div class="figure">
-<span id="fig:unnamed-chunk-6"></span>
+<span id="fig:unnamed-chunk-166"></span>
 <p class="caption marginnote shownote">
 Figure 11.1: Map of Sasquatch sighting in the United States based on the BFRO database as of 2018.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-6-1.png" alt="Map of Sasquatch sighting in the United States based on the BFRO database as of 2018." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-166-1.png" alt="Map of Sasquatch sighting in the United States based on the BFRO database as of 2018." width="768">
 </div>
 <div id="ques:four" class="question">
 <p class="question-begin">
-► Question 11.4
+► Question 3.4
 </p>
 <div class="question-body">
 <p>
@@ -311,7 +320,7 @@ Give a brief descriptions of the spatial distribution of the occurrence of Sasqu
 </div>
 <div id="ques:five" class="question">
 <p class="question-begin">
-► Question 11.5
+► Question 3.5
 </p>
 <div class="question-body">
 <p>
@@ -322,51 +331,51 @@ Discuss some possible explanations for the patterns you have observed to determi
 </p>
 </div>
 </div>
-<p>Good catch - those sightings in the middle of the ocean are probably errors in the geo-coding. Further, we don’t know how reliable the data for Alaska is as this data set is based on opportunistic sightings<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> Well, admittedly if you poke around the BFRO website you will find that people do plan expeditions.</span>.</p>
+<p>Good catch - those sightings in the middle of the ocean are probably errors in the geo-coding. Further, we don’t know how reliable the data for Alaska is as this data set is based on opportunistic sightings<label for="tufte-sn-57" class="margin-toggle sidenote-number">57</label><input type="checkbox" id="tufte-sn-57" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">57</span> Well, admittedly if you poke around the BFRO website you will find that people do plan expeditions.</span>.</p>
 <p>The data for for observations in the lower 48 seems much more reliable, so let’s restrict our data to those observations.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="species-distribution-modeling.html#cb7-1"></a><span class="co"># load and filter data</span></span>
-<span id="cb7-2"><a href="species-distribution-modeling.html#cb7-2"></a>occurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb7-3"><a href="species-distribution-modeling.html#cb7-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
-<span id="cb7-4"><a href="species-distribution-modeling.html#cb7-4"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude),</span>
-<span id="cb7-5"><a href="species-distribution-modeling.html#cb7-5"></a>         longitude <span class="op">&gt;</span><span class="st"> </span><span class="dv">-130</span>,</span>
-<span id="cb7-6"><a href="species-distribution-modeling.html#cb7-6"></a>         latitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">55</span>)</span>
-<span id="cb7-7"><a href="species-distribution-modeling.html#cb7-7"></a></span>
-<span id="cb7-8"><a href="species-distribution-modeling.html#cb7-8"></a><span class="co"># get minimum and maximum lat/longs</span></span>
-<span id="cb7-9"><a href="species-distribution-modeling.html#cb7-9"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>latitude))</span>
-<span id="cb7-10"><a href="species-distribution-modeling.html#cb7-10"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>latitude))</span>
-<span id="cb7-11"><a href="species-distribution-modeling.html#cb7-11"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>longitude))</span>
-<span id="cb7-12"><a href="species-distribution-modeling.html#cb7-12"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>longitude))</span>
-<span id="cb7-13"><a href="species-distribution-modeling.html#cb7-13"></a></span>
-<span id="cb7-14"><a href="species-distribution-modeling.html#cb7-14"></a><span class="co"># create an extent object</span></span>
-<span id="cb7-15"><a href="species-distribution-modeling.html#cb7-15"></a>geo_range &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="dt">x =</span> <span class="kw">c</span>(min.lon, max.lon, min.lat, max.lat))</span>
-<span id="cb7-16"><a href="species-distribution-modeling.html#cb7-16"></a></span>
-<span id="cb7-17"><a href="species-distribution-modeling.html#cb7-17"></a><span class="co"># get base map</span></span>
-<span id="cb7-18"><a href="species-distribution-modeling.html#cb7-18"></a><span class="kw">data</span>(wrld_simpl)</span>
-<span id="cb7-19"><a href="species-distribution-modeling.html#cb7-19"></a></span>
-<span id="cb7-20"><a href="species-distribution-modeling.html#cb7-20"></a><span class="co"># plot the base map</span></span>
-<span id="cb7-21"><a href="species-distribution-modeling.html#cb7-21"></a><span class="kw">plot</span>(wrld_simpl, </span>
-<span id="cb7-22"><a href="species-distribution-modeling.html#cb7-22"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
-<span id="cb7-23"><a href="species-distribution-modeling.html#cb7-23"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
-<span id="cb7-24"><a href="species-distribution-modeling.html#cb7-24"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb7-25"><a href="species-distribution-modeling.html#cb7-25"></a>     <span class="dt">col =</span> <span class="st">"grey75"</span>)</span>
-<span id="cb7-26"><a href="species-distribution-modeling.html#cb7-26"></a></span>
-<span id="cb7-27"><a href="species-distribution-modeling.html#cb7-27"></a><span class="co"># add individual occurrences</span></span>
-<span id="cb7-28"><a href="species-distribution-modeling.html#cb7-28"></a><span class="kw">points</span>(<span class="dt">x =</span> occurrence<span class="op">$</span>longitude, </span>
-<span id="cb7-29"><a href="species-distribution-modeling.html#cb7-29"></a>       <span class="dt">y =</span> occurrence<span class="op">$</span>latitude, </span>
-<span id="cb7-30"><a href="species-distribution-modeling.html#cb7-30"></a>       <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
-<span id="cb7-31"><a href="species-distribution-modeling.html#cb7-31"></a>       <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
-<span id="cb7-32"><a href="species-distribution-modeling.html#cb7-32"></a>       <span class="dt">col =</span> <span class="st">"darkorange"</span>, </span>
-<span id="cb7-33"><a href="species-distribution-modeling.html#cb7-33"></a>       <span class="dt">pch =</span> <span class="dv">20</span>, </span>
-<span id="cb7-34"><a href="species-distribution-modeling.html#cb7-34"></a>       <span class="dt">cex =</span> <span class="fl">0.75</span>)</span>
-<span id="cb7-35"><a href="species-distribution-modeling.html#cb7-35"></a></span>
-<span id="cb7-36"><a href="species-distribution-modeling.html#cb7-36"></a><span class="co"># draw box around figure</span></span>
-<span id="cb7-37"><a href="species-distribution-modeling.html#cb7-37"></a><span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="species-distribution-modeling.html#cb164-1"></a><span class="co"># load and filter data</span></span>
+<span id="cb164-2"><a href="species-distribution-modeling.html#cb164-2"></a>occurrence &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bfro_reports_geocoded.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb164-3"><a href="species-distribution-modeling.html#cb164-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
+<span id="cb164-4"><a href="species-distribution-modeling.html#cb164-4"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude),</span>
+<span id="cb164-5"><a href="species-distribution-modeling.html#cb164-5"></a>         longitude <span class="op">&gt;</span><span class="st"> </span><span class="dv">-130</span>,</span>
+<span id="cb164-6"><a href="species-distribution-modeling.html#cb164-6"></a>         latitude <span class="op">&lt;</span><span class="st"> </span><span class="dv">55</span>)</span>
+<span id="cb164-7"><a href="species-distribution-modeling.html#cb164-7"></a></span>
+<span id="cb164-8"><a href="species-distribution-modeling.html#cb164-8"></a><span class="co"># get minimum and maximum lat/longs</span></span>
+<span id="cb164-9"><a href="species-distribution-modeling.html#cb164-9"></a>max.lat &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb164-10"><a href="species-distribution-modeling.html#cb164-10"></a>min.lat &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>latitude))</span>
+<span id="cb164-11"><a href="species-distribution-modeling.html#cb164-11"></a>max.lon &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">max</span>(occurrence<span class="op">$</span>longitude))</span>
+<span id="cb164-12"><a href="species-distribution-modeling.html#cb164-12"></a>min.lon &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">min</span>(occurrence<span class="op">$</span>longitude))</span>
+<span id="cb164-13"><a href="species-distribution-modeling.html#cb164-13"></a></span>
+<span id="cb164-14"><a href="species-distribution-modeling.html#cb164-14"></a><span class="co"># create an extent object</span></span>
+<span id="cb164-15"><a href="species-distribution-modeling.html#cb164-15"></a>geo_range &lt;-<span class="st"> </span><span class="kw">extent</span>(<span class="dt">x =</span> <span class="kw">c</span>(min.lon, max.lon, min.lat, max.lat))</span>
+<span id="cb164-16"><a href="species-distribution-modeling.html#cb164-16"></a></span>
+<span id="cb164-17"><a href="species-distribution-modeling.html#cb164-17"></a><span class="co"># get base map</span></span>
+<span id="cb164-18"><a href="species-distribution-modeling.html#cb164-18"></a><span class="kw">data</span>(wrld_simpl)</span>
+<span id="cb164-19"><a href="species-distribution-modeling.html#cb164-19"></a></span>
+<span id="cb164-20"><a href="species-distribution-modeling.html#cb164-20"></a><span class="co"># plot the base map</span></span>
+<span id="cb164-21"><a href="species-distribution-modeling.html#cb164-21"></a><span class="kw">plot</span>(wrld_simpl, </span>
+<span id="cb164-22"><a href="species-distribution-modeling.html#cb164-22"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
+<span id="cb164-23"><a href="species-distribution-modeling.html#cb164-23"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
+<span id="cb164-24"><a href="species-distribution-modeling.html#cb164-24"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb164-25"><a href="species-distribution-modeling.html#cb164-25"></a>     <span class="dt">col =</span> <span class="st">"grey75"</span>)</span>
+<span id="cb164-26"><a href="species-distribution-modeling.html#cb164-26"></a></span>
+<span id="cb164-27"><a href="species-distribution-modeling.html#cb164-27"></a><span class="co"># add individual occurrences</span></span>
+<span id="cb164-28"><a href="species-distribution-modeling.html#cb164-28"></a><span class="kw">points</span>(<span class="dt">x =</span> occurrence<span class="op">$</span>longitude, </span>
+<span id="cb164-29"><a href="species-distribution-modeling.html#cb164-29"></a>       <span class="dt">y =</span> occurrence<span class="op">$</span>latitude, </span>
+<span id="cb164-30"><a href="species-distribution-modeling.html#cb164-30"></a>       <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
+<span id="cb164-31"><a href="species-distribution-modeling.html#cb164-31"></a>       <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
+<span id="cb164-32"><a href="species-distribution-modeling.html#cb164-32"></a>       <span class="dt">col =</span> <span class="st">"darkorange"</span>, </span>
+<span id="cb164-33"><a href="species-distribution-modeling.html#cb164-33"></a>       <span class="dt">pch =</span> <span class="dv">20</span>, </span>
+<span id="cb164-34"><a href="species-distribution-modeling.html#cb164-34"></a>       <span class="dt">cex =</span> <span class="fl">0.75</span>)</span>
+<span id="cb164-35"><a href="species-distribution-modeling.html#cb164-35"></a></span>
+<span id="cb164-36"><a href="species-distribution-modeling.html#cb164-36"></a><span class="co"># draw box around figure</span></span>
+<span id="cb164-37"><a href="species-distribution-modeling.html#cb164-37"></a><span class="kw">box</span>()</span></code></pre></div>
 <div class="figure">
-<span id="fig:unnamed-chunk-7"></span>
+<span id="fig:unnamed-chunk-167"></span>
 <p class="caption marginnote shownote">
 Figure 11.2: Map of Sasquatch sighting in the lower 48 states based on the BFRO database as of 2018.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-7-1.png" alt="Map of Sasquatch sighting in the lower 48 states based on the BFRO database as of 2018." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-167-1.png" alt="Map of Sasquatch sighting in the lower 48 states based on the BFRO database as of 2018." width="768">
 </div>
 <p>This should work - on to the next step!</p>
 </div>
@@ -377,7 +386,7 @@ Figure 11.2: Map of Sasquatch sighting in the lower 48 states based on the BFRO 
 <p>We are going to use the bioclim data set from <a href="https://www.climond.org/BioclimRegistry.aspx#Table1">CliMond</a>. Bioclim variables are commonly used for species distribution modeling as they are based on long-term trends (as opposed to e.g. the exact conditions when the species was observed).</p>
 <div id="ques:six" class="question">
 <p class="question-begin">
-► Question 11.6
+► Question 3.6
 </p>
 <div class="question-body">
 <p>
@@ -390,25 +399,25 @@ Look up the descriptions of the <a href="https://www.climond.org/BioclimRegistry
 </div>
 <p>The data set we are using includes a core set of 19 variables that describe temperature and precipitation, along with an additional 16 variables that describe solar radiation and soil moisture.</p>
 <p>I have already downloaded the raster files of the historical (contemporary) bioclim data sets at a resolution of 10’ (minutes) into the data folder. The “historical” data set consists of data from 1961 - 1990 centered on 1975. A raster file is an image file consisting of pixels with data associated with it. In this case, our “pixels” are 10’ x 10’ and depending on the layer the value associated with each pixel is the value for that bioclim value at that geographic location.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="species-distribution-modeling.html#cb8-1"></a><span class="co"># get list of files</span></span>
-<span id="cb8-2"><a href="species-distribution-modeling.html#cb8-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_1975H'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
-<span id="cb8-3"><a href="species-distribution-modeling.html#cb8-3"></a></span>
-<span id="cb8-4"><a href="species-distribution-modeling.html#cb8-4"></a><span class="co"># import and convert to raster stack</span></span>
-<span id="cb8-5"><a href="species-distribution-modeling.html#cb8-5"></a>predictors &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="species-distribution-modeling.html#cb165-1"></a><span class="co"># get list of files</span></span>
+<span id="cb165-2"><a href="species-distribution-modeling.html#cb165-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_1975H'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
+<span id="cb165-3"><a href="species-distribution-modeling.html#cb165-3"></a></span>
+<span id="cb165-4"><a href="species-distribution-modeling.html#cb165-4"></a><span class="co"># import and convert to raster stack</span></span>
+<span id="cb165-5"><a href="species-distribution-modeling.html#cb165-5"></a>predictors &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span></code></pre></div>
 <p>We have now created an object that at its core consists of a list where each element is a layer (bioclim variable raster).</p>
 <p>Let’s plot the first bioclim variable (Bio01, annual mean temperature).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="species-distribution-modeling.html#cb9-1"></a><span class="kw">plot</span>(predictors<span class="op">@</span>layers[[<span class="dv">1</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="species-distribution-modeling.html#cb166-1"></a><span class="kw">plot</span>(predictors<span class="op">@</span>layers[[<span class="dv">1</span>]])</span></code></pre></div>
 <div class="figure">
-<span id="fig:unnamed-chunk-9"></span>
+<span id="fig:unnamed-chunk-169"></span>
 <p class="caption marginnote shownote">
 Figure 11.3: Global distribution of annual mean temperature (1961 - 1990, centered on 1975).
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-9-1.png" alt="Global distribution of annual mean temperature (1961 - 1990, centered on 1975)." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-169-1.png" alt="Global distribution of annual mean temperature (1961 - 1990, centered on 1975)." width="768">
 </div>
 <p>We see the pattern we would intuitively expect, with temperatures decreasing as you move poleward and being warmest around the poles.</p>
 <div id="ques:seven" class="question">
 <p class="question-begin">
-► Question 11.7
+► Question 3.7
 </p>
 <div class="question-body">
 <p>
@@ -425,17 +434,17 @@ Choose a range of 5 bioclim variables (this means, don’t just plot the first f
 <span class="header-section-number">11.4</span> Create species distribution model</h2>
 <p>Now we have all the information we need to build out model.</p>
 <p>The first thing we need to do is extract the values for each bioclim variable at our occurrence points (observations).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="species-distribution-modeling.html#cb10-1"></a><span class="co"># create df with just xy coordinates</span></span>
-<span id="cb10-2"><a href="species-distribution-modeling.html#cb10-2"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
-<span id="cb10-3"><a href="species-distribution-modeling.html#cb10-3"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
-<span id="cb10-4"><a href="species-distribution-modeling.html#cb10-4"></a></span>
-<span id="cb10-5"><a href="species-distribution-modeling.html#cb10-5"></a><span class="co"># crop bioclim data to geographic range</span></span>
-<span id="cb10-6"><a href="species-distribution-modeling.html#cb10-6"></a>cropped_predictors &lt;-<span class="st"> </span><span class="kw">crop</span>(<span class="dt">x =</span> predictors, <span class="dt">y =</span> geo_range)</span>
-<span id="cb10-7"><a href="species-distribution-modeling.html#cb10-7"></a></span>
-<span id="cb10-8"><a href="species-distribution-modeling.html#cb10-8"></a><span class="co"># extract values</span></span>
-<span id="cb10-9"><a href="species-distribution-modeling.html#cb10-9"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="species-distribution-modeling.html#cb167-1"></a><span class="co"># create df with just xy coordinates</span></span>
+<span id="cb167-2"><a href="species-distribution-modeling.html#cb167-2"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
+<span id="cb167-3"><a href="species-distribution-modeling.html#cb167-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(longitude, latitude)</span>
+<span id="cb167-4"><a href="species-distribution-modeling.html#cb167-4"></a></span>
+<span id="cb167-5"><a href="species-distribution-modeling.html#cb167-5"></a><span class="co"># crop bioclim data to geographic range</span></span>
+<span id="cb167-6"><a href="species-distribution-modeling.html#cb167-6"></a>cropped_predictors &lt;-<span class="st"> </span><span class="kw">crop</span>(<span class="dt">x =</span> predictors, <span class="dt">y =</span> geo_range)</span>
+<span id="cb167-7"><a href="species-distribution-modeling.html#cb167-7"></a></span>
+<span id="cb167-8"><a href="species-distribution-modeling.html#cb167-8"></a><span class="co"># extract values</span></span>
+<span id="cb167-9"><a href="species-distribution-modeling.html#cb167-9"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span></code></pre></div>
 <p>Let’s take a quick look at the first few rows and columns of the matrix we just created.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="species-distribution-modeling.html#cb11-1"></a><span class="kw">head</span>(presence[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="species-distribution-modeling.html#cb168-1"></a><span class="kw">head</span>(presence[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
 <pre><code>##      CM10_1975H_Bio01_V1.2 CM10_1975H_Bio02_V1.2 CM10_1975H_Bio03_V1.2
 ## [1,]              6.222110              12.33702             0.3082512
 ## [2,]              9.368294              12.92369             0.2992488
@@ -445,7 +454,7 @@ Choose a range of 5 bioclim variables (this means, don’t just plot the first f
 ## [6,]              3.327682              14.78337             0.3814484</code></pre>
 <div id="ques:eight" class="question">
 <p class="question-begin">
-► Question 11.8
+► Question 3.8
 </p>
 <div class="question-body">
 <p>
@@ -457,38 +466,38 @@ Briefly state what these values represent.
 </div>
 </div>
 <p>Our next step is to fit a bioclim model to the data set we just generated.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="species-distribution-modeling.html#cb13-1"></a><span class="co"># fit bioclim model</span></span>
-<span id="cb13-2"><a href="species-distribution-modeling.html#cb13-2"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span></code></pre></div>
-<p>The bioclim model is a classic climate-envelope-model<label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><input type="checkbox" id="tufte-sn-9" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">9</span> You may remember reading about this in your reading assignments.</span>.</p>
-<p>Briefly, the algorithm computes the similarity of locations by comparing the value of each environmental variables being used (our bioclim data set) to a distribution of that values at all locations with known presence<label for="tufte-sn-10" class="margin-toggle sidenote-number">10</label><input type="checkbox" id="tufte-sn-10" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">10</span> Also called the training sites; these are our occurrence points.</span>. The closer that value is to the median (50th percentile), the more suitable that location is assumed to be. Suitability scores are between 0 and 1, with 1 indicating a “perfect suitability”.)</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="species-distribution-modeling.html#cb170-1"></a><span class="co"># fit bioclim model</span></span>
+<span id="cb170-2"><a href="species-distribution-modeling.html#cb170-2"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span></code></pre></div>
+<p>The bioclim model is a classic climate-envelope-model<label for="tufte-sn-58" class="margin-toggle sidenote-number">58</label><input type="checkbox" id="tufte-sn-58" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">58</span> You may remember reading about this in your reading assignments.</span>.</p>
+<p>Briefly, the algorithm computes the similarity of locations by comparing the value of each environmental variables being used (our bioclim data set) to a distribution of that values at all locations with known presence<label for="tufte-sn-59" class="margin-toggle sidenote-number">59</label><input type="checkbox" id="tufte-sn-59" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">59</span> Also called the training sites; these are our occurrence points.</span>. The closer that value is to the median (50th percentile), the more suitable that location is assumed to be. Suitability scores are between 0 and 1, with 1 indicating a “perfect suitability”.)</p>
 <p>In general, there is no distinction between the tails of the distribution (i.e. the 90th and 10th percentile are equivalent), though in some implementations you can specify those to be treated as distinct. As a result e.g. low levels of precipitation could be limiting but high levels would not be.</p>
 <p>Finally, we will use our suitability scores and the bioclim raster data set to generate a predictive map of the Sasquatch species distribution. This means that the algorithm will assign a suitability score to each pixel based on the model and create a new raster layer.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="species-distribution-modeling.html#cb14-1"></a><span class="co"># generate raster with predicted distribution</span></span>
-<span id="cb14-2"><a href="species-distribution-modeling.html#cb14-2"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
-<span id="cb14-3"><a href="species-distribution-modeling.html#cb14-3"></a>                             <span class="dt">object =</span> model.fit,</span>
-<span id="cb14-4"><a href="species-distribution-modeling.html#cb14-4"></a>                             <span class="dt">ext =</span> geo_range)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="species-distribution-modeling.html#cb171-1"></a><span class="co"># generate raster with predicted distribution</span></span>
+<span id="cb171-2"><a href="species-distribution-modeling.html#cb171-2"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
+<span id="cb171-3"><a href="species-distribution-modeling.html#cb171-3"></a>                             <span class="dt">object =</span> model.fit,</span>
+<span id="cb171-4"><a href="species-distribution-modeling.html#cb171-4"></a>                             <span class="dt">ext =</span> geo_range)</span></code></pre></div>
 <p>Let’s plot our species distribution map.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="species-distribution-modeling.html#cb15-1"></a><span class="co"># plot model probabilities</span></span>
-<span id="cb15-2"><a href="species-distribution-modeling.html#cb15-2"></a><span class="kw">plot</span>(prediction,</span>
-<span id="cb15-3"><a href="species-distribution-modeling.html#cb15-3"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
-<span id="cb15-4"><a href="species-distribution-modeling.html#cb15-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
-<span id="cb15-5"><a href="species-distribution-modeling.html#cb15-5"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb15-6"><a href="species-distribution-modeling.html#cb15-6"></a></span>
-<span id="cb15-7"><a href="species-distribution-modeling.html#cb15-7"></a><span class="co"># add map</span></span>
-<span id="cb15-8"><a href="species-distribution-modeling.html#cb15-8"></a><span class="kw">plot</span>(wrld_simpl, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">"black"</span>)</span>
-<span id="cb15-9"><a href="species-distribution-modeling.html#cb15-9"></a></span>
-<span id="cb15-10"><a href="species-distribution-modeling.html#cb15-10"></a><span class="co"># draw box around it</span></span>
-<span id="cb15-11"><a href="species-distribution-modeling.html#cb15-11"></a><span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="species-distribution-modeling.html#cb172-1"></a><span class="co"># plot model probabilities</span></span>
+<span id="cb172-2"><a href="species-distribution-modeling.html#cb172-2"></a><span class="kw">plot</span>(prediction,</span>
+<span id="cb172-3"><a href="species-distribution-modeling.html#cb172-3"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
+<span id="cb172-4"><a href="species-distribution-modeling.html#cb172-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
+<span id="cb172-5"><a href="species-distribution-modeling.html#cb172-5"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb172-6"><a href="species-distribution-modeling.html#cb172-6"></a></span>
+<span id="cb172-7"><a href="species-distribution-modeling.html#cb172-7"></a><span class="co"># add map</span></span>
+<span id="cb172-8"><a href="species-distribution-modeling.html#cb172-8"></a><span class="kw">plot</span>(wrld_simpl, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">"black"</span>)</span>
+<span id="cb172-9"><a href="species-distribution-modeling.html#cb172-9"></a></span>
+<span id="cb172-10"><a href="species-distribution-modeling.html#cb172-10"></a><span class="co"># draw box around it</span></span>
+<span id="cb172-11"><a href="species-distribution-modeling.html#cb172-11"></a><span class="kw">box</span>()</span></code></pre></div>
 <div class="figure">
-<span id="fig:unnamed-chunk-14"></span>
+<span id="fig:unnamed-chunk-174"></span>
 <p class="caption marginnote shownote">
 Figure 11.4: Species distribution model for Sasquatch. Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-14-1.png" alt="Species distribution model for Sasquatch. Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-174-1.png" alt="Species distribution model for Sasquatch. Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
 </div>
 <div id="ques:nine" class="question">
 <p class="question-begin">
-► Question 11.9
+► Question 3.9
 </p>
 <div class="question-body">
 <p>
@@ -502,7 +511,7 @@ Give a brief description of the habitat suitability map, including the maximum p
 <p>Our highest habitat suitability values (probability of occurring) seem pretty low. One reason for this is that we used presence-only data.</p>
 <div id="ques:ten" class="question">
 <p class="question-begin">
-► Question 11.10
+► Question 3.10
 </p>
 <div class="question-body">
 <p>
@@ -515,7 +524,7 @@ The alternative to presence-only models is to have presence-absence data. Discus
 </div>
 <div id="ques:eleven" class="question">
 <p class="question-begin">
-► Question 11.11
+► Question 3.11
 </p>
 <div class="question-body">
 <p>
@@ -534,14 +543,14 @@ A work-around of not having absence data is to generate pseudo-absence data. Thi
 <p>Let’s look at how the species distribution map might change in response to a shift in environmental parameters.</p>
 <p>In your <code>data</code> directory I have placed a set of bioclim raster files for 2100 generated using the A1B and A2 scenarios. The A1 climate scenarios assume a more integrated world characterized by rapid economic growth, a global population that peaks at 9 billion (2050) and the gradually declines, rapid spread of new/efficient technologies, and a convergent world characterized by extensive worldwide social and cultural interactions. Scenario A1B further assumes a balanced emphasis on fossil and non-fossil fuels. By contrast, A2 scenarios assume a more divided world consisting of independently operating and self-reliant nations and regionally-oriented economic development. The population is assumed to continuously grow. Finally, this scenario is characterized by high emissions.</p>
 <p>Let’s start with the <strong>A1 climate scenario</strong> to create our species distribution model.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="species-distribution-modeling.html#cb16-1"></a><span class="co"># get list of files</span></span>
-<span id="cb16-2"><a href="species-distribution-modeling.html#cb16-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_2100_A1B'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
-<span id="cb16-3"><a href="species-distribution-modeling.html#cb16-3"></a></span>
-<span id="cb16-4"><a href="species-distribution-modeling.html#cb16-4"></a><span class="co"># import and convert to raster stack</span></span>
-<span id="cb16-5"><a href="species-distribution-modeling.html#cb16-5"></a>predictors_A1 &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="species-distribution-modeling.html#cb173-1"></a><span class="co"># get list of files</span></span>
+<span id="cb173-2"><a href="species-distribution-modeling.html#cb173-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_2100_A1B'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
+<span id="cb173-3"><a href="species-distribution-modeling.html#cb173-3"></a></span>
+<span id="cb173-4"><a href="species-distribution-modeling.html#cb173-4"></a><span class="co"># import and convert to raster stack</span></span>
+<span id="cb173-5"><a href="species-distribution-modeling.html#cb173-5"></a>predictors_A1 &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span></code></pre></div>
 <div id="ques:twelve" class="question">
 <p class="question-begin">
-► Question 11.12
+► Question 3.12
 </p>
 <div class="question-body">
 <p>
@@ -552,48 +561,48 @@ Use the same set of bioclim variables you plotted earlier and plot each one with
 </p>
 </div>
 </div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="species-distribution-modeling.html#cb17-1"></a><span class="kw">plot</span>(predictors_A1<span class="op">@</span>layers[[<span class="dv">1</span>]])</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672"></p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="species-distribution-modeling.html#cb174-1"></a><span class="kw">plot</span>(predictors_A1<span class="op">@</span>layers[[<span class="dv">1</span>]])</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="672"></p>
 <p>Now let’s fit our model and create predictive map.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="species-distribution-modeling.html#cb18-1"></a><span class="co"># create df with just xy coordinates</span></span>
-<span id="cb18-2"><a href="species-distribution-modeling.html#cb18-2"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
-<span id="cb18-3"><a href="species-distribution-modeling.html#cb18-3"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
-<span id="cb18-4"><a href="species-distribution-modeling.html#cb18-4"></a></span>
-<span id="cb18-5"><a href="species-distribution-modeling.html#cb18-5"></a><span class="co"># crop bioclim data to geographic range</span></span>
-<span id="cb18-6"><a href="species-distribution-modeling.html#cb18-6"></a>cropped_predictors &lt;-<span class="st"> </span><span class="kw">crop</span>(<span class="dt">x =</span> predictors_A1, <span class="dt">y =</span> geo_range)</span>
-<span id="cb18-7"><a href="species-distribution-modeling.html#cb18-7"></a></span>
-<span id="cb18-8"><a href="species-distribution-modeling.html#cb18-8"></a><span class="co"># extract values</span></span>
-<span id="cb18-9"><a href="species-distribution-modeling.html#cb18-9"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span>
-<span id="cb18-10"><a href="species-distribution-modeling.html#cb18-10"></a></span>
-<span id="cb18-11"><a href="species-distribution-modeling.html#cb18-11"></a><span class="co"># fit the bioclim model</span></span>
-<span id="cb18-12"><a href="species-distribution-modeling.html#cb18-12"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span>
-<span id="cb18-13"><a href="species-distribution-modeling.html#cb18-13"></a></span>
-<span id="cb18-14"><a href="species-distribution-modeling.html#cb18-14"></a><span class="co"># create raster layer of predicted distribution</span></span>
-<span id="cb18-15"><a href="species-distribution-modeling.html#cb18-15"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
-<span id="cb18-16"><a href="species-distribution-modeling.html#cb18-16"></a>                             <span class="dt">object =</span> model.fit,</span>
-<span id="cb18-17"><a href="species-distribution-modeling.html#cb18-17"></a>                             <span class="dt">ext =</span> geo_range)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="species-distribution-modeling.html#cb175-1"></a><span class="co"># create df with just xy coordinates</span></span>
+<span id="cb175-2"><a href="species-distribution-modeling.html#cb175-2"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
+<span id="cb175-3"><a href="species-distribution-modeling.html#cb175-3"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
+<span id="cb175-4"><a href="species-distribution-modeling.html#cb175-4"></a></span>
+<span id="cb175-5"><a href="species-distribution-modeling.html#cb175-5"></a><span class="co"># crop bioclim data to geographic range</span></span>
+<span id="cb175-6"><a href="species-distribution-modeling.html#cb175-6"></a>cropped_predictors &lt;-<span class="st"> </span><span class="kw">crop</span>(<span class="dt">x =</span> predictors_A1, <span class="dt">y =</span> geo_range)</span>
+<span id="cb175-7"><a href="species-distribution-modeling.html#cb175-7"></a></span>
+<span id="cb175-8"><a href="species-distribution-modeling.html#cb175-8"></a><span class="co"># extract values</span></span>
+<span id="cb175-9"><a href="species-distribution-modeling.html#cb175-9"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span>
+<span id="cb175-10"><a href="species-distribution-modeling.html#cb175-10"></a></span>
+<span id="cb175-11"><a href="species-distribution-modeling.html#cb175-11"></a><span class="co"># fit the bioclim model</span></span>
+<span id="cb175-12"><a href="species-distribution-modeling.html#cb175-12"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span>
+<span id="cb175-13"><a href="species-distribution-modeling.html#cb175-13"></a></span>
+<span id="cb175-14"><a href="species-distribution-modeling.html#cb175-14"></a><span class="co"># create raster layer of predicted distribution</span></span>
+<span id="cb175-15"><a href="species-distribution-modeling.html#cb175-15"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
+<span id="cb175-16"><a href="species-distribution-modeling.html#cb175-16"></a>                             <span class="dt">object =</span> model.fit,</span>
+<span id="cb175-17"><a href="species-distribution-modeling.html#cb175-17"></a>                             <span class="dt">ext =</span> geo_range)</span></code></pre></div>
 <p>Finally, let’s plot our species distribution map.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="species-distribution-modeling.html#cb19-1"></a><span class="co"># plot model probabilities</span></span>
-<span id="cb19-2"><a href="species-distribution-modeling.html#cb19-2"></a><span class="kw">plot</span>(prediction,</span>
-<span id="cb19-3"><a href="species-distribution-modeling.html#cb19-3"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
-<span id="cb19-4"><a href="species-distribution-modeling.html#cb19-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
-<span id="cb19-5"><a href="species-distribution-modeling.html#cb19-5"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb19-6"><a href="species-distribution-modeling.html#cb19-6"></a></span>
-<span id="cb19-7"><a href="species-distribution-modeling.html#cb19-7"></a><span class="co"># add map</span></span>
-<span id="cb19-8"><a href="species-distribution-modeling.html#cb19-8"></a><span class="kw">plot</span>(wrld_simpl, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">"black"</span>)</span>
-<span id="cb19-9"><a href="species-distribution-modeling.html#cb19-9"></a></span>
-<span id="cb19-10"><a href="species-distribution-modeling.html#cb19-10"></a><span class="co"># draw box around it</span></span>
-<span id="cb19-11"><a href="species-distribution-modeling.html#cb19-11"></a><span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="species-distribution-modeling.html#cb176-1"></a><span class="co"># plot model probabilities</span></span>
+<span id="cb176-2"><a href="species-distribution-modeling.html#cb176-2"></a><span class="kw">plot</span>(prediction,</span>
+<span id="cb176-3"><a href="species-distribution-modeling.html#cb176-3"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
+<span id="cb176-4"><a href="species-distribution-modeling.html#cb176-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
+<span id="cb176-5"><a href="species-distribution-modeling.html#cb176-5"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb176-6"><a href="species-distribution-modeling.html#cb176-6"></a></span>
+<span id="cb176-7"><a href="species-distribution-modeling.html#cb176-7"></a><span class="co"># add map</span></span>
+<span id="cb176-8"><a href="species-distribution-modeling.html#cb176-8"></a><span class="kw">plot</span>(wrld_simpl, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">"black"</span>)</span>
+<span id="cb176-9"><a href="species-distribution-modeling.html#cb176-9"></a></span>
+<span id="cb176-10"><a href="species-distribution-modeling.html#cb176-10"></a><span class="co"># draw box around it</span></span>
+<span id="cb176-11"><a href="species-distribution-modeling.html#cb176-11"></a><span class="kw">box</span>()</span></code></pre></div>
 <div class="figure">
-<span id="fig:unnamed-chunk-18"></span>
+<span id="fig:unnamed-chunk-178"></span>
 <p class="caption marginnote shownote">
 Figure 11.5: Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A1B). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-18-1.png" alt="Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A1B). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-178-1.png" alt="Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A1B). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
 </div>
 <div id="ques:thirteen" class="question">
 <p class="question-begin">
-► Question 11.13
+► Question 3.13
 </p>
 <div class="question-body">
 <p>
@@ -605,51 +614,51 @@ Give a brief description of the habitat suitability map, including the maximum p
 </div>
 </div>
 <p>How about our A2 climate scenario?.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="species-distribution-modeling.html#cb20-1"></a><span class="co"># get list of files</span></span>
-<span id="cb20-2"><a href="species-distribution-modeling.html#cb20-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_2100_A2'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
-<span id="cb20-3"><a href="species-distribution-modeling.html#cb20-3"></a></span>
-<span id="cb20-4"><a href="species-distribution-modeling.html#cb20-4"></a><span class="co"># import and convert to raster stack</span></span>
-<span id="cb20-5"><a href="species-distribution-modeling.html#cb20-5"></a>predictors_A2 &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span>
-<span id="cb20-6"><a href="species-distribution-modeling.html#cb20-6"></a></span>
-<span id="cb20-7"><a href="species-distribution-modeling.html#cb20-7"></a><span class="co"># create df with just xy coordinates</span></span>
-<span id="cb20-8"><a href="species-distribution-modeling.html#cb20-8"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
-<span id="cb20-9"><a href="species-distribution-modeling.html#cb20-9"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
-<span id="cb20-10"><a href="species-distribution-modeling.html#cb20-10"></a></span>
-<span id="cb20-11"><a href="species-distribution-modeling.html#cb20-11"></a><span class="co"># crop bioclim data to geographic range</span></span>
-<span id="cb20-12"><a href="species-distribution-modeling.html#cb20-12"></a>cropped_predictors &lt;-<span class="st"> </span><span class="kw">crop</span>(<span class="dt">x =</span> predictors_A2, <span class="dt">y =</span> geo_range)</span>
-<span id="cb20-13"><a href="species-distribution-modeling.html#cb20-13"></a></span>
-<span id="cb20-14"><a href="species-distribution-modeling.html#cb20-14"></a><span class="co"># extract values</span></span>
-<span id="cb20-15"><a href="species-distribution-modeling.html#cb20-15"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span>
-<span id="cb20-16"><a href="species-distribution-modeling.html#cb20-16"></a></span>
-<span id="cb20-17"><a href="species-distribution-modeling.html#cb20-17"></a><span class="co"># fit the bioclim model</span></span>
-<span id="cb20-18"><a href="species-distribution-modeling.html#cb20-18"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span>
-<span id="cb20-19"><a href="species-distribution-modeling.html#cb20-19"></a></span>
-<span id="cb20-20"><a href="species-distribution-modeling.html#cb20-20"></a><span class="co"># create raster layer of predicted distribution</span></span>
-<span id="cb20-21"><a href="species-distribution-modeling.html#cb20-21"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
-<span id="cb20-22"><a href="species-distribution-modeling.html#cb20-22"></a>                             <span class="dt">object =</span> model.fit,</span>
-<span id="cb20-23"><a href="species-distribution-modeling.html#cb20-23"></a>                             <span class="dt">ext =</span> geo_range)</span>
-<span id="cb20-24"><a href="species-distribution-modeling.html#cb20-24"></a></span>
-<span id="cb20-25"><a href="species-distribution-modeling.html#cb20-25"></a><span class="co"># plot model probabilities</span></span>
-<span id="cb20-26"><a href="species-distribution-modeling.html#cb20-26"></a><span class="kw">plot</span>(prediction,</span>
-<span id="cb20-27"><a href="species-distribution-modeling.html#cb20-27"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
-<span id="cb20-28"><a href="species-distribution-modeling.html#cb20-28"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
-<span id="cb20-29"><a href="species-distribution-modeling.html#cb20-29"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb20-30"><a href="species-distribution-modeling.html#cb20-30"></a></span>
-<span id="cb20-31"><a href="species-distribution-modeling.html#cb20-31"></a><span class="co"># add map</span></span>
-<span id="cb20-32"><a href="species-distribution-modeling.html#cb20-32"></a><span class="kw">plot</span>(wrld_simpl, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">"black"</span>)</span>
-<span id="cb20-33"><a href="species-distribution-modeling.html#cb20-33"></a></span>
-<span id="cb20-34"><a href="species-distribution-modeling.html#cb20-34"></a><span class="co"># draw box around it</span></span>
-<span id="cb20-35"><a href="species-distribution-modeling.html#cb20-35"></a><span class="kw">box</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="species-distribution-modeling.html#cb177-1"></a><span class="co"># get list of files</span></span>
+<span id="cb177-2"><a href="species-distribution-modeling.html#cb177-2"></a>files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">"data/"</span>, <span class="dt">pattern=</span><span class="st">'^CM10_2100_A2'</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span> )</span>
+<span id="cb177-3"><a href="species-distribution-modeling.html#cb177-3"></a></span>
+<span id="cb177-4"><a href="species-distribution-modeling.html#cb177-4"></a><span class="co"># import and convert to raster stack</span></span>
+<span id="cb177-5"><a href="species-distribution-modeling.html#cb177-5"></a>predictors_A2 &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span>
+<span id="cb177-6"><a href="species-distribution-modeling.html#cb177-6"></a></span>
+<span id="cb177-7"><a href="species-distribution-modeling.html#cb177-7"></a><span class="co"># create df with just xy coordinates</span></span>
+<span id="cb177-8"><a href="species-distribution-modeling.html#cb177-8"></a>xy &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
+<span id="cb177-9"><a href="species-distribution-modeling.html#cb177-9"></a><span class="st">  </span><span class="kw">select</span>(longitude, latitude)</span>
+<span id="cb177-10"><a href="species-distribution-modeling.html#cb177-10"></a></span>
+<span id="cb177-11"><a href="species-distribution-modeling.html#cb177-11"></a><span class="co"># crop bioclim data to geographic range</span></span>
+<span id="cb177-12"><a href="species-distribution-modeling.html#cb177-12"></a>cropped_predictors &lt;-<span class="st"> </span><span class="kw">crop</span>(<span class="dt">x =</span> predictors_A2, <span class="dt">y =</span> geo_range)</span>
+<span id="cb177-13"><a href="species-distribution-modeling.html#cb177-13"></a></span>
+<span id="cb177-14"><a href="species-distribution-modeling.html#cb177-14"></a><span class="co"># extract values</span></span>
+<span id="cb177-15"><a href="species-distribution-modeling.html#cb177-15"></a>presence &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(cropped_predictors, xy)</span>
+<span id="cb177-16"><a href="species-distribution-modeling.html#cb177-16"></a></span>
+<span id="cb177-17"><a href="species-distribution-modeling.html#cb177-17"></a><span class="co"># fit the bioclim model</span></span>
+<span id="cb177-18"><a href="species-distribution-modeling.html#cb177-18"></a>model.fit &lt;-<span class="st"> </span><span class="kw">bioclim</span>(presence)</span>
+<span id="cb177-19"><a href="species-distribution-modeling.html#cb177-19"></a></span>
+<span id="cb177-20"><a href="species-distribution-modeling.html#cb177-20"></a><span class="co"># create raster layer of predicted distribution</span></span>
+<span id="cb177-21"><a href="species-distribution-modeling.html#cb177-21"></a>prediction &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">predict</span>(<span class="dt">x =</span> cropped_predictors, </span>
+<span id="cb177-22"><a href="species-distribution-modeling.html#cb177-22"></a>                             <span class="dt">object =</span> model.fit,</span>
+<span id="cb177-23"><a href="species-distribution-modeling.html#cb177-23"></a>                             <span class="dt">ext =</span> geo_range)</span>
+<span id="cb177-24"><a href="species-distribution-modeling.html#cb177-24"></a></span>
+<span id="cb177-25"><a href="species-distribution-modeling.html#cb177-25"></a><span class="co"># plot model probabilities</span></span>
+<span id="cb177-26"><a href="species-distribution-modeling.html#cb177-26"></a><span class="kw">plot</span>(prediction,</span>
+<span id="cb177-27"><a href="species-distribution-modeling.html#cb177-27"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(min.lon, max.lon),</span>
+<span id="cb177-28"><a href="species-distribution-modeling.html#cb177-28"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(min.lat, max.lat),</span>
+<span id="cb177-29"><a href="species-distribution-modeling.html#cb177-29"></a>     <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb177-30"><a href="species-distribution-modeling.html#cb177-30"></a></span>
+<span id="cb177-31"><a href="species-distribution-modeling.html#cb177-31"></a><span class="co"># add map</span></span>
+<span id="cb177-32"><a href="species-distribution-modeling.html#cb177-32"></a><span class="kw">plot</span>(wrld_simpl, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">"black"</span>)</span>
+<span id="cb177-33"><a href="species-distribution-modeling.html#cb177-33"></a></span>
+<span id="cb177-34"><a href="species-distribution-modeling.html#cb177-34"></a><span class="co"># draw box around it</span></span>
+<span id="cb177-35"><a href="species-distribution-modeling.html#cb177-35"></a><span class="kw">box</span>()</span></code></pre></div>
 <div class="figure">
-<span id="fig:unnamed-chunk-19"></span>
+<span id="fig:unnamed-chunk-179"></span>
 <p class="caption marginnote shownote">
 Figure 11.6: Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A2). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability.
 </p>
-<img src="_main_files/figure-html/unnamed-chunk-19-1.png" alt="Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A2). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
+<img src="_main_files/figure-html/unnamed-chunk-179-1.png" alt="Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A2). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
 </div>
 <div id="ques:fourteen" class="question">
 <p class="question-begin">
-► Question 11.14
+► Question 3.14
 </p>
 <div class="question-body">
 <p>
@@ -662,7 +671,7 @@ Briefly compare this model to the previous two. Comment on whether you expected 
 </div>
 <div id="ques:fifteen" class="question">
 <p class="question-begin">
-► Question 11.15
+► Question 3.15
 </p>
 <div class="question-body">
 <p>
@@ -679,7 +688,7 @@ Discuss whether you think bioclim variables are good models to predict a species
 <span class="header-section-number">11.6</span> Shifting distributions impact species interactions.</h2>
 <div id="ques:sixteen" class="question">
 <p class="question-begin">
-► Question 11.16
+► Question 6.1
 </p>
 <div class="question-body">
 <p>
@@ -693,7 +702,7 @@ Our species distribution models and projected change with shifting environmental
 <p>Species do not live in isolation their ecological niche merely defined by the sum of the appropriate abiotic conditions, rather they also interact with other species in the ecosystem they inhabit. This means that they will not only be impacted by changes in abiotic conditions but also by changes in biotic conditions. This means that as other species they interact with and rely on for example as prey or as hosts are affected by climate change, species interactions will be affected as a whole and may have indirect effects that alter a species’ distribution and ultimately persistence.</p>
 <div id="ques:seventeen" class="question">
 <p class="question-begin">
-► Question 11.17
+► Question 6.2
 </p>
 <div class="question-body">
 <p>
@@ -737,7 +746,7 @@ In class we have discussed how climate change impacting the distribution and phe
 </table>
 <div id="ques:eighteen" class="question">
 <p class="question-begin">
-► Question 11.18
+► Question 6.3
 </p>
 <div class="question-body">
 <p>
@@ -749,17 +758,15 @@ Describe some factors that could make some of these host interactions being more
 </div>
 </div>
 <p>One effect of climate change could be that changes in the distribution of one or both species would result in less geographic overlap.</p>
-<p>In the <code>data</code> directory you will find tab-delimited files corresponding to the six species listed above. They contain occurrence data accessed from <code>iNaturalist</code><label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> You may remember iNaturalist as an app-based citizen science project where users upload pictures of species they observe in the wild and experts validate their observations to make the data more reliable.</span>.</p>
+<p>In the <code>data</code> directory you will find tab-delimited files corresponding to the six species listed above. They contain occurrence data accessed from <code>iNaturalist</code><label for="tufte-sn-60" class="margin-toggle sidenote-number">60</label><input type="checkbox" id="tufte-sn-60" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">60</span> You may remember iNaturalist as an app-based citizen science project where users upload pictures of species they observe in the wild and experts validate their observations to make the data more reliable.</span>.</p>
 <p>For the final component of this lab you will choose one of the butterfly-host species pairs and do the following. You may find it helpful to find a lab/coding bud to work through this final component. You may split the work looking up the species and compiling the necessary code and discuss your results but both of you should write up your own answers and you should make a note in your submission who your lab/coding bud is.</p>
-<ol style="list-style-type: decimal">
-<li><p>Use the IUCN red list data base to look up the two species. For each list their conservation status and their habitat/geographic range as described on the database (use bullet points to keep it short).</p></li>
-<li><p>A. Import the occurrence data for the butterfly species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.</p></li>
-<li><p>B. Import the occurrence data for the corresponding host species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.</p></li>
-<li><p>C. Compare the two species distribution maps to each other and comment how well it matches up with the information you got on habitat/geographic range from the IUCN Redlist database.</p></li>
-<li><p>A. Use the occurrence data for the butterfly species and <strong>one</strong> of the future bioclim data sets to generate a species distribution model for 2100 and plot a map of it.</p></li>
-<li><p>B. Use the occurrence data for the host species and <strong>the same</strong> future bioclim data set to generate a species distribution model for 2100 and plot a map of it.</p></li>
-<li><p>C. State which future bioclim data set you used, compare the two species distribution maps and assess how this biotic interaction could shape the future species distribution of the butterfly species along with changing abiotic conditions. Use your answer to Q17 to evaluate the extent to which this butterfly species could be affected by future climate change; remember to not also just consider changes in distribution but also potential habitat fragmentation.</p></li>
-</ol>
+<p>1A. Use the IUCN red list data base to look up the two species. For each list their conservation status and their habitat/geographic range as described on the database (use bullet points to keep it short).</p>
+<p>2A. Import the occurrence data for the butterfly species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.</p>
+<p>2B. Import the occurrence data for the corresponding host species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.</p>
+<p>2C. Compare the two species distribution maps to each other and comment how well it matches up with the information you got on habitat/geographic range from the IUCN Redlist database.</p>
+<p>3A. Use the occurrence data for the butterfly species and <strong>one</strong> of the future bioclim data sets to generate a species distribution model for 2100 and plot a map of it.</p>
+<p>3B. Use the occurrence data for the host species and <strong>the same</strong> future bioclim data set to generate a species distribution model for 2100 and plot a map of it.</p>
+<p>3C. State which future bioclim data set you used, compare the two species distribution maps and assess how this biotic interaction could shape the future species distribution of the butterfly species along with changing abiotic conditions. Use your answer to Q17 to evaluate the extent to which this butterfly species could be affected by future climate change; remember to not also just consider changes in distribution but also potential habitat fragmentation.</p>
 <p><br><br><br></p>
 </div>
 <div id="acknowledgments" class="section level2">

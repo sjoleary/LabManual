@@ -16,6 +16,12 @@
 
 <meta name="date" content="2020-10-28" />
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="5 Assessing sources &amp; calling bullsh*t | Lab Manual Conservation Biology Fall 2020">
 
@@ -27,6 +33,71 @@
 <script src="libs/accessible-code-block/empty-anchor.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="msmb.css" type="text/css" />
@@ -96,7 +167,7 @@ if(f.classList.contains('fa-plus-square')) {
 <span class="header-section-number">5</span> Assessing sources &amp; calling bullsh*t</h1>
 <p><strong>Date</strong>: 9/9/2020</p>
 <p><strong>Learning Objectives</strong></p>
-<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote">A large component of the content of this lab draws on Carl Bergstrom and Jevin West’s course and book on <a href="https://www.callingbullshit.org/">Calling Bullshit: The Art of Skepticism in a Data-Driven World</a>. Their course is online, including videos, it’s entertaining and informative. Put the book on your Christmas wishlist.</span></p>
+<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote">A large component of the content of this lab draws on Carl Bergstrom and Jevin West’s course and book on <a href="https://www.callingbullshit.org/">Calling Bullshit: The Art of Skepticism in a Data-Driven World</a>. Their course is online, including videos, it’s entertaining and informative. Put the book on your Christmas wishlist.</span></p>
 <p>After completing this lab you should</p>
 <ul>
 <li>understand the distinction between misinformation, disinformation, and propaganda.</li>
@@ -108,11 +179,11 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="terms-definitions." class="section level2">
 <h2>
 <span class="header-section-number">5.1</span> Terms &amp; Definitions.</h2>
-<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote">probably not <a href="https://www.york.ac.uk/depts/maths/histstat/lies.htm">Mark Twain</a></span></p>
+<p><label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote">probably not <a href="https://www.york.ac.uk/depts/maths/histstat/lies.htm">Mark Twain</a></span></p>
 <blockquote>
 <p><em>There are three kinds of lies, lies, damned lies, and statistics.</em></p>
 </blockquote>
-<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote">Harry G. Frankfort</span></p>
+<p><label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote">Harry G. Frankfort</span></p>
 <blockquote>
 <p><em>The bullshitter is neither on the side of the true or the side of the false. His eye is not on the facts at all. He does not reject the authority of the truth, as the liar does, and oppose himself to it. He pays no attention to it at all. By virtue of this, bullshit is a greater enemy of the truth than lies are.</em></p>
 </blockquote>
@@ -120,7 +191,7 @@ if(f.classList.contains('fa-plus-square')) {
 <p>In his book <code>On Bullshit</code>, Harry G. Frankfurt distinguishes between a <strong>liar</strong> who knows the truth and deliberately tries to convince somebody of something that is untrue and a <strong>bullshitter</strong> who either does not know the truth or does not care - their focus is solely on persuading the listener. The focus of this distinction is the blatant disregard for truth and a carelessness in how data and facts are used.</p>
 <div id="ques:one" class="question">
 <p class="question-begin">
-► Question 5.1
+► Question 3.1
 </p>
 <div class="question-body">
 <p>
@@ -135,18 +206,18 @@ Briefly compare and contrast Frankfort’s categories with the distinction betwe
 <div id="spotting-misinformationdisinformation" class="section level2">
 <h2>
 <span class="header-section-number">5.2</span> Spotting misinformation/disinformation</h2>
-<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote">still not Mark Twain - maybe Churchill?</span></p>
+<p><label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle"><span class="marginnote">still not Mark Twain - maybe Churchill?</span></p>
 <blockquote>
 <p><em>A lie can travel halfway around the world while the truth is still putting on its shoes.</em></p>
 </blockquote>
-<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote">Thomas Francklin, Sermons on Various Subjects, 1787</span></p>
+<p><label for="tufte-mn-10" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle"><span class="marginnote">Thomas Francklin, Sermons on Various Subjects, 1787</span></p>
 <blockquote>
 <p><em>Falsehood will fly, as it were, on the wings of the wind, and carry its tales to every corner of the earth; whilst truth lags behind; her steps, though sure, are slow and solemn, and she has neither vigor nor activity enough to pursue and overtake her enemy.</em></p>
 </blockquote>
 <p>Brandolini’s Law, also known as the BS asymmetry principle, states that the amount of energy needed to refute bullshite is an order of magnitude bigger than to produce it.</p>
 <div id="ques:two" class="question">
 <p class="question-begin">
-► Question 5.2
+► Question 3.2
 </p>
 <div class="question-body">
 <p>
@@ -189,7 +260,7 @@ Briefly give three arguments supporting this principle.
 <div id="by-using-some-common-sense-principles" class="section level3">
 <h3>
 <span class="header-section-number">5.2.1</span> … by using some common sense principles</h3>
-<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote">definitely my Dad. so. many. times.</span></p>
+<p><label for="tufte-mn-11" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle"><span class="marginnote">definitely my Dad. so. many. times.</span></p>
 <blockquote>
 <p><em>Remember to use your own brain.</em></p>
 </blockquote>
@@ -202,12 +273,12 @@ Briefly give three arguments supporting this principle.
 <li>What do they have to gain?</li>
 </ol>
 <p><br></p>
-<p><label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote">Unless it’s 2020…</span></p>
+<p><label for="tufte-mn-12" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle"><span class="marginnote">Unless it’s 2020…</span></p>
 <p><strong>If it’s to good or to bad to be true - it probably is</strong></p>
 <p>This principle is a close relative of <em>Occam’s Razor</em>, also known as the <em>Law of Parsimony</em>.</p>
 <div id="ques:three" class="question">
 <p class="question-begin">
-► Question 5.3
+► Question 3.3
 </p>
 <div class="question-body">
 <p>
@@ -223,7 +294,7 @@ Give a brief definition of Occam’s Razor and compare/contrast it to the idea t
 <p>This principle encompasses both <strong>confirmation bias</strong> and the dreaded <strong>echo chamber</strong> - another way of stating it is to not fall in love with your hypothesis and continue to entertain independent evidence.</p>
 <div id="ques:four" class="question">
 <p class="question-begin">
-► Question 5.4
+► Question 3.4
 </p>
 <div class="question-body">
 <p>
@@ -240,11 +311,11 @@ Briefly define the concepts of confirmation bias and the echo chamber. List some
 <p><br></p>
 <p><strong>Causation &amp; Correlation</strong></p>
 <p>There are two common logical fallacies that can be used to take a relationship of two variables to infer causation - <em>cum hoc ergo propter hoc</em> (with this, therefore because of this, i.e. correlation implies causation) and <em>post hoc ergo proper hoc</em> (after this, therefore because of this, i.e. because something occurred first it must be causing the later).</p>
-<p><label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote">How many more fancy latin phrases do I have up my sleeve? We shall probably never truly know… Is this an <em>exempli gratia</em> of using fancy language to obfuscate information? Also difficult to tell.</span>
+<p><label for="tufte-mn-13" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-13" class="margin-toggle"><span class="marginnote">How many more fancy latin phrases do I have up my sleeve? We shall probably never truly know… Is this an <em>exempli gratia</em> of using fancy language to obfuscate information? Also difficult to tell.</span>
 Taking this to <em>ad absurdum</em> we have fun examples involving <a href="https://www.nejm.org/doi/full/10.1056/nejmon1211064">chocolate and Nobel laureates</a> along with <a href="https://web.stanford.edu/class/hrp259/2007/regression/storke.pdf">storks and babies</a>. Both illustrate the fact that it is important to be careful when inferring causation, consider whether proxies are meaningful, whether there could be a common cause rather than correlation, and if there is a way to design manipulative experiments to determine causation. With increasingly large data sets it is easy to find a “signal” in a noisy data set and spin it into a story.</p>
 <div id="ques:five" class="question">
 <p class="question-begin">
-► Question 5.5
+► Question 3.5
 </p>
 <div class="question-body">
 <p>
@@ -267,7 +338,7 @@ Go to <a href="https://www.tylervigen.com/spurious-correlations">Spurious Correl
 <li>Not all sources are trustworthy</li>
 </ul>
 <p>This is important to keep in mind when watching science unfold in real time and out in the open via social media, pre-prints (before peer-review) and in media outlets. It is important to <a href="http://slow-science.org/">slow down</a> and give science an chance to breath and mature through discussion and testing.</p>
-<p><label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle"><span class="marginnote">See list of Media Outlet’s ranked by quality of their <a href="https://www.acsh.org/news/2017/03/05/infographic-best-and-worst-science-news-sites-10948">science reporting</a>.</span></p>
+<p><label for="tufte-mn-14" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-14" class="margin-toggle"><span class="marginnote">See list of Media Outlet’s ranked by quality of their <a href="https://www.acsh.org/news/2017/03/05/infographic-best-and-worst-science-news-sites-10948">science reporting</a>.</span></p>
 <p>“New studies find …” makes for a great headline, though unfortunately occasionally both deliberately and unintentionally by the time the “new study” is translated into a press release and that press release is written up in the media misinformation or disinformation may have sneaked in. This may include</p>
 <ul>
 <li>cherry-picking</li>
@@ -276,7 +347,7 @@ Go to <a href="https://www.tylervigen.com/spurious-correlations">Spurious Correl
 </ul>
 <div id="ques:six" class="question">
 <p class="question-begin">
-► Question 5.6
+► Question 3.6
 </p>
 <div class="question-body">
 <p>
@@ -308,19 +379,19 @@ Find a science article in from a respected(ish) news outlet and track down the o
 <li>Is color being used to manipulate?</li>
 </ul>
 <p><strong>Presentation</strong></p>
-<p><label for="tufte-mn-10" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle"><span class="marginnote">Augustus Welby Northmore Pugin</span></p>
+<p><label for="tufte-mn-15" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle"><span class="marginnote">Augustus Welby Northmore Pugin</span></p>
 <blockquote>
 <p><em>It is alright to decorate construction but never construct decoration.</em></p>
 </blockquote>
 <p>The presentation for a graph can easily be used for intentional manipulation and misrepresentation of the data. Two types of potentially misleading figures are Ducks and Glass slippers which fall more into the category of Frankfortian BS characterized by a carelessness towards accurately representing the data.</p>
-<p><label for="tufte-mn-11" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-11" class="margin-toggle"><span class="marginnote">Ducks are named after <a href="https://en.wikipedia.org/wiki/Big_Duck">Big_Duck</a> a building shaped like a duck built to sell duck and duck eggs.</span></p>
+<p><label for="tufte-mn-16" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-16" class="margin-toggle"><span class="marginnote">Ducks are named after <a href="https://en.wikipedia.org/wiki/Big_Duck">Big_Duck</a> a building shaped like a duck built to sell duck and duck eggs.</span></p>
 <p>Ducks are figures where the topic of the figure is reflected in the design itself, e.g. the global carbon footprint being shaped like a footprint, whereas a Glass slipper (mis)uses a very specific format meant to visualize a very specific thing (e.g. a periodic table) in an incorrect context that detracts more from the content than adds to it (and sometimes is quite confusing!).</p>
 </div>
 </div>
 <div id="primary-literature" class="section level2">
 <h2>
 <span class="header-section-number">5.3</span> Primary literature</h2>
-<p><label for="tufte-mn-12" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-12" class="margin-toggle"><span class="marginnote">Carl Sagan, The Demon-Haunted World: Science as a Candle in the Dark</span></p>
+<p><label for="tufte-mn-17" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-17" class="margin-toggle"><span class="marginnote">Carl Sagan, The Demon-Haunted World: Science as a Candle in the Dark</span></p>
 <blockquote>
 <p><em>At the heart of science is an essential balance between two seemingly contradictory attitudes – an openness to new ideas, no matter how bizarre or counterintuitive they may be, and the most ruthless skeptical scrutiny of all ideas, old, and new. This is how deep truths are winnowed from deep nonsense.</em></p>
 </blockquote>
@@ -330,7 +401,7 @@ Find a science article in from a respected(ish) news outlet and track down the o
 <p>Primary literature includes research articles, review articles, and method papers and is a description of original work geared toward a specialized audience. By contrast secondary literature is a presentation of results &amp; implications described in primary references.</p>
 <div id="ques:seven" class="question">
 <p class="question-begin">
-► Question 5.7
+► Question 3.7
 </p>
 <div class="question-body">
 <p>
@@ -365,7 +436,7 @@ List examples for primary literature and secondary literature. Give a brief desc
 <div id="reproducibility-crisis-scientific-misconduct" class="section level3">
 <h3>
 <span class="header-section-number">5.3.3</span> Reproducibility Crisis &amp; Scientific misconduct (?)</h3>
-<p><label for="tufte-mn-13" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-13" class="margin-toggle"><span class="marginnote">John Ioaniddis, An Epidemic of False Claims</span></p>
+<p><label for="tufte-mn-18" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-18" class="margin-toggle"><span class="marginnote">John Ioaniddis, An Epidemic of False Claims</span></p>
 <blockquote>
 <p><em>“False positives and exaggerated results in peer-reviewed scientific studies have reached epidemic proportions in recent years, The problem is rampant in economics, the social sciences and even the natural sciences, but it is particularly egregious in biomedicine”.</em></p>
 </blockquote>
@@ -376,7 +447,7 @@ List examples for primary literature and secondary literature. Give a brief desc
 <div id="guidelines-for-assessing-sources-on-the-interwebs" class="section level2">
 <h2>
 <span class="header-section-number">5.4</span> Guidelines for assessing sources on the interwebs</h2>
-<p><label for="tufte-mn-14" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-14" class="margin-toggle"><span class="marginnote"> Gertrude Stein</span></p>
+<p><label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle"><span class="marginnote"> Gertrude Stein</span></p>
 <blockquote>
 <p><em>Everybody gets so much information all day long that they loose their common sense.</em></p>
 </blockquote>
@@ -442,7 +513,7 @@ List examples for primary literature and secondary literature. Give a brief desc
 </ul>
 <div id="ques:eight" class="question">
 <p class="question-begin">
-► Question 5.8
+► Question 3.8
 </p>
 <div class="question-body">
 <p>

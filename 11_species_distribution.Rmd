@@ -72,6 +72,10 @@ install.packages("rgdal")
 install.packages("dismo")
 install.packages("tidyverse")
 
+library(conflicted)
+conflict_prefer("select", "dplyr")
+conflict_prefer("filter", "dplyr")
+
 ```
 
 
@@ -273,7 +277,7 @@ The first thing we need to do is extract the values for each bioclim variable at
 
 # create df with just xy coordinates
 xy <- occurrence %>%
-  select(longitude, latitude)
+  dplyr::select(longitude, latitude)
 
 # crop bioclim data to geographic range
 cropped_predictors <- crop(x = predictors, y = geo_range)

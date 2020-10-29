@@ -16,6 +16,12 @@
 
 <meta name="date" content="2020-10-28" />
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="9 Habitat Fragmentation | Lab Manual Conservation Biology Fall 2020">
 
@@ -175,8 +181,8 @@ if(f.classList.contains('fa-plus-square')) {
 </ol>
 <p>Each of these effects in turn impacts biodiversity in a negative way.</p>
 <ol style="list-style-type: decimal">
-<li>Patch area/overall available habitat is lost; smaller areas support fewer species and individuals<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Principle: Species-Area relationship; see Island Biogeography</span>. Smaller populations are more vulnerable to stochastic events &amp; processes.</li>
-<li>The more isolated populations (direct or resistance distance from other populations/habitat patches), the less chance immigrants from other populations can ‘rescue’ a population if there is a local extirpation or other stochastic events<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Princple: Relationship of Immigration Rate/distance; see Island Biogeography - also see Metapopulations</span>.</li>
+<li>Patch area/overall available habitat is lost; smaller areas support fewer species and individuals<label for="tufte-sn-47" class="margin-toggle sidenote-number">47</label><input type="checkbox" id="tufte-sn-47" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">47</span> Principle: Species-Area relationship; see Island Biogeography</span>. Smaller populations are more vulnerable to stochastic events &amp; processes.</li>
+<li>The more isolated populations (direct or resistance distance from other populations/habitat patches), the less chance immigrants from other populations can ‘rescue’ a population if there is a local extirpation or other stochastic events<label for="tufte-sn-48" class="margin-toggle sidenote-number">48</label><input type="checkbox" id="tufte-sn-48" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">48</span> Princple: Relationship of Immigration Rate/distance; see Island Biogeography - also see Metapopulations</span>.</li>
 <li>Edge habitat is already degraded habitat, in addition there can be changes in the microclimate changing the abiotic conditions (ecological niche is altered), invasive species frequently infiltrate and may outcompete native species. These effects all contribute to a positive feedback loops that increasingly degrades and fragments the habitat landscape.</li>
 </ol>
 <p>In sum, habitat fragmentation results in the drastic decline of the quantity &amp; quality of habitats resulting in habitats too small to support specific species (e.g. need large territory) or support high species richness, large amount of degraded edge habitat is created, and finally species may be forced into meta-population structures that are increasingly vulnerable to stochastic effects.</p>
@@ -185,7 +191,7 @@ if(f.classList.contains('fa-plus-square')) {
 <span class="header-section-number">9.1</span> Edge habitat</h2>
 <div id="ques:one" class="question">
 <p class="question-begin">
-► Question 9.1
+► Question 3.1
 </p>
 <div class="question-body">
 <p>
@@ -198,7 +204,7 @@ Consider a square patch that is 16x16km in size. Calculate the area, the perimet
 </div>
 <div id="ques:two" class="question">
 <p class="question-begin">
-► Question 9.2
+► Question 3.2
 </p>
 <div class="question-body">
 <p>
@@ -214,20 +220,20 @@ Patch shape can also affect the amount of edge habitat created. Which shape do y
 <p>Start at 100% remaining habitat and hit <code>Reset</code>. Use the provided excel spreadsheet in your <code>data</code> directory to record the percent edge habitat and interior habitat as you work your way down to 0% remaining habitat in 5% increments.</p>
 <p>Save your results as a tab-delimited file in the <code>data</code> sub-directory of your project folder as <code>habitat_fragmentation.txt</code>.</p>
 <p>Let’s compare the relationship of edge habitat and interior habitat to the proportion of habitat remaining in an increasingly fragmented landscape.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="habitat-fragmentation.html#cb1-1"></a><span class="co"># read data (make sure your file path is correc)</span></span>
-<span id="cb1-2"><a href="habitat-fragmentation.html#cb1-2"></a>fragm &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/habitat_fragmentation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1-3"><a href="habitat-fragmentation.html#cb1-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to =</span> <span class="st">"HABITAT_TYPE"</span>, <span class="dt">values_to =</span> <span class="st">"PERCENT"</span>)</span>
-<span id="cb1-4"><a href="habitat-fragmentation.html#cb1-4"></a></span>
-<span id="cb1-5"><a href="habitat-fragmentation.html#cb1-5"></a><span class="co"># plot the data</span></span>
-<span id="cb1-6"><a href="habitat-fragmentation.html#cb1-6"></a><span class="kw">ggplot</span>(fragm, <span class="kw">aes</span>(<span class="dt">x =</span> HABITAT_REMAINING, <span class="dt">y =</span> PERCENT, <span class="dt">color =</span> HABITAT_TYPE)) <span class="op">+</span></span>
-<span id="cb1-7"><a href="habitat-fragmentation.html#cb1-7"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb1-8"><a href="habitat-fragmentation.html#cb1-8"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb1-9"><a href="habitat-fragmentation.html#cb1-9"></a><span class="st">  </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span></span>
-<span id="cb1-10"><a href="habitat-fragmentation.html#cb1-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"percent remaining habitat"</span>, <span class="dt">y =</span> <span class="st">"percent habitat type"</span>) <span class="op">+</span></span>
-<span id="cb1-11"><a href="habitat-fragmentation.html#cb1-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="habitat-fragmentation.html#cb153-1"></a><span class="co"># read data (make sure your file path is correc)</span></span>
+<span id="cb153-2"><a href="habitat-fragmentation.html#cb153-2"></a>fragm &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/habitat_fragmentation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb153-3"><a href="habitat-fragmentation.html#cb153-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to =</span> <span class="st">"HABITAT_TYPE"</span>, <span class="dt">values_to =</span> <span class="st">"PERCENT"</span>)</span>
+<span id="cb153-4"><a href="habitat-fragmentation.html#cb153-4"></a></span>
+<span id="cb153-5"><a href="habitat-fragmentation.html#cb153-5"></a><span class="co"># plot the data</span></span>
+<span id="cb153-6"><a href="habitat-fragmentation.html#cb153-6"></a><span class="kw">ggplot</span>(fragm, <span class="kw">aes</span>(<span class="dt">x =</span> HABITAT_REMAINING, <span class="dt">y =</span> PERCENT, <span class="dt">color =</span> HABITAT_TYPE)) <span class="op">+</span></span>
+<span id="cb153-7"><a href="habitat-fragmentation.html#cb153-7"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb153-8"><a href="habitat-fragmentation.html#cb153-8"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb153-9"><a href="habitat-fragmentation.html#cb153-9"></a><span class="st">  </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span></span>
+<span id="cb153-10"><a href="habitat-fragmentation.html#cb153-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"percent remaining habitat"</span>, <span class="dt">y =</span> <span class="st">"percent habitat type"</span>) <span class="op">+</span></span>
+<span id="cb153-11"><a href="habitat-fragmentation.html#cb153-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
 <div id="ques:three" class="question">
 <p class="question-begin">
-► Question 9.3
+► Question 3.3
 </p>
 <div class="question-body">
 <p>
@@ -240,7 +246,7 @@ Describe and interpret your results (this should include both comparing/contrast
 </div>
 <div id="ques:four" class="question">
 <p class="question-begin">
-► Question 9.4
+► Question 3.4
 </p>
 <div class="question-body">
 <p>
@@ -259,7 +265,7 @@ Define edge habitat and explain why it generally has a negative impact on biodiv
 <p>In this context, one effect of fragmentation is that species may be forced into a meta-population structure.</p>
 <div id="ques:five" class="question">
 <p class="question-begin">
-► Question 9.5
+► Question 3.5
 </p>
 <div class="question-body">
 <p>
@@ -280,19 +286,19 @@ Define what a meta-population is by briefly describing its defining characterist
 <p>You may choose a buddy to split the workload with. Please note if you are sharing a data set with somebody in your homework submission.</p>
 <p>Once you have a complete data set, save it as a tab-delimited file <code>isolation.txt</code> in your <code>data</code> directory.</p>
 <p>Let’s check out our results.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="habitat-fragmentation.html#cb2-1"></a><span class="co"># read data</span></span>
-<span id="cb2-2"><a href="habitat-fragmentation.html#cb2-2"></a>isol &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/isolation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
-<span id="cb2-3"><a href="habitat-fragmentation.html#cb2-3"></a></span>
-<span id="cb2-4"><a href="habitat-fragmentation.html#cb2-4"></a><span class="co"># plot data</span></span>
-<span id="cb2-5"><a href="habitat-fragmentation.html#cb2-5"></a><span class="kw">ggplot</span>(isol, <span class="kw">aes</span>(<span class="dt">x =</span> REMAINING_HABITAT, <span class="dt">y =</span> MOVES, <span class="dt">color =</span> CROSS)) <span class="op">+</span></span>
-<span id="cb2-6"><a href="habitat-fragmentation.html#cb2-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb2-7"><a href="habitat-fragmentation.html#cb2-7"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb2-8"><a href="habitat-fragmentation.html#cb2-8"></a><span class="st">  </span><span class="kw">facet_grid</span>(CROSS <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
-<span id="cb2-9"><a href="habitat-fragmentation.html#cb2-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"% remaining habitat"</span>, <span class="dt">y =</span> <span class="st">"moves needed/possible"</span>) <span class="op">+</span></span>
-<span id="cb2-10"><a href="habitat-fragmentation.html#cb2-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="habitat-fragmentation.html#cb154-1"></a><span class="co"># read data</span></span>
+<span id="cb154-2"><a href="habitat-fragmentation.html#cb154-2"></a>isol &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/isolation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb154-3"><a href="habitat-fragmentation.html#cb154-3"></a></span>
+<span id="cb154-4"><a href="habitat-fragmentation.html#cb154-4"></a><span class="co"># plot data</span></span>
+<span id="cb154-5"><a href="habitat-fragmentation.html#cb154-5"></a><span class="kw">ggplot</span>(isol, <span class="kw">aes</span>(<span class="dt">x =</span> REMAINING_HABITAT, <span class="dt">y =</span> MOVES, <span class="dt">color =</span> CROSS)) <span class="op">+</span></span>
+<span id="cb154-6"><a href="habitat-fragmentation.html#cb154-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb154-7"><a href="habitat-fragmentation.html#cb154-7"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb154-8"><a href="habitat-fragmentation.html#cb154-8"></a><span class="st">  </span><span class="kw">facet_grid</span>(CROSS <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb154-9"><a href="habitat-fragmentation.html#cb154-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"% remaining habitat"</span>, <span class="dt">y =</span> <span class="st">"moves needed/possible"</span>) <span class="op">+</span></span>
+<span id="cb154-10"><a href="habitat-fragmentation.html#cb154-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
 <div id="ques:six" class="question">
 <p class="question-begin">
-► Question 9.6
+► Question 3.6
 </p>
 <div class="question-body">
 <p>

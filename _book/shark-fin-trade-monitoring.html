@@ -16,6 +16,12 @@
 
 <meta name="date" content="2020-10-28" />
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 <meta name="description" content="12 Shark fin trade monitoring | Lab Manual Conservation Biology Fall 2020">
 
@@ -200,7 +206,7 @@ if(f.classList.contains('fa-plus-square')) {
 <p>To be able to do this you need a gene that is present in all (or a significantly large group of species), flanked by conserved regions across a wide range of species so that universal primers can be designed. Further, the gene must be variable among species but conserved within a species.</p>
 <div id="ques:one" class="question">
 <p class="question-begin">
-► Question 12.1
+► Question 3.1
 </p>
 <div class="question-body">
 <p>
@@ -228,7 +234,7 @@ For Eukaryotes Cytochromeoxidase I has emerged as the barcoding gene. Explain ho
 </ol>
 <div id="ques:two" class="question">
 <p class="question-begin">
-► Question 12.2
+► Question 3.2
 </p>
 <div class="question-body">
 <p>
@@ -248,7 +254,7 @@ DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, �
 <p>In the late 90s and early 2000s, fisheries-driven declines of some shark species were linked to the fin trade. Despite the fin trade comprising a valuable global trade, monitoring it on a species-specific basis is difficult as few countries with commercial or subsistence shark fisheries keep accurate records or regulate specific shark fisheries. As a result, it can be difficult to quantify the impact of the fin trade on specific shark populations/species and resulting declines.</p>
 <div id="ques:three" class="question">
 <p class="question-begin">
-► Question 12.3
+► Question 3.3
 </p>
 <div class="question-body">
 <p>
@@ -259,10 +265,10 @@ Based on sharks position in the trophic level, their habitat, geographic range(s
 </p>
 </div>
 </div>
-<p>Historically, mainland China is the world’s second largest importer of shark fins after Hong Kong and primary consumer of shark fin soup. The fins used for shark fin soup are the cartilaginous dorsal, pectoral, and caudal fins. Most global shark catch and trade data is aggregated and due to the use of a variety of common names for (groups of sharks) it is difficult to trace products through supply chains and understand the pressure on shark populations due to fishing. Understanding the species composition of shark fin markets and monitoring the trade is becoming increasingly important, partially to regulate trade of CITES-listed sharks. Agency challenged with enforcing trade restrictions and uncovering illegal trade frequently cite difficulties for species identification of fins once they have been cut-off of the shark<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> The argument is that all shark fins look the same - <a href="https://www.identifyingsharkfins.org/">or do they</a>? Significant efforts have been made to develop dichotomous keys to allow for straightforward identification by law enforcement.</span></p>
+<p>Historically, mainland China is the world’s second largest importer of shark fins after Hong Kong and primary consumer of shark fin soup. The fins used for shark fin soup are the cartilaginous dorsal, pectoral, and caudal fins. Most global shark catch and trade data is aggregated and due to the use of a variety of common names for (groups of sharks) it is difficult to trace products through supply chains and understand the pressure on shark populations due to fishing. Understanding the species composition of shark fin markets and monitoring the trade is becoming increasingly important, partially to regulate trade of CITES-listed sharks. Agency challenged with enforcing trade restrictions and uncovering illegal trade frequently cite difficulties for species identification of fins once they have been cut-off of the shark<label for="tufte-sn-61" class="margin-toggle sidenote-number">61</label><input type="checkbox" id="tufte-sn-61" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">61</span> The argument is that all shark fins look the same - <a href="https://www.identifyingsharkfins.org/">or do they</a>? Significant efforts have been made to develop dichotomous keys to allow for straightforward identification by law enforcement.</span></p>
 <div id="ques:four" class="question">
 <p class="question-begin">
-► Question 12.4
+► Question 3.4
 </p>
 <div class="question-body">
 <p>
@@ -276,7 +282,7 @@ Consider what type of information/samples you would need to identify illegally t
 <p>Because there is a general apprehension of importers and retailers to donate fins or provide other samples for genetic testing and buying fins at a sufficiently large scale is prohibitively expensive, there have been several studies that use trimmings produced during processing of fins at which time excess skin, muscle, and cartilage is removed. These trimmings are collected and sold for comparatively low prices.</p>
 <div id="ques:five" class="question">
 <p class="question-begin">
-► Question 12.5
+► Question 3.5
 </p>
 <div class="question-body">
 <p>
@@ -299,7 +305,7 @@ Briefly discuss the advantages and limitations of using trimmings as proxy for f
 <p>We will use the Basic Local Alignment Tool, <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to compare our sequences to COI sequences that have been deposited in <code>genbank</code>.</p>
 <p>To do this go to the BLAST <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">website</a>. Here, you can choose a BLAST program to run. We will be doing a nucleotide blast, so select that option.</p>
 <p>Now, open the <code>multi-fasta</code> file so you can take a look at the sequences. You can do this by clicking on it in the file navigation pane (bottom left), it will then open in your Viewer pane in Rstudio (top right).</p>
-<p>Chose a random sequence, highlight just the sequence information and copy it to your clipboard<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> You can use <code>CTRL+C</code>/<code>Command+C</code> or <code>right click</code> and select <code>copy</code>.</span>.</p>
+<p>Chose a random sequence, highlight just the sequence information and copy it to your clipboard<label for="tufte-sn-62" class="margin-toggle sidenote-number">62</label><input type="checkbox" id="tufte-sn-62" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">62</span> You can use <code>CTRL+C</code>/<code>Command+C</code> or <code>right click</code> and select <code>copy</code>.</span>.</p>
 <p>Now, in the browser window with <code>Blast</code> open, paste your sequence into the box <code>Enter Query Sequence</code>.</p>
 <p>Next, select the database to be searched: <code>Nucleotide Collection (nr/nt)</code>.</p>
 <p>In general, your <code>Program Selection</code> will be based on the goal of your search. Here, you are attempting to identify an unknown sample – so we will use <code>highly similar sequences (megablast)</code>. Other options are more dissimilar sequences (<code>discontinuous megablast</code>) to be used to find closely related species and somewhat similar sequences (<code>blastn</code>) to be used for short (&lt;20bp) searches.</p>
@@ -312,7 +318,7 @@ Briefly discuss the advantages and limitations of using trimmings as proxy for f
 <p>The pairwise alignment compares your query (unknown) sequence to the subject (result) sequence. Your query will generally begin at nucleotide 1, though the best matching subject sequence might not.</p>
 <div id="ques:six" class="question">
 <p class="question-begin">
-► Question 12.6
+► Question 3.6
 </p>
 <div class="question-body">
 <p>
@@ -328,43 +334,43 @@ Select a set of five random sequences from the fasta file and perform a blast. F
 <div id="species-composition-of-a-shark-fin-market" class="section level2">
 <h2>
 <span class="header-section-number">12.5</span> Species composition of a shark fin market</h2>
-<p>Let’s load our <code>tidyverse</code> libraries so we can analyze the data set<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="shark-fin-trade-monitoring.html#cb1-1"></a><span class="co"># load libraries</span></span>
-<span id="cb1-2"><a href="shark-fin-trade-monitoring.html#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="shark-fin-trade-monitoring.html#cb1-3"></a><span class="kw">library</span>(ggthemes)</span>
-<span id="cb1-4"><a href="shark-fin-trade-monitoring.html#cb1-4"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<p>Let’s load our <code>tidyverse</code> libraries so we can analyze the data set<label for="tufte-sn-63" class="margin-toggle sidenote-number">63</label><input type="checkbox" id="tufte-sn-63" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">63</span> Note: any time you start a new <code>Rsession</code> this is the code chunk you will need to re-run!</span>.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="shark-fin-trade-monitoring.html#cb178-1"></a><span class="co"># load libraries</span></span>
+<span id="cb178-2"><a href="shark-fin-trade-monitoring.html#cb178-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb178-3"><a href="shark-fin-trade-monitoring.html#cb178-3"></a><span class="kw">library</span>(ggthemes)</span>
+<span id="cb178-4"><a href="shark-fin-trade-monitoring.html#cb178-4"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <p>The first thing we need to do is read in our blast results.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="shark-fin-trade-monitoring.html#cb2-1"></a>fins &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/fin_blastresults.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="shark-fin-trade-monitoring.html#cb179-1"></a>fins &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/fin_blastresults.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
 <p>Let’s take a look at the information in the data frame.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="shark-fin-trade-monitoring.html#cb3-1"></a><span class="kw">head</span>(fins)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="shark-fin-trade-monitoring.html#cb180-1"></a><span class="kw">head</span>(fins)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
-##   qseqid    qlen sacc     slen   evalue pident length qcovhsp sp                
-##   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;             
-## 1 GZ11_154   122 KF0208~ 16692 1.81e-53   99.2    122      99 Alopias_pelagicus 
-## 2 GZ3_145    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
-## 3 GZ3_181    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
-## 4 GZ3_182    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
-## 5 GZ3_183    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~
-## 6 GZ3_184    139 HM1471~ 16758 9.88e-62   98.6    139     100 Callorhinchus_cal~</code></pre>
+##   qseqid    qlen sacc      slen   evalue pident length qcovhsp sp                        
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                     
+## 1 GZ11_154   122 KF020876 16692 1.81e-53   99.2    122      99 Alopias_pelagicus         
+## 2 GZ3_145    139 HM147135 16758 9.88e-62   98.6    139     100 Callorhinchus_callorynchus
+## 3 GZ3_181    139 HM147135 16758 9.88e-62   98.6    139     100 Callorhinchus_callorynchus
+## 4 GZ3_182    139 HM147135 16758 9.88e-62   98.6    139     100 Callorhinchus_callorynchus
+## 5 GZ3_183    139 HM147135 16758 9.88e-62   98.6    139     100 Callorhinchus_callorynchus
+## 6 GZ3_184    139 HM147135 16758 9.88e-62   98.6    139     100 Callorhinchus_callorynchus</code></pre>
 <p>The first column gives us the squence ID and the last column the species ID. You should recognize the information from the column <code>evalue</code> and <code>pident</code> from your blast searches.</p>
 <p>Currently, the species information is in a single column. Let’s turn that into two, one for the genus and one for the species name.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="shark-fin-trade-monitoring.html#cb5-1"></a>fins &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
-<span id="cb5-2"><a href="shark-fin-trade-monitoring.html#cb5-2"></a><span class="st">  </span><span class="kw">separate</span>(sp, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"genus"</span>, <span class="st">"species"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>, <span class="dt">remove =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="shark-fin-trade-monitoring.html#cb182-1"></a>fins &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
+<span id="cb182-2"><a href="shark-fin-trade-monitoring.html#cb182-2"></a><span class="st">  </span><span class="kw">separate</span>(sp, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"genus"</span>, <span class="st">"species"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>, <span class="dt">remove =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>Now, our first question is how many different species do we have in the data set and how many samples do we have per species, let’s also calculate the relative proportions per species.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="shark-fin-trade-monitoring.html#cb6-1"></a>sp_counts &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
-<span id="cb6-2"><a href="shark-fin-trade-monitoring.html#cb6-2"></a><span class="st">  </span><span class="kw">group_by</span>(genus, species) <span class="op">%&gt;%</span></span>
-<span id="cb6-3"><a href="shark-fin-trade-monitoring.html#cb6-3"></a><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span></span>
-<span id="cb6-4"><a href="shark-fin-trade-monitoring.html#cb6-4"></a><span class="st">  </span>ungroup <span class="op">%&gt;%</span></span>
-<span id="cb6-5"><a href="shark-fin-trade-monitoring.html#cb6-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> (n<span class="op">/</span><span class="kw">sum</span>(n))<span class="op">*</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="shark-fin-trade-monitoring.html#cb183-1"></a>sp_counts &lt;-<span class="st"> </span>fins <span class="op">%&gt;%</span></span>
+<span id="cb183-2"><a href="shark-fin-trade-monitoring.html#cb183-2"></a><span class="st">  </span><span class="kw">group_by</span>(genus, species) <span class="op">%&gt;%</span></span>
+<span id="cb183-3"><a href="shark-fin-trade-monitoring.html#cb183-3"></a><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span></span>
+<span id="cb183-4"><a href="shark-fin-trade-monitoring.html#cb183-4"></a><span class="st">  </span>ungroup <span class="op">%&gt;%</span></span>
+<span id="cb183-5"><a href="shark-fin-trade-monitoring.html#cb183-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> (n<span class="op">/</span><span class="kw">sum</span>(n))<span class="op">*</span><span class="dv">100</span>)</span></code></pre></div>
 <p>Let’s print that table and arrange it by number of samples.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="shark-fin-trade-monitoring.html#cb7-1"></a><span class="kw">kable</span>(</span>
-<span id="cb7-2"><a href="shark-fin-trade-monitoring.html#cb7-2"></a>  sp_counts <span class="op">%&gt;%</span></span>
-<span id="cb7-3"><a href="shark-fin-trade-monitoring.html#cb7-3"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)),</span>
-<span id="cb7-4"><a href="shark-fin-trade-monitoring.html#cb7-4"></a>  <span class="dt">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb7-5"><a href="shark-fin-trade-monitoring.html#cb7-5"></a>  <span class="dt">caption =</span> <span class="st">"Number and relative proportions of samples species."</span></span>
-<span id="cb7-6"><a href="shark-fin-trade-monitoring.html#cb7-6"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="shark-fin-trade-monitoring.html#cb184-1"></a><span class="kw">kable</span>(</span>
+<span id="cb184-2"><a href="shark-fin-trade-monitoring.html#cb184-2"></a>  sp_counts <span class="op">%&gt;%</span></span>
+<span id="cb184-3"><a href="shark-fin-trade-monitoring.html#cb184-3"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)),</span>
+<span id="cb184-4"><a href="shark-fin-trade-monitoring.html#cb184-4"></a>  <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb184-5"><a href="shark-fin-trade-monitoring.html#cb184-5"></a>  <span class="dt">caption =</span> <span class="st">"Number and relative proportions of samples species."</span></span>
+<span id="cb184-6"><a href="shark-fin-trade-monitoring.html#cb184-6"></a>)</span></code></pre></div>
 <p><!--
-<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-7">Table 12.1: </span>Number and relative proportions of samples species.</span><!--</caption>--></p>
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-186">Table 12.1: </span>Number and relative proportions of samples species.</span><!--</caption>--></p>
 <table>
 <thead><tr class="header">
 <th align="left">genus</th>
@@ -719,7 +725,7 @@ Select a set of five random sequences from the fasta file and perform a blast. F
 </table>
 <div id="ques:seven" class="question">
 <p class="question-begin">
-► Question 12.7
+► Question 3.7
 </p>
 <div class="question-body">
 <p>
@@ -732,7 +738,7 @@ Describe your results.
 </div>
 <div id="ques:eight" class="question">
 <p class="question-begin">
-► Question 12.8
+► Question 3.8
 </p>
 <div class="question-body">
 <p>
@@ -748,7 +754,7 @@ Instead of looking at species composition, determine the number of samples and r
 <p>In our google drive folder for this lab, there is a spreadsheet - we are going to use fishbase to collaboratively gather some additional information. To do this, go to the <a href="https://www.fishbase.de/search.php">Fishbase search site</a> to pull up the information page for each species. If the species is not on <code>fishbase</code> another good resource to get this information is the <code>IUCN redlist</code>.</p>
 <div id="ques:nine" class="question">
 <p class="question-begin">
-► Question 12.9
+► Question 3.9
 </p>
 <div class="question-body">
 <p>
@@ -790,10 +796,10 @@ Pull up a fish info page on genbank for any fish and briefly describe the type o
 </ol>
 <p>Once all the information for every species has been gathered, use <code>excel</code> to save as a <code>tab-delimited</code> file in your <code>data</code> folder.</p>
 <p>Then you can read in the file to analyze (make sure to match the file path depending on what you name your file):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="shark-fin-trade-monitoring.html#cb8-1"></a>specie_info &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/shark_info.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="shark-fin-trade-monitoring.html#cb185-1"></a>specie_info &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/shark_info.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
 <div id="ques:ten" class="question">
 <p class="question-begin">
-► Question 12.10
+► Question 3.10
 </p>
 <div class="question-body">
 <p>
@@ -806,7 +812,7 @@ Generate a summary table for each category (excluding common name) and give a br
 </div>
 <div id="ques:eleven" class="question">
 <p class="question-begin">
-► Question 12.11
+► Question 3.11
 </p>
 <div class="question-body">
 <p>
