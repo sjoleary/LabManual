@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-08-22" />
+<meta name="date" content="2020-10-28" />
 
 
 <meta name="description" content="2 Project management and Rmarkdown Basics | Lab Manual Conservation Biology Fall 2020">
@@ -27,71 +27,6 @@
 <script src="libs/accessible-code-block/empty-anchor.js"></script>
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="msmb.css" type="text/css" />
@@ -141,8 +76,15 @@ if(f.classList.contains('fa-plus-square')) {
 </ul>
 <a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
 <a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
-<a href="assessing-sources.html"><span class="toc-section-number">5</span> Assessing sources</a>
-<a href="species-diversity-island-biogeography.html"><span class="toc-section-number">6</span> Species Diversity &amp; Island Biogeography</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a>
+<a href="stream-diversity.html"><span class="toc-section-number">8</span> Stream Diversity</a>
+<a href="habitat-fragmentation.html"><span class="toc-section-number">9</span> Habitat Fragmentation</a>
+<a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
+<a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
+<a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
+<a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -169,7 +111,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li>understand how to modify code chunk options to determine what is/is not rendered in the knitted document.</li>
 <li>know how to <code>knit</code> a document to produce an <code>html</code> file from an <code>*.Rmd</code>.</li>
 </ul>
-<p>The goal of open science and reproducible research is to make scientific methods, data, and results more transparent, available, and reproducible. <code>R markdown</code> files are a useful tool to be able to generate reports documenting your data, methods (code used to process data), and results. Key packages allowing you to do this are <code>knitr</code> and <code>rmarkdown</code>.<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> Download the R markdown cheat sheet (here)[<a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf</a>].</span></p>
+<p>The goal of open science and reproducible research is to make scientific methods, data, and results more transparent, available, and reproducible. <code>R markdown</code> files are a useful tool to be able to generate reports documenting your data, methods (code used to process data), and results. Key packages allowing you to do this are <code>knitr</code> and <code>rmarkdown</code>.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> Download the R markdown cheat sheet (here)[<a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf</a>].</span></p>
 <p><code>R markdown</code> (<code>*.Rmd</code>) files will let you document your workflow, share how you processed/analyzed your data and the resulting output along with any visualizations. <code>.Rmd</code> is a text based file format that consists of standard text, code chunks, and the resulting output using a very simple syntax (henc mark<em>down</em> as opposed to mark<em>up</em> languages like <code>html</code> or <code>LateX</code> which have much more complicated syntax). When you knit your document, the code is executed and the resulting output with be included in the rendered document (common formats are <code>html</code> or <code>pdf</code>). Advantages to a workflow centered around using <code>R markdown</code> to document your work include:</p>
 <ul>
 <li>the simple syntax makes it easy to learn the basics (but some of the more advance options will let you create some sophisticated reports).</li>
@@ -184,7 +126,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="organizing-your-files-and-directories" class="section level3">
 <h3>
 <span class="header-section-number">2.1.1</span> Organizing your files and directories</h3>
-<p>For each project/lab we will set up a project directory<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> We’ll use this term interchangeably with working directory and research compendium</span> with the following set of sub-directories:</p>
+<p>For each project/lab we will set up a project directory<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> We’ll use this term interchangeably with working directory and research compendium</span> with the following set of sub-directories:</p>
 <ul>
 <li><code>data</code></li>
 <li><code>results</code></li>
@@ -194,7 +136,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="a-note-on-naming-things" class="section level3">
 <h3>
 <span class="header-section-number">2.1.2</span> A note on Naming things</h3>
-<p>Naming conventions for files, sub-directories etc. should conform to the following key principles<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> see Jenny Bryan’s <a href="https://speakerdeck.com/jennybc/how-to-name-files?slide=3">excellent summary</a> of these principles</span>:</p>
+<p>Naming conventions for files, sub-directories etc. should conform to the following key principles<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> see Jenny Bryan’s <a href="https://speakerdeck.com/jennybc/how-to-name-files?slide=3">excellent summary</a> of these principles</span>:</p>
 <ul>
 <li>
 <strong>Human readable</strong>: keep it short but self-explanatory.</li>
@@ -207,7 +149,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="set-up-your-project-directory-using-rprojects" class="section level3">
 <h3>
 <span class="header-section-number">2.1.3</span> Set up your project directory using Rprojects</h3>
-<p>Create a project directory<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
+<p>Create a project directory<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> Yes, a directory is essentially a folder, however when using the term directory we are considering the relationship between a folder and it’s full path.</span>
 (e.g. <code>IntroR</code>) on your computer, within that directory create sub-directories <code>data</code>, <code>results</code>, <code>scr</code>.</p>
 <p>Now, we are going to create an <code>R project</code> within this directory.</p>
 <ul>
@@ -215,7 +157,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li>select <code>New Project</code> and <code>Create in existing directory</code>; follow the prompts.</li>
 </ul>
 <p>This should create a new <code>R project</code> and open it (the <code>R project</code> name should be in the top right corner next to the icon).</p>
-<p>If you look in the bottom right hand pane in the <code>Files</code> tab, the bread crumbs should lead to your project folder which has now become your <code>working directory</code>, i.e. all paths are relative to this location.<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> If you weren’t working with an <code>R project</code>, you can set your working directory by naviating to your new working director and selecting <code>More &gt; Set as working directory</code>.</span> If you navigate away from your <code>working directory</code> (project directory) you can quickly get back to your project directory by clicking on the project icon in the <code>Files</code> pane or by clicking the cog icon (<code>More</code>) and selecting <code>Go to Working Directory</code>.</p>
+<p>If you look in the bottom right hand pane in the <code>Files</code> tab, the bread crumbs should lead to your project folder which has now become your <code>working directory</code>, i.e. all paths are relative to this location.<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> If you weren’t working with an <code>R project</code>, you can set your working directory by naviating to your new working director and selecting <code>More &gt; Set as working directory</code>.</span> If you navigate away from your <code>working directory</code> (project directory) you can quickly get back to your project directory by clicking on the project icon in the <code>Files</code> pane or by clicking the cog icon (<code>More</code>) and selecting <code>Go to Working Directory</code>.</p>
 </div>
 </div>
 <div id="create-your-first-.rmd-file" class="section level2">
@@ -285,11 +227,11 @@ output: html_document
 <div id="some-advanced-options" class="section level2">
 <h2>
 <span class="header-section-number">2.8</span> Some advanced options</h2>
-<p>You can add images to an <code>R markdown</code> as follows:<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> make sure the path to your image is relative to your <code>.Rmd</code> file; e.g create a <code>images</code> subdirectory in your project directory.</span></p>
+<p>You can add images to an <code>R markdown</code> as follows:<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> make sure the path to your image is relative to your <code>.Rmd</code> file; e.g create a <code>images</code> subdirectory in your project directory.</span></p>
 <pre><code>
 ![alt text here](path-to-image-here)
 </code></pre>
-<p>You can stylize your rendered document by modifying the <code>YAML</code> header to include a table of contents like this<label for="tufte-sn-9" class="margin-toggle sidenote-number">9</label><input type="checkbox" id="tufte-sn-9" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">9</span> the option of <code>toc_depth</code> determines how many levels are included in the table of contents, e.g. here headers at level 1 and 2 will be included</span>:</p>
+<p>You can stylize your rendered document by modifying the <code>YAML</code> header to include a table of contents like this<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> the option of <code>toc_depth</code> determines how many levels are included in the table of contents, e.g. here headers at level 1 and 2 will be included</span>:</p>
 <pre><code>---
 title: "A table of contents?!"
 output:
@@ -297,7 +239,7 @@ output:
     toc: true
     toc_depth: 2
 ---</code></pre>
-<p>If you really want to jazz things up, you can change the theme<label for="tufte-sn-10" class="margin-toggle sidenote-number">10</label><input type="checkbox" id="tufte-sn-10" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">10</span> you can choose from various options <a href="https://bootswatch.com/3/">here</a></span>.</p>
+<p>If you really want to jazz things up, you can change the theme<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> you can choose from various options <a href="https://bootswatch.com/3/">here</a></span>.</p>
 <pre><code>---
 title: "A snazzy theme?!"
 output:
@@ -316,7 +258,7 @@ output:
 <a href="welcome-to-the-tidyverse.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-08-22
+2020-10-28
 </p>
 </div>
 </div>

@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-10-28" />
 
 
 <meta name="description" content="8 Stream Diversity | Lab Manual Conservation Biology Fall 2020">
@@ -141,6 +141,11 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#comparing-abundance-species-richness-and-species-diversity-of-stream-with-varying-degrees-of-pollution"> Comparing abundance, species richness and species diversity of stream with varying degrees of pollution</a></li>
 <li class="toc"><a href="#ecological-indicators-and-bioindicators"> Ecological Indicators and Bioindicators</a></li>
 </ul>
+<a href="habitat-fragmentation.html"><span class="toc-section-number">9</span> Habitat Fragmentation</a>
+<a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
+<a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
+<a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
+<a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -382,14 +387,14 @@ Solution<span id="sol-start-2" class="fa fa-plus-square solution-icon clickable"
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="stream-diversity.html#cb9-1"></a><span class="co"># test if tidy</span></span>
 <span id="cb9-2"><a href="stream-diversity.html#cb9-2"></a><span class="kw">head</span>(tidy)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
-##   POLLUTION  TIME SAMPLE SPECIES    N_INDV
-##   &lt;ord&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
-## 1 none        500      1 Caddisfly       7
-## 2 none        500      1 Mayfly          3
-## 3 none        500      1 Stonefly        9
-## 4 none        500      1 Rif_Beetle      4
-## 5 none        500      1 W_Penny         2
-## 6 none        500      1 Gill_Snail      0</code></pre>
+##   POLLUTION SAMPLE  TIME SPECIES    N_INDV
+##   &lt;ord&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 moderate       1   250 Caddisfly       1
+## 2 moderate       1   250 Mayfly          1
+## 3 moderate       1   250 Stonefly        1
+## 4 moderate       1   250 Rif_Beetle      0
+## 5 moderate       1   250 W_Penny         0
+## 6 moderate       1   250 Gill_Snail      0</code></pre>
 <p>We now have a dataframe consisting of four columns, indicating the level of pollution (<code>POLLUTION</code>), the sample (<code>SAMPLE</code>), the sampling effort (<code>TIME</code>), the species name (<code>SPECIES</code>), and the observed number of individuals (<code>N_INDV</code>).</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -721,10 +726,10 @@ Figure 8.7: Number of individuals per species for varying degrees of pollution f
 
 <p style="text-align: center;">
 <a href="iucn-redlist-evaluation.html"><button class="btn btn-default">Previous</button></a>
-<a href="references.html"><button class="btn btn-default">Next</button></a>
+<a href="habitat-fragmentation.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-09-22
+2020-10-28
 </p>
 </div>
 </div>

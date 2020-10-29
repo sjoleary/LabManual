@@ -255,7 +255,7 @@ ggplot(tidy, aes(x = Nt, y = value, shape = demographic_param, color = demograph
 
 Before we move on let's consider how the relationship of birth and death rates determine population growth. We are assuming that $b$ and $d$ are constant, and for our initial model that $b > d$.
 
-`r msmbstyle::question(label = "ques:nine", text = "Give a brief description in how you think the population size will change for b = d and for b > d. Manipulate our geometric growth model (see code chunk below) to test your hypothesis for each scenarios by changing the values for b and d and then describe your results.")`
+`r msmbstyle::question(label = "ques:nine", text = "Give a brief description in how you think the population size will change for b = d and for b < d. Manipulate our geometric growth model (see code chunk below) to test your hypothesis for each scenarios by changing the values for b and d and then describe your results.")`
 
 ```{r eval=FALSE}
 
@@ -1222,7 +1222,7 @@ kable(
 
 `r msmbstyle::question(label = "ques:thirty-four", text = "Argue whether you think the extinction risk will increase/decrease if you increase/decrease the standard deviation of your model. Run at least three simulations to support your argument.")`
 
-`r msmbstyle::question(label = "ques:thirty-five", text = "Droughts on our island decrease the mean value of lambda to 0.9 with a standard deviation of 0.8. Let's assume that there is a 10 year drought. Determine the probability of populations with intial sizes of 50, 500, and 5000 going extinct during a 10 year drought.")`
+`r msmbstyle::question(label = "ques:thirty-five", text = "Droughts on our island decrease the mean value of lambda to 0.9 with a standard deviation of 0.8. Let's assume that there is a 10 year drought. Determine the probability of populations with intial sizes of 50, 500, and 5000 going extinct during a 10 year drought and describe your results.")`
 
 
 ## Acknowledgments

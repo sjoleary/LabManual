@@ -495,19 +495,19 @@ In the `data` directory you will find tab-delimited files corresponding to the s
 
 For the final component of this lab you will choose one of the butterfly-host species pairs and do the following. You may find it helpful to find a lab/coding bud to work through this final component. You may split the work looking up the species and compiling the necessary code and discuss your results but both of you should write up your own answers and you should make a note in your submission who your lab/coding bud is.
 
-1. Use the IUCN red list data base to look up the two species. For each list their conservation status and their habitat/geographic range as described on the database (use bullet points to keep it short).
+1A. Use the IUCN red list data base to look up the two species. For each list their conservation status and their habitat/geographic range as described on the database (use bullet points to keep it short).
 
-2. A. Import the occurrence data for the butterfly species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.
+2A. Import the occurrence data for the butterfly species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.
 
-2. B. Import the occurrence data for the corresponding host species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.
+2B. Import the occurrence data for the corresponding host species you have chosen and use the historical (current) bioclim data set to generate a species distribution model and plot it on a map.
 
-2. C. Compare the two species distribution maps to each other and comment how well it matches up with the information you got on habitat/geographic range from the IUCN Redlist database.
+2C. Compare the two species distribution maps to each other and comment how well it matches up with the information you got on habitat/geographic range from the IUCN Redlist database.
 
-3. A. Use the occurrence data for the butterfly species and **one** of the future bioclim data sets to generate a species distribution model for 2100 and plot a map of it.
+3A. Use the occurrence data for the butterfly species and **one** of the future bioclim data sets to generate a species distribution model for 2100 and plot a map of it.
 
-3. B. Use the occurrence data for the host species and **the same** future bioclim data set to generate a species distribution model for 2100 and plot a map of it.
+3B. Use the occurrence data for the host species and **the same** future bioclim data set to generate a species distribution model for 2100 and plot a map of it.
 
-3. C. State which future bioclim data set you used, compare the two species distribution maps and assess how this biotic interaction could shape the future species distribution of the butterfly species along with changing abiotic conditions. Use your answer to Q17 to evaluate the extent to which this butterfly species could be affected by future climate change; remember to not also just consider changes in distribution but also potential habitat fragmentation.
+3C. State which future bioclim data set you used, compare the two species distribution maps and assess how this biotic interaction could shape the future species distribution of the butterfly species along with changing abiotic conditions. Use your answer to Q17 to evaluate the extent to which this butterfly species could be affected by future climate change; remember to not also just consider changes in distribution but also potential habitat fragmentation.
 
 
 <br>
