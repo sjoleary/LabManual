@@ -394,16 +394,16 @@ ggplot(tidy, aes(x = t, y = Indv, shape = Nt, color = Nt)) +
 `r msmbstyle::question(label = "ques:ten", text = "Compare and contrast the change in population size over time for two populations with the same population growth rate but one conforming to geometric and the other to exponential growth to explain the difference between discrete and continuous growth. Keep in mind that adding the line is slightly misleading for the geometric growth model because it implies that the increase in population size is smooth and continuous; really the population remains unchanged from time t to t+1 and the graph should look more like steps.")`
 
 
-## Logarithmic growth
+## Logistic growth
 
-**Logarithmic growth** can be modeled as either continuous or a discrete growth. The main difference to our previous two models is that logarithmic growth is **constrained**.
+**Logistic growth** can be modeled as either continuous or a discrete growth. The main difference to our previous two models is that logistic growth is **constrained**.
 
 Remind yourself of the description of geometric growth using birth and death rates.
 
 $$
 N_{t+1} = N_{t} + b_{t}N_{t} - d_{t}N_{t}
 $$
-We know that for many populations the assumption that birth and death rates are constants is not realistic. Logarithmic growth can account for changes of birth and death rate as the population size changes, i.e. here we are modeling **density-dependent** growth which reflects changes in birth/death rate as the population size changes.
+We know that for many populations the assumption that birth and death rates are constants is not realistic. Logistic growth can account for changes of birth and death rate as the population size changes, i.e. here we are modeling **density-dependent** growth which reflects changes in birth/death rate as the population size changes.
 
 `r msmbstyle::question(label = "ques:eleven", text = "One of the most common patterns we see in populations is that birth and death rates may change over time as a result of intraspecific competition - explain what this means.")`
 
