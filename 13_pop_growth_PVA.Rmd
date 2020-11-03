@@ -71,7 +71,7 @@ A **population** is generally defined as a group of individuals of the same spec
 
 Temporal changes in population size (number of individuals) and density (number of individuals per area) are described as **population dynamics**.
 
-`r msmbstyle::question(label = "ques:one", text = "List the four fundamental demographic processes that increase and decrease population size.")`
+`r msmbstyle::question(label = "ques:popmodel-1", text = "List the four fundamental demographic processes that increase and decrease population size.")`
 
 Based on these four fundamental processes we can formulate a simple equation to describe population growth in a set time interval as
 
@@ -87,9 +87,9 @@ for
 * $I_{t}$: total number of immigrants entering the population between $t$ and $t+1$
 * $E_{t}$: total number of emigrants leaving a population between $t$ and $t+1$
 
-`r msmbstyle::question(label = "ques:two", text = "Briefly compare and contrast the following characteristics of of population models: closed vs. open population, discrete vs continuous growth, constrained vs unconstrained growth, and density-dependent vs density-independent demographic parameters.")`
+`r msmbstyle::question(label = "ques:popmodel-2", text = "Briefly compare and contrast the following characteristics of of population models: closed vs. open population, discrete vs continuous growth, constrained vs unconstrained growth, and density-dependent vs density-independent demographic parameters.")`
 
-`r msmbstyle::question(label = "ques:three", text = "Discuss whether it is easier to model a closed or open population and how making (incorrect) assumptions about migration could impact estimates of minimum viable population sizes.")`
+`r msmbstyle::question(label = "ques:popmodel-3", text = "Discuss whether it is easier to model a closed or open population and how making (incorrect) assumptions about migration could impact estimates of minimum viable population sizes.")`
 
 Throughout this tutorial, we are going to make the assumption that we have a closed population. 
 
@@ -122,7 +122,7 @@ $$
 
 **Geometric growth models** are discrete-time models that assume unconstrained growth. In addition, the average number of births per individual $b$ and the average risk of dying $d$ are **density-independent** which means that they are constant across the time period being modeled.
 
-`r msmbstyle::question(label = "ques:four", text = "Briefly discuss whether you think density-independent birth/death rates are a realistic assumption (limitations) along with the benefits of this assumption for population modeling.")`
+`r msmbstyle::question(label = "ques:popmodel-4", text = "Briefly discuss whether you think density-independent birth/death rates are a realistic assumption (limitations) along with the benefits of this assumption for population modeling.")`
 
 These assumptions allow us to formulate a simple population model as
 
@@ -220,7 +220,7 @@ ggplot(tidy, aes(x = t, y = value, shape = demographic_param, color = demographi
 
 ```
 
-`r msmbstyle::question(label = "ques:six", text = "Define what each of these demographic parameter represents and how it changes over time. Keep in mind that adding the line is slightly misleading because it implies that the increase in population size is smooth and continuous; really the population remains unchanged from time t to t+1 and the graph should look more like steps.")`
+`r msmbstyle::question(label = "ques:popmodel-5", text = "Define what each of these demographic parameter represents and how it changes over time. Keep in mind that adding the line is slightly misleading because it implies that the increase in population size is smooth and continuous; really the population remains unchanged from time t to t+1 and the graph should look more like steps.")`
 
 Let's look at the per capita rate of change over time.
 
@@ -233,7 +233,7 @@ ggplot(geom, aes(x = t, y = change_popsize)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:seven", text = "Describe the change in the per capita change in population size over time. Then compare this value to R and explain what this tells you about the population growth model.")`
+`r msmbstyle::question(label = "ques:popmodel-6", text = "Describe the change in the per capita change in population size over time. Then compare this value to R and explain what this tells you about the population growth model.")`
 
 Now, let's compare how our demographic parameter changes as population size increases.
 
@@ -251,11 +251,11 @@ ggplot(tidy, aes(x = Nt, y = value, shape = demographic_param, color = demograph
 
 ```
 
-`r msmbstyle::question(label = "ques:eight", text = "Describe how our demographic parameters change as population size increases and explain this relationship using the geometric growth model.")`
+`r msmbstyle::question(label = "ques:popmodel-7", text = "Describe how our demographic parameters change as population size increases and explain this relationship using the geometric growth model.")`
 
 Before we move on let's consider how the relationship of birth and death rates determine population growth. We are assuming that $b$ and $d$ are constant, and for our initial model that $b > d$.
 
-`r msmbstyle::question(label = "ques:nine", text = "Give a brief description in how you think the population size will change for b = d and for b < d. Manipulate our geometric growth model (see code chunk below) to test your hypothesis for each scenarios by changing the values for b and d and then describe your results.")`
+`r msmbstyle::question(label = "ques:popmodel-8", text = "Give a brief description in how you think the population size will change for b = d and for b < d. Manipulate our geometric growth model (see code chunk below) to test your hypothesis for each scenarios by changing the values for b and d and then describe your results.")`
 
 ```{r eval=FALSE}
 
@@ -391,7 +391,7 @@ ggplot(tidy, aes(x = t, y = Indv, shape = Nt, color = Nt)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:ten", text = "Compare and contrast the change in population size over time for two populations with the same population growth rate but one conforming to geometric and the other to exponential growth to explain the difference between discrete and continuous growth. Keep in mind that adding the line is slightly misleading for the geometric growth model because it implies that the increase in population size is smooth and continuous; really the population remains unchanged from time t to t+1 and the graph should look more like steps.")`
+`r msmbstyle::question(label = "ques:popmodel-9", text = "Compare and contrast the change in population size over time for two populations with the same population growth rate but one conforming to geometric and the other to exponential growth to explain the difference between discrete and continuous growth. Keep in mind that adding the line is slightly misleading for the geometric growth model because it implies that the increase in population size is smooth and continuous; really the population remains unchanged from time t to t+1 and the graph should look more like steps.")`
 
 
 ## Logistic growth
@@ -405,7 +405,7 @@ N_{t+1} = N_{t} + b_{t}N_{t} - d_{t}N_{t}
 $$
 We know that for many populations the assumption that birth and death rates are constants is not realistic. Logistic growth can account for changes of birth and death rate as the population size changes, i.e. here we are modeling **density-dependent** growth which reflects changes in birth/death rate as the population size changes.
 
-`r msmbstyle::question(label = "ques:eleven", text = "One of the most common patterns we see in populations is that birth and death rates may change over time as a result of intraspecific competition - explain what this means.")`
+`r msmbstyle::question(label = "ques:popmodel-10", text = "One of the most common patterns we see in populations is that birth and death rates may change over time as a result of intraspecific competition - explain what this means.")`
 
 We will represent changes in per capita birth/death rates in our population using
 
@@ -520,7 +520,7 @@ ggplot(logist, aes(x = t, y = Nt)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:twelve", text = "Give a brief description of how the population size changes over time under the logistic growth model.")`
+`r msmbstyle::question(label = "ques:popmodel-11", text = "Give a brief description of how the population size changes over time under the logistic growth model.")`
 
 Next, let's look at how the per capita birth and death rates change with population size.
 
@@ -538,7 +538,7 @@ ggplot(tidy, aes(x = Nt, y = values, color = rates, shape = rates)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:thirteen", text = "Give a brief description of how per capita birth and death rates change over time in the context of logistical growth.")`
+`r msmbstyle::question(label = "ques:popmodel-12", text = "Give a brief description of how per capita birth and death rates change over time in the context of logistical growth.")`
 
 Finally, we are going to look at how our rates of change are related to population size.
 
@@ -564,11 +564,11 @@ ggplot(logist, aes(x = Nt, y = popsize_change)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:fourteen", text = "Give a brief description of the total and per capita rate of change in population size changes with increasing population size and compare this to the behavior of these demographic parameters for geometric and exponential growth.")`
+`r msmbstyle::question(label = "ques:popmodel-13", text = "Give a brief description of the total and per capita rate of change in population size changes with increasing population size and compare this to the behavior of these demographic parameters for geometric and exponential growth.")`
 
-`r msmbstyle::question(label = "ques:fifteen", text = "Assume that a population has reached equilibrium (N is K). Then, there is a sudden change in temperature which results in a loss of their main food source, in other words the carrying capacity has decreased and N is now larger than K. Explain what you think will happen in terms of population size (use per capita birth and death rates to explain the effect).")`
+`r msmbstyle::question(label = "ques:popmodel-14", text = "Assume that a population has reached equilibrium (N is K). Then, there is a sudden change in temperature which results in a loss of their main food source, in other words the carrying capacity has decreased and N is now larger than K. Explain what you think will happen in terms of population size (use per capita birth and death rates to explain the effect).")`
 
-`r msmbstyle::question(label = "ques:sixteen", text = "We have been thinking of logistic growth mainly in the context of something like intraspecific competition which would result in per capita birth/death rates decreasing/increasing with population size. This is not necessarily always the case. It is also possible that birth rates in crease with population size (e.g. it is easier to find a mate) or that death rates increase for small populations (e.g. because of increaseing exposure to predators, cooperative breeding/hunting). Explain what how you think population growth would look like in those cases.")`
+`r msmbstyle::question(label = "ques:popmodel-15", text = "We have been thinking of logistic growth mainly in the context of something like intraspecific competition which would result in per capita birth/death rates decreasing/increasing with population size. This is not necessarily always the case. It is also possible that birth rates in crease with population size (e.g. it is easier to find a mate) or that death rates increase for small populations (e.g. because of increaseing exposure to predators, cooperative breeding/hunting). Explain what how you think population growth would look like in those cases.")`
 
 
 ## Life tables
@@ -606,7 +606,7 @@ kable(
 
 ```
 
-`r msmbstyle::question(label = "ques:seventeen", text = "Briefly explain the content and format of the table. Use key descriptions such as age-based, cohort table, etc.")`
+`r msmbstyle::question(label = "ques:popmodel-16", text = "Briefly explain the content and format of the table. Use key descriptions such as age-based, cohort table, etc.")`
 
 The first thing we need to do is calculate the **standardized survival schedule** ($l_{x}$) because we are comparing cohorts of different initial sizes. To do this we will standardize all cohorts to their initial size at time 0 ($S_{x}$) to get the proportion of original numbers surviving to the beginning of each time interval
 
@@ -667,7 +667,7 @@ ggplot(tidy, aes(x = Age, y = proportion, shape = survivorship, color = survivor
 
 ```
 
-`r msmbstyle::question(label = "ques:eighteen", text = "Give a brief description of the three survivorship types. Use an example to explain what type of characteristics species with each survivorship type would have.")`
+`r msmbstyle::question(label = "ques:popmodel-17", text = "Give a brief description of the three survivorship types. Use an example to explain what type of characteristics species with each survivorship type would have.")`
 
 $l_{x}$ essentially gives us the the probability that an individuals survives from birth to age $x$. To determine the probability of an individuals who has already survived to age $x$ to age $x+1$ we calculate the **age-specific survivorship** $g_{x}$ as 
 
@@ -726,7 +726,7 @@ ggplot(tidy, aes(x = Age, y = proportion, shape = survivorship, color = survivor
 
 ```
 
-`r msmbstyle::question(label = "ques:nineteen", text = "Give a brief description of each the age-specific survivorship curves for three survivorship types.")`
+`r msmbstyle::question(label = "ques:popmodel-18", text = "Give a brief description of each the age-specific survivorship curves for three survivorship types.")`
 
 Now, we can calculate the **life expectancy** $e_{x}$ wjoc describes how much longer an individual of a specific age is expected to live. To do this, we first calculate the proportion of survivors at the mid-point of each time interval as
 
@@ -825,7 +825,7 @@ ggplot(tidy, aes(x = Age, y = proportion, shape = life_exp, color = life_exp)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:twenty", text = "Give a brief description of each the age-specific life expectancies for three survivorship types.")`
+`r msmbstyle::question(label = "ques:popmodel-19", text = "Give a brief description of each the age-specific life expectancies for three survivorship types.")`
 
 
 ## Changes in population size
@@ -852,7 +852,7 @@ ggplot(fecundity, aes(x = Age, y = lx)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:twent-one", text = "Argue which survivorship type this species is. Based on the expected life history given the survivorship curve argue whether you expect the population to be increasing, decreasing or stable over time.")`
+`r msmbstyle::question(label = "ques:popmodel-20", text = "Argue which survivorship type this species is. Based on the expected life history given the survivorship curve argue whether you expect the population to be increasing, decreasing or stable over time.")`
 
 To understand what long-term changes in population size will look like, a cohort table with survivorship and reproductive rates can be used to calculate the **net reproductive rate** $R_{0}$ which then in turn can be used to determine the **intrinsic growth rate** $r$. The net reproductive rate is calculated as the sum of the products of age-specific survivorship $l_{x}$ and fecundity $b_{x}$ which essentially is the lifetime reproductive potential of the average female adjusted for survival.
 
@@ -873,7 +873,7 @@ R0
 
 ```
 
-`r msmbstyle::question(label = "ques:twenty-two", text = "Based on the R0 value is this population increasing, decreasing or stable in size?")`
+`r msmbstyle::question(label = "ques:popmodel-21", text = "Based on the R0 value is this population increasing, decreasing or stable in size?")`
 
 $R_{0}$ is different from the intrinsic growth rate $r$ in that it measures the population change in terms of generation time. Therefore, to convert $R_{0}$ to $r$ we first need to determine the **generation time** $G$.
 
@@ -911,26 +911,26 @@ r
 
 ```
 
-`r msmbstyle::question(label = "ques:twenty-three", text = "What is your intrinsic growth rate? Is the population increasing, decreasing or stable over time?")`
+`r msmbstyle::question(label = "ques:popmodel-22", text = "What is your intrinsic growth rate? Is the population increasing, decreasing or stable over time?")`
 
 
 ## Population viability anlaysis
 
 Modeling population growth is an important tool for conservation because it enables an optimization of management tools. Modelers are able to used past data, usually derived from a monitoring study, for a specific species/population or apply data available for closely related species or species with a similar life history to determine minimum viable population size, extinction probabilities for multiple scenarios, and also determine which are the most important life/age stages to target to maximize population growth rates with the help of life tables to refine population growth models.
 
-`r msmbstyle::question(label = "ques:twenty-four", text = "Give a brief definition of a minimum viable population size and explain why it is such an important tool for conservation and management.")`
+`r msmbstyle::question(label = "ques:popmodel-23", text = "Give a brief definition of a minimum viable population size and explain why it is such an important tool for conservation and management.")`
 
 **Population viability analysis** can be used to determine the smallest population that has a reasonable probability of surviving over a specific period of time. 
 
-`r msmbstyle::question(label = "ques:twenty-five", text = "Briefly discuss what a reasonable probability and specified period of time should look like and why formulating these goals is important for management decisions.")`
+`r msmbstyle::question(label = "ques:popmodel-24", text = "Briefly discuss what a reasonable probability and specified period of time should look like and why formulating these goals is important for management decisions.")`
 
 The more population-specific data is available for a PVA the more accurate the model is - though of course it will also increase in complexity. Complex models will go beyond just looking at demographics and include habitat suitability models and account for interactions with other species. 
 
-`r msmbstyle::question(label = "ques:twenty-six", text = "Briefly discuss why using data based on monitoring the specific population you want to model is important. Needing population specific data is of course also a major limitation, briefly describe options that modelers have if there is no population specific data available.")`
+`r msmbstyle::question(label = "ques:popmodel-25", text = "Briefly discuss why using data based on monitoring the specific population you want to model is important. Needing population specific data is of course also a major limitation, briefly describe options that modelers have if there is no population specific data available.")`
 
 In this tutorial we will build a simple model that require only information on growth rates over time which will allow us to create a simple stochastic model.
 
-`r msmbstyle::question(label = "ques:twenty-seven", text = "Briefly explain the difference between a stochastic and a deterministic model.")`
+`r msmbstyle::question(label = "ques:popmodel-26", text = "Briefly explain the difference between a stochastic and a deterministic model.")`
 
 Remember, we can describe a discrete growth model as 
 
@@ -1002,7 +1002,7 @@ ggplot(lambda, aes(x = lambda)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:tweny-eight", text = "For a value of lambda = 1, is the population increase, decreasing, or maintaining a stable population size?")`
+`r msmbstyle::question(label = "ques:popmodel-27", text = "For a value of lambda = 1, is the population increase, decreasing, or maintaining a stable population size?")`
 
 Now, let's develop a small PVA using a simple, stochastic demographic model that with model growth by randomly drawing a value for $\lambda$ from a distribution. 
 
@@ -1012,7 +1012,7 @@ This means that on average the population size remains constant. Because of envi
 
 We can simulate these random changes in population growth by randomly drawing a value for $\lambda$ from a known distribution based on observed values for every time step at which we calculate $N{t}$.
 
-`r msmbstyle::question(label = "ques:twenty-nine", text = "Describe the individual steps involved to use this type of a model to determine the extinction probability of a population.")`
+`r msmbstyle::question(label = "ques:popmodel-28", text = "Describe the individual steps involved to use this type of a model to determine the extinction probability of a population.")`
 
 Let's run our stochastic model to see what population sizes are projected to be after 50 years.
 
@@ -1127,7 +1127,7 @@ ggplot(sim, aes(x = t, y = Nt, group = trial)) +
 
 Now we can actually make some predictions about extinction probabilities. To do this, we want to determine the proportion of trials that resulting in extinction, i.e. the proportion of trials for which the population was zero at the last time point.
 
-`r msmbstyle::question(label = "ques:thirty", text = "Give a brief explanation of the benefit of running a larger number of trials and why it improves the confidence in your results.")`
+`r msmbstyle::question(label = "ques:popmodel-29", text = "Give a brief explanation of the benefit of running a larger number of trials and why it improves the confidence in your results.")`
 
 ```{r}
 
@@ -1145,9 +1145,9 @@ kable(
 
 ```
 
-`r msmbstyle::question(label = "ques:thirty-one", text = "The goal of PVA is to allow managers to conclude something along the lines of A population of xx individuals for species xx has a x% probability of surviving xx years assuming current conditions persist. Based on these results, what statement can you make regarding our hypothetical population?")`
+`r msmbstyle::question(label = "ques:popmodel-30", text = "The goal of PVA is to allow managers to conclude something along the lines of A population of xx individuals for species xx has a x% probability of surviving xx years assuming current conditions persist. Based on these results, what statement can you make regarding our hypothetical population?")`
 
-`r msmbstyle::question(label = "ques:thirty-two", text = "Argue whether you think the extinction risk will increase/decrease if the initial population size increases/decreases. Run at least three scenarios of varying initial population size to support your argument (see code chunk below which you can manipulate the constants for for each chosen scenario).")`
+`r msmbstyle::question(label = "ques:popmodel-31", text = "Argue whether you think the extinction risk will increase/decrease if the initial population size increases/decreases. Run at least three scenarios of varying initial population size to support your argument (see code chunk below which you can manipulate the constants for for each chosen scenario).")`
 
 ```{r eval=FALSE}
 
@@ -1218,11 +1218,11 @@ kable(
 
 ```
 
-`r msmbstyle::question(label = "ques:thirty-three", text = "Argue whether you think the extinction risk will increase/decrease for longer simulations, i.e. whether the extinction probability increases for a population of the same size if you are considering longer time intervals. Run at least three simulations to support your argument.")`
+`r msmbstyle::question(label = "ques:popmodel-32", text = "Argue whether you think the extinction risk will increase/decrease for longer simulations, i.e. whether the extinction probability increases for a population of the same size if you are considering longer time intervals. Run at least three simulations to support your argument.")`
 
-`r msmbstyle::question(label = "ques:thirty-four", text = "Argue whether you think the extinction risk will increase/decrease if you increase/decrease the standard deviation of your model. Run at least three simulations to support your argument.")`
+`r msmbstyle::question(label = "ques:popmodel-33", text = "Argue whether you think the extinction risk will increase/decrease if you increase/decrease the standard deviation of your model. Run at least three simulations to support your argument.")`
 
-`r msmbstyle::question(label = "ques:thirty-five", text = "Droughts on our island decrease the mean value of lambda to 0.9 with a standard deviation of 0.8. Let's assume that there is a 10 year drought. Determine the probability of populations with intial sizes of 50, 500, and 5000 going extinct during a 10 year drought and describe your results.")`
+`r msmbstyle::question(label = "ques:popmodel-34", text = "Droughts on our island decrease the mean value of lambda to 0.9 with a standard deviation of 0.8. Let's assume that there is a 10 year drought. Determine the probability of populations with intial sizes of 50, 500, and 5000 going extinct during a 10 year drought and describe your results.")`
 
 
 ## Acknowledgments

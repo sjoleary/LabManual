@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-10-29" />
+<meta name="date" content="2020-11-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -152,6 +152,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
 <a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
 <a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -225,9 +226,9 @@ if(f.classList.contains('fa-plus-square')) {
 <p>Let’s start by reading in our results.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="stream-diversity.html#cb136-1"></a><span class="co"># read data</span></span>
 <span id="cb136-2"><a href="stream-diversity.html#cb136-2"></a>effort &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/sampling_effort.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
-<div id="ques:one" class="question">
+<div id="ques:bioind-1" class="question">
 <p class="question-begin">
-► Question 3.1
+► Question 8.1
 </p>
 <div class="question-body">
 <p>
@@ -258,9 +259,9 @@ Figure 8.1: Number of individuals (yellow points) caught per sampling effort. Th
 <span id="cb138-4"><a href="stream-diversity.html#cb138-4"></a>       <span class="dt">dpi =</span> <span class="dv">300</span>, <span class="dt">units =</span> <span class="st">"cm"</span>,</span>
 <span id="cb138-5"><a href="stream-diversity.html#cb138-5"></a>       <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">height =</span> <span class="dv">30</span>)</span></code></pre></div>
 <p>Another way to export a figure from <code>Rstudio</code> is to click the <code>Export</code> button in the <code>Plots</code> panel and select <code>Save as Image</code>, in the pop-up window you can use the <code>Directory</code> button to select your <code>results</code> directory and then name the file. You can use the <code>Width</code> and <code>Height</code> windows to determine the dimensions of your figure. Selecting <code>Update Preview</code> will allow you to see what that figure would look like.</p>
-<div id="ques:two" class="question">
+<div id="ques:bioind-2" class="question">
 <p class="question-begin">
-► Question 3.2
+► Question 8.2
 </p>
 <div class="question-body">
 <p>
@@ -272,9 +273,9 @@ Briefly describe your results by comparing differences among the varying levels 
 </div>
 </div>
 <p>Next, let’s look at the number of species caught in each sample.</p>
-<div id="ques:three" class="question">
+<div id="ques:bioind-3" class="question">
 <p class="question-begin">
-► Question 3.3
+► Question 8.3
 </p>
 <div class="question-body">
 <p>
@@ -297,9 +298,9 @@ Figure 8.2: Number of species (yellow points) caught per sampling effort. The bl
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-141-1.png" alt="Number of species (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval." width="576">
 </div>
-<div id="ques:four" class="question">
+<div id="ques:bioind-4" class="question">
 <p class="question-begin">
-► Question 3.4
+► Question 8.4
 </p>
 <div class="question-body">
 <p>
@@ -311,9 +312,9 @@ Briefly describe your results by comparing differences among the varying levels 
 </div>
 </div>
 <p>Finally, let’s use our results to design our sampling scheme.</p>
-<div id="ques:five" class="question">
+<div id="ques:bioind-5" class="question">
 <p class="question-begin">
-► Question 3.5
+► Question 8.5
 </p>
 <div class="question-body">
 <p>
@@ -408,9 +409,9 @@ Solution<span id="sol-start-19" class="fa fa-plus-square solution-icon clickable
 </div>
 </div>
 <p>Now that our data is formatted as a tidy data set we can start to look at our data.</p>
-<div id="ques:six" class="question">
+<div id="ques:bioind-6" class="question">
 <p class="question-begin">
-► Question 3.6
+► Question 8.6
 </p>
 <div class="question-body">
 <p>
@@ -479,9 +480,9 @@ The box shows the interquartile range (IQR), the top and bottom are the 25th and
 The upper whisker is Q3 + 1.5 * IQR while the lower whisker is Q_1 - 1.5 * IQR. 
 The dots (if present) are outliers of the distrubtion, here a data point is classified as an outlier of it is &lt; Q1 - 1.5 * IQR or &gt; Q3 + 1.5 * IQR." width="672">
 </div>
-<div id="ques:seven" class="question">
+<div id="ques:bioind-7" class="question">
 <p class="question-begin">
-► Question 3.7
+► Question 8.7
 </p>
 <div class="question-body">
 <p>
@@ -525,9 +526,9 @@ Figure 8.4: Distribution species richness for different levels of pollution and 
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-149-1.png" alt="Distribution species richness for different levels of pollution and sampling effort." width="672">
 </div>
-<div id="ques:eight" class="question">
+<div id="ques:bioind-8" class="question">
 <p class="question-begin">
-► Question 3.8
+► Question 8.8
 </p>
 <div class="question-body">
 <p>
@@ -539,9 +540,9 @@ Discuss your results.
 </div>
 </div>
 <p>Of course, species richness is problematic for reasons other than sample size so let’s take a look at <strong>species diversity</strong> as well.</p>
-<div id="ques:nine" class="question">
+<div id="ques:bioind-9" class="question">
 <p class="question-begin">
-► Question 3.9
+► Question 8.9
 </p>
 <div class="question-body">
 <p>
@@ -585,9 +586,9 @@ Figure 8.5: Comparison of species diversity using three different measures for d
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-151-1.png" alt="Comparison of species diversity using three different measures for different levels of pollution and sampling time." width="768">
 </div>
-<div id="ques:ten" class="question">
+<div id="ques:bioind-10" class="question">
 <p class="question-begin">
-► Question 3.10
+► Question 8.10
 </p>
 <div class="question-body">
 <p>
@@ -599,9 +600,9 @@ Discuss your results.
 </div>
 </div>
 <p>We now have a pretty good idea of how stream diversity compares overall and how sampling effort (or most specifically a lack thereof) may bias our results - but the question that remains open is whether or not we have species-specific effects, i.e. we could have just an overall reduction in the number of species present due to less individuals being caught (i.e. essentially a sampling effect) or we might have some species that are more or less sensitive to pollution resulting in them being more abundant under certain conditions and less so under others or the sample overall may be dominated by one or another species depending on the pollution level..</p>
-<div id="ques:eleven" class="question">
+<div id="ques:bioind-11" class="question">
 <p class="question-begin">
-► Question 3.11
+► Question 8.11
 </p>
 <div class="question-body">
 <p>
@@ -628,9 +629,9 @@ Figure 8.6: Number of individuals per species at varying degrees of pollution.
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-152-1.png" alt="Number of individuals per species at varying degrees of pollution." width="768">
 </div>
-<div id="ques:twelve" class="question">
+<div id="ques:bioind-12" class="question">
 <p class="question-begin">
-► Question 3.12
+► Question 8.12
 </p>
 <div class="question-body">
 <p>
@@ -646,9 +647,9 @@ Discuss your results and argue whether differences you are seeing are the result
 <div id="ecological-indicators-and-bioindicators" class="section level2">
 <h2>
 <span class="header-section-number">8.4</span> Ecological Indicators and Bioindicators</h2>
-<div id="ques:thirteen" class="question">
+<div id="ques:bioind-13" class="question">
 <p class="question-begin">
-► Question 3.13
+► Question 8.13
 </p>
 <div class="question-body">
 <p>
@@ -667,9 +668,9 @@ In our discussion of the strategic value of species diversity, we briefly touche
 <li>based on reliable data that is available to assess trends/collected in straightforward process and for which monitoring systems are in place.</li>
 <li>easily understood by policy-makers.</li>
 </ol>
-<div id="ques:fourteen" class="question">
+<div id="ques:bioind-14" class="question">
 <p class="question-begin">
-► Question 3.14
+► Question 8.14
 </p>
 <div class="question-body">
 <p>
@@ -681,9 +682,9 @@ Based on these characteristics, argue whether you think aquatic invertebrates co
 </div>
 </div>
 <p><strong>Bioindicators</strong> are a subset of ecological indicators. Here, species assemblage and population abundance are used to measure ecosystem health and habitat quality. Frequently, they are used as a proxy for environmental contamination and pollution. Aquatic invertebrates are frequently used as bioindicators to assess the level of pollution of streams or other freshwater habitats due to their varying degree of sensitivity to a polluted environment<label for="tufte-sn-46" class="margin-toggle sidenote-number">46</label><input type="checkbox" id="tufte-sn-46" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">46</span> yes, this essentially is the answer to the question above, but you should be arguing <em>your</em> answer based on the four characteristics of ecological indicators.</span>.</p>
-<div id="ques:fifteen" class="question">
+<div id="ques:bioind-15" class="question">
 <p class="question-begin">
-► Question 3.15
+► Question 8.15
 </p>
 <div class="question-body">
 <p>
@@ -735,7 +736,7 @@ Figure 8.7: Number of individuals per species for varying degrees of pollution f
 <a href="habitat-fragmentation.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-29
+2020-11-03
 </p>
 </div>
 </div>

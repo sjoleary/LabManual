@@ -59,13 +59,13 @@ The [IUCN Redlist](https://www.iucnredlist.org/) is "*the world's most comprehen
 
 The goal of the IUCN Redlist is to assess the status of individual species to create a barometer of the overall health of the world's biodiversity with the intent guide scientific research, inform policy/conventions (e.g. listing of species), affect resource allocation, and inform conservation planning, management strategies, and improve decision making.
 
-`r msmbstyle::question(label = "ques:one", text = "Go to the IUCN redlist website and record the proportion of various taxonomic groups (based on the number of **assessed** species) that are currently threatened with extinction. Briefly discuss whether these numbers are higher or lower than you would have expected.")`
+`r msmbstyle::question(label = "ques:redlist-1", text = "Go to the IUCN redlist website and record the proportion of various taxonomic groups (based on the number of **assessed** species) that are currently threatened with extinction. Briefly discuss whether these numbers are higher or lower than you would have expected.")`
 
 ## IUCN Redlist Categories
 
 The IUCN Red List has nine categories to classify species' risk of global extinction. 
 
-`r msmbstyle::question(label = "ques:two", text = "Use the IUCN Redlist website to identify and briefly characterize these nine categories. Indicate which categories indicate whether or not species have been evaluated, have sufficient information to make an assessment and are referred to collectively as threatened.")`
+`r msmbstyle::question(label = "ques:redlist-2", text = "Use the IUCN Redlist website to identify and briefly characterize these nine categories. Indicate which categories indicate whether or not species have been evaluated, have sufficient information to make an assessment and are referred to collectively as threatened.")`
 
 1. Extinct (EX)
 2. Extinct in the Wild (EW)
@@ -86,7 +86,7 @@ Five criteria are used for assessment an classification of species:
 4. Very small or restricted population
 5. Quantitative analysis (probability of extinction within next 100 years).
 
-`r msmbstyle::question(label = "ques:three", text = "The IUCN Redlist is at times criticized in the primary literature and debated in some scientific venues. Use your textbook (Ch. 8) to briefly outline the issues and argue whether you think these are substantial issues that need to be addressed and how that could be achieved.")`
+`r msmbstyle::question(label = "ques:redlist-3", text = "The IUCN Redlist is at times criticized in the primary literature and debated in some scientific venues. Use your textbook (Ch. 8) to briefly outline the issues and argue whether you think these are substantial issues that need to be addressed and how that could be achieved.")`
 
 
 ## Valueing Biodiversity
@@ -95,11 +95,11 @@ Value systems for biodiversity range from ethical and cultural/relational to eco
 
 One way to categorize species in terms of value is as (1) **Direct Use Value** and (2) **Indirect Use Value**.
 
-`r msmbstyle::question(label = "ques:four", text = "Briefly define each of these two categories and list specific examples for each.")`
+`r msmbstyle::question(label = "ques:redlist-4", text = "Briefly define each of these two categories and list specific examples for each.")`
 
 Two categories of Indirect Use Value are **Ecological Value** and **Cultural/Spiritual Value** (this latter category corresponds with our concept of relational value).
 
-`r msmbstyle::question(label = "ques:five", text = "Briefly describe each of these two categories and list specific examples for each.")`
+`r msmbstyle::question(label = "ques:redlist-5", text = "Briefly describe each of these two categories and list specific examples for each.")`
 
 Being able to define the value of species is important because it allows us to assess what would be lost if a species went extinct and how this would affect their ecosystem and/or human well-being.
 
@@ -107,7 +107,7 @@ Go to the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) and ide
 
 An easy way to do this is to use the drop-down menus on the left-hand side of the webpage. Open the `Red List Category` panel and check the boxes for `vulnerable`, `endangered` and `critically endangered`. Then use the `Land Regions` section to narrow your search to New Hampshire, USA and another part of the world to make your selections. This will likely be a long list - you can use e.g the `Systems` section to restrict your search to marine, terrestrial, or freshwater systems or the `Taxonomy` panel to look at specific groups of animal or plants. Finally, the `Use and Trade` panel will allow you to narrow your search to organisms with direct use value^[For easy comparison, you may want to choose three species that share the same direct use value.].
 
-`r msmbstyle::question(label = "ques:six", text = "For each of the three species you selected pull up the page with their assessment; give a brief synopsis of the name, range, habitat/ecology, major threats, and direct use value. For each consider what the ecological value and/or cultural/spiritual value could be. Finally, describe the broad-scale effects of this species going extinct would be (use the value categories we have discussed in lecture) and argue whether you think significant efforts should be made to protect the species.")`
+`r msmbstyle::question(label = "ques:redlist-6", text = "For each of the three species you selected pull up the page with their assessment; give a brief synopsis of the name, range, habitat/ecology, major threats, and direct use value. For each consider what the ecological value and/or cultural/spiritual value could be. Finally, describe the broad-scale effects of this species going extinct would be (use the value categories we have discussed in lecture) and argue whether you think significant efforts should be made to protect the species.")`
 
 
 ## Threats (Drivers of loss) to Biodiversity
@@ -122,10 +122,10 @@ For our course we are grouping drivers of biodiversity loss (threats) into five 
 
 Open the IUCN Redlist [Search Page](https://www.iucnredlist.org/search) again and open the `Threats` panel/section. You should see twelve categories. Go to the detailed description of these [categories](https://www.iucnredlist.org/resources/threat-classification-scheme). 
 
-`r msmbstyle::question(label = "ques:seven", text = "Read over the groups of threats the IUCN Redlist uses to describe the mechanisms that are affecting individual species and organize them into the five broad categories listed above.")`
+`r msmbstyle::question(label = "ques:redlist-7", text = "Read over the groups of threats the IUCN Redlist uses to describe the mechanisms that are affecting individual species and organize them into the five broad categories listed above.")`
 
 
-`r msmbstyle::question(label = "ques:eight", text = "At the bottom of this detailed descriptions of these categories you should find descriptions of the timing, scope, and severity options. Briefly describe how these are asssessed (categories) and explain why it is important to consider these categories/perspectives as well to better assess what the IUCN redlist status of each species is.")`
+`r msmbstyle::question(label = "ques:redlist-8", text = "At the bottom of this detailed descriptions of these categories you should find descriptions of the timing, scope, and severity options. Briefly describe how these are asssessed (categories) and explain why it is important to consider these categories/perspectives as well to better assess what the IUCN redlist status of each species is.")`
 
 
 ## Local and global comparisons of conservation status and threats to biodiversity
@@ -183,7 +183,7 @@ colnames(redlist_status)
 
 ```
 
-`r msmbstyle::question(label = "ques:nine", text = "Take a look at the column names to get an idea of the type of information you can get from this dataframe (you may also want to pull up the dataframe itself in the view panel to be able to see the contents of each column).")`
+`r msmbstyle::question(label = "ques:redlist-9", text = "Take a look at the column names to get an idea of the type of information you can get from this dataframe (you may also want to pull up the dataframe itself in the view panel to be able to see the contents of each column).")`
 
 You can also download information on the main threats for each species.
 
@@ -197,7 +197,7 @@ redlist_threats <- download[["result"]] %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:ten", text = "Take a look at the column names and dataframe content and assess the information you can get about the threats to this species.")`
+`r msmbstyle::question(label = "ques:redlist-10", text = "Take a look at the column names and dataframe content and assess the information you can get about the threats to this species.")`
 
 Details on the groups from the threat categories can be found [here](https://www.iucnredlist.org/resources/threat-classification-scheme).
 
@@ -280,7 +280,7 @@ download[["result"]] %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:eleven", text = "Choose another group from the list you are interested in, and query the databse to descibe the number of species in that group and use the proportion of species in each category to describe the threat status of the group as a whole.")`
+`r msmbstyle::question(label = "ques:redlist-11", text = "Choose another group from the list you are interested in, and query the databse to descibe the number of species in that group and use the proportion of species in each category to describe the threat status of the group as a whole.")`
 
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
@@ -434,9 +434,9 @@ ggplot(major_cat, aes(x = major_category, y = species_count)) +
 ```
 
 
-`r msmbstyle::question(label = "ques:twelve", text = "Use these results to identify patterns of certain habitats being home to more (less) extinct species.")`
+`r msmbstyle::question(label = "ques:redlist-12", text = "Use these results to identify patterns of certain habitats being home to more (less) extinct species.")`
 
-`r msmbstyle::question(label = "ques:thirteen", text = "For each of the three categories identifying species as threatened, I queried the habitat information for a random subset of 750 - 1000 species (the API is not my friend). You can find those text files in the data folder of this Rproject. Use your new found barplotting powers to compare patterns of habitat for species in each of the threatened categories alongside the extinct species. Explain your results.")`
+`r msmbstyle::question(label = "ques:redlist-13", text = "For each of the three categories identifying species as threatened, I queried the habitat information for a random subset of 750 - 1000 species (the API is not my friend). You can find those text files in the data folder of this Rproject. Use your new found barplotting powers to compare patterns of habitat for species in each of the threatened categories alongside the extinct species. Explain your results.")`
 
 
 `r msmbstyle::solution_begin(header = "Some advice", toggle = TRUE)`
@@ -598,7 +598,7 @@ kable(
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question(label = "ques:fourteen", text = "Decide whether you think the species counts or proportion of species in each country are more informative to use for a comparison across countries (explain your choice). Then make a comparison of the patterns you have observed.")`
+`r msmbstyle::question(label = "ques:redlist-14", text = "Decide whether you think the species counts or proportion of species in each country are more informative to use for a comparison across countries (explain your choice). Then make a comparison of the patterns you have observed.")`
 
 ### Comparison of drivers of biodiversity loss
 
@@ -712,9 +712,9 @@ ggplot(threat, aes(x = major_cat, y = species_count)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:fifteen", text = "Describe & discuss your results; remember that while the IUCN Redlist uses twelve categories, we have identified five major drivers of biodiversity loss - you can use the classification page and your answer to Q7 to relate your results to those five drivers.")`.
+`r msmbstyle::question(label = "ques:redlist-15", text = "Describe & discuss your results; remember that while the IUCN Redlist uses twelve categories, we have identified five major drivers of biodiversity loss - you can use the classification page and your answer to Q7 to relate your results to those five drivers.")`.
 
 In the `data` folder you will find a second data set for Madagascar. 
 
-`r msmbstyle::question(label = "ques:sixteen", text = "Summarize and visualize the data as above, then descibe and compare your results to the US data set and discuss your results.")`.
+`r msmbstyle::question(label = "ques:redlist-16", text = "Summarize and visualize the data as above, then descibe and compare your results to the US data set and discuss your results.")`.
 

@@ -1,0 +1,78 @@
+---
+title: "Lab Manual Conservation Biology Fall 2020"
+subtitle: "Conservation Biology Fall 2020"
+author: "Shannon J. O'Leary"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+output:
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    margin_references: FALSE
+    css: msmb.css
+bibliography: labmanual.bib
+link-citations: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+
+# load libraries
+library(msmbstyle)
+library(knitr)
+
+library(tidyverse)
+library(ggplot2)
+
+
+# global settings for code chunks
+knitr::opts_chunk$set(tidy = FALSE, 
+                      message=FALSE, 
+                      warning=FALSE,
+                      cache.extra = packageVersion('msmbstyle'))
+
+# invalidate cache when the tufte version changes
+options(htmltools.dir.version = FALSE)
+
+```
+
+# Stochastic Genetic Effects
+
+**Date**: 11/4/2020
+
+Download the project folder [here](). 
+
+Make sure to download the **entire** folder (not just the contents). 
+
+You can open the `Rproject` directly by double-clicking on the file which will launch `Rstudio`, or once you have opened `Rstudio` open the project folder using `File -> Open Project` or using the `Rproj` icon in the top right corner above the environment panel.
+
+
+**Learning Objectives**
+
+After completing this lab you should understand
+
+* what genetic drift is and how it impacts the genetic diversity of small and large populations
+* what a demographic/genetic bottleneck is and how it impacts the genetic diversity of a population
+* what a founder effect is and how it impacts the genetic diversity of a population.
+
+<br>
+
+
+## Genetic Drift
+
+
+`r msmbstyle::question(label = "ques:drift-1", text = ".")`
+
+
+## Bottleneck
+
+
+
+## Founder Effect
+
+
+
+

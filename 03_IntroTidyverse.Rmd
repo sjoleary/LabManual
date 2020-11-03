@@ -76,7 +76,7 @@ Execute the code. If you look over in your environment pane you should now see t
 
 Inspect your data.
 
-`r msmbstyle::question(label = "ques:one", text = "Can you determine how many columns and rows your data frame has from the View panel?")`
+`r msmbstyle::question(label = "ques:tidy-1", text = "Can you determine how many columns and rows your data frame has from the View panel?")`
 
 **Record your answer ("The data frame consists of ...") and describe how you figured this out in your rmarkdown.**
 
@@ -133,7 +133,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:two", text = "How would you select just Day, Month, and Year columns?")`
+`r msmbstyle::question(label = "ques:tidy-2", text = "How would you select just Day, Month, and Year columns?")`
 
 You PCL column doesn't contain any information (all `NA`s) - you can also eliminate individual columns by name.
 
@@ -144,7 +144,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:three", text = "How would you eliminate hook size from the data set?")`
+`r msmbstyle::question(label = "ques:tidy-3", text = "How would you eliminate hook size from the data set?")`
 
 You can also eliminate multiple columns by name, for example you would remove Day, Month and Year like this:
 
@@ -191,7 +191,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:four", text = "How would you select only rows containing Scalloped Hammerheads (*Sphyrna lewini*)?")`^[Note: you need to use `==` (not `=` if you are looking for an exact match).]
+`r msmbstyle::question(label = "ques:tidy-4", text = "How would you select only rows containing Scalloped Hammerheads (*Sphyrna lewini*)?")`^[Note: you need to use `==` (not `=` if you are looking for an exact match).]
 
 If want all rows but Gafftop sailfish you can use a `!` to say "not that".
 
@@ -202,7 +202,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:five", text = "How would you create a dataframe without Scalloped Hammerheads (*Sphyrna lewini*) entries?")`
+`r msmbstyle::question(label = "ques:tidy-5", text = "How would you create a dataframe without Scalloped Hammerheads (*Sphyrna lewini*) entries?")`
 
 Sometimes you might want to select rows that match a set of values^[The function `c()` (concatenate) creates what is called a vector of values].
 
@@ -223,7 +223,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:six", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus aka the sharky-sharks? There are four species in the data set - Carcharhinus_leucas, Carcharhinus_brevipinna, Carcharhinus_limbatus, Carcharhinus_porosus.")`
+`r msmbstyle::question(label = "ques:tidy-6", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus aka the sharky-sharks? There are four species in the data set - Carcharhinus_leucas, Carcharhinus_brevipinna, Carcharhinus_limbatus, Carcharhinus_porosus.")`
 
 For numbers you can select all rows with values greater than a certain value using `>`.
 
@@ -234,7 +234,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:seven", text = "Create a data frame containing only entries with a forklength < 300.")`
+`r msmbstyle::question(label = "ques:tidy-7", text = "Create a data frame containing only entries with a forklength < 300.")`
 
 You can also combine expressions - for example to select only scalloped hammerheads that are also smaller that 300 cm you would use
 
@@ -245,7 +245,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:eight", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus that have a forklength larger than 500 cm?")`
+`r msmbstyle::question(label = "ques:tidy-8", text = "How would you subset a data frame to contain only entries for different species in the genus Charcharhinus that have a forklength larger than 500 cm?")`
 
 Instead of entries having to fulfill two (or more) requirements, you might have a situation where you only want to retain rows that fulfill one or another argument. For example, if you wanted all entries that are either gafftops or a fork length smaller than 300 cm you could use the following code^[When you are combining arguments you use `&` to say "it must fulfill this **AND** this" or `|` (called the pipe) to say "it must fulfull this **OR** that.]:
 
@@ -256,7 +256,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:nine", text = "How would you select fish that have a forklength either smaller than 200 cm or larger than 300cm?")`
+`r msmbstyle::question(label = "ques:tidy-9", text = "How would you select fish that have a forklength either smaller than 200 cm or larger than 300cm?")`
  
 The tidyverse has a central concept call "split-apply-combine", which means that occasionally we want to group entries in a dataframe (split), do some sort of manipulation (apply), but end up with a single data frame (combine).
 
@@ -279,7 +279,7 @@ catch %>%
 ```
 This is also an example of how we can use the pipe (`%>%`) to string a bunch of commands, in this example we are saying "take the object catch, and then group rows by Species and then for each group retain only the maximum forklength value for that group and then ungroup them again."
 
-`r msmbstyle::question(label = "ques:ten", text = "How would you group rows by Species and then retain the individual caught on the largest hook size for each species?")`
+`r msmbstyle::question(label = "ques:tidy-10", text = "How would you group rows by Species and then retain the individual caught on the largest hook size for each species?")`
 
 Okay, now we can select subsets of columns and rows - what if we want to add columns or change data?
 
@@ -300,7 +300,7 @@ catch %>%
 
 You should now have a column called `difference` at the end of the data frame^[Instead of `-` you can use `+` to add , `*` to multiple, and `/` to divide values when creating a new column.].
 
-`r msmbstyle::question(label = "ques:eleven", text = "How would you create a new column called ratio, that is the ratio of the fork to stretch total length?")`
+`r msmbstyle::question(label = "ques:tidy-11", text = "How would you create a new column called ratio, that is the ratio of the fork to stretch total length?")`
 
 You can also create a column that contains a logical value (`TRUE`/`FALSE`). For example we might need a column that indicates if the Sex is unknown.
 
@@ -313,7 +313,7 @@ catch %>%
 
 You should know have a column called `unknown_sex` where if the animal that was caught was not sexed contains the value `TRUE`, if it was identified as male or female it would say `FALSE`.
 
-`r msmbstyle::question(label = "ques:twelve", text = "How would you create a new column called post_2017 that is TRUE if fish were caught after 2017?")`
+`r msmbstyle::question(label = "ques:tidy-12", text = "How would you create a new column called post_2017 that is TRUE if fish were caught after 2017?")`
 
 ```{marginfigure}
 
@@ -385,7 +385,7 @@ catch %>%
 
 ```
 
-`r msmbstyle::question(label = "ques:thirteen", text = "How could you use summarize to get the maximum forklength?")`^[Hint: Remember earlier we used the function max() to get a maximum value.]
+`r msmbstyle::question(label = "ques:tidy-13", text = "How could you use summarize to get the maximum forklength?")`^[Hint: Remember earlier we used the function max() to get a maximum value.]
 
 That's cool, but not super helpful ... unless, we leverage `group_by()` to start calculating summary stats for entries grouped for example by species:
 
@@ -404,7 +404,7 @@ catch %>%
 
 You are getting a few `NA`, `NaN`, `-Inf`, and `Inf` values - any guesses why? You might want to pull up the catch data frame in the view panel to see what is going on with those species.
 
-`r msmbstyle::question(label = "ques:fourteen", text = "How could you use summarize calculate a range of summary stats for the forklength for individuals grouped by sex?")`
+`r msmbstyle::question(label = "ques:tidy-14", text = "How could you use summarize calculate a range of summary stats for the forklength for individuals grouped by sex?")`
 
 So far, we have been manipulating our data frame using code and printing it directly to the console (and our rmarkdown). This can be useful for example to generate tables for reports but frequently we want to create a new object that has been manipulated according to our code to use for other things (for example to visualize).
 
@@ -444,7 +444,7 @@ Start your final section as `# Combining verbs` in your markdown - now is your c
 
 We've already combined most of our `dplyr` verbs with `group_by()` - you can use the pipe (`%>%`) to combine select, filter, mutate, and summarize as a series of commands.
 
-`r msmbstyle::question(label = "ques:fifteen", text = "Cut and paste this final code chunk into your Rmarkdown file and execute the code chunk. Now, describe what each line is doing to manipulate the data frame (bullets is fine). Make an educated guess with the last line for a bonus verb!")`
+`r msmbstyle::question(label = "ques:tidy-15", text = "Cut and paste this final code chunk into your Rmarkdown file and execute the code chunk. Now, describe what each line is doing to manipulate the data frame (bullets is fine). Make an educated guess with the last line for a bonus verb!")`
 
 ```{r}
 

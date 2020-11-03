@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-10-29" />
+<meta name="date" content="2020-11-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -154,6 +154,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
 <a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
 <a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -217,9 +218,9 @@ if(f.classList.contains('fa-plus-square')) {
 <p>It consists of 10 variables and 400 observations. This is what we call a <code>tidy</code> (or long) data set<label for="tufte-sn-30" class="margin-toggle sidenote-number">30</label><input type="checkbox" id="tufte-sn-30" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">30</span> See Hadley Wickham’s <a href="http://vita.had.co.nz/papers/tidy-data.pdf">paper</a> for a detailed description on the concept.</span>. Each row is a single observation. It does make for a very long dataframe but it has several benefits for processing and visualizing data sets.</p>
 <p>A data set in this format is centered around the concept that all the information is in a single dataframe with sets of <code>key-value</code> pairs. For example, in this data frame <code>SPECIES</code> would be the key, and <code>COUNT</code> the values, i.e. the unit of analysis is <code>SPECIES</code> the measurement we are making is <code>COUNT</code> (number of individuals for each species)<label for="tufte-sn-31" class="margin-toggle sidenote-number">31</label><input type="checkbox" id="tufte-sn-31" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">31</span> You can have multiple <code>keys</code> for example here, all the parameters set in the model together with the each <code>ISLAND</code> and <code>SPECIES</code> could form a <code>key</code> - this should remind you of our use of the the <code>group_by</code> function to create groups within a data set based on shared values for a parameter.</span>.</p>
 <p>To demonstrate the difference select the columns <code>ISLAND</code>, <code>SPECIES</code> and <code>COUNT</code>, and retain only the counts for <code>Arthropods</code> in the <code>tropical</code> habitat.</p>
-<div id="ques:one" class="question">
+<div id="ques:biog-1" class="question">
 <p class="question-begin">
-► Question 3.1
+► Question 6.1
 </p>
 <div class="question-body">
 <p>
@@ -308,9 +309,9 @@ What functions and arguments would you use to accomplish this?
 ## 19 Isle of Leary sp09        3
 ## 20 Isle of Leary sp10        2</code></pre>
 <p>To further demonstrate the benefits of a tidy data set, let’s calculate species richness to compare the biodiversity found on each of the islands.</p>
-<div id="ques:two" class="question">
+<div id="ques:biog-2" class="question">
 <p class="question-begin">
-► Question 3.2
+► Question 6.2
 </p>
 <div class="question-body">
 <p>
@@ -321,9 +322,9 @@ Give a brief definition of species richness and point out the limitations of usi
 </p>
 </div>
 </div>
-<div id="ques:three" class="question">
+<div id="ques:biog-3" class="question">
 <p class="question-begin">
-► Question 3.3
+► Question 6.3
 </p>
 <div class="question-body">
 <p>
@@ -461,9 +462,9 @@ Figure 6.3: Species Richness per taxon and habitat
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-84-1.png" alt="Species Richness per taxon and habitat" width="768">
 </div>
-<div id="ques:four" class="question">
+<div id="ques:biog-4" class="question">
 <p class="question-begin">
-► Question 3.4
+► Question 6.4
 </p>
 <div class="question-body">
 <p>
@@ -500,9 +501,9 @@ Figure 6.4: Species Richness per taxon and habitat
 </div>
 </div>
 <p>Now we are getting somewhere. Now that we’ve played with the data, let’s actually take a look and what patterns we can observe in the data.</p>
-<div id="ques:five" class="question">
+<div id="ques:biog-5" class="question">
 <p class="question-begin">
-► Question 3.5
+► Question 6.5
 </p>
 <div class="question-body">
 <p>
@@ -526,9 +527,9 @@ One of the central observations you should have made is that species richness is
 </p>
 </div>
 </div>
-<div id="ques:six" class="question">
+<div id="ques:biog-6" class="question">
 <p class="question-begin">
-► Question 3.6
+► Question 6.6
 </p>
 <div class="question-body">
 <p>
@@ -583,9 +584,9 @@ The two parameters you are looking for are Distance and Area.
 <p>The Data Collection section consists of a dynamic table that is recording the number of individuals for each of the ten species found on the mainland that are currently found on each of the islands.</p>
 <p>On the bottom left you can see two panels with dynamic histograms indicating the current and average number of species on the island. To the right is a table with the values being displayed in the histogram.</p>
 <p>Above the arrow that would take you back to the <code>Design</code> page you see the <code>Run Time</code>, above that the option to <code>Reset the Average</code> and <code>Clear Islands</code>.</p>
-<div id="ques:seven" class="question">
+<div id="ques:biog-7" class="question">
 <p class="question-begin">
-► Question 3.7
+► Question 6.7
 </p>
 <div class="question-body">
 <p>
@@ -630,9 +631,9 @@ Figure 6.5: Number of individuals sampled for each species at each sampling poin
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-87-1.png" alt="Number of individuals sampled for each species at each sampling point." width="768">
 </div>
-<div id="ques:eight" class="question">
+<div id="ques:biog-8" class="question">
 <p class="question-begin">
-► Question 3.8
+► Question 6.8
 </p>
 <div class="question-body">
 <p>
@@ -665,9 +666,9 @@ Figure 6.6: Observed species richness at each sampling point.
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-88-1.png" alt="Observed species richness at each sampling point." width="672">
 </div>
-<div id="ques:nine" class="question">
+<div id="ques:biog-9" class="question">
 <p class="question-begin">
-► Question 3.9
+► Question 6.9
 </p>
 <div class="question-body">
 <p>
@@ -699,9 +700,9 @@ Figure 6.7: Observed total number of individuals across all species at each samp
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-89-1.png" alt="Observed total number of individuals across all species at each sampling point.." width="672">
 </div>
-<div id="ques:ten" class="question">
+<div id="ques:biog-10" class="question">
 <p class="question-begin">
-► Question 3.10
+► Question 6.10
 </p>
 <div class="question-body">
 <p>
@@ -735,9 +736,9 @@ Figure 6.8: Number of individuals sampled for each species at each sampling poin
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-91-1.png" alt="Number of individuals sampled for each species at each sampling point." width="768">
 </div>
-<div id="ques:eleven" class="question">
+<div id="ques:biog-11" class="question">
 <p class="question-begin">
-► Question 3.11
+► Question 6.11
 </p>
 <div class="question-body">
 <p>
@@ -770,9 +771,9 @@ Figure 6.9: Observed species richness at each sampling point.
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-92-1.png" alt="Observed species richness at each sampling point." width="672">
 </div>
-<div id="ques:twelve" class="question">
+<div id="ques:biog-12" class="question">
 <p class="question-begin">
-► Question 3.12
+► Question 6.12
 </p>
 <div class="question-body">
 <p>
@@ -804,9 +805,9 @@ Figure 6.10: Observed total number of individuals across all species at each sam
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-93-1.png" alt="Observed total number of individuals across all species at each sampling point.." width="672">
 </div>
-<div id="ques:thirteen" class="question">
+<div id="ques:biog-13" class="question">
 <p class="question-begin">
-► Question 3.13
+► Question 6.13
 </p>
 <div class="question-body">
 <p>
@@ -823,9 +824,9 @@ Describe your results.
 <h2>
 <span class="header-section-number">6.4</span> The Equilibrium Theory of Island Biogeography</h2>
 <p>The equilibrium theory of island biogeography <span class="citation">(MacArthur and Wilson <a href="#ref-MacArthur1963" role="doc-biblioref">1963</a>)</span> states that patterns of species richness of an island are determined by two processes, <strong>Immigration</strong> (Colonization) and <strong>Extinction</strong>. If we can determine how these are related to distance and size of an island, we can infer how this affects species richness.</p>
-<div id="ques:fourteen" class="question">
+<div id="ques:biog-14" class="question">
 <p class="question-begin">
-► Question 3.14
+► Question 6.14
 </p>
 <div class="question-body">
 <p>
@@ -852,9 +853,9 @@ Hint<span id="sol-start-6" class="fa fa-plus-square solution-icon clickable" onc
 </p>
 </div>
 </div>
-<div id="ques:fifteen" class="question">
+<div id="ques:biog-15" class="question">
 <p class="question-begin">
-► Question 3.15
+► Question 6.15
 </p>
 <div class="question-body">
 <p>
@@ -882,9 +883,9 @@ Hint<span id="sol-start-7" class="fa fa-plus-square solution-icon clickable" onc
 </div>
 </div>
 <p>Simple versions of this model do not consider more complex factors such as species interactions and differences among species in terms of migration/extinction probabilities; we are essentially assuming that species are ecologically equivalent.</p>
-<div id="ques:sixteen" class="question">
+<div id="ques:biog-16" class="question">
 <p class="question-begin">
-► Question 6.1
+► Question 6.16
 </p>
 <div class="question-body">
 <p>
@@ -982,9 +983,9 @@ Figure 6.11: Immigration/Extinction Rates and Island Distances
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-97-1.png" alt="Immigration/Extinction Rates and Island Distances" width="768">
 </div>
-<div id="ques:seventeen" class="question">
+<div id="ques:biog-17" class="question">
 <p class="question-begin">
-► Question 6.2
+► Question 6.17
 </p>
 <div class="question-body">
 <p>
@@ -1069,9 +1070,9 @@ Figure 6.12: Immigration/Extinction Rates and Island Size
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-98-1.png" alt="Immigration/Extinction Rates and Island Size" width="768">
 </div>
-<div id="ques:eighteen" class="question">
+<div id="ques:biog-18" class="question">
 <p class="question-begin">
-► Question 6.3
+► Question 6.18
 </p>
 <div class="question-body">
 <p>
@@ -1088,9 +1089,9 @@ Briefly describe the relationship of immigration rate and species richness and t
 <h2>
 <span class="header-section-number">6.5</span> Habitat &amp; Taxonomic groups</h2>
 <p>You may remember from our initial comparison that we identified differences among habitats.</p>
-<div id="ques:nineteen" class="question">
+<div id="ques:biog-19" class="question">
 <p class="question-begin">
-► Question 6.4
+► Question 6.19
 </p>
 <div class="question-body">
 <p>
@@ -1112,9 +1113,9 @@ Hint<span id="sol-start-8" class="fa fa-plus-square solution-icon clickable" onc
 </p>
 </div>
 </div>
-<div id="ques:twenty" class="question">
+<div id="ques:biog-20" class="question">
 <p class="question-begin">
-► Question 6.5
+► Question 6.20
 </p>
 <div class="question-body">
 <p>
@@ -1136,9 +1137,9 @@ Hint<span id="sol-start-9" class="fa fa-plus-square solution-icon clickable" onc
 </p>
 </div>
 </div>
-<div id="ques:twenty-one" class="question">
+<div id="ques:biog-21" class="question">
 <p class="question-begin">
-► Question 6.6
+► Question 6.21
 </p>
 <div class="question-body">
 <p>
@@ -1255,9 +1256,9 @@ Figure 6.14: Observed species richness at each sampling point for two islands wi
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-102-1.png" alt="Observed species richness at each sampling point for two islands with different distances from the mainland." width="768">
 </div>
-<div id="ques:twenty-two" class="question">
+<div id="ques:biog-22" class="question">
 <p class="question-begin">
-► Question 6.7
+► Question 6.22
 </p>
 <div class="question-body">
 <p>
@@ -1273,9 +1274,9 @@ Briefly describe your results and interpret them (i.e. try to explain the mecha
 <h2>
 <span class="header-section-number">6.6</span> Changes in mortality and migration rate</h2>
 <p>Two parameters that so far we have not manipulated in the experiment are the mortality and migration rate. The migration rate affects how frequently animals are blown out to sea and mortality determine the probability of individuals dying on the island.</p>
-<div id="ques:twenty-three" class="question">
+<div id="ques:biog-23" class="question">
 <p class="question-begin">
-► Question 6.8
+► Question 6.23
 </p>
 <div class="question-body">
 <p>
@@ -1297,9 +1298,9 @@ Hint<span id="sol-start-11" class="fa fa-plus-square solution-icon clickable" on
 </p>
 </div>
 </div>
-<div id="ques:twenty-four" class="question">
+<div id="ques:biog-24" class="question">
 <p class="question-begin">
-► Question 6.9
+► Question 6.24
 </p>
 <div class="question-body">
 <p>
@@ -1344,7 +1345,7 @@ Pro tip<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable"
 <a href="iucn-redlist-evaluation.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-29
+2020-11-03
 </p>
 </div>
 </div>

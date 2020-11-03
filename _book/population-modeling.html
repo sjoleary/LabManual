@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-10-29" />
+<meta name="date" content="2020-11-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -157,6 +157,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#population-viability-anlaysis"> Population viability anlaysis</a></li>
 <li class="toc"><a href="#acknowledgments"> Acknowledgments</a></li>
 </ul>
+<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -191,9 +192,9 @@ if(f.classList.contains('fa-plus-square')) {
 <span class="header-section-number">13.1</span> Modeling population growth</h2>
 <p>A <strong>population</strong> is generally defined as a group of individuals of the same species that occupy the same area at the same time that freely interbreed with each other.</p>
 <p>Temporal changes in population size (number of individuals) and density (number of individuals per area) are described as <strong>population dynamics</strong>.</p>
-<div id="ques:one" class="question">
+<div id="ques:popmodel-1" class="question">
 <p class="question-begin">
-► Question 3.1
+► Question 13.1
 </p>
 <div class="question-body">
 <p>
@@ -228,9 +229,9 @@ for</p>
 <span class="math inline">\(E_{t}\)</span>: total number of emigrants leaving a population between <span class="math inline">\(t\)</span> and <span class="math inline">\(t+1\)</span>
 </li>
 </ul>
-<div id="ques:two" class="question">
+<div id="ques:popmodel-2" class="question">
 <p class="question-begin">
-► Question 3.2
+► Question 13.2
 </p>
 <div class="question-body">
 <p>
@@ -241,9 +242,9 @@ Briefly compare and contrast the following characteristics of of population mode
 </p>
 </div>
 </div>
-<div id="ques:three" class="question">
+<div id="ques:popmodel-3" class="question">
 <p class="question-begin">
-► Question 3.3
+► Question 13.3
 </p>
 <div class="question-body">
 <p>
@@ -277,9 +278,9 @@ N_{t+1} = N_{t} + b_{t}N_{t} - d_{t}N_{t}
 <h2>
 <span class="header-section-number">13.2</span> Geometric growth</h2>
 <p><strong>Geometric growth models</strong> are discrete-time models that assume unconstrained growth. In addition, the average number of births per individual <span class="math inline">\(b\)</span> and the average risk of dying <span class="math inline">\(d\)</span> are <strong>density-independent</strong> which means that they are constant across the time period being modeled.</p>
-<div id="ques:four" class="question">
+<div id="ques:popmodel-4" class="question">
 <p class="question-begin">
-► Question 3.4
+► Question 13.4
 </p>
 <div class="question-body">
 <p>
@@ -372,9 +373,9 @@ Figure 13.1: Change in demographic parameters over time (t) for a geometric grow
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-190-1.png" alt="Change in demographic parameters over time (t) for a geometric growth model." width="768">
 </div>
-<div id="ques:six" class="question">
+<div id="ques:popmodel-5" class="question">
 <p class="question-begin">
-► Question 3.6
+► Question 13.5
 </p>
 <div class="question-body">
 <p>
@@ -397,9 +398,9 @@ Figure 13.2: Change in per capita growth rate over time for a geometric growth m
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-191-1.png" alt="Change in per capita growth rate over time for a geometric growth model." width="768">
 </div>
-<div id="ques:seven" class="question">
+<div id="ques:popmodel-6" class="question">
 <p class="question-begin">
-► Question 3.7
+► Question 13.6
 </p>
 <div class="question-body">
 <p>
@@ -427,9 +428,9 @@ Figure 13.3: Relationship of demographic parameters and population size.
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-192-1.png" alt="Relationship of demographic parameters and population size." width="768">
 </div>
-<div id="ques:eight" class="question">
+<div id="ques:popmodel-7" class="question">
 <p class="question-begin">
-► Question 3.8
+► Question 13.7
 </p>
 <div class="question-body">
 <p>
@@ -441,9 +442,9 @@ Describe how our demographic parameters change as population size increases and 
 </div>
 </div>
 <p>Before we move on let’s consider how the relationship of birth and death rates determine population growth. We are assuming that <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span> are constant, and for our initial model that <span class="math inline">\(b &gt; d\)</span>.</p>
-<div id="ques:nine" class="question">
+<div id="ques:popmodel-8" class="question">
 <p class="question-begin">
-► Question 3.9
+► Question 13.8
 </p>
 <div class="question-body">
 <p>
@@ -571,9 +572,9 @@ Figure 13.4: Change in population size for two populations with the same rate of
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-195-1.png" alt="Change in population size for two populations with the same rate of increase modeled using discrete and continuous growth." width="768">
 </div>
-<div id="ques:ten" class="question">
+<div id="ques:popmodel-9" class="question">
 <p class="question-begin">
-► Question 3.10
+► Question 13.9
 </p>
 <div class="question-body">
 <p>
@@ -594,9 +595,9 @@ Compare and contrast the change in population size over time for two populations
 N_{t+1} = N_{t} + b_{t}N_{t} - d_{t}N_{t}
 \]</span>
 We know that for many populations the assumption that birth and death rates are constants is not realistic. Logistic growth can account for changes of birth and death rate as the population size changes, i.e. here we are modeling <strong>density-dependent</strong> growth which reflects changes in birth/death rate as the population size changes.</p>
-<div id="ques:eleven" class="question">
+<div id="ques:popmodel-10" class="question">
 <p class="question-begin">
-► Question 3.11
+► Question 13.10
 </p>
 <div class="question-body">
 <p>
@@ -703,9 +704,9 @@ Figure 13.5: Change in population size Nt over time under a logistical growth mo
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-197-1.png" alt="Change in population size Nt over time under a logistical growth model." width="576">
 </div>
-<div id="ques:twelve" class="question">
+<div id="ques:popmodel-11" class="question">
 <p class="question-begin">
-► Question 3.12
+► Question 13.11
 </p>
 <div class="question-body">
 <p>
@@ -733,9 +734,9 @@ Figure 13.6: The relationship of per capita birth/death rate and population size
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-198-1.png" alt="The relationship of per capita birth/death rate and population size for a logistical growth." width="576">
 </div>
-<div id="ques:thirteen" class="question">
+<div id="ques:popmodel-12" class="question">
 <p class="question-begin">
-► Question 3.13
+► Question 13.12
 </p>
 <div class="question-body">
 <p>
@@ -765,9 +766,9 @@ Figure 13.7: The relationship of the change in population size and the populatio
 <span id="cb197-3"><a href="population-modeling.html#cb197-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">fill =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
 <span id="cb197-4"><a href="population-modeling.html#cb197-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"population size (Nt)"</span>, <span class="dt">y =</span> <span class="st">"per capita rate of change in N"</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-200-1.png" width="672"></p>
-<div id="ques:fourteen" class="question">
+<div id="ques:popmodel-13" class="question">
 <p class="question-begin">
-► Question 3.14
+► Question 13.13
 </p>
 <div class="question-body">
 <p>
@@ -778,9 +779,9 @@ Give a brief description of the total and per capita rate of change in populatio
 </p>
 </div>
 </div>
-<div id="ques:fifteen" class="question">
+<div id="ques:popmodel-14" class="question">
 <p class="question-begin">
-► Question 3.15
+► Question 13.14
 </p>
 <div class="question-body">
 <p>
@@ -791,9 +792,9 @@ Assume that a population has reached equilibrium (N is K). Then, there is a sudd
 </p>
 </div>
 </div>
-<div id="ques:sixteen" class="question">
+<div id="ques:popmodel-15" class="question">
 <p class="question-begin">
-► Question 6.1
+► Question 13.15
 </p>
 <div class="question-body">
 <p>
@@ -909,9 +910,9 @@ We have been thinking of logistic growth mainly in the context of something like
 </tr>
 </tbody>
 </table>
-<div id="ques:seventeen" class="question">
+<div id="ques:popmodel-16" class="question">
 <p class="question-begin">
-► Question 6.2
+► Question 13.16
 </p>
 <div class="question-body">
 <p>
@@ -963,9 +964,9 @@ Let’s calculate this for our life-table.</p>
 <span id="cb201-5"><a href="population-modeling.html#cb201-5"></a><span class="st">  </span><span class="kw">scale_y_log10</span>() <span class="op">+</span></span>
 <span id="cb201-6"><a href="population-modeling.html#cb201-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Age (x)"</span>, <span class="dt">y =</span> <span class="st">"survivorship probability lx"</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-204-1.png" width="672"></p>
-<div id="ques:eighteen" class="question">
+<div id="ques:popmodel-17" class="question">
 <p class="question-begin">
-► Question 6.3
+► Question 13.17
 </p>
 <div class="question-body">
 <p>
@@ -1192,9 +1193,9 @@ g_{x} = \frac{S_{x+1}}{S_{x}}
 <span id="cb203-7"><a href="population-modeling.html#cb203-7"></a><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>)) <span class="op">+</span></span>
 <span id="cb203-8"><a href="population-modeling.html#cb203-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Age (x)"</span>, <span class="dt">y =</span> <span class="st">"age-specific survivorship lx"</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-206-1.png" width="672"></p>
-<div id="ques:nineteen" class="question">
+<div id="ques:popmodel-18" class="question">
 <p class="question-begin">
-► Question 6.4
+► Question 13.18
 </p>
 <div class="question-body">
 <p>
@@ -1542,9 +1543,9 @@ Frequently, the life expectancy is used synonymous as the life expectancy at age
 <span id="cb205-7"><a href="population-modeling.html#cb205-7"></a><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>)) <span class="op">+</span></span>
 <span id="cb205-8"><a href="population-modeling.html#cb205-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Age (x)"</span>, <span class="dt">y =</span> <span class="st">"age-specific life-expectancy ex"</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-208-1.png" width="672"></p>
-<div id="ques:twenty" class="question">
+<div id="ques:popmodel-19" class="question">
 <p class="question-begin">
-► Question 6.5
+► Question 13.19
 </p>
 <div class="question-body">
 <p>
@@ -1569,9 +1570,9 @@ Give a brief description of each the age-specific life expectancies for three su
 <span id="cb207-4"><a href="population-modeling.html#cb207-4"></a><span class="st">  </span><span class="kw">scale_y_log10</span>() <span class="op">+</span></span>
 <span id="cb207-5"><a href="population-modeling.html#cb207-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Age (x)"</span>, <span class="dt">y =</span> <span class="st">"standardize survivorship lx"</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-210-1.png" width="672"></p>
-<div id="ques:twent-one" class="question">
+<div id="ques:popmodel-20" class="question">
 <p class="question-begin">
-► Question 13.1
+► Question 13.20
 </p>
 <div class="question-body">
 <p>
@@ -1594,9 +1595,9 @@ R_{0} = \sum_{x=0}^{k}l_{x}b_{x}
 <span id="cb208-5"><a href="population-modeling.html#cb208-5"></a></span>
 <span id="cb208-6"><a href="population-modeling.html#cb208-6"></a>R0</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div id="ques:twenty-two" class="question">
+<div id="ques:popmodel-21" class="question">
 <p class="question-begin">
-► Question 6.7
+► Question 13.21
 </p>
 <div class="question-body">
 <p>
@@ -1629,9 +1630,9 @@ r = \frac{ln(R_{0})}{G}
 <span id="cb212-2"><a href="population-modeling.html#cb212-2"></a></span>
 <span id="cb212-3"><a href="population-modeling.html#cb212-3"></a>r</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div id="ques:twenty-three" class="question">
+<div id="ques:popmodel-22" class="question">
 <p class="question-begin">
-► Question 6.8
+► Question 13.22
 </p>
 <div class="question-body">
 <p>
@@ -1647,9 +1648,9 @@ What is your intrinsic growth rate? Is the population increasing, decreasing or 
 <h2>
 <span class="header-section-number">13.8</span> Population viability anlaysis</h2>
 <p>Modeling population growth is an important tool for conservation because it enables an optimization of management tools. Modelers are able to used past data, usually derived from a monitoring study, for a specific species/population or apply data available for closely related species or species with a similar life history to determine minimum viable population size, extinction probabilities for multiple scenarios, and also determine which are the most important life/age stages to target to maximize population growth rates with the help of life tables to refine population growth models.</p>
-<div id="ques:twenty-four" class="question">
+<div id="ques:popmodel-23" class="question">
 <p class="question-begin">
-► Question 6.9
+► Question 13.23
 </p>
 <div class="question-body">
 <p>
@@ -1661,9 +1662,9 @@ Give a brief definition of a minimum viable population size and explain why it i
 </div>
 </div>
 <p><strong>Population viability analysis</strong> can be used to determine the smallest population that has a reasonable probability of surviving over a specific period of time.</p>
-<div id="ques:twenty-five" class="question">
+<div id="ques:popmodel-24" class="question">
 <p class="question-begin">
-► Question 13.2
+► Question 13.24
 </p>
 <div class="question-body">
 <p>
@@ -1675,9 +1676,9 @@ Briefly discuss what a reasonable probability and specified period of time shoul
 </div>
 </div>
 <p>The more population-specific data is available for a PVA the more accurate the model is - though of course it will also increase in complexity. Complex models will go beyond just looking at demographics and include habitat suitability models and account for interactions with other species.</p>
-<div id="ques:twenty-six" class="question">
+<div id="ques:popmodel-25" class="question">
 <p class="question-begin">
-► Question 13.3
+► Question 13.25
 </p>
 <div class="question-body">
 <p>
@@ -1689,9 +1690,9 @@ Briefly discuss why using data based on monitoring the specific population you w
 </div>
 </div>
 <p>In this tutorial we will build a simple model that require only information on growth rates over time which will allow us to create a simple stochastic model.</p>
-<div id="ques:twenty-seven" class="question">
+<div id="ques:popmodel-26" class="question">
 <p class="question-begin">
-► Question 13.4
+► Question 13.26
 </p>
 <div class="question-body">
 <p>
@@ -1732,9 +1733,9 @@ Figure 13.10: Frequency distribution of lambda values drawn from a distribution 
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-216-1.png" alt="Frequency distribution of lambda values drawn from a distribution with mean = 1 and std = 0.5. The solid black line indicates the mean, the red dashed lines mean +/- 1 std, and the dotted blue lines the mean +/1 2 std." width="576">
 </div>
-<div id="ques:tweny-eight" class="question">
+<div id="ques:popmodel-27" class="question">
 <p class="question-begin">
-► Question 13.5
+► Question 13.27
 </p>
 <div class="question-body">
 <p>
@@ -1749,9 +1750,9 @@ For a value of lambda = 1, is the population increase, decreasing, or maintainin
 <p>Let’s assume we are creating a population viability analysis for a small population of N = 10 birds on a tropical island that has been monitored for the past 50 years and the distribution of <span class="math inline">\(\lambda\)</span> has a mean of 1.</p>
 <p>This means that on average the population size remains constant. Because of environmental stochasticity we can expect growth rates to vary so that in some years <span class="math inline">\(\lambda\)</span> will be &lt; 1 and the population size will decline while in other years when <span class="math inline">\(\lambda\)</span> is &gt; 1 the population size will increase.</p>
 <p>We can simulate these random changes in population growth by randomly drawing a value for <span class="math inline">\(\lambda\)</span> from a known distribution based on observed values for every time step at which we calculate <span class="math inline">\(N{t}\)</span>.</p>
-<div id="ques:twenty-nine" class="question">
+<div id="ques:popmodel-28" class="question">
 <p class="question-begin">
-► Question 13.6
+► Question 13.28
 </p>
 <div class="question-body">
 <p>
@@ -1876,9 +1877,9 @@ Figure 13.12: Change in population size for 100 trials (run) of a stochastic geo
 <img src="_main_files/figure-html/unnamed-chunk-218-1.png" alt="Change in population size for 100 trials (run) of a stochastic geometric model." width="672">
 </div>
 <p>Now we can actually make some predictions about extinction probabilities. To do this, we want to determine the proportion of trials that resulting in extinction, i.e. the proportion of trials for which the population was zero at the last time point.</p>
-<div id="ques:thirty" class="question">
+<div id="ques:popmodel-29" class="question">
 <p class="question-begin">
-► Question 13.7
+► Question 13.29
 </p>
 <div class="question-body">
 <p>
@@ -1911,19 +1912,19 @@ Give a brief explanation of the benefit of running a larger number of trials and
 <tbody>
 <tr class="odd">
 <td align="left">FALSE</td>
-<td align="right">78</td>
-<td align="right">0.78</td>
+<td align="right">75</td>
+<td align="right">0.75</td>
 </tr>
 <tr class="even">
 <td align="left">TRUE</td>
-<td align="right">22</td>
-<td align="right">0.22</td>
+<td align="right">25</td>
+<td align="right">0.25</td>
 </tr>
 </tbody>
 </table>
-<div id="ques:thirty-one" class="question">
+<div id="ques:popmodel-30" class="question">
 <p class="question-begin">
-► Question 13.8
+► Question 13.30
 </p>
 <div class="question-body">
 <p>
@@ -1934,9 +1935,9 @@ The goal of PVA is to allow managers to conclude something along the lines of A 
 </p>
 </div>
 </div>
-<div id="ques:thirty-two" class="question">
+<div id="ques:popmodel-31" class="question">
 <p class="question-begin">
-► Question 13.9
+► Question 13.31
 </p>
 <div class="question-body">
 <p>
@@ -2011,9 +2012,9 @@ Argue whether you think the extinction risk will increase/decrease if the initia
 <span id="cb217-62"><a href="population-modeling.html#cb217-62"></a>  <span class="dt">digits =</span> <span class="dv">2</span>,</span>
 <span id="cb217-63"><a href="population-modeling.html#cb217-63"></a>  <span class="dt">caption =</span> <span class="st">"Proportion of runs where population did/did not persit for an intial population size of xx."</span></span>
 <span id="cb217-64"><a href="population-modeling.html#cb217-64"></a>)</span></code></pre></div>
-<div id="ques:thirty-three" class="question">
+<div id="ques:popmodel-32" class="question">
 <p class="question-begin">
-► Question 13.10
+► Question 13.32
 </p>
 <div class="question-body">
 <p>
@@ -2024,9 +2025,9 @@ Argue whether you think the extinction risk will increase/decrease for longer si
 </p>
 </div>
 </div>
-<div id="ques:thirty-four" class="question">
+<div id="ques:popmodel-33" class="question">
 <p class="question-begin">
-► Question 13.11
+► Question 13.33
 </p>
 <div class="question-body">
 <p>
@@ -2037,9 +2038,9 @@ Argue whether you think the extinction risk will increase/decrease if you increa
 </p>
 </div>
 </div>
-<div id="ques:thirty-five" class="question">
+<div id="ques:popmodel-34" class="question">
 <p class="question-begin">
-► Question 13.12
+► Question 13.34
 </p>
 <div class="question-body">
 <p>
@@ -2061,10 +2062,10 @@ Droughts on our island decrease the mean value of lambda to 0.9 with a standard 
 
 <p style="text-align: center;">
 <a href="shark-fin-trade-monitoring.html"><button class="btn btn-default">Previous</button></a>
-<a href="references.html"><button class="btn btn-default">Next</button></a>
+<a href="genetic-drift.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-29
+2020-11-03
 </p>
 </div>
 </div>

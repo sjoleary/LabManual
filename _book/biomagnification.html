@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-10-29" />
+<meta name="date" content="2020-11-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -147,6 +147,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
 <a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
 <a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -173,9 +174,9 @@ if(f.classList.contains('fa-plus-square')) {
 <p>Organisms can be categorized by their role in the ecosystem according to their trophic levels and roles as primary producers, primary, secondary, tertiary consumers<label for="tufte-sn-49" class="margin-toggle sidenote-number">49</label><input type="checkbox" id="tufte-sn-49" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">49</span> Generally consumers at the highest trophic level are designated as top predators</span>, and decomposers.</p>
 <p>In general, energy enters an ecosystem as sunlight and is captured in chemical form by primary producers through photosynthesis. This process is called energy fixation and means that this energy is now available to other organisms in the the ecosystem. As the energy travels up the trophic chain it changes forms as organisms consume other species, metabolize biomass, and eventually die. Each time an organism is consumed, only a portion of the energy in the prey is actually incorporated into the biomass of the consumer and therefore available to organisms at higher trophic levels - the rest of the energy is “burned off” during metabolism or passes through the consumer undigested.</p>
 <p>This process of energy loss occurs at each trophic level. As a rule of thumb, approximately 10% of energy consumed is used for growth/biomass production and thus made available for organisms at the next trophic level. This also results in an decrease of biomass with increasing trophic levels. In reality, the efficiency of energy transfer, i.e. how much energy is transferred to the next trophic level and how much energy dissipates as heat during cellular respiration varies depending on the proportion of organisms that die without being eaten, how much of a food item is not digested (and therefor not used). So energy does not “disappear” it just winds up as heat instead of being available to the ecosystem.</p>
-<div id="ques:one" class="question">
+<div id="ques:biomagn-1" class="question">
 <p class="question-begin">
-► Question 3.1
+► Question 10.1
 </p>
 <div class="question-body">
 <p>
@@ -189,9 +190,9 @@ Assuming the 10%-rule, if you have a simple food chain consisting of grass being
 <p>Heavy metals, some pesticides, and other organic compounds are not broken down during consumption and are incorporated into the biomass of the consumer. This means that the amount of the compound remains the same - though the amount of biomass it is “diluted in” becomes increasingly smaller as it “travels” up the food chain. In addition, it does not break down, so as an organisms consume food containing this type of compound they will retain all the compounds they eat.</p>
 <p>This process is called biomagnification or bioaccumulation. Rachel Carson’s 1962 book “Silent Spring” was one of the first times this concept was illustrated for the general public as she described how DDT in near-shore waters accumulates across trophic levels of a food web resulting in bird population being decimated by thinning egg-shells.</p>
 <p>In this <a href="http://virtualbiologylab.org/NetWebHTML_FilesJan2016/BiomagnificationModel.html">model</a>, we will use a simple food chain consisting of phytoplankton, zooplankton, smelt, salmon, and pelicans.</p>
-<div id="ques:two" class="question">
+<div id="ques:biomagn-2" class="question">
 <p class="question-begin">
-► Question 3.2
+► Question 10.2
 </p>
 <div class="question-body">
 <p>
@@ -208,9 +209,9 @@ Designate the role of each of these organisms in the food chain and determine ho
 <p>0, 0.00002, 0.00004, 0.00006, 0.00008, and 0.0001.</p>
 <p>Every student will make measurements for sampling points from 0 - 2,000 in 100 tick increments for the assigned water DDT concentration.</p>
 <p>At each sampling point record the <strong>current DDT contamination in parts per million</strong> (not the rolling mean!). Record at least four digits.</p>
-<div id="ques:three" class="question">
+<div id="ques:biomagn-3" class="question">
 <p class="question-begin">
-► Question 3.3
+► Question 10.3
 </p>
 <div class="question-body">
 <p>
@@ -270,9 +271,9 @@ As you take your measurements note the pattern of differences of standard deviat
 <span id="cb157-20"><a href="biomagnification.html#cb157-20"></a><span class="st">  </span><span class="kw">facet_grid</span>(RATIO <span class="op">~</span><span class="st"> </span>CONC_WATER, <span class="dt">scales =</span> <span class="st">"free"</span>) <span class="op">+</span></span>
 <span id="cb157-21"><a href="biomagnification.html#cb157-21"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"ratio DDT concentration"</span>) <span class="op">+</span></span>
 <span id="cb157-22"><a href="biomagnification.html#cb157-22"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div>
-<div id="ques:four" class="question">
+<div id="ques:biomagn-4" class="question">
 <p class="question-begin">
-► Question 3.4
+► Question 10.4
 </p>
 <div class="question-body">
 <p>
@@ -291,7 +292,7 @@ Describe your results from both figures and compare differences for different le
 <a href="species-distribution-modeling.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-29
+2020-11-03
 </p>
 </div>
 </div>

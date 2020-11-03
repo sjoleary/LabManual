@@ -88,7 +88,7 @@ Genetic barcoding allows for identification of an unknown specimen for which DNA
 
 To be able to do this you need a gene that is present in all (or a significantly large group of species), flanked by conserved regions across a wide range of species so that universal primers can be designed. Further, the gene must be variable among species but conserved within a species.
 
-`r msmbstyle::question(label = "ques:one", text = "For Eukaryotes Cytochromeoxidase I has emerged as the barcoding gene. Explain how this gene fulfills all the requirements.")`
+`r msmbstyle::question(label = "ques:fins-1", text = "For Eukaryotes Cytochromeoxidase I has emerged as the barcoding gene. Explain how this gene fulfills all the requirements.")`
 
 Next to an appropriate gene, you will also need a reference database, i.e. sequences for the barcoding gene from a set of vouchered specimen. That way, as long as you can extract DNA from a sample you can identify the species even if it is too degraded or "incomplete" for a morphological ID.
 
@@ -106,7 +106,7 @@ In practice, genetic barcoding usually consists of these steps:
 4. Sequence amplified gene
 5. Compare sequence to reference database to get sample ID
 
-`r msmbstyle::question(label = "ques:two", text = "DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, ... this means that you can also use non-lethal sampling. In this light, explain how barcoding could be a useful tool for conservation in general, and specifically for wildlife forensics and enforcing regulations in the wildlife trade (For your argument, consider how the fact that you can use non-lethal sampling, obtain DNA from a wide array of samples is particularly useful and assess how complicated/straightforward the labwork/analysis is).")`
+`r msmbstyle::question(label = "ques:fins-2", text = "DNA can be extracted from fin clips, scales, fur, pieces of skin, scat, bones, ... this means that you can also use non-lethal sampling. In this light, explain how barcoding could be a useful tool for conservation in general, and specifically for wildlife forensics and enforcing regulations in the wildlife trade (For your argument, consider how the fact that you can use non-lethal sampling, obtain DNA from a wide array of samples is particularly useful and assess how complicated/straightforward the labwork/analysis is).")`
 
 
 ##  Shark Fins/fishery
@@ -117,15 +117,15 @@ Increasing wealth of the middle class resulted in an increased demand for fins. 
 
 In the late 90s and early 2000s, fisheries-driven declines of some shark species were linked to the fin trade. Despite the fin trade comprising a valuable global trade, monitoring it on a species-specific basis is difficult as few countries with commercial or subsistence shark fisheries keep accurate records or regulate specific shark fisheries. As a result, it can be difficult to quantify the impact of the fin trade on specific shark populations/species and resulting declines.
 
-`r msmbstyle::question(label = "ques:three", text = "Based on sharks position in the trophic level, their habitat, geographic range(s), and life history, argue whether you think shark populations are intrinsically vulnerable to local extinctions due to increased fishing mortality.")`
+`r msmbstyle::question(label = "ques:fins-3", text = "Based on sharks position in the trophic level, their habitat, geographic range(s), and life history, argue whether you think shark populations are intrinsically vulnerable to local extinctions due to increased fishing mortality.")`
 
 Historically, mainland China is the world's second largest importer of shark fins after Hong Kong and primary consumer of shark fin soup. The fins used for shark fin soup are the cartilaginous dorsal, pectoral, and caudal fins. Most global shark catch and trade data is aggregated and due to the use of a variety of common names for (groups of sharks) it is difficult to trace products through supply chains and understand the pressure on shark populations due to fishing. Understanding the species composition of shark fin markets and monitoring the trade is becoming increasingly important, partially to regulate trade of CITES-listed sharks. Agency challenged with enforcing trade restrictions and uncovering illegal trade frequently cite difficulties for species identification of fins once they have been cut-off of the shark^[The argument is that all shark fins look the same - [or do they](https://www.identifyingsharkfins.org/)? Significant efforts have been made to develop dichotomous keys to allow for straightforward identification by law enforcement.]
 
-`r msmbstyle::question(label = "ques:four", text = "Consider what type of information/samples you would need to identify illegally traded fins and species composition if you were to use traditional methods like morphologically identifications compared to genetic barcoding.")`
+`r msmbstyle::question(label = "ques:fins-4", text = "Consider what type of information/samples you would need to identify illegally traded fins and species composition if you were to use traditional methods like morphologically identifications compared to genetic barcoding.")`
 
 Because there is a general apprehension of importers and retailers to donate fins or provide other samples for genetic testing and buying fins at a sufficiently large scale is prohibitively expensive, there have been several studies that use trimmings produced during processing of fins at which time excess skin, muscle, and cartilage is removed. These trimmings are collected and sold for comparatively low prices.
 
-`r msmbstyle::question(label = "ques:five", text = "Briefly discuss the advantages and limitations of using trimmings as proxy for fins sold in a market to determine species composition.")`
+`r msmbstyle::question(label = "ques:fins-5", text = "Briefly discuss the advantages and limitations of using trimmings as proxy for fins sold in a market to determine species composition.")`
 
 For this study, the shark fin retail market of Gangzhou was sampled ten times (2015 - 2017). To obtain a random and representative sample, first, a list of known vendors was generated. Then, a list of 10 vendors was randomly generated  for each sampling event and two bags of trimmings obtained. From each bag, ten trimmings were randomly selected, DNA was extracted and COI (barcoding gene) was amplified and sequenced.
 
@@ -168,7 +168,7 @@ For even more information on the sequence it has been matched to, you can click 
 
 The pairwise alignment compares your query (unknown) sequence to the subject (result) sequence. Your query will generally begin at nucleotide 1, though the best matching subject sequence might not. 
 
-`r msmbstyle::question(label = "ques:six", text = "Select a set of five random sequences from the fasta file and perform a blast. For each record the identified species, e-value, and percent match for the five best matches.")`
+`r msmbstyle::question(label = "ques:fins-6", text = "Select a set of five random sequences from the fasta file and perform a blast. For each record the identified species, e-value, and percent match for the five best matches.")`
 
 Don't worry, you will not have to perform a blast for every species in the `fasta` file. I have used a more efficient method using a local blast data base and a command line interface to get our results.
 
@@ -238,9 +238,9 @@ kable(
 
 ```
 
-`r msmbstyle::question(label = "ques:seven", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:fins-7", text = "Describe your results.")`
 
-`r msmbstyle::question(label = "ques:eight", text = "Instead of looking at species composition, determine the number of samples and relative proportions per genus and describe your results.")`
+`r msmbstyle::question(label = "ques:fins-8", text = "Instead of looking at species composition, determine the number of samples and relative proportions per genus and describe your results.")`
 
 Okay, that's some what helpful but depending on how up you are on your scientific names for sharks and general shark knowledge not super informative. Let's get some additional information for our sharks.
 
@@ -248,7 +248,7 @@ Okay, that's some what helpful but depending on how up you are on your scientifi
 
 In our google drive folder for this lab, there is a spreadsheet - we are going to use fishbase to collaboratively gather some additional information. To do this, go to the [Fishbase search site](https://www.fishbase.de/search.php) to pull up the information page for each species. If the species is not on `fishbase` another good resource to get this information is the `IUCN redlist`.
 
-`r msmbstyle::question(label = "ques:nine", text = "Pull up a fish info page on genbank for any fish and briefly describe the type of information you can find there.")`
+`r msmbstyle::question(label = "ques:fins-9", text = "Pull up a fish info page on genbank for any fish and briefly describe the type of information you can find there.")`
 
 Here is the data we are going to gather for each species:
 
@@ -280,6 +280,6 @@ specie_info <- read_delim("data/shark_info.txt", delim = "\t")
 
 ```
 
-`r msmbstyle::question(label = "ques:ten", text = "Generate a summary table for each category (excluding common name) and give a brief description of your results.")`
+`r msmbstyle::question(label = "ques:fins-10", text = "Generate a summary table for each category (excluding common name) and give a brief description of your results.")`
 
-`r msmbstyle::question(label = "ques:eleven", text = "Discuss your results and formulate a set of conclusions on what this data set reveals about the shark fin market and trade in the Gangzhou market. This should be a full paragraph and should include a discussion of your results and what we can learn from them about the shark fin trade how it could potentially impact shark poulations, as well as, touching on limitations and advantages of using genetic barcoding as a forensic tool.")`
+`r msmbstyle::question(label = "ques:fins-11", text = "Discuss your results and formulate a set of conclusions on what this data set reveals about the shark fin market and trade in the Gangzhou market. This should be a full paragraph and should include a discussion of your results and what we can learn from them about the shark fin trade how it could potentially impact shark poulations, as well as, touching on limitations and advantages of using genetic barcoding as a forensic tool.")`

@@ -59,7 +59,7 @@ Misinformation describes erroneous/incorrect information, by contrast disinforma
 
 In his book `On Bullshit`, Harry G. Frankfurt distinguishes between a **liar** who knows the truth and deliberately tries to convince somebody of something that is untrue and a **bullshitter** who either does not know the truth or does not care - their focus is solely on persuading the listener. The focus of this distinction is the blatant disregard for truth and a carelessness in how data and facts are used.
 
-`r msmbstyle::question(label = "ques:one", text = "Briefly compare and contrast Frankfort's categories with the distinction between misinformation, disinformation, and propaganda.")`
+`r msmbstyle::question(label = "ques:bull-1", text = "Briefly compare and contrast Frankfort's categories with the distinction between misinformation, disinformation, and propaganda.")`
 
 ## Spotting misinformation/disinformation
 
@@ -74,7 +74,7 @@ In his book `On Bullshit`, Harry G. Frankfurt distinguishes between a **liar** w
 
 Brandolini's Law, also known as the BS asymmetry principle, states that the amount of energy needed to refute bullshite is an order of magnitude bigger than to produce it.
 
-`r msmbstyle::question(label = "ques:two", text = "Briefly give three arguments supporting this principle.")`
+`r msmbstyle::question(label = "ques:bull-2", text = "Briefly give three arguments supporting this principle.")`
 
 In [The Fine Art of Baloney Detection](http://www.inf.fu-berlin.de/lehre/pmo/eng/Sagan-Baloney.pdf
 ), Carl Sagan outlines nine principles to consider identify and weed out misinformation & disinformation: 
@@ -122,7 +122,7 @@ Simple but powerful, when evaluating a source of information sk yourself four si
 
 This principle is a close relative of *Occam's Razor*, also known as the *Law of Parsimony*. 
 
-`r msmbstyle::question(label = "ques:three", text = "Give a brief definition of Occam's Razor and compare/contrast it to the idea that claims that sound to good/bad to be true probably are. You may use an example if you'd like.")`
+`r msmbstyle::question(label = "ques:bull-3", text = "Give a brief definition of Occam's Razor and compare/contrast it to the idea that claims that sound to good/bad to be true probably are. You may use an example if you'd like.")`
 
 <br>
 
@@ -130,7 +130,7 @@ This principle is a close relative of *Occam's Razor*, also known as the *Law of
 
 This principle encompasses both **confirmation bias** and the dreaded **echo chamber** - another way of stating it is to not fall in love with your hypothesis and continue to entertain independent evidence.
 
-`r msmbstyle::question(label = "ques:four", text = "Briefly define the concepts of confirmation bias and the echo chamber. List some techniques you can use to counteract them.")`
+`r msmbstyle::question(label = "ques:bull-4", text = "Briefly define the concepts of confirmation bias and the echo chamber. List some techniques you can use to counteract them.")`
 
 <br>
 
@@ -147,7 +147,7 @@ There are two common logical fallacies that can be used to take a relationship o
 `r tufte::margin_note("How many more fancy latin phrases do I have up my sleeve? We shall probably never truly know... Is this an *exempli gratia* of using fancy language to obfuscate information? Also difficult to tell.")`
 Taking this to *ad absurdum* we have fun examples involving [chocolate and Nobel laureates](https://www.nejm.org/doi/full/10.1056/nejmon1211064) along with [storks and babies](https://web.stanford.edu/class/hrp259/2007/regression/storke.pdf). Both illustrate the fact that it is important to be careful when inferring causation, consider whether proxies are meaningful, whether there could be a common cause rather than correlation, and if there is a way to design manipulative experiments to determine causation. With increasingly large data sets it is easy to find a "signal" in a noisy data set and spin it into a story.
 
-`r msmbstyle::question(label = "ques:five", text = "Go to [Spurious Correlations](https://www.tylervigen.com/spurious-correlations), create your own misleading but highly correlated relationship, download it, and post it in the #random channel on slack ...")`
+`r msmbstyle::question(label = "ques:bull-5", text = "Go to [Spurious Correlations](https://www.tylervigen.com/spurious-correlations), create your own misleading but highly correlated relationship, download it, and post it in the #random channel on slack ...")`
 
 ### ... by going to the source
 
@@ -169,7 +169,7 @@ This is important to keep in mind when watching science unfold in real time and 
 * over-generalizing (see `# In Mice` [examples](https://twitter.com/hashtag/inmice?lang=en) and an [article](https://www.statnews.com/2019/04/15/in-mice-twitter-account-hype-science-reporting/) describing the intent behind the hashtag).
 * false interpretation
 
-`r msmbstyle::question(label = "ques:six", text = "Find a science article in from a respected(ish) news outlet and track down the original study. Give the title and links for each and briefly describe how you tracked down the original study and a brief assessment of how well the article reflects the original study. *Pro-tip: Find a science article that relates to Conservation Biology, then use that as your next Conservation IRL post.*")`
+`r msmbstyle::question(label = "ques:bull-6", text = "Find a science article in from a respected(ish) news outlet and track down the original study. Give the title and links for each and briefly describe how you tracked down the original study and a brief assessment of how well the article reflects the original study. *Pro-tip: Find a science article that relates to Conservation Biology, then use that as your next Conservation IRL post.*")`
 
 
 ### ... by not being mislead by visualizations
@@ -216,7 +216,7 @@ Ducks are figures where the topic of the figure is reflected in the design itsel
 
 Primary literature includes research articles, review articles, and method papers and is a description of original work geared toward a specialized audience. By contrast secondary literature is a presentation of results & implications described in primary references. 
 
-`r msmbstyle::question(label = "ques:seven", text = "List examples for primary literature and secondary literature. Give a brief description of what peer-review is and indicate which of the examples for primary/secondary literature are peer-reviewed (you can use an * or similar to mark those examples).")`
+`r msmbstyle::question(label = "ques:bull-7", text = "List examples for primary literature and secondary literature. Give a brief description of what peer-review is and indicate which of the examples for primary/secondary literature are peer-reviewed (you can use an * or similar to mark those examples).")`
 
 
 ### Assessing quality
@@ -294,7 +294,7 @@ Here is a basic toolkit to evaluate internet resources. This overlaps with many 
     + How broad or narrow is the target audience?
     + Are the authors "dog whistling" (using specific terms/"code words" to get the attention of specific groups)?
 
-`r msmbstyle::question(label = "ques:eight", text = "Here are four links to information about sharks - visit any one of the first three links and the fourth link, make a brief assessment of the two websites using the categories above and argue whether or not you would use the information on that webpage for a presentation on sharks. Remember that an appropriate assessment of the website includes not just the article in the link but poking around the entire website. You do not have to answer each question but you should include an evaluation of each category.")`
+`r msmbstyle::question(label = "ques:bull-8", text = "Here are four links to information about sharks - visit any one of the first three links and the fourth link, make a brief assessment of the two websites using the categories above and argue whether or not you would use the information on that webpage for a presentation on sharks. Remember that an appropriate assessment of the website includes not just the article in the link but poking around the entire website. You do not have to answer each question but you should include an evaluation of each category.")`
 
 * [Site 1: WWF](https://www.worldwildlife.org/species/shark)
 * [Site 2: Shark Trust](https://www.sharktrust.org/blog/5-extraordinary-connections-sharks-share-with-other-animals)

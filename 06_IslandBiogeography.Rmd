@@ -96,7 +96,7 @@ A data set in this format is centered around the concept that all the informatio
 
 To demonstrate the difference select the columns `ISLAND`, `SPECIES` and `COUNT`, and retain only the counts for `Arthropods` in the `tropical` habitat.
 
-`r msmbstyle::question(label= "ques:one", text = "What functions and arguments would you use to accomplish this?")`
+`r msmbstyle::question(label= "ques:biog-1", text = "What functions and arguments would you use to accomplish this?")`
 
 `r msmbstyle::solution_begin(toggle = TRUE)`
 
@@ -138,9 +138,9 @@ tidy
 
 To further demonstrate the benefits of a tidy data set, let's calculate species richness to compare the biodiversity found on each of the islands.
 
-`r msmbstyle::question(label = "ques:two", text = "Give a brief definition of species richness and point out the limitations of using it as a measure of species diversity.")`
+`r msmbstyle::question(label = "ques:biog-2", text = "Give a brief definition of species richness and point out the limitations of using it as a measure of species diversity.")`
 
-`r msmbstyle::question(label = "ques:three", text = "What dplyr verbs can you use to quickly calculate the number of observed species per island for each taxonomic group in each habitat?")`
+`r msmbstyle::question(label = "ques:biog-3", text = "What dplyr verbs can you use to quickly calculate the number of observed species per island for each taxonomic group in each habitat?")`
 
 `r msmbstyle::solution_begin(toggle = TRUE)`
 
@@ -239,7 +239,7 @@ ggplot(richn, aes(x = TAXON, y = richn, fill = ISLAND)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:four", text = "What if you were more interested in comparing how species richness compared across habitats for each taxonomic groups? Can you think of a straightforward way to re-plot your data?")`
+`r msmbstyle::question(label = "ques:biog-4", text = "What if you were more interested in comparing how species richness compared across habitats for each taxonomic groups? Can you think of a straightforward way to re-plot your data?")`
 
 `r msmbstyle::solution_begin(toggle = TRUE)`
 
@@ -260,11 +260,11 @@ ggplot(richn, aes(x = HABITAT, y = richn, fill = ISLAND)) +
 
 Now we are getting somewhere. Now that we've played with the data, let's actually take a look and what patterns we can observe in the data.
 
-`r msmbstyle::question(label = "ques:five", text = "Take a look at the two faceted plots and record your observations. Consider patterns patterns between the two islands, across taxonmic groups and among habitats.")`
+`r msmbstyle::question(label = "ques:biog-5", text = "Take a look at the two faceted plots and record your observations. Consider patterns patterns between the two islands, across taxonmic groups and among habitats.")`
 
 `r msmbstyle::solution(header = "Hint", toggle = TRUE, text = "One of the central observations you should have made is that species richness is consistently higher on the Isle of Leary")`
 
-`r msmbstyle::question(label = "ques:six", text = "Both islands have the same set of habitats available and species colonizing the islands come from the same mainland pool. What two key parameters distinguish the islands? Formulate a hypothesis for each parameter as to how it could be causing the observed pattern, the argue why you would expect this effect.")`
+`r msmbstyle::question(label = "ques:biog-6", text = "Both islands have the same set of habitats available and species colonizing the islands come from the same mainland pool. What two key parameters distinguish the islands? Formulate a hypothesis for each parameter as to how it could be causing the observed pattern, the argue why you would expect this effect.")`
 
 `r msmbstyle::solution(header = "Hint", toggle = TRUE, text = "The two parameters you are looking for are Distance and Area.")`
 
@@ -301,7 +301,7 @@ On the bottom left you can see two panels with dynamic histograms indicating the
 Above the arrow that would take you back to the `Design` page you see the `Run Time`, above that the option to `Reset the Average` and `Clear Islands`.
 
 
-`r msmbstyle::question(label = "ques:seven", text = "Briefly explain how you will design your experiment to test whether distance or area are causing the observed differences in species richness.")`
+`r msmbstyle::question(label = "ques:biog-7", text = "Briefly explain how you will design your experiment to test whether distance or area are causing the observed differences in species richness.")`
 
 
 ### Run the model & collect your data
@@ -343,7 +343,7 @@ ggplot(distance, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:eight", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:biog-8", text = "Describe your results.")`
 
 Calculate species richness observed for each sampling point and plot the change over time.
 
@@ -366,7 +366,7 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:nine", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:biog-9", text = "Describe your results.")`
 
 Calculate the total number of individuals observed for each sampling point and plot the change over time.
 
@@ -388,7 +388,7 @@ ggplot(total, aes(x = RUN_TIME, y = total_ind, color = ISLAND)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:ten", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:biog-10", text = "Describe your results.")`
 
 
 **ISLAND AREA**
@@ -420,7 +420,7 @@ ggplot(area, aes(x = RUN_TIME, y = COUNT, color = SPECIES)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:eleven", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:biog-11", text = "Describe your results.")`
 
 Calculate species richness observed for each sampling point and plot the change over time.
 
@@ -443,7 +443,7 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:twelve", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:biog-12", text = "Describe your results.")`
 
 Calculate the total number of individuals observed for each sampling point and plot the change over time.
 
@@ -465,14 +465,14 @@ ggplot(total, aes(x = RUN_TIME, y = total_ind, color = ISLAND)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:thirteen", text = "Describe your results.")`
+`r msmbstyle::question(label = "ques:biog-13", text = "Describe your results.")`
 
 
 ## The Equilibrium Theory of Island Biogeography
 
 The equilibrium theory of island biogeography [@MacArthur1963] states that patterns of species richness of an island are determined by two processes, **Immigration** (Colonization) and **Extinction**. If we can determine how these are related to distance and size of an island, we can infer how this affects species richness.
 
-`r msmbstyle::question(label = "ques:fourteen", text = "Assuming that species randomly migrate from the mainland to the island, briefly describe which factors determine the **rate of immigration**.")`
+`r msmbstyle::question(label = "ques:biog-14", text = "Assuming that species randomly migrate from the mainland to the island, briefly describe which factors determine the **rate of immigration**.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -484,7 +484,7 @@ The equilibrium theory of island biogeography [@MacArthur1963] states that patte
 
 `r msmbstyle::solution_end()`
 
-`r msmbstyle::question(label = "ques:fifteen", text = "Assuming that species randomly migrate from the mainland to the island, briefly describe which factors determine the **rate of extinction** on the island.")`
+`r msmbstyle::question(label = "ques:biog-15", text = "Assuming that species randomly migrate from the mainland to the island, briefly describe which factors determine the **rate of extinction** on the island.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -498,7 +498,7 @@ The equilibrium theory of island biogeography [@MacArthur1963] states that patte
 
 Simple versions of this model do not consider more complex factors such as species interactions and differences among species in terms of migration/extinction probabilities; we are essentially assuming that species are ecologically equivalent.
 
-`r msmbstyle::question(label = "ques:sixteen", text = "We of course know that species are not ecologically equivalent. Describe a few examples of factors that could affect species richness other than distance and area.")`
+`r msmbstyle::question(label = "ques:biog-16", text = "We of course know that species are not ecologically equivalent. Describe a few examples of factors that could affect species richness other than distance and area.")`
 
 Now that know what the factors are determine the immigration and extinction rates we should be able to generate a simple mathematical equation to quantify the rates.
 
@@ -612,7 +612,7 @@ ggplot(model, aes(x = richn, y = rate, shape = parameter, color = category)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:seventeen", text = "Briefly describe the relationship of immigration rate and species richness and the distance of the island to the mainland and identify the differences turnover rates (i.e. the level of species richness when extinction/immigration are in equilibrium) and explain how/why they differ in relation to each other.")`
+`r msmbstyle::question(label = "ques:biog-17", text = "Briefly describe the relationship of immigration rate and species richness and the distance of the island to the mainland and identify the differences turnover rates (i.e. the level of species richness when extinction/immigration are in equilibrium) and explain how/why they differ in relation to each other.")`
 
 
 **AREA**
@@ -689,7 +689,7 @@ ggplot(model, aes(x = richn, y = rate, shape = parameter, color = category)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:eighteen", text = "Briefly describe the relationship of immigration rate and species richness and the distance of the island to the mainland and identify the differences turnover rates (i.e. the level of species richness when extinction/immigration are in equilibrium) and explain how/why they differ in relation to each other.")`
+`r msmbstyle::question(label = "ques:biog-18", text = "Briefly describe the relationship of immigration rate and species richness and the distance of the island to the mainland and identify the differences turnover rates (i.e. the level of species richness when extinction/immigration are in equilibrium) and explain how/why they differ in relation to each other.")`
 
 Despite its simplicity, models based on our understanding of island biogeography are frequently used to predict the number of species expected to persist (or go extinct) in nature reserves.
 
@@ -698,7 +698,7 @@ Despite its simplicity, models based on our understanding of island biogeography
 
 You may remember from our initial comparison that we identified differences among habitats. 
 
-`r msmbstyle::question(label = "ques:nineteen", text = "Take a look at the different habitats in the model and argue how you think they should rank in terms of the number of different species and total number of individuals they can support.")`
+`r msmbstyle::question(label = "ques:biog-19", text = "Take a look at the different habitats in the model and argue how you think they should rank in terms of the number of different species and total number of individuals they can support.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -707,7 +707,7 @@ Keyword: Productivity.
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question(label = "ques:twenty", text = "Take a look at the different taxonomic groups in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.")`
+`r msmbstyle::question(label = "ques:biog-20", text = "Take a look at the different taxonomic groups in the model and speculate why there may differences in the observed number of species/total individuals among different taxonomic groups.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -716,7 +716,7 @@ They have to survive the trip to the island ...
 `r msmbstyle::solution_end()`
 
 
-`r msmbstyle::question(label = "ques:twenty-one", text = "Download the data from the spreadsheet we have combined all the different taxa/habitat scenarios and use the skills you've gained throughout this lab to compare the species richness grouped by taxon and habitat.")`
+`r msmbstyle::question(label = "ques:biog-21", text = "Download the data from the spreadsheet we have combined all the different taxa/habitat scenarios and use the skills you've gained throughout this lab to compare the species richness grouped by taxon and habitat.")`
 
 `r msmbstyle::solution_begin(header = "Notes", toggle = TRUE)`
 
@@ -800,14 +800,14 @@ ggplot(richn, aes(x = RUN_TIME, y = sp_richn, color = ISLAND)) +
 ```
 
 
-`r msmbstyle::question(label = "ques:twenty-two", text = "Briefly describe your results and interpret them (i.e. try to explain the mechanisms producing the observed patterns.")`
+`r msmbstyle::question(label = "ques:biog-22", text = "Briefly describe your results and interpret them (i.e. try to explain the mechanisms producing the observed patterns.")`
 
 
 ## Changes in mortality and migration rate
 
 Two parameters that so far we have not manipulated in the experiment are the mortality and migration rate. The migration rate affects how frequently animals are blown out to sea and mortality determine the probability of individuals dying on the island.
 
-`r msmbstyle::question(label = "ques:twenty-three", text = "For each of these parameters argue how you think increase/decrease will affect species richness on an island in relation to distance to mainland and/or island area. Consider that each parameter might affect both area and distance or only one or neither.")`
+`r msmbstyle::question(label = "ques:biog-23", text = "For each of these parameters argue how you think increase/decrease will affect species richness on an island in relation to distance to mainland and/or island area. Consider that each parameter might affect both area and distance or only one or neither.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -815,7 +815,7 @@ Go back to our model of biogeography and consider how each of these parameters i
 
 `r msmbstyle::solution_end()`
 
-`r msmbstyle::question(label = "ques:twenty-four", text = "Choose either mortality or migration rate and design an experiment to determine how it affects species richness in relation to distance and area of an island. Explain your design (be sure to detail your parameter settings), run the model, and collect your data. Export your data as a tab delimited file, visualize your results and briefly discuss them (this includes describing your results and explaining the mechanisms generating the patterns you are observing - refer back to your original hypothesis of how this parameter will affect species richness.)")`
+`r msmbstyle::question(label = "ques:biog-24", text = "Choose either mortality or migration rate and design an experiment to determine how it affects species richness in relation to distance and area of an island. Explain your design (be sure to detail your parameter settings), run the model, and collect your data. Export your data as a tab delimited file, visualize your results and briefly discuss them (this includes describing your results and explaining the mechanisms generating the patterns you are observing - refer back to your original hypothesis of how this parameter will affect species richness.)")`
 
 `r msmbstyle::solution_begin(header = "Pro tip", toggle = TRUE)`
 

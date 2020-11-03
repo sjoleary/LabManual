@@ -128,7 +128,7 @@ effort <- read_delim("data/sampling_effort.txt", delim = "\t")
 
 ```
 
-`r msmbstyle::question(label = "ques:one", text = "Describe the expected relationship for of the number of individuals caught with increasing sampling effort.")`
+`r msmbstyle::question(label = "ques:bioind-1", text = "Describe the expected relationship for of the number of individuals caught with increasing sampling effort.")`
 
 Let's plot our data; we will also learn how to use the function `ggsave()` to export our figure.
 
@@ -151,11 +151,11 @@ ggsave(plot = last_plot(),
 
 Another way to export a figure from `Rstudio` is to click the `Export` button in the `Plots` panel and select `Save as Image`, in the pop-up window you can use the `Directory` button to select your `results` directory and then name the file. You can use the `Width` and `Height` windows to determine the dimensions of your figure. Selecting `Update Preview` will allow you to see what that figure would look like.
 
-`r msmbstyle::question(label = "ques:two", text = "Briefly describe your results by comparing differences among the varying levels of pollution.")`
+`r msmbstyle::question(label = "ques:bioind-2", text = "Briefly describe your results by comparing differences among the varying levels of pollution.")`
 
 Next, let's look at the number of species caught in each sample.
 
-`r msmbstyle::question(label = "ques:three", text = "Describe the expected relationship for of the number of species caught with increasing sampling effort. Then plot your data as a scatterplot to see if you are correct.")`
+`r msmbstyle::question(label = "ques:bioind-3", text = "Describe the expected relationship for of the number of species caught with increasing sampling effort. Then plot your data as a scatterplot to see if you are correct.")`
 
 ```{r fig.cap="Number of species (yellow points) caught per sampling effort. The blue line indicates the predicted relationship using local polynomial regression fitting. The grey area is the 95% confidence interval.", fig.height=6, fig.width=6}
 
@@ -167,11 +167,11 @@ ggplot(effort, aes(x = TIME, y = N_SPECIES)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:four", text = "Briefly describe your results by comparing differences among the varying levels of pollution.")`
+`r msmbstyle::question(label = "ques:bioind-4", text = "Briefly describe your results by comparing differences among the varying levels of pollution.")`
 
 Finally, let's use our results to design our sampling scheme.
 
-`r msmbstyle::question(label = "ques:five", text = "Given this information, briefly discuss how you would design your sampling scheme to compare species assemblages amoung streams with varying levels of pollution.")`
+`r msmbstyle::question(label = "ques:bioind-5", text = "Given this information, briefly discuss how you would design your sampling scheme to compare species assemblages amoung streams with varying levels of pollution.")`
 
 
 `r msmbstyle::solution_begin(header = "Note", toggle = TRUE)`
@@ -261,7 +261,7 @@ We now have a dataframe consisting of four columns, indicating the level of poll
 
 Now that our data is formatted as a tidy data set we can start to look at our data.
 
-`r msmbstyle::question(label = "ques:six", text = "Consider which parameters we can compare to understand differences in species diversity among streams with no, moderate, and severe levels of parameters. For each parameter briefly describe what you are measuring and discuss the patterns you expect to see. You may use bullet points.")`
+`r msmbstyle::question(label = "ques:bioind-6", text = "Consider which parameters we can compare to understand differences in species diversity among streams with no, moderate, and severe levels of parameters. For each parameter briefly describe what you are measuring and discuss the patterns you expect to see. You may use bullet points.")`
 
 `r msmbstyle::solution_begin(header = "Hint", toggle = TRUE)`
 
@@ -310,7 +310,7 @@ ggplot(total, aes(x = POLLUTION, y = N_TOTAL)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:seven", text = "Discuss your results. Remember, discuss means that you should both briefly describe and interpret them.")`
+`r msmbstyle::question(label = "ques:bioind-7", text = "Discuss your results. Remember, discuss means that you should both briefly describe and interpret them.")`
 
 
 Next, let's compare the **total number of species** caught per sampling effort.
@@ -363,12 +363,12 @@ ggplot(richn, aes(x = POLLUTION, y = VALUES)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:eight", text = "Discuss your results.")`
+`r msmbstyle::question(label = "ques:bioind-8", text = "Discuss your results.")`
 
 
 Of course, species richness is problematic for reasons other than sample size so let's take a look at **species diversity** as well.
 
-`r msmbstyle::question(label = "ques:nine", text = "Explain the difference between how species richness and species diversity are calculated and briefly discuss the advantages of using species diversity instead of abundance specificially for our experiment comparing diversity of aquatic invertebrates in streams with varying levels of pollution.")`
+`r msmbstyle::question(label = "ques:bioind-9", text = "Explain the difference between how species richness and species diversity are calculated and briefly discuss the advantages of using species diversity instead of abundance specificially for our experiment comparing diversity of aquatic invertebrates in streams with varying levels of pollution.")`
 
 We are going to use three different measures of diversity using the function `vegan::diversity()`. Each measure varies slightly in how it is calculated and should be interpreted, differences come down to whether/how they have been standardized and the emphasis is put on rare species. Overall, each is a measure of evenness, i.e. the larger the number, the higher the diversity which means abundances are more similar across observed species.
 
@@ -406,11 +406,11 @@ ggplot(diversity, aes(x = POLLUTION, y = VALUE)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:ten", text = "Discuss your results.")`
+`r msmbstyle::question(label = "ques:bioind-10", text = "Discuss your results.")`
 
 We now have a pretty good idea of how stream diversity compares overall and how sampling effort (or most specifically a lack thereof) may bias our results - but the question that remains open is whether or not we have species-specific effects, i.e. we could have just an overall reduction in the number of species present due to less individuals being caught (i.e. essentially a sampling effect) or we might have some species that are more or less sensitive to pollution resulting in them being more abundant under certain conditions and less so under others or the sample overall may be dominated by one or another species depending on the pollution level..
 
-`r msmbstyle::question(label = "ques:eleven", text = "Briefly consider how you would expect your figure to differ for each of those two scenarios.")`
+`r msmbstyle::question(label = "ques:bioind-11", text = "Briefly consider how you would expect your figure to differ for each of those two scenarios.")`
 
 Let's visualize our results.
 
@@ -427,12 +427,12 @@ ggplot(tidy, aes(x = SPECIES, y = N_INDV, fill = POLLUTION)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:twelve", text = "Discuss your results and argue whether differences you are seeing are the result of sampling effects or if there are species-specific effects due to different levels of pollution. Refer to your answer to the question above.")`
+`r msmbstyle::question(label = "ques:bioind-12", text = "Discuss your results and argue whether differences you are seeing are the result of sampling effects or if there are species-specific effects due to different levels of pollution. Refer to your answer to the question above.")`
 
 
 ## Ecological Indicators and Bioindicators
 
-`r msmbstyle::question(label = "ques:thirteen", text = "In our discussion of the strategic value of species diversity, we briefly touched on the concept of indicator species. Briefly outline what an indicator species is and how it differs from a flagship and an umbrella species, two groups that also carry significant stratgic value for conservation efforts. Use specific examples as needed and consider whether a species could fall into all three categories.")`
+`r msmbstyle::question(label = "ques:bioind-13", text = "In our discussion of the strategic value of species diversity, we briefly touched on the concept of indicator species. Briefly outline what an indicator species is and how it differs from a flagship and an umbrella species, two groups that also carry significant stratgic value for conservation efforts. Use specific examples as needed and consider whether a species could fall into all three categories.")`
 
 **Ecological indicators** are used as proxies to identify and communicate the impact of human activities on ecosystem to policy-makers. Effective indicators share certain characteristics that allow us to monitor change. 
 
@@ -443,11 +443,11 @@ Overall they must be ...
 3. based on reliable data that is available to assess trends/collected in straightforward process and for which monitoring systems are in place.
 4. easily understood by policy-makers.
 
-`r msmbstyle::question(label = "ques:fourteen", text = "Based on these characteristics, argue whether you think aquatic invertebrates could be an effective ecological indicator. Your answer should explicitely state which ecosystem(s) they could be applied to and what change in the ecosystem they could be used to monitor.")`
+`r msmbstyle::question(label = "ques:bioind-14", text = "Based on these characteristics, argue whether you think aquatic invertebrates could be an effective ecological indicator. Your answer should explicitely state which ecosystem(s) they could be applied to and what change in the ecosystem they could be used to monitor.")`
 
 **Bioindicators** are a subset of ecological indicators. Here, species assemblage and population abundance are used to measure ecosystem health and habitat quality. Frequently, they are used as a proxy for environmental contamination and pollution. Aquatic invertebrates are frequently used as bioindicators to assess the level of pollution of streams or other freshwater habitats due to their varying degree of sensitivity to a polluted environment^[yes, this essentially is the answer to the question above, but you should be arguing *your* answer based on the four characteristics of ecological indicators.].
 
-`r msmbstyle::question(label = "ques:fifteen", text = "Congratulations, you were just hired to develop a project to monitor and compare levels of pollution across a range of freshwater habitats! Use all the the concepts you have learned during this lab regarding experimental design and the sensitivity of aquative invertebrates to pollution to design a monitoring plan. Be specific about your experimental design (sampling effort, replicates) and how you would intepret results, i.e. create a key of pollution sensitive, less-sensitive, and tolerant species that you and your colleagues could use to evaluate streams (explain how/why you are categorizing them that way). Argue the benefits of using this type of monitoring plan over directly measuring pollution.")`
+`r msmbstyle::question(label = "ques:bioind-15", text = "Congratulations, you were just hired to develop a project to monitor and compare levels of pollution across a range of freshwater habitats! Use all the the concepts you have learned during this lab regarding experimental design and the sensitivity of aquative invertebrates to pollution to design a monitoring plan. Be specific about your experimental design (sampling effort, replicates) and how you would intepret results, i.e. create a key of pollution sensitive, less-sensitive, and tolerant species that you and your colleagues could use to evaluate streams (explain how/why you are categorizing them that way). Argue the benefits of using this type of monitoring plan over directly measuring pollution.")`
 
 `r msmbstyle::solution_begin(header = "Some additional help", toggle = TRUE)`
 

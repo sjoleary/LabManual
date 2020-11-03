@@ -69,9 +69,9 @@ In sum, habitat fragmentation results in the drastic decline of the quantity & q
 
 ## Edge habitat
 
-`r msmbstyle::question(label = "ques:one", text = "Consider a square patch that is 16x16km in size. Calculate the area, the perimeter length, and the perimeter to area ratio. Now, consider a second square habitat patch for which each side is half as long (8km). Again, calculate the area, perimeter length, and perimeter to area ratio. Compare those relationships.")`
+`r msmbstyle::question(label = "ques:fragm-1", text = "Consider a square patch that is 16x16km in size. Calculate the area, the perimeter length, and the perimeter to area ratio. Now, consider a second square habitat patch for which each side is half as long (8km). Again, calculate the area, perimeter length, and perimeter to area ratio. Compare those relationships.")`
 
-`r msmbstyle::question(label = "ques:two", text = "Patch shape can also affect the amount of edge habitat created. Which shape do you think has the most/least amount of edge habitat associate with it - a circle, a square, or a rectangle? Now find the correct answerby choosing a set area, and then determining the corresponding perimeter for each of those shapes.")`
+`r msmbstyle::question(label = "ques:fragm-2", text = "Patch shape can also affect the amount of edge habitat created. Which shape do you think has the most/least amount of edge habitat associate with it - a circle, a square, or a rectangle? Now find the correct answerby choosing a set area, and then determining the corresponding perimeter for each of those shapes.")`
 
 To explore how habitat loss resulting from habitat fragmentation affects the relationship of the proportion of edge and interior habitat in the remaining habitat patches we will use a handy little [model](http://virtualbiologylab.org/NetWebHTML_FilesJan2016/Fragmentation.html).
 
@@ -99,9 +99,9 @@ ggplot(fragm, aes(x = HABITAT_REMAINING, y = PERCENT, color = HABITAT_TYPE)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:three", text = "Describe and interpret your results (this should include both comparing/contrasting the relationship of both parameters to the percent of total habitat remaining and explaining why you observe this pattern.")`
+`r msmbstyle::question(label = "ques:fragm-3", text = "Describe and interpret your results (this should include both comparing/contrasting the relationship of both parameters to the percent of total habitat remaining and explaining why you observe this pattern.")`
 
-`r msmbstyle::question(label = "ques:four", text = "Define edge habitat and explain why it generally has a negative impact on biodiversity (explain more than one mechanism).")`
+`r msmbstyle::question(label = "ques:fragm-4", text = "Define edge habitat and explain why it generally has a negative impact on biodiversity (explain more than one mechanism).")`
 
 
 ## Patch isolation
@@ -110,7 +110,7 @@ Increasing fragmentation results in less habitat being available overall, indivi
 
 In this context, one effect of fragmentation is that species may be forced into a meta-population structure.
 
-`r msmbstyle::question(label = "ques:five", text = "Define what a meta-population is by briefly describing its defining characteristics.")`
+`r msmbstyle::question(label = "ques:fragm-5", text = "Define what a meta-population is by briefly describing its defining characteristics.")`
 
 We are going to use a [model](http://virtualbiologylab.org/NetWebHTML_FilesJan2016/Dispersal.html) to explore how the increasing loss of habitat associated with fragmentation will reduce the connectivity among habitat patches as organisms are not able to reach other habitat patches and the populations inhabiting them through dispersal and/or migration or how organisms with ontogenetic shifts in their habitat are not able to reach an important habitat for the next stage in their life cycle.
 
@@ -147,4 +147,4 @@ ggplot(isol, aes(x = REMAINING_HABITAT, y = MOVES, color = CROSS)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:six", text = "Describe and interpret your results in the context of habitat fragmentation leading to increasing isolation among habitat patches.")`
+`r msmbstyle::question(label = "ques:fragm-6", text = "Describe and interpret your results in the context of habitat fragmentation leading to increasing isolation among habitat patches.")`

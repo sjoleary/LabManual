@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-10-29" />
+<meta name="date" content="2020-11-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -155,6 +155,7 @@ if(f.classList.contains('fa-plus-square')) {
 </ul>
 <a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
 <a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -200,9 +201,9 @@ if(f.classList.contains('fa-plus-square')) {
 <span class="header-section-number">11.1</span> Species distribution modeling</h2>
 <p>In this tutorial we are going to learn the fundamental principles of building an occurrence-based<label for="tufte-sn-51" class="margin-toggle sidenote-number">51</label><input type="checkbox" id="tufte-sn-51" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">51</span> As a side-product in writing this tutorial, I think I might actually learn how to correctly spell ‘occurrence’.</span> species distribution models (SDM).</p>
 <p>One of the fundamental questions of ecology is how environmental conditions shape geographic species distributions.</p>
-<div id="ques:one" class="question">
+<div id="ques:dist-1" class="question">
 <p class="question-begin">
-► Question 3.1
+► Question 11.1
 </p>
 <div class="question-body">
 <p>
@@ -237,11 +238,11 @@ The concept of an ecological niche has three facets, first it refers to the spec
 <span id="cb160-3"><a href="species-distribution-modeling.html#cb160-3"></a></span>
 <span id="cb160-4"><a href="species-distribution-modeling.html#cb160-4"></a><span class="co"># take a look at the data</span></span>
 <span id="cb160-5"><a href="species-distribution-modeling.html#cb160-5"></a><span class="kw">colnames</span>(occurrence)</span></code></pre></div>
-<pre><code>##  [1] "observed"         "location_details" "county"           "state"            "season"           "title"           
-##  [7] "latitude"         "longitude"        "date"             "number"           "classification"   "geohash"</code></pre>
-<div id="ques:two" class="question">
+<pre><code>##  [1] "observed"         "location_details" "county"           "state"            "season"           "title"            "latitude"        
+##  [8] "longitude"        "date"             "number"           "classification"   "geohash"</code></pre>
+<div id="ques:dist-2" class="question">
 <p class="question-begin">
-► Question 3.2
+► Question 11.2
 </p>
 <div class="question-body">
 <p>
@@ -256,9 +257,9 @@ Take a look at the column names and describe what type of information we have av
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="species-distribution-modeling.html#cb162-1"></a>occurrence &lt;-<span class="st"> </span>occurrence <span class="op">%&gt;%</span></span>
 <span id="cb162-2"><a href="species-distribution-modeling.html#cb162-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(longitude),</span>
 <span id="cb162-3"><a href="species-distribution-modeling.html#cb162-3"></a>         <span class="op">!</span><span class="kw">is.na</span>(latitude))</span></code></pre></div>
-<div id="ques:three" class="question">
+<div id="ques:dist-3" class="question">
 <p class="question-begin">
-► Question 3.3
+► Question 11.3
 </p>
 <div class="question-body">
 <p>
@@ -305,9 +306,9 @@ Figure 11.1: Map of Sasquatch sighting in the United States based on the BFRO da
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-166-1.png" alt="Map of Sasquatch sighting in the United States based on the BFRO database as of 2018." width="768">
 </div>
-<div id="ques:four" class="question">
+<div id="ques:dist-4" class="question">
 <p class="question-begin">
-► Question 3.4
+► Question 11.4
 </p>
 <div class="question-body">
 <p>
@@ -318,9 +319,9 @@ Give a brief descriptions of the spatial distribution of the occurrence of Sasqu
 </p>
 </div>
 </div>
-<div id="ques:five" class="question">
+<div id="ques:dist-5" class="question">
 <p class="question-begin">
-► Question 3.5
+► Question 11.5
 </p>
 <div class="question-body">
 <p>
@@ -384,9 +385,9 @@ Figure 11.2: Map of Sasquatch sighting in the lower 48 states based on the BFRO 
 <span class="header-section-number">11.3</span> Get environmental data</h2>
 <p>The next thing we need is a set of predictor variables. Climate is complex and multidimensional, though at its core climate is determined by <a href="https://openoregon.pressbooks.pub/envirobiology/chapter/3-3-terrestrial-biomes/">long-term patterns in mean and variability of temperature and precipitation</a>.</p>
 <p>We are going to use the bioclim data set from <a href="https://www.climond.org/BioclimRegistry.aspx#Table1">CliMond</a>. Bioclim variables are commonly used for species distribution modeling as they are based on long-term trends (as opposed to e.g. the exact conditions when the species was observed).</p>
-<div id="ques:six" class="question">
+<div id="ques:dist-6" class="question">
 <p class="question-begin">
-► Question 3.6
+► Question 11.6
 </p>
 <div class="question-body">
 <p>
@@ -415,9 +416,9 @@ Figure 11.3: Global distribution of annual mean temperature (1961 - 1990, center
 <img src="_main_files/figure-html/unnamed-chunk-169-1.png" alt="Global distribution of annual mean temperature (1961 - 1990, centered on 1975)." width="768">
 </div>
 <p>We see the pattern we would intuitively expect, with temperatures decreasing as you move poleward and being warmest around the poles.</p>
-<div id="ques:seven" class="question">
+<div id="ques:dist-7" class="question">
 <p class="question-begin">
-► Question 3.7
+► Question 11.7
 </p>
 <div class="question-body">
 <p>
@@ -452,9 +453,9 @@ Choose a range of 5 bioclim variables (this means, don’t just plot the first f
 ## [4,]              9.857348              12.10535             0.3889973
 ## [5,]              2.780401              14.78537             0.3965279
 ## [6,]              3.327682              14.78337             0.3814484</code></pre>
-<div id="ques:eight" class="question">
+<div id="ques:dist-8" class="question">
 <p class="question-begin">
-► Question 3.8
+► Question 11.8
 </p>
 <div class="question-body">
 <p>
@@ -495,9 +496,9 @@ Figure 11.4: Species distribution model for Sasquatch. Color indicates the proba
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-174-1.png" alt="Species distribution model for Sasquatch. Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
 </div>
-<div id="ques:nine" class="question">
+<div id="ques:dist-9" class="question">
 <p class="question-begin">
-► Question 3.9
+► Question 11.9
 </p>
 <div class="question-body">
 <p>
@@ -509,9 +510,9 @@ Give a brief description of the habitat suitability map, including the maximum p
 </div>
 </div>
 <p>Our highest habitat suitability values (probability of occurring) seem pretty low. One reason for this is that we used presence-only data.</p>
-<div id="ques:ten" class="question">
+<div id="ques:dist-10" class="question">
 <p class="question-begin">
-► Question 3.10
+► Question 11.10
 </p>
 <div class="question-body">
 <p>
@@ -522,9 +523,9 @@ The alternative to presence-only models is to have presence-absence data. Discus
 </p>
 </div>
 </div>
-<div id="ques:eleven" class="question">
+<div id="ques:dist-11" class="question">
 <p class="question-begin">
-► Question 3.11
+► Question 11.11
 </p>
 <div class="question-body">
 <p>
@@ -548,9 +549,9 @@ A work-around of not having absence data is to generate pseudo-absence data. Thi
 <span id="cb173-3"><a href="species-distribution-modeling.html#cb173-3"></a></span>
 <span id="cb173-4"><a href="species-distribution-modeling.html#cb173-4"></a><span class="co"># import and convert to raster stack</span></span>
 <span id="cb173-5"><a href="species-distribution-modeling.html#cb173-5"></a>predictors_A1 &lt;-<span class="st"> </span><span class="kw">stack</span>(files)</span></code></pre></div>
-<div id="ques:twelve" class="question">
+<div id="ques:dist-12" class="question">
 <p class="question-begin">
-► Question 3.12
+► Question 11.12
 </p>
 <div class="question-body">
 <p>
@@ -600,9 +601,9 @@ Figure 11.5: Predicted species distribution for Sasquatch in the lower 48 in 210
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-178-1.png" alt="Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A1B). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
 </div>
-<div id="ques:thirteen" class="question">
+<div id="ques:dist-13" class="question">
 <p class="question-begin">
-► Question 3.13
+► Question 11.13
 </p>
 <div class="question-body">
 <p>
@@ -656,9 +657,9 @@ Figure 11.6: Predicted species distribution for Sasquatch in the lower 48 in 210
 </p>
 <img src="_main_files/figure-html/unnamed-chunk-179-1.png" alt="Predicted species distribution for Sasquatch in the lower 48 in 2100 (climate scenario A2). Color indicates the probability of encountering Sasquatch in the lower 48 states based on habitat suitability." width="768">
 </div>
-<div id="ques:fourteen" class="question">
+<div id="ques:dist-14" class="question">
 <p class="question-begin">
-► Question 3.14
+► Question 11.14
 </p>
 <div class="question-body">
 <p>
@@ -669,9 +670,9 @@ Briefly compare this model to the previous two. Comment on whether you expected 
 </p>
 </div>
 </div>
-<div id="ques:fifteen" class="question">
+<div id="ques:dist-15" class="question">
 <p class="question-begin">
-► Question 3.15
+► Question 11.15
 </p>
 <div class="question-body">
 <p>
@@ -686,9 +687,9 @@ Discuss whether you think bioclim variables are good models to predict a species
 <div id="shifting-distributions-impact-species-interactions." class="section level2">
 <h2>
 <span class="header-section-number">11.6</span> Shifting distributions impact species interactions.</h2>
-<div id="ques:sixteen" class="question">
+<div id="ques:dist-16" class="question">
 <p class="question-begin">
-► Question 6.1
+► Question 11.16
 </p>
 <div class="question-body">
 <p>
@@ -700,9 +701,9 @@ Our species distribution models and projected change with shifting environmental
 </div>
 </div>
 <p>Species do not live in isolation their ecological niche merely defined by the sum of the appropriate abiotic conditions, rather they also interact with other species in the ecosystem they inhabit. This means that they will not only be impacted by changes in abiotic conditions but also by changes in biotic conditions. This means that as other species they interact with and rely on for example as prey or as hosts are affected by climate change, species interactions will be affected as a whole and may have indirect effects that alter a species’ distribution and ultimately persistence.</p>
-<div id="ques:seventeen" class="question">
+<div id="ques:dist-17" class="question">
 <p class="question-begin">
-► Question 6.2
+► Question 11.17
 </p>
 <div class="question-body">
 <p>
@@ -744,9 +745,9 @@ In class we have discussed how climate change impacting the distribution and phe
 </tr>
 </tbody>
 </table>
-<div id="ques:eighteen" class="question">
+<div id="ques:dist-18" class="question">
 <p class="question-begin">
-► Question 6.3
+► Question 11.18
 </p>
 <div class="question-body">
 <p>
@@ -785,7 +786,7 @@ Describe some factors that could make some of these host interactions being more
 <a href="shark-fin-trade-monitoring.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-29
+2020-11-03
 </p>
 </div>
 </div>

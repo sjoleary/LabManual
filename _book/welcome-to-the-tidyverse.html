@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-10-29" />
+<meta name="date" content="2020-11-03" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -154,6 +154,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
 <a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
 <a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -196,7 +197,7 @@ if(f.classList.contains('fa-plus-square')) {
 <p><code>read_delim</code> is the function we are using to read in the data, it takes two arguments, the path (<code>data/longline_catchdata.txt</code>) and the delimiter (<code>\t</code>, which is “computer” for tab).</p>
 <p>Execute the code. If you look over in your environment pane you should now see the object <code>catch</code>. This is your dataframe. Click on it, you should see the command <code>View(catch)</code> in your console and a tab <code>catch</code> appear in your top left pane.</p>
 <p>Inspect your data.</p>
-<div id="ques:one" class="question">
+<div id="ques:tidy-1" class="question">
 <p class="question-begin">
 ► Question 3.1
 </p>
@@ -264,7 +265,7 @@ Can you determine how many columns and rows your data frame has from the View pa
 ##  9 Aransas_Bay Bagre_marinus
 ## 10 Aransas_Bay Bagre_marinus
 ## # ... with 2,315 more rows</code></pre>
-<div id="ques:two" class="question">
+<div id="ques:tidy-2" class="question">
 <p class="question-begin">
 ► Question 3.2
 </p>
@@ -294,7 +295,7 @@ How would you select just Day, Month, and Year columns?
 ##  9 Aransas_Bay Bagre_marinus U       465   538        10     1    28     7  2015
 ## 10 Aransas_Bay Bagre_marinus U       450   539        10     1    28     7  2015
 ## # ... with 2,315 more rows</code></pre>
-<div id="ques:three" class="question">
+<div id="ques:tidy-3" class="question">
 <p class="question-begin">
 ► Question 3.3
 </p>
@@ -382,7 +383,7 @@ How would you eliminate hook size from the data set?
 ##  9 Aransas_Bay Bagre_marinus U     NA      465   538        10     1    28     7  2015
 ## 10 Aransas_Bay Bagre_marinus U     NA      450   539        10     1    28     7  2015
 ## # ... with 1,501 more rows</code></pre>
-<div id="ques:four" class="question">
+<div id="ques:tidy-4" class="question">
 <p class="question-begin">
 ► Question 3.4
 </p>
@@ -413,7 +414,7 @@ How would you select only rows containing Scalloped Hammerheads (<em>Sphyrna lew
 ##  9 Corpus_Christi_Bay Sphyrna_tiburo             M     NA      505   645        10     3    24     8  2015
 ## 10 Corpus_Christi_Bay Sphyrna_tiburo             F     NA      565   720        10     3    24     8  2015
 ## # ... with 804 more rows</code></pre>
-<div id="ques:five" class="question">
+<div id="ques:tidy-5" class="question">
 <p class="question-begin">
 ► Question 3.5
 </p>
@@ -460,7 +461,7 @@ How would you create a dataframe without Scalloped Hammerheads (<em>Sphyrna lewi
 ##  9 Corpus_Christi_Bay Sphyrna_tiburo             M     NA      505   645        10     3    24     8  2015
 ## 10 Corpus_Christi_Bay Sphyrna_tiburo             F     NA      565   720        10     3    24     8  2015
 ## # ... with 149 more rows</code></pre>
-<div id="ques:six" class="question">
+<div id="ques:tidy-6" class="question">
 <p class="question-begin">
 ► Question 3.6
 </p>
@@ -490,7 +491,7 @@ How would you subset a data frame to contain only entries for different species 
 ##  9 Aransas_Bay Bagre_marinus U     NA      503   589        10     1    28     7  2015
 ## 10 Aransas_Bay Bagre_marinus U     NA      489   590        10     1    28     7  2015
 ## # ... with 897 more rows</code></pre>
-<div id="ques:seven" class="question">
+<div id="ques:tidy-7" class="question">
 <p class="question-begin">
 ► Question 3.7
 </p>
@@ -510,7 +511,7 @@ Create a data frame containing only entries with a forklength &lt; 300.
 ##   Site               Species        Sex   PCL      FL   STL Hook_Size   Set   Day Month  Year
 ##   &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt; &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Corpus_Christi_Bay Sphyrna_lewini F     NA      210   280        15     3     6     7  2017</code></pre>
-<div id="ques:eight" class="question">
+<div id="ques:tidy-8" class="question">
 <p class="question-begin">
 ► Question 3.8
 </p>
@@ -540,7 +541,7 @@ How would you subset a data frame to contain only entries for different species 
 ##  9 Aransas_Bay        Bagre_marinus U     NA      280   340         3     3    25     5  2016
 ## 10 Redfish_Bay        Bagre_marinus U     NA      294   353        10     4    16     6  2016
 ## # ... with 399 more rows</code></pre>
-<div id="ques:nine" class="question">
+<div id="ques:tidy-9" class="question">
 <p class="question-begin">
 ► Question 3.9
 </p>
@@ -571,7 +572,7 @@ How would you select fish that have a forklength either smaller than 200 cm or l
 ## 6 Corpus_Christi_Bay Sciaenops_ocellatus        U     NA      841   950        10     3    25     9  2018
 ## 7 Corpus_Christi_Bay Synodus_foetens            U     NA      173   185        10     3    30     6  2016</code></pre>
 <p>This is also an example of how we can use the pipe (<code>%&gt;%</code>) to string a bunch of commands, in this example we are saying “take the object catch, and then group rows by Species and then for each group retain only the maximum forklength value for that group and then ungroup them again.”</p>
-<div id="ques:ten" class="question">
+<div id="ques:tidy-10" class="question">
 <p class="question-begin">
 ► Question 3.10
 </p>
@@ -609,7 +610,7 @@ How would you group rows by Species and then retain the individual caught on the
 ## 10 Aransas_Bay Bagre_marinus U     NA      450   539        10     1    28     7  2015         89
 ## # ... with 2,315 more rows</code></pre>
 <p>You should now have a column called <code>difference</code> at the end of the data frame<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> Instead of <code>-</code> you can use <code>+</code> to add , <code>*</code> to multiple, and <code>/</code> to divide values when creating a new column.</span>.</p>
-<div id="ques:eleven" class="question">
+<div id="ques:tidy-11" class="question">
 <p class="question-begin">
 ► Question 3.11
 </p>
@@ -640,7 +641,7 @@ How would you create a new column called ratio, that is the ratio of the fork to
 ## 10 Aransas_Bay Bagre_marinus U     NA      450   539        10     1    28     7  2015 TRUE       
 ## # ... with 2,315 more rows</code></pre>
 <p>You should know have a column called <code>unknown_sex</code> where if the animal that was caught was not sexed contains the value <code>TRUE</code>, if it was identified as male or female it would say <code>FALSE</code>.</p>
-<div id="ques:twelve" class="question">
+<div id="ques:tidy-12" class="question">
 <p class="question-begin">
 ► Question 3.12
 </p>
@@ -740,7 +741,7 @@ How would you create a new column called post_2017 that is TRUE if fish were cau
 ##   mean_FL sd_FL
 ##     &lt;dbl&gt; &lt;dbl&gt;
 ## 1    406.  103.</code></pre>
-<div id="ques:thirteen" class="question">
+<div id="ques:tidy-13" class="question">
 <p class="question-begin">
 ► Question 3.13
 </p>
@@ -773,7 +774,7 @@ How could you use summarize to get the maximum forklength?
 ## 13 Sphyrna_tiburo                622.      605     861    370 114. 
 ## 14 Synodus_foetens               173       173     173    173  NA</code></pre>
 <p>You are getting a few <code>NA</code>, <code>NaN</code>, <code>-Inf</code>, and <code>Inf</code> values - any guesses why? You might want to pull up the catch data frame in the view panel to see what is going on with those species.</p>
-<div id="ques:fourteen" class="question">
+<div id="ques:tidy-14" class="question">
 <p class="question-begin">
 ► Question 3.14
 </p>
@@ -935,7 +936,7 @@ How could you use summarize calculate a range of summary stats for the forklengt
 <span class="header-section-number">3.6</span> Combining verbs</h2>
 <p>Start your final section as <code># Combining verbs</code> in your markdown - now is your chance to put it all together.</p>
 <p>We’ve already combined most of our <code>dplyr</code> verbs with <code>group_by()</code> - you can use the pipe (<code>%&gt;%</code>) to combine select, filter, mutate, and summarize as a series of commands.</p>
-<div id="ques:fifteen" class="question">
+<div id="ques:tidy-15" class="question">
 <p class="question-begin">
 ► Question 3.15
 </p>
@@ -988,7 +989,7 @@ Cut and paste this final code chunk into your Rmarkdown file and execute the cod
 <a href="field-stream-trip.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-29
+2020-11-03
 </p>
 </div>
 </div>

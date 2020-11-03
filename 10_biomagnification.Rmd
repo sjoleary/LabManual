@@ -58,7 +58,7 @@ In general, energy enters an ecosystem as sunlight and is captured in chemical f
 
 This process of energy loss occurs at each trophic level. As a rule of thumb, approximately 10% of energy consumed is used for growth/biomass production and thus made available for organisms at the next trophic level. This also results in an decrease of biomass with increasing trophic levels. In reality, the efficiency of energy transfer, i.e. how much energy is transferred to the next trophic level and how much energy dissipates as heat during cellular respiration varies depending on the proportion of organisms that die without being eaten, how much of a food item is not digested (and therefor not used). So energy does not "disappear" it just winds up as heat instead of being available to the ecosystem.
 
-`r msmbstyle::question(label = "ques:one", text = "Assuming the 10%-rule, if you have a simple food chain consisting of grass being eaten by rabbits (each weighing about 10kg - for the sake of math these are very large rabbits), which are then consumed by 100kg lions (it's a young lion again, for the sake of math). Calculate how many rabbits and how many kg of grass you need for small lion.")`
+`r msmbstyle::question(label = "ques:biomagn-1", text = "Assuming the 10%-rule, if you have a simple food chain consisting of grass being eaten by rabbits (each weighing about 10kg - for the sake of math these are very large rabbits), which are then consumed by 100kg lions (it's a young lion again, for the sake of math). Calculate how many rabbits and how many kg of grass you need for small lion.")`
 
 Heavy metals, some pesticides, and other organic compounds are not broken down during consumption and are incorporated into the biomass of the consumer. This means that the amount of the compound remains the same - though the amount of biomass it is "diluted in" becomes increasingly smaller as it "travels" up the food chain. In addition, it does not break down, so as an organisms consume food containing this type of compound they will retain all the compounds they eat.
 
@@ -66,7 +66,7 @@ This process is called biomagnification or bioaccumulation. Rachel Carson's 1962
 
 In this [model](http://virtualbiologylab.org/NetWebHTML_FilesJan2016/BiomagnificationModel.html), we will use a simple food chain consisting of phytoplankton, zooplankton, smelt, salmon, and pelicans.
 
-`r msmbstyle::question(label = "ques:two", text = "Designate the role of each of these organisms in the food chain and determine how many trophic levels are present.")`
+`r msmbstyle::question(label = "ques:biomagn-2", text = "Designate the role of each of these organisms in the food chain and determine how many trophic levels are present.")`
 
 When you open the model you can see a virtual shore line. Click the blue `Go` button (clicking it again will stop the simulation) and observe the phytoplankton and zooplankton drift by in the current while the smelt and salmon swim around them too feed on them. Pelican will attack the fish from above. Whenever an individual dies or is eaten it is replaced by a new individual with a DDT concentration at zero.
 
@@ -80,7 +80,7 @@ Every student will make measurements for sampling points from 0 - 2,000 in 100 t
 
 At each sampling point record the **current DDT contamination in parts per million** (not the rolling mean!). Record at least four digits.
 
-`r msmbstyle::question(label = "ques:three", text = "As you take your measurements note the pattern of differences of standard deviations per trophic level. You do not have to record them, but give a brief description of the pattern here.")`
+`r msmbstyle::question(label = "ques:biomagn-3", text = "As you take your measurements note the pattern of differences of standard deviations per trophic level. You do not have to record them, but give a brief description of the pattern here.")`
 
 We will share results on a shared google spreadsheet. 
 
@@ -152,4 +152,4 @@ ggplot(tidy, aes(x = TIME, y = VALUES, fill = RATIO)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:four", text = "Describe your results from both figures and compare differences for different levels of background concentration of DDT in the water. Then use the concept of biomagnification to explain the changes in mean concentration over time - be sure to also explain the observations you made for the standard deviations.")`
+`r msmbstyle::question(label = "ques:biomagn-4", text = "Describe your results from both figures and compare differences for different levels of background concentration of DDT in the water. Then use the concept of biomagnification to explain the changes in mean concentration over time - be sure to also explain the observations you made for the standard deviations.")`
