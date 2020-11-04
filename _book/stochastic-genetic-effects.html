@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="14 Stochastic Genetic Effects | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-11-04" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="14 Stochastic Genetic Effects | Lab Manual Conservation Biology Fall 2020">
+
+<title>14 Stochastic Genetic Effects | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a>
+<a href="stream-diversity.html"><span class="toc-section-number">8</span> Stream Diversity</a>
+<a href="habitat-fragmentation.html"><span class="toc-section-number">9</span> Habitat Fragmentation</a>
+<a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
+<a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
+<a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
+<a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a id="active-page" href="stochastic-genetic-effects.html"><span class="toc-section-number">14</span> Stochastic Genetic Effects</a><ul class="toc-sections">
+<li class="toc"><a href="#genetic-diversity"> Genetic Diversity</a></li>
+<li class="toc"><a href="#genetic-drift"> Genetic Drift</a></li>
+<li class="toc"><a href="#bottleneck"> Bottleneck</a></li>
+<li class="toc"><a href="#founder-effect"> Founder Effect</a></li>
+</ul>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="stochastic-genetic-effects" class="section level1">
+<h1>
+<span class="header-section-number">14</span> Stochastic Genetic Effects</h1>
+<p><strong>Date</strong>: 11/4/2020</p>
+<p>Download the project folder <a href="https://drive.google.com/drive/folders/1BuqbPiOSfZNGapN89y0vvLI0bKzPx5dY?usp=sharing">here</a>.</p>
+<p>Make sure to download the <strong>entire</strong> folder (not just the contents).</p>
+<p>You can open the <code>Rproject</code> directly by double-clicking on the file which will launch <code>Rstudio</code>, or once you have opened <code>Rstudio</code> open the project folder using <code>File -&gt; Open Project</code> or using the <code>Rproj</code> icon in the top right corner above the environment panel.</p>
+<p>Let’s go ahead and load the libraries we are going to use for this lab - remember anytime you restart your <code>Rsession</code> (e.g. by closing <code>Rstudio</code> or closing your project) you need to reload your libraries even if your environment is loaded/re-established.</p>
+<p>We are also going to load a custom function that will allow us to combine two plots in a single figure for easier comparison.</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="stochastic-genetic-effects.html#cb218-1"></a><span class="co"># load library</span></span>
+<span id="cb218-2"><a href="stochastic-genetic-effects.html#cb218-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb218-3"><a href="stochastic-genetic-effects.html#cb218-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb218-4"><a href="stochastic-genetic-effects.html#cb218-4"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb218-5"><a href="stochastic-genetic-effects.html#cb218-5"></a></span>
+<span id="cb218-6"><a href="stochastic-genetic-effects.html#cb218-6"></a><span class="co"># custom function to combine plots</span></span>
+<span id="cb218-7"><a href="stochastic-genetic-effects.html#cb218-7"></a>multiplot &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">plotlist=</span><span class="ot">NULL</span>, file, <span class="dt">cols=</span><span class="dv">1</span>, <span class="dt">layout=</span><span class="ot">NULL</span>) {</span>
+<span id="cb218-8"><a href="stochastic-genetic-effects.html#cb218-8"></a>  <span class="kw">library</span>(grid)</span>
+<span id="cb218-9"><a href="stochastic-genetic-effects.html#cb218-9"></a>  </span>
+<span id="cb218-10"><a href="stochastic-genetic-effects.html#cb218-10"></a>  <span class="co"># Make a list from the ... arguments and plotlist</span></span>
+<span id="cb218-11"><a href="stochastic-genetic-effects.html#cb218-11"></a>  plots &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">list</span>(...), plotlist)</span>
+<span id="cb218-12"><a href="stochastic-genetic-effects.html#cb218-12"></a>  </span>
+<span id="cb218-13"><a href="stochastic-genetic-effects.html#cb218-13"></a>  numPlots =<span class="st"> </span><span class="kw">length</span>(plots)</span>
+<span id="cb218-14"><a href="stochastic-genetic-effects.html#cb218-14"></a>  </span>
+<span id="cb218-15"><a href="stochastic-genetic-effects.html#cb218-15"></a>  <span class="co"># If layout is NULL, then use 'cols' to determine layout</span></span>
+<span id="cb218-16"><a href="stochastic-genetic-effects.html#cb218-16"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(layout)) {</span>
+<span id="cb218-17"><a href="stochastic-genetic-effects.html#cb218-17"></a>    <span class="co"># Make the panel</span></span>
+<span id="cb218-18"><a href="stochastic-genetic-effects.html#cb218-18"></a>    <span class="co"># ncol: Number of columns of plots</span></span>
+<span id="cb218-19"><a href="stochastic-genetic-effects.html#cb218-19"></a>    <span class="co"># nrow: Number of rows needed, calculated from # of cols</span></span>
+<span id="cb218-20"><a href="stochastic-genetic-effects.html#cb218-20"></a>    layout &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq</span>(<span class="dv">1</span>, cols <span class="op">*</span><span class="st"> </span><span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols)),</span>
+<span id="cb218-21"><a href="stochastic-genetic-effects.html#cb218-21"></a>                     <span class="dt">ncol =</span> cols, <span class="dt">nrow =</span> <span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols))</span>
+<span id="cb218-22"><a href="stochastic-genetic-effects.html#cb218-22"></a>  }</span>
+<span id="cb218-23"><a href="stochastic-genetic-effects.html#cb218-23"></a>  </span>
+<span id="cb218-24"><a href="stochastic-genetic-effects.html#cb218-24"></a>  <span class="cf">if</span> (numPlots<span class="op">==</span><span class="dv">1</span>) {</span>
+<span id="cb218-25"><a href="stochastic-genetic-effects.html#cb218-25"></a>    <span class="kw">print</span>(plots[[<span class="dv">1</span>]])</span>
+<span id="cb218-26"><a href="stochastic-genetic-effects.html#cb218-26"></a>    </span>
+<span id="cb218-27"><a href="stochastic-genetic-effects.html#cb218-27"></a>  } <span class="cf">else</span> {</span>
+<span id="cb218-28"><a href="stochastic-genetic-effects.html#cb218-28"></a>    <span class="co"># Set up the page</span></span>
+<span id="cb218-29"><a href="stochastic-genetic-effects.html#cb218-29"></a>    <span class="kw">grid.newpage</span>()</span>
+<span id="cb218-30"><a href="stochastic-genetic-effects.html#cb218-30"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="kw">nrow</span>(layout), <span class="kw">ncol</span>(layout))))</span>
+<span id="cb218-31"><a href="stochastic-genetic-effects.html#cb218-31"></a>    </span>
+<span id="cb218-32"><a href="stochastic-genetic-effects.html#cb218-32"></a>    <span class="co"># Make each plot, in the correct location</span></span>
+<span id="cb218-33"><a href="stochastic-genetic-effects.html#cb218-33"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numPlots) {</span>
+<span id="cb218-34"><a href="stochastic-genetic-effects.html#cb218-34"></a>      <span class="co"># Get the i,j matrix positions of the regions that contain this subplot</span></span>
+<span id="cb218-35"><a href="stochastic-genetic-effects.html#cb218-35"></a>      matchidx &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">which</span>(layout <span class="op">==</span><span class="st"> </span>i, <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb218-36"><a href="stochastic-genetic-effects.html#cb218-36"></a>      </span>
+<span id="cb218-37"><a href="stochastic-genetic-effects.html#cb218-37"></a>      <span class="kw">print</span>(plots[[i]], <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> matchidx<span class="op">$</span>row,</span>
+<span id="cb218-38"><a href="stochastic-genetic-effects.html#cb218-38"></a>                                      <span class="dt">layout.pos.col =</span> matchidx<span class="op">$</span>col))</span>
+<span id="cb218-39"><a href="stochastic-genetic-effects.html#cb218-39"></a>    }</span>
+<span id="cb218-40"><a href="stochastic-genetic-effects.html#cb218-40"></a>  }</span>
+<span id="cb218-41"><a href="stochastic-genetic-effects.html#cb218-41"></a>}</span></code></pre></div>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this lab you should understand</p>
+<ul>
+<li>what genetic drift is and how it impacts the genetic diversity of small and large populations.</li>
+<li>what a demographic/genetic bottleneck is and how it impacts the genetic diversity of a population.</li>
+<li>what a founder effect is and how it impacts the genetic diversity of a population.</li>
+</ul>
+<p><br></p>
+<div id="genetic-diversity" class="section level2">
+<h2>
+<span class="header-section-number">14.1</span> Genetic Diversity</h2>
+<p>The gene pool is the sum of a population’s genetic material at a specific point in time - it includes all the genes (coding DNA) and other loci (non-coding DNA) and all the alleles (variations of a given locus).</p>
+<p>To genotype an individual, you would determine which combinations of alleles are present at each locus for each individual<label for="tufte-sn-66" class="margin-toggle sidenote-number">66</label><input type="checkbox" id="tufte-sn-66" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">66</span> While whole genome sequencing is becoming cheaper and more accessible as we speak for most studies we genotype individuals for a set of loci throughout the genome. This could be a data set of “neutral loci” or a random subset representing the entire genome.</span>. If an individual has two identical alleles that means it is a homozygote at that locus, conversely if it has two different alleles that individual would be a heterozygote for that locus. In general, higher levels of heterozygosity indicate higher levels of genetic diversity.</p>
+<p>Frequently, we measure within individual diversity by determining the proportion of loci genotyped for an individual that are heterozygous. High levels of homozygosity are indicative of low genetic diversity. The <strong>inbreeding coefficient</strong> <span class="math inline">\(F_{is}\)</span> essentially measures the homozygosity levels within individuals; a high <span class="math inline">\(F_{is}\)</span> value indicates high levels of homozygosity and can be evidence of inbreeding occurring within a population.</p>
+<div id="ques:drift-1" class="question">
+<p class="question-begin">
+► Question 14.1
+</p>
+<div class="question-body">
+<p>
+Give a brief definition of what inbreeding is and use that definition to explain why inbreeding leads to an increase of within-individual homozygosity and why we expect inbreeding levels to increase with decreasing population sizes.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>At a population level, we compare genetic diversity by comparing the number of different alleles present at a locus (<strong>allelic richness</strong>) and how the allele frequencies compare to each other (<strong>allelic diversity/evenness</strong>)<label for="tufte-sn-67" class="margin-toggle sidenote-number">67</label><input type="checkbox" id="tufte-sn-67" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">67</span> This should sound very familiar to how we measures species richness &amp; diversity!</span>. But in addition, we also pay attention to levels of <strong>heterozygosity per locus</strong>, i.e. the proportion of individuals that have a homozygous genotype for a given locus.</p>
+<p>In a population where there is no mutation, no selection, no drift, and no gene flow and assuming random mating, the allele frequencies should not change from one generation to the next<label for="tufte-sn-68" class="margin-toggle sidenote-number">68</label><input type="checkbox" id="tufte-sn-68" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">68</span> Remember, evolution is defined as the change of allele frequencies over time, so this means that there are no evolutionary processes acting on the population.</span>. When this is the case, a population is said to be in <strong>Hardy-Weinberg Equilibrium</strong> (HWE) and the the relationship of the allele frequencies at a locus with two alleles with the frequencies <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> can be described as</p>
+<p><span class="math display">\[
+p^{2} + 2pq + q^{2} = 1
+\]</span>
+Because observed allele frequencies are related to the levels of heterozygosity, this allows us to calculate the <strong>expected level of heterozygosity</strong> <span class="math inline">\(H_{e}\)</span> using HWE and compare that to the <strong>observed level of heterozygosity</strong> <span class="math inline">\(H_{o}\)</span> to determine whether genetic diversity is lower or higher than expected.</p>
+<p>Usually, we are looking at closed(ish) populations (no gene flow) and mutation is negligible at ecological time scales so that it is either selection or genetic drift that is causing any deviations from HWE. By using <strong>neutral markers</strong><label for="tufte-sn-69" class="margin-toggle sidenote-number">69</label><input type="checkbox" id="tufte-sn-69" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">69</span> Parts of the DNA that do not code for traits cannot be under selection.</span> for our assessments we can exclude selection, therefore we can use heterozygosity levels to determine whether genetic drift is occurring in a population<label for="tufte-sn-70" class="margin-toggle sidenote-number">70</label><input type="checkbox" id="tufte-sn-70" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">70</span> Of course, the more complex your data set in terms of the number of loci, how many alleles per locus, whether or not drift is constant across the genome, if you get truly neutral markers … makes it a little more complicated</span>.</p>
+</div>
+<div id="genetic-drift" class="section level2">
+<h2>
+<span class="header-section-number">14.2</span> Genetic Drift</h2>
+<div id="ques:drift-2" class="question">
+<p class="question-begin">
+► Question 14.2
+</p>
+<div class="question-body">
+<p>
+Give a brief definition of what genetic drift is and use this definition to describe how it is related to population size and how it affects the genetic diversity of a population over time.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Hint<span id="sol-start-45" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-45', 'sol-start-45')"></span>
+</p>
+<div id="sol-body-45" class="solution-body" style="display: none;">
+<p>
+Here is an example of a concise definition: Genetic drift describes the random fluctuations of allele frequencies in a population from generation to generation due to chance (sampling error)/random sampling from the gene pool to produce the next generation
+</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Let’s take a little look at what it means for allele frequencies to drift and why we frequently refer to it as sampling error.</p>
+<p>Let’s assume we have a population with 10 diploid individuals (that means there are 2 alleles per individual in the genepool). We’re going to look at a locus with two alleles, and we’ll assume that in our initial population both alleles have a frequency of 0.5.</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="stochastic-genetic-effects.html#cb219-1"></a><span class="co"># population size</span></span>
+<span id="cb219-2"><a href="stochastic-genetic-effects.html#cb219-2"></a>pop_size &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb219-3"><a href="stochastic-genetic-effects.html#cb219-3"></a></span>
+<span id="cb219-4"><a href="stochastic-genetic-effects.html#cb219-4"></a><span class="co"># frequency allele 1</span></span>
+<span id="cb219-5"><a href="stochastic-genetic-effects.html#cb219-5"></a>p &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb219-6"><a href="stochastic-genetic-effects.html#cb219-6"></a></span>
+<span id="cb219-7"><a href="stochastic-genetic-effects.html#cb219-7"></a><span class="co"># frequency allele 2</span></span>
+<span id="cb219-8"><a href="stochastic-genetic-effects.html#cb219-8"></a>q &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb219-9"><a href="stochastic-genetic-effects.html#cb219-9"></a></span>
+<span id="cb219-10"><a href="stochastic-genetic-effects.html#cb219-10"></a><span class="co"># gene pool</span></span>
+<span id="cb219-11"><a href="stochastic-genetic-effects.html#cb219-11"></a>genepool &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">"Allele-1"</span>, p<span class="op">*</span>pop_size<span class="op">*</span><span class="dv">2</span>), <span class="kw">rep</span>(<span class="st">"Allele-2"</span>,q<span class="op">*</span>pop_size<span class="op">*</span><span class="dv">2</span>))</span></code></pre></div>
+<p>If we print our <code>genepool</code> we just created we’ll see that we have 10 of each allele present.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="stochastic-genetic-effects.html#cb220-1"></a>genepool</span></code></pre></div>
+<pre><code>##  [1] "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-2"
+## [12] "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2"</code></pre>
+<p>For simplicity we are going to make two assumptions</p>
+<ol style="list-style-type: decimal">
+<li>Every allele has the same probability of reproducing (no selection).</li>
+<li>Generations do not overlap.</li>
+<li>Population size is constant over time (i.e. at carrying capacity).</li>
+</ol>
+<p>To model our next generation (Gen-1) we are going to randomly draw 20 alleles from our distribution with replacement (each reproduction event is discrete) and count the number of each of the alleles no present in the population.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="stochastic-genetic-effects.html#cb222-1"></a>genepool &lt;-<span class="st"> </span><span class="kw">sample</span>(genepool, <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb222-2"><a href="stochastic-genetic-effects.html#cb222-2"></a></span>
+<span id="cb222-3"><a href="stochastic-genetic-effects.html#cb222-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
+<pre><code>## genepool
+## Allele-1 Allele-2 
+##       13        7</code></pre>
+<p>To model the generation after that (Gen-2), we will do the same thing, except now we will make the same random draw from Gen-1.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="stochastic-genetic-effects.html#cb224-1"></a>genepool &lt;-<span class="st"> </span><span class="kw">sample</span>(genepool, <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb224-2"><a href="stochastic-genetic-effects.html#cb224-2"></a></span>
+<span id="cb224-3"><a href="stochastic-genetic-effects.html#cb224-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
+<pre><code>## genepool
+## Allele-1 Allele-2 
+##       15        5</code></pre>
+<p>We start to see how our allele counts (frequencies) start to drift, from generation to generation. They do not shift much f you are comparing two adjacent generations, but once you do this for several generations it is possible that the frequencies vary considerable from our initial equal distribution.</p>
+<p>We can use a <code>for loop</code> to run this for 15 generations.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="stochastic-genetic-effects.html#cb226-1"></a><span class="co"># number of generations</span></span>
+<span id="cb226-2"><a href="stochastic-genetic-effects.html#cb226-2"></a>n_gen &lt;-<span class="st"> </span><span class="dv">15</span></span>
+<span id="cb226-3"><a href="stochastic-genetic-effects.html#cb226-3"></a></span>
+<span id="cb226-4"><a href="stochastic-genetic-effects.html#cb226-4"></a><span class="co"># initial population size</span></span>
+<span id="cb226-5"><a href="stochastic-genetic-effects.html#cb226-5"></a>pop_size &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb226-6"><a href="stochastic-genetic-effects.html#cb226-6"></a></span>
+<span id="cb226-7"><a href="stochastic-genetic-effects.html#cb226-7"></a><span class="co"># frequency allele 1</span></span>
+<span id="cb226-8"><a href="stochastic-genetic-effects.html#cb226-8"></a>p &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb226-9"><a href="stochastic-genetic-effects.html#cb226-9"></a></span>
+<span id="cb226-10"><a href="stochastic-genetic-effects.html#cb226-10"></a><span class="co"># frequency allele 2</span></span>
+<span id="cb226-11"><a href="stochastic-genetic-effects.html#cb226-11"></a>q &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb226-12"><a href="stochastic-genetic-effects.html#cb226-12"></a></span>
+<span id="cb226-13"><a href="stochastic-genetic-effects.html#cb226-13"></a><span class="co"># original gene pool</span></span>
+<span id="cb226-14"><a href="stochastic-genetic-effects.html#cb226-14"></a>genepool &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">"Allele-1"</span>, p<span class="op">*</span>pop_size<span class="op">*</span><span class="dv">2</span>), <span class="kw">rep</span>(<span class="st">"Allele-2"</span>,q<span class="op">*</span>pop_size<span class="op">*</span><span class="dv">2</span>))</span>
+<span id="cb226-15"><a href="stochastic-genetic-effects.html#cb226-15"></a></span>
+<span id="cb226-16"><a href="stochastic-genetic-effects.html#cb226-16"></a><span class="co"># initial counts</span></span>
+<span id="cb226-17"><a href="stochastic-genetic-effects.html#cb226-17"></a>counts &lt;-<span class="st"> </span><span class="kw">table</span>(genepool) <span class="op">%&gt;%</span></span>
+<span id="cb226-18"><a href="stochastic-genetic-effects.html#cb226-18"></a><span class="st">  </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
+<span id="cb226-19"><a href="stochastic-genetic-effects.html#cb226-19"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">generation =</span> <span class="dv">0</span>)</span>
+<span id="cb226-20"><a href="stochastic-genetic-effects.html#cb226-20"></a></span>
+<span id="cb226-21"><a href="stochastic-genetic-effects.html#cb226-21"></a><span class="co"># run model for multiple generations</span></span>
+<span id="cb226-22"><a href="stochastic-genetic-effects.html#cb226-22"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_gen){</span>
+<span id="cb226-23"><a href="stochastic-genetic-effects.html#cb226-23"></a>  </span>
+<span id="cb226-24"><a href="stochastic-genetic-effects.html#cb226-24"></a>  genepool &lt;-<span class="st"> </span><span class="kw">sample</span>(genepool, <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb226-25"><a href="stochastic-genetic-effects.html#cb226-25"></a>  </span>
+<span id="cb226-26"><a href="stochastic-genetic-effects.html#cb226-26"></a>  df &lt;-<span class="st"> </span><span class="kw">table</span>(genepool) <span class="op">%&gt;%</span></span>
+<span id="cb226-27"><a href="stochastic-genetic-effects.html#cb226-27"></a><span class="st">    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
+<span id="cb226-28"><a href="stochastic-genetic-effects.html#cb226-28"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">generation =</span> i)</span>
+<span id="cb226-29"><a href="stochastic-genetic-effects.html#cb226-29"></a>  </span>
+<span id="cb226-30"><a href="stochastic-genetic-effects.html#cb226-30"></a>  counts &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(counts, df)</span>
+<span id="cb226-31"><a href="stochastic-genetic-effects.html#cb226-31"></a>  </span>
+<span id="cb226-32"><a href="stochastic-genetic-effects.html#cb226-32"></a>}</span></code></pre></div>
+<p>Let’s take a look at our allele counts and how they change from one generation to the next.</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="stochastic-genetic-effects.html#cb227-1"></a><span class="kw">kable</span>(</span>
+<span id="cb227-2"><a href="stochastic-genetic-effects.html#cb227-2"></a>  counts <span class="op">%&gt;%</span></span>
+<span id="cb227-3"><a href="stochastic-genetic-effects.html#cb227-3"></a><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> genepool, <span class="dt">values_from =</span> Freq) <span class="op">%&gt;%</span></span>
+<span id="cb227-4"><a href="stochastic-genetic-effects.html#cb227-4"></a><span class="st">    </span><span class="kw">replace</span>(<span class="kw">is.na</span>(.), <span class="dv">0</span>),</span>
+<span id="cb227-5"><a href="stochastic-genetic-effects.html#cb227-5"></a>  <span class="dt">caption =</span> <span class="st">"Change in allele counts across generations in a population consisting of 20 individuals (sampled with replacement)."</span></span>
+<span id="cb227-6"><a href="stochastic-genetic-effects.html#cb227-6"></a>)</span></code></pre></div>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-228">Table 14.1: </span>Change in allele counts across generations in a population consisting of 20 individuals (sampled with replacement).</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="right">generation</th>
+<th align="right">Allele-1</th>
+<th align="right">Allele-2</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">13</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">18</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">18</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">18</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">16</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">15</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">12</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">12</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">16</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">17</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">14</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">15</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<div id="ques:drift-3" class="question">
+<p class="question-begin">
+► Question 14.3
+</p>
+<div class="question-body">
+<p>
+Give a brief explanation of what it means for an allele to be/become fixed and explain how we can determine the probability of a given allele becoming fixed.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-4" class="question">
+<p class="question-begin">
+► Question 14.4
+</p>
+<div class="question-body">
+<p>
+Explain why alleles becoming lost through genetic is problematic from a conservation genetics point of view (keywords: adaptive potential, genetic/mutational load).
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-5" class="question">
+<p class="question-begin">
+► Question 14.5
+</p>
+<div class="question-body">
+<p>
+Explain why genetic drift is generally only a concern in small populations and what it means when we say a population is sufficiently large to act as an infinite population.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>For the remainder of this lab we are going to use a simulation to explore genetic drift and two special cases (bottlenecks and founder effects) where genetic drift plays a large role in shaping genetic drift.</p>
+<p>Load the <a href="http://virtualbiologylab.org/NetWebHTML_FilesJan2016/RandomEffectsModel.html">model</a> in your browser and we will quickly orient ourselves to the different components.</p>
+<p>Our model consists of a mainland population (large green square) and two islands (small green circles) that are currently still uninhabited. We also have various sets of controls that allows us to set the carrying capacity, population sizes, and simulate colonization events and bottlenecks as well as counters to track the allele frequencies.</p>
+<p>In the bottom right we have two important buttons that control running the simulation overall <code>Reset</code> and <code>Go</code>. <code>Go</code> both starts and stops the simulation. Importantly, anytime we want to change parameters we need to stop the simulation, make our changes and then use the <code>Reset</code> button to initialize the the simulation for those settings before starting the simulation of a given scenario.</p>
+<p>For now, let’s just focus on the mainland which is inhabited by a population where individuals display different phenotypes in terms of their color. This trait is determine by a single gene with <strong>incomplete dominance</strong> - this means that heterozygotes display a blend of the two alleles. There are three alleles, yellow, blue, and red. So for example, an individual that is homozygous for the red allele would be red and an individual that is orange would be a heterozygote for the yellow and red alleles.</p>
+<div id="ques:drift-7" class="question">
+<p class="question-begin">
+► Question 14.6
+</p>
+<div class="question-body">
+<p>
+Argue whether having no yellow individuals in the population necessarily means that there are no yellow alleles remaining in the population.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>This population is at carrying capacity and remains stable over time, i.e. individuals in the population reproduce and die randomly over time but overall remains at the population size. When you run the model you will see that time is measured in two ways one using the <code>ticks</code> box and by tracking <code>generations</code>, because individuals die and reproduce continuously (i.e. there are overlapping generations). The population size <code>N</code> and the number of <code>generations</code> which have passed are tracked in the small yellow boxes at the bottom of the mainland simulation.</p>
+<p>We can change the carrying capacity of the mainland (<code>Mainland-K</code>) using the slider in the green box to the left. Make sure the <code>Stop-at-Fixation</code> box is unchecked.</p>
+<p>Choose a value for <code>Mainland-K</code> and hit the <code>Reset</code> button. If you look at the yellow recording boxes you should see <code>N</code> have the same value as the carrying capacity you chose and the <code>Generation</code> box should be 0. Take a look at the initial frequencies for the <code>Yellow</code>, <code>Blue</code>, and <code>Red</code> alleles. Now change the carrying capacity and hit the <code>Reset</code> button again, you should see the allele frequencies stay approximately the same (i.e. our starting values will be comparable regardless of our initial <code>N</code>) but the population size <code>N</code> should have stayed approximately the same.</p>
+<div id="ques:drift-8" class="question">
+<p class="question-begin">
+► Question 14.7
+</p>
+<div class="question-body">
+<p>
+Based on the initial allele frequencies argue which allele(s) you expect to be lost first and hypothesize the relationship the time to fixation for an allele and the generation time depending on the initial population size.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Everyone is going to run two scenarios for differing population sizes and record the allele frequencies every generation for 100 generations.</p>
+<p>For the first set you will run two scenarios depending on which “column” you are sitting in.</p>
+<ul>
+<li>Column 1: K = 1000, 20</li>
+<li>Column 2: K = 700, 50</li>
+<li>Column 3: K = 500, 70</li>
+<li>Column 4: K = 200, 100</li>
+</ul>
+<p>In our project folder, there is a shared spreadsheet titled <code>drift</code> that we will use to gather all the results. You should use the same column names to record your results in a separate excel spreadsheet or google doc first before transferring your data to the main data set. To be able to distinguish between different runs with the same parameters put your initials in the column <code>Run</code>.</p>
+<p>Once all the data has been uploaded save the data in your <code>data</code> sub-directory of the project folder as <code>drift.txt</code>.</p>
+<p>Let’s take a look at our results.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="stochastic-genetic-effects.html#cb228-1"></a>drift &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/drift.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb228-2"><a href="stochastic-genetic-effects.html#cb228-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>)</span>
+<span id="cb228-3"><a href="stochastic-genetic-effects.html#cb228-3"></a></span>
+<span id="cb228-4"><a href="stochastic-genetic-effects.html#cb228-4"></a><span class="kw">ggplot</span>(drift, <span class="kw">aes</span>(<span class="dt">x =</span> Generation, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
+<span id="cb228-5"><a href="stochastic-genetic-effects.html#cb228-5"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb228-6"><a href="stochastic-genetic-effects.html#cb228-6"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
+<span id="cb228-7"><a href="stochastic-genetic-effects.html#cb228-7"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb228-8"><a href="stochastic-genetic-effects.html#cb228-8"></a><span class="st">  </span><span class="kw">facet_grid</span>(K_Mainland <span class="op">~</span><span class="st"> </span>Run) <span class="op">+</span></span>
+<span id="cb228-9"><a href="stochastic-genetic-effects.html#cb228-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"generations"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
+<span id="cb228-10"><a href="stochastic-genetic-effects.html#cb228-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<div id="ques:drift-9" class="question">
+<p class="question-begin">
+► Question 14.8
+</p>
+<div class="question-body">
+<p>
+Give a brief description of the major patterns you observe. This should include comparing difference among population sizes (think back to your answer to the question above), differences among runs of the same initial population size, and differences for different initial allele frequencies.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-10" class="question">
+<p class="question-begin">
+► Question 14.9
+</p>
+<div class="question-body">
+<p>
+Use your description from the question above to explain the key characteristics of genetic drift in terms of the relationship of the strength of genetic drift and population size, the relationship of the initial allele frequency and the probability of an allele being lost due to drift, the fact that drift is a stochastic effect, and what it means for genetic drift to be random in respect to fitness.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="bottleneck" class="section level2">
+<h2>
+<span class="header-section-number">14.3</span> Bottleneck</h2>
+<div id="ques:drift-11" class="question">
+<p class="question-begin">
+► Question 14.10
+</p>
+<div class="question-body">
+<p>
+Give a brief description of a bottleneck and explain how it is expected to affect the genetic diversity of a population. Distinguish between a demographic bottleneck and a genetic bottleneck and argue whether those always co-occur.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We can use our model to simulate a population bottleneck. You can determine the magnitude of the simulated bottleneck using the <code>Bottleneck-size</code> slider to determine the number of individuals that remain in the population. Then, you can create the bottleneck by clicking on the blue <code>Bottleneck</code> button. When you do this, you will see the number of individuals in the mainland population in the yellow <code>N</code> reporting box drop to the specified time. As you continue to let the model run the population will grow until it reaches carrying capacity, you can track the change in population size in the yellow reporting box.</p>
+<div id="ques:drift-12" class="question">
+<p class="question-begin">
+► Question 14.11
+</p>
+<div class="question-body">
+<p>
+Explain how you expect the allele frequencies in the population to change after a bottleneck occurs depending on how small the remaining population is.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-13" class="question">
+<p class="question-begin">
+► Question 14.12
+</p>
+<div class="question-body">
+<p>
+Argue which allele you think is most likely to be lost during the bottleneck and whether or not you think there is a higher chance of that occuring depending on how small the remaining population is after the bottlneck.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-14" class="question">
+<p class="question-begin">
+► Question 14.13
+</p>
+<div class="question-body">
+<p>
+Explain how you expect the genetic diversity to be affected depending on how long a population remains at low population sizes/how long it takes for a population to recover.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-15" class="question">
+<p class="question-begin">
+► Question 14.14
+</p>
+<div class="question-body">
+<p>
+Argue whether or not you would expect the allele frequencies of the population to look the same as they did before the population bottleneck after the population recovers to its initial population size.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We are going test our hypothesis by simulating four different bottlenecks. To do this, we are going to set our mainland carrying capacity to 700 and then you will run the simulation for five generations before initiating the bottleneck. For those five generations record the allele frequencies and population size every generation. After initiating the bottleneck, record the allele frequencies and population size every 10 ticks until your population size reaches carrying capacity (you will need to slow down the simulation using the slider at the very top of your screen) at which point you will record the results every generation until the the simulation has run for 50 generations.</p>
+<ul>
+<li>Column 1: bottleneck size = 100</li>
+<li>Column 2: bottleneck size = 50</li>
+<li>Column 3: bottleneck size = 25</li>
+<li>Column 4: bottleneck size = 5</li>
+</ul>
+<p>There is a google doc in our project folder called <code>bottleneck</code> in which we will gather all the results. Again, you should record your results first separately but make sure to use the same set of column headings.</p>
+<p>Once all the data has been recorded save the results as a tab-delimited file in your <code>data</code> sub-directory as <code>bottleneck.txt</code>.</p>
+<p>Now, let’s take a look at our results.</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="stochastic-genetic-effects.html#cb229-1"></a>bottleneck &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bottleneck.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb229-2"><a href="stochastic-genetic-effects.html#cb229-2"></a><span class="st">  </span><span class="kw">unite</span>(<span class="dt">col =</span> <span class="st">"Group"</span>, Bottleneck, Run, <span class="dt">sep =</span> <span class="st">"_"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb229-3"><a href="stochastic-genetic-effects.html#cb229-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>)</span>
+<span id="cb229-4"><a href="stochastic-genetic-effects.html#cb229-4"></a></span>
+<span id="cb229-5"><a href="stochastic-genetic-effects.html#cb229-5"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bottleneck, <span class="kw">aes</span>(<span class="dt">x =</span> Ticks, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
+<span id="cb229-6"><a href="stochastic-genetic-effects.html#cb229-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb229-7"><a href="stochastic-genetic-effects.html#cb229-7"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
+<span id="cb229-8"><a href="stochastic-genetic-effects.html#cb229-8"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb229-9"><a href="stochastic-genetic-effects.html#cb229-9"></a><span class="st">  </span><span class="kw">facet_grid</span>(Group <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb229-10"><a href="stochastic-genetic-effects.html#cb229-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"generations"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
+<span id="cb229-11"><a href="stochastic-genetic-effects.html#cb229-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb229-12"><a href="stochastic-genetic-effects.html#cb229-12"></a></span>
+<span id="cb229-13"><a href="stochastic-genetic-effects.html#cb229-13"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bottleneck, <span class="kw">aes</span>(<span class="dt">x =</span> Ticks, <span class="dt">y =</span> N_Mainland)) <span class="op">+</span></span>
+<span id="cb229-14"><a href="stochastic-genetic-effects.html#cb229-14"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb229-15"><a href="stochastic-genetic-effects.html#cb229-15"></a><span class="st">  </span><span class="kw">facet_grid</span>(Group <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb229-16"><a href="stochastic-genetic-effects.html#cb229-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"generations"</span>, <span class="dt">y =</span> <span class="st">"population size (N)"</span>)</span>
+<span id="cb229-17"><a href="stochastic-genetic-effects.html#cb229-17"></a></span>
+<span id="cb229-18"><a href="stochastic-genetic-effects.html#cb229-18"></a><span class="kw">multiplot</span>(p1, p2, <span class="dt">cols =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div id="ques:drift-16" class="question">
+<p class="question-begin">
+► Question 14.15
+</p>
+<div class="question-body">
+<p>
+Give a brief description of the major patterns you observe. This should include comparing difference among bottleneck sizes (think back to your answers to the questions above), differences among runs of the same bottleneck size, and differences for different initial allele frequencies.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-17" class="question">
+<p class="question-begin">
+► Question 14.16
+</p>
+<div class="question-body">
+<p>
+Use your description from the question above to explain the key characteristics of a bottleneck in terms of how strongly the genetic diversity is affected in relation to how small the bottlenecked population is, the allele frequencies before the bottleneck, the probability of alleles being lost based on their pre-bottleneck allele frequency, the stochastic nature of a bottleneck.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="founder-effect" class="section level2">
+<h2>
+<span class="header-section-number">14.4</span> Founder Effect</h2>
+<div id="ques:drift-18" class="question">
+<p class="question-begin">
+► Question 14.17
+</p>
+<div class="question-body">
+<p>
+Give a brief description of what a founder effect is, explain how it impacts genetic diversity and why it is important to consider for certain conservation/managment strategies.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p class="solution-begin">
+Hint<span id="sol-start-46" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-46', 'sol-start-46')"></span>
+</p>
+<div id="sol-body-46" class="solution-body" style="display: none;">
+<p>
+Here’s an example of a concise definition of a founder effect for you to consider: The founder effect describes the reduced genetic diversity in a population as a result of it having been establied by a small number of colonizers for a larger source population.
+</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>For our final query into the world of loss of genetic diversity we will use our model to simulate a few different scenarios of founder effects.</p>
+<p>On the right hand of the screen you have two islands (<code>Island-1</code>, <code>Island-2</code>). You can determine the founding population size (<code>Founding-N-1</code>, <code>Founding-N-2</code>) and the carrying capacity of each island (<code>Isle-1-K</code>, <code>Isle-2-K</code>). Once you have set your values, make sure to hit reset to initialize the mainland population. Then use the <code>colonize 1</code> and <code>colonize 2</code> buttons to randomly draw individuals from the mainland population as the colonizers. Once you start the simulation using the <code>Go</code> button you will be able to track the allele frequencies in each of the island populations and the population sizes in the yellow reporting boxes below the islands.</p>
+<div id="ques:drift-19" class="question">
+<p class="question-begin">
+► Question 14.18
+</p>
+<div class="question-body">
+<p>
+Explain how you expect the allele frequencies in the recently founded island population to change compared to the mainland population depending on the number of individual in the founding population.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-20" class="question">
+<p class="question-begin">
+► Question 14.19
+</p>
+<div class="question-body">
+<p>
+Argue which allele you think is most likely to be lost during colonization and whether or not you think there is a higher chance of that occuring depending on how small the founding population is.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-21" class="question">
+<p class="question-begin">
+► Question 14.20
+</p>
+<div class="question-body">
+<p>
+Argue how you expect the genetic diversity (both in terms of allele frequencies and alleles present) to compare to the mainland population depending on how large the carrying capcity of the island population is and how many generations have passed since the inital founding.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Again, we are going to run a set of scenarios to illustrate how different size of founding populations and carrying capacity on the island affects the genetic diversity.</p>
+<p>For each scenario we will have a mainland carrying capacity of 700 individuals. Make sure to hit <code>Reset</code> to initialize the mainland population. Then you will set your parameters for the two island populations and hit <code>colonize</code> to found your populations. Similar to the bottleneck simulations, you will record your results every 10 tick marks until your island population reaches carrying capacity or a minimum of three generations have passed, then you can record your results every generation for a total of 50 generations. You will not get initial allele frequencies for the island populations right after colonizing so stop the simulation within one or two tick marks to get an initial value.</p>
+<p>Here are the scenarios we are going to run:</p>
+<ul>
+<li>Founding-N-1 = 5/Isle-1-K = 50, Founding-N-2 = 2/Isle-1-K = 50</li>
+<li>Founding-N-1 = 10/Isle-1-K = 50, Founding-N-2 = 25/Isle-1-K = 50</li>
+<li>Founding-N-1 = 5/Isle-1-K = 100, Founding-N-2 = 2/Isle-1-K = 100</li>
+<li>Founding-N-1 = 10/Isle-1-K = 100, Founding-N-2 = 25/Isle-1-K = 100</li>
+<li>Founding-N-1 = 5/Isle-1-K = 200, Founding-N-2 = 2/Isle-1-K = 200</li>
+<li>Founding-N-1 = 10/Isle-1-K = 200, Founding-N-2 = 25/Isle-1-K = 200</li>
+</ul>
+<p>There is a google doc in our project folder called <code>founder</code> for you to record your result. As with the two previous components of this lab you should record your results separately first before uploading to the shared file.</p>
+<p>Once all all the results have been collected save the results as a tab-delimited file in your <code>data</code> subdirectory as <code>founder.txt</code>.</p>
+<p>Let’s take a look at our results.</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="stochastic-genetic-effects.html#cb230-1"></a>founder &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/founder.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-2"><a href="stochastic-genetic-effects.html#cb230-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"tmp1"</span>, <span class="dt">values_to =</span> <span class="st">"K_Island"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-3"><a href="stochastic-genetic-effects.html#cb230-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"tmp2"</span>, <span class="dt">values_to =</span> <span class="st">"N_Founding"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-4"><a href="stochastic-genetic-effects.html#cb230-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"tmp3"</span>, <span class="dt">values_to =</span> <span class="st">"N_Island"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-5"><a href="stochastic-genetic-effects.html#cb230-5"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">14</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-6"><a href="stochastic-genetic-effects.html#cb230-6"></a><span class="st">  </span><span class="kw">separate</span>(Allele, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"Allele"</span>, <span class="st">"Category"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-7"><a href="stochastic-genetic-effects.html#cb230-7"></a><span class="st">  </span><span class="kw">separate</span>(Category, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"Category"</span>, <span class="st">"tmp4"</span>), <span class="dt">sep =</span> <span class="st">"-"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-8"><a href="stochastic-genetic-effects.html#cb230-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tmp1, <span class="op">-</span>tmp2, <span class="op">-</span>tmp3, <span class="op">-</span>tmp4) <span class="op">%&gt;%</span></span>
+<span id="cb230-9"><a href="stochastic-genetic-effects.html#cb230-9"></a><span class="st">  </span><span class="kw">unite</span>(Scenario, N_Founding, K_Island, Run, <span class="dt">sep =</span> <span class="st">"_"</span>)</span>
+<span id="cb230-10"><a href="stochastic-genetic-effects.html#cb230-10"></a></span>
+<span id="cb230-11"><a href="stochastic-genetic-effects.html#cb230-11"></a><span class="kw">ggplot</span>(founder, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
+<span id="cb230-12"><a href="stochastic-genetic-effects.html#cb230-12"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb230-13"><a href="stochastic-genetic-effects.html#cb230-13"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
+<span id="cb230-14"><a href="stochastic-genetic-effects.html#cb230-14"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb230-15"><a href="stochastic-genetic-effects.html#cb230-15"></a><span class="st">  </span><span class="kw">facet_grid</span>(Scenario <span class="op">~</span><span class="st"> </span>Category) <span class="op">+</span></span>
+<span id="cb230-16"><a href="stochastic-genetic-effects.html#cb230-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
+<span id="cb230-17"><a href="stochastic-genetic-effects.html#cb230-17"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<div id="ques:drift-22" class="question">
+<p class="question-begin">
+► Question 14.21
+</p>
+<div class="question-body">
+<p>
+Give a brief description of the major patterns you observe. This should include comparing difference among the sizes of founder effects and the carrying capcity of the island (think back to your answers to the questions above), differences among runs of the scenarios, and how different the island population is from the mainland population it originated from over time.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:drift-23" class="question">
+<p class="question-begin">
+► Question 14.22
+</p>
+<div class="question-body">
+<p>
+Use your description from the question above to explain the key characteristics of the founder effect are in terms of how different the genetic diversity of island populations is from the mainland population (both in terms of alleles present and allele frequencies), how this is impacted by the founding size/carrying capacity, the probability of alleles being lost both during the initial colonization event and afterwards, and factors contributing to the stochastic nature of a founding event.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="population-modeling.html"><button class="btn btn-default">Previous</button></a>
+<a href="references.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-11-04
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

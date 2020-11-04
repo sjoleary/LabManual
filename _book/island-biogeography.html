@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-11-03" />
+<meta name="date" content="2020-11-04" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -154,7 +154,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
 <a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
 <a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
-<a href="genetic-drift.html"><span class="toc-section-number">14</span> Genetic Drift</a>
+<a href="stochastic-genetic-effects.html"><span class="toc-section-number">14</span> Stochastic Genetic Effects</a>
 <a href="references.html">References</a>
 </div>
 </li>
@@ -233,9 +233,9 @@ What functions and arguments would you use to accomplish this?
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-1', 'sol-start-1')"></span>
+► Solution<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-23', 'sol-start-23')"></span>
 </p>
-<div id="sol-body-1" class="solution-body" style="display: none;">
+<div id="sol-body-23" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="island-biogeography.html#cb58-1"></a>tidy &lt;-<span class="st"> </span>raw_counts <span class="op">%&gt;%</span></span>
 <span id="cb58-2"><a href="island-biogeography.html#cb58-2"></a><span class="st">  </span><span class="kw">filter</span>(TAXON <span class="op">==</span><span class="st"> "Arthropods"</span> <span class="op">&amp;</span><span class="st"> </span>HABITAT <span class="op">==</span><span class="st"> "tropical"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb58-3"><a href="island-biogeography.html#cb58-3"></a><span class="st">  </span><span class="kw">select</span>(ISLAND, SPECIES, COUNT) </span>
@@ -337,9 +337,9 @@ What dplyr verbs can you use to quickly calculate the number of observed species
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-2" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-2', 'sol-start-2')"></span>
+► Solution<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-24', 'sol-start-24')"></span>
 </p>
-<div id="sol-body-2" class="solution-body" style="display: none;">
+<div id="sol-body-24" class="solution-body" style="display: none;">
 <p>Exactly, to do this we can use <code>filter()</code> to remove entries where no individuals of a given species were observed (<code>COUNT</code> would be <code>0</code>), and group our observations by <code>ISLAND</code>, <code>TAXON</code>, and <code>HABITAT</code>. Now we use summarize count the number of observations in each group<label for="tufte-sn-32" class="margin-toggle sidenote-number">32</label><input type="checkbox" id="tufte-sn-32" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">32</span> It’s not important how many individuals of a species were observed - just that they were observed.</span>.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="island-biogeography.html#cb64-1"></a>richn &lt;-<span class="st"> </span>raw_counts <span class="op">%&gt;%</span></span>
 <span id="cb64-2"><a href="island-biogeography.html#cb64-2"></a><span class="st">  </span><span class="kw">filter</span>(COUNT <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
@@ -477,9 +477,9 @@ What if you were more interested in comparing how species richness compared acro
 </div>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-3', 'sol-start-3')"></span>
+► Solution<span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-25', 'sol-start-25')"></span>
 </p>
-<div id="sol-body-3" class="solution-body" style="display: none;">
+<div id="sol-body-25" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="island-biogeography.html#cb73-1"></a><span class="kw">ggplot</span>(richn, <span class="kw">aes</span>(<span class="dt">x =</span> HABITAT, <span class="dt">y =</span> richn, <span class="dt">fill =</span> ISLAND)) <span class="op">+</span></span>
 <span id="cb73-2"><a href="island-biogeography.html#cb73-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
 <span id="cb73-3"><a href="island-biogeography.html#cb73-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>TAXON) <span class="op">+</span></span>
@@ -516,9 +516,9 @@ Take a look at the two faceted plots and record your observations. Consider patt
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-4" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-4', 'sol-start-4')"></span>
+Hint<span id="sol-start-26" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-26', 'sol-start-26')"></span>
 </p>
-<div id="sol-body-4" class="solution-body" style="display: none;">
+<div id="sol-body-26" class="solution-body" style="display: none;">
 <p>
 One of the central observations you should have made is that species richness is consistently higher on the Isle of Leary
 </p>
@@ -542,9 +542,9 @@ Both islands have the same set of habitats available and species colonizing the 
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-5" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-5', 'sol-start-5')"></span>
+Hint<span id="sol-start-27" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-27', 'sol-start-27')"></span>
 </p>
-<div id="sol-body-5" class="solution-body" style="display: none;">
+<div id="sol-body-27" class="solution-body" style="display: none;">
 <p>
 The two parameters you are looking for are Distance and Area.
 </p>
@@ -839,9 +839,9 @@ Assuming that species randomly migrate from the mainland to the island, briefly 
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-6" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-6', 'sol-start-6')"></span>
+Hint<span id="sol-start-28" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-28', 'sol-start-28')"></span>
 </p>
-<div id="sol-body-6" class="solution-body" style="display: none;">
+<div id="sol-body-28" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>Distance of the island from the mainland.</li>
 <li>The number of species on the mainland that do not occur on the island.</li>
@@ -868,9 +868,9 @@ Assuming that species randomly migrate from the mainland to the island, briefly 
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-7" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-7', 'sol-start-7')"></span>
+Hint<span id="sol-start-29" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-29', 'sol-start-29')"></span>
 </p>
-<div id="sol-body-7" class="solution-body" style="display: none;">
+<div id="sol-body-29" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>Area of the island.</li>
 <li>Number of species present on the island.</li>
@@ -1104,9 +1104,9 @@ Take a look at the different habitats in the model and argue how you think they 
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-8" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-8', 'sol-start-8')"></span>
+Hint<span id="sol-start-30" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-30', 'sol-start-30')"></span>
 </p>
-<div id="sol-body-8" class="solution-body" style="display: none;">
+<div id="sol-body-30" class="solution-body" style="display: none;">
 <p>Keyword: Productivity.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1128,9 +1128,9 @@ Take a look at the different taxonomic groups in the model and speculate why the
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-9" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-9', 'sol-start-9')"></span>
+Hint<span id="sol-start-31" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-31', 'sol-start-31')"></span>
 </p>
-<div id="sol-body-9" class="solution-body" style="display: none;">
+<div id="sol-body-31" class="solution-body" style="display: none;">
 <p>They have to survive the trip to the island …</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1152,9 +1152,9 @@ Download the data from the spreadsheet we have combined all the different taxa/h
 </div>
 <div class="solution">
 <p class="solution-begin">
-Notes<span id="sol-start-10" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-10', 'sol-start-10')"></span>
+Notes<span id="sol-start-32" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-32', 'sol-start-32')"></span>
 </p>
-<div id="sol-body-10" class="solution-body" style="display: none;">
+<div id="sol-body-32" class="solution-body" style="display: none;">
 <ol style="list-style-type: decimal">
 <li>Consider whether to filter for the “distance” or “area” experiment - or both?</li>
 <li>Remember, you can use <code>facet_grid()</code> to simultaneously create a range of plots!</li>
@@ -1289,9 +1289,9 @@ For each of these parameters argue how you think increase/decrease will affect s
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-11" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-11', 'sol-start-11')"></span>
+Hint<span id="sol-start-33" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-33', 'sol-start-33')"></span>
 </p>
-<div id="sol-body-11" class="solution-body" style="display: none;">
+<div id="sol-body-33" class="solution-body" style="display: none;">
 <p>Go back to our model of biogeography and consider how each of these parameters is included in the calculation of Immigration and Extinction rates and how these in turn determine species richness.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -1313,9 +1313,9 @@ Choose either mortality or migration rate and design an experiment to determine 
 </div>
 <div class="solution">
 <p class="solution-begin">
-Pro tip<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-12', 'sol-start-12')"></span>
+Pro tip<span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-34', 'sol-start-34')"></span>
 </p>
-<div id="sol-body-12" class="solution-body" style="display: none;">
+<div id="sol-body-34" class="solution-body" style="display: none;">
 <p>You already have one data set each for area and distance … consider re-using those data sets and just generating complementary data sets.</p>
 <p>Essentially This section should be set up in a very similar format as your initial experimental design looking at just distance/area.</p>
 <p class="solution-end">
@@ -1345,7 +1345,7 @@ Pro tip<span id="sol-start-12" class="fa fa-plus-square solution-icon clickable"
 <a href="iucn-redlist-evaluation.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-11-03
+2020-11-04
 </p>
 </div>
 </div>
