@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-11-04" />
+<meta name="date" content="2020-11-10" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -150,7 +150,7 @@ if(f.classList.contains('fa-plus-square')) {
 <a id="active-page" href="stochastic-genetic-effects.html"><span class="toc-section-number">14</span> Stochastic Genetic Effects</a><ul class="toc-sections">
 <li class="toc"><a href="#genetic-diversity"> Genetic Diversity</a></li>
 <li class="toc"><a href="#genetic-drift"> Genetic Drift</a></li>
-<li class="toc"><a href="#bottleneck"> Bottleneck</a></li>
+<li class="toc"><a href="#bottlenecks"> Bottlenecks</a></li>
 <li class="toc"><a href="#founder-effect"> Founder Effect</a></li>
 </ul>
 <a href="references.html">References</a>
@@ -266,9 +266,9 @@ Give a brief definition of what genetic drift is and use this definition to desc
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-45" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-45', 'sol-start-45')"></span>
+Hint<span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-23', 'sol-start-23')"></span>
 </p>
-<div id="sol-body-45" class="solution-body" style="display: none;">
+<div id="sol-body-23" class="solution-body" style="display: none;">
 <p>
 Here is an example of a concise definition: Genetic drift describes the random fluctuations of allele frequencies in a population from generation to generation due to chance (sampling error)/random sampling from the gene pool to produce the next generation
 </p>
@@ -294,7 +294,7 @@ Here is an example of a concise definition: Genetic drift describes the random f
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="stochastic-genetic-effects.html#cb220-1"></a>genepool</span></code></pre></div>
 <pre><code>##  [1] "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-2"
 ## [12] "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2"</code></pre>
-<p>For simplicity we are going to make two assumptions</p>
+<p>For simplicity we are going to make three assumptions:</p>
 <ol style="list-style-type: decimal">
 <li>Every allele has the same probability of reproducing (no selection).</li>
 <li>Generations do not overlap.</li>
@@ -306,14 +306,14 @@ Here is an example of a concise definition: Genetic drift describes the random f
 <span id="cb222-3"><a href="stochastic-genetic-effects.html#cb222-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
 <pre><code>## genepool
 ## Allele-1 Allele-2 
-##       13        7</code></pre>
+##        8       12</code></pre>
 <p>To model the generation after that (Gen-2), we will do the same thing, except now we will make the same random draw from Gen-1.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="stochastic-genetic-effects.html#cb224-1"></a>genepool &lt;-<span class="st"> </span><span class="kw">sample</span>(genepool, <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb224-2"><a href="stochastic-genetic-effects.html#cb224-2"></a></span>
 <span id="cb224-3"><a href="stochastic-genetic-effects.html#cb224-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
 <pre><code>## genepool
 ## Allele-1 Allele-2 
-##       15        5</code></pre>
+##        6       14</code></pre>
 <p>We start to see how our allele counts (frequencies) start to drift, from generation to generation. They do not shift much f you are comparing two adjacent generations, but once you do this for several generations it is possible that the frequencies vary considerable from our initial equal distribution.</p>
 <p>We can use a <code>for loop</code> to run this for 15 generations.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="stochastic-genetic-effects.html#cb226-1"></a><span class="co"># number of generations</span></span>
@@ -371,33 +371,33 @@ Here is an example of a concise definition: Genetic drift describes the random f
 </tr>
 <tr class="even">
 <td align="right">1</td>
-<td align="right">13</td>
-<td align="right">7</td>
+<td align="right">8</td>
+<td align="right">12</td>
 </tr>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">18</td>
-<td align="right">2</td>
+<td align="right">7</td>
+<td align="right">13</td>
 </tr>
 <tr class="even">
 <td align="right">3</td>
-<td align="right">18</td>
-<td align="right">2</td>
+<td align="right">8</td>
+<td align="right">12</td>
 </tr>
 <tr class="odd">
 <td align="right">4</td>
-<td align="right">18</td>
-<td align="right">2</td>
+<td align="right">14</td>
+<td align="right">6</td>
 </tr>
 <tr class="even">
 <td align="right">5</td>
-<td align="right">19</td>
-<td align="right">1</td>
+<td align="right">15</td>
+<td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="right">6</td>
-<td align="right">16</td>
-<td align="right">4</td>
+<td align="right">15</td>
+<td align="right">5</td>
 </tr>
 <tr class="even">
 <td align="right">7</td>
@@ -406,13 +406,13 @@ Here is an example of a concise definition: Genetic drift describes the random f
 </tr>
 <tr class="odd">
 <td align="right">8</td>
-<td align="right">12</td>
-<td align="right">8</td>
+<td align="right">17</td>
+<td align="right">3</td>
 </tr>
 <tr class="even">
 <td align="right">9</td>
-<td align="right">12</td>
-<td align="right">8</td>
+<td align="right">16</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="right">10</td>
@@ -421,28 +421,28 @@ Here is an example of a concise definition: Genetic drift describes the random f
 </tr>
 <tr class="even">
 <td align="right">11</td>
-<td align="right">17</td>
-<td align="right">3</td>
+<td align="right">12</td>
+<td align="right">8</td>
 </tr>
 <tr class="odd">
 <td align="right">12</td>
-<td align="right">19</td>
-<td align="right">1</td>
+<td align="right">14</td>
+<td align="right">6</td>
 </tr>
 <tr class="even">
 <td align="right">13</td>
-<td align="right">19</td>
-<td align="right">1</td>
+<td align="right">15</td>
+<td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="right">14</td>
-<td align="right">19</td>
-<td align="right">1</td>
+<td align="right">11</td>
+<td align="right">9</td>
 </tr>
 <tr class="even">
 <td align="right">15</td>
-<td align="right">19</td>
-<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">10</td>
 </tr>
 </tbody>
 </table>
@@ -534,12 +534,19 @@ Based on the initial allele frequencies argue which allele(s) you expect to be l
 <span id="cb228-2"><a href="stochastic-genetic-effects.html#cb228-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>)</span>
 <span id="cb228-3"><a href="stochastic-genetic-effects.html#cb228-3"></a></span>
 <span id="cb228-4"><a href="stochastic-genetic-effects.html#cb228-4"></a><span class="kw">ggplot</span>(drift, <span class="kw">aes</span>(<span class="dt">x =</span> Generation, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
-<span id="cb228-5"><a href="stochastic-genetic-effects.html#cb228-5"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb228-5"><a href="stochastic-genetic-effects.html#cb228-5"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">0.6</span>) <span class="op">+</span></span>
 <span id="cb228-6"><a href="stochastic-genetic-effects.html#cb228-6"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
 <span id="cb228-7"><a href="stochastic-genetic-effects.html#cb228-7"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb228-8"><a href="stochastic-genetic-effects.html#cb228-8"></a><span class="st">  </span><span class="kw">facet_grid</span>(K_Mainland <span class="op">~</span><span class="st"> </span>Run) <span class="op">+</span></span>
 <span id="cb228-9"><a href="stochastic-genetic-effects.html#cb228-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"generations"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
 <span id="cb228-10"><a href="stochastic-genetic-effects.html#cb228-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-229"></span>
+<p class="caption marginnote shownote">
+Figure 14.1: Change in allele frequencies across time for three alleles (blue, red, yellow) for 20 - 1,000 individuals in the populations. Columns 1, 2, and 3 indicate separate runs.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-229-1.png" alt="Change in allele frequencies across time for three alleles (blue, red, yellow) for 20 - 1,000 individuals in the populations. Columns 1, 2, and 3 indicate separate runs." width="768">
+</div>
 <div id="ques:drift-9" class="question">
 <p class="question-begin">
 ► Question 14.8
@@ -567,9 +574,9 @@ Use your description from the question above to explain the key characteristics 
 </div>
 </div>
 </div>
-<div id="bottleneck" class="section level2">
+<div id="bottlenecks" class="section level2">
 <h2>
-<span class="header-section-number">14.3</span> Bottleneck</h2>
+<span class="header-section-number">14.3</span> Bottlenecks</h2>
 <div id="ques:drift-11" class="question">
 <p class="question-begin">
 ► Question 14.10
@@ -648,22 +655,33 @@ Argue whether or not you would expect the allele frequencies of the population t
 <p>Now, let’s take a look at our results.</p>
 <div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="stochastic-genetic-effects.html#cb229-1"></a>bottleneck &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/bottleneck.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb229-2"><a href="stochastic-genetic-effects.html#cb229-2"></a><span class="st">  </span><span class="kw">unite</span>(<span class="dt">col =</span> <span class="st">"Group"</span>, Bottleneck, Run, <span class="dt">sep =</span> <span class="st">"_"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb229-3"><a href="stochastic-genetic-effects.html#cb229-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>)</span>
-<span id="cb229-4"><a href="stochastic-genetic-effects.html#cb229-4"></a></span>
-<span id="cb229-5"><a href="stochastic-genetic-effects.html#cb229-5"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bottleneck, <span class="kw">aes</span>(<span class="dt">x =</span> Ticks, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
-<span id="cb229-6"><a href="stochastic-genetic-effects.html#cb229-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb229-7"><a href="stochastic-genetic-effects.html#cb229-7"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
-<span id="cb229-8"><a href="stochastic-genetic-effects.html#cb229-8"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb229-9"><a href="stochastic-genetic-effects.html#cb229-9"></a><span class="st">  </span><span class="kw">facet_grid</span>(Group <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
-<span id="cb229-10"><a href="stochastic-genetic-effects.html#cb229-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"generations"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
-<span id="cb229-11"><a href="stochastic-genetic-effects.html#cb229-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb229-12"><a href="stochastic-genetic-effects.html#cb229-12"></a></span>
-<span id="cb229-13"><a href="stochastic-genetic-effects.html#cb229-13"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bottleneck, <span class="kw">aes</span>(<span class="dt">x =</span> Ticks, <span class="dt">y =</span> N_Mainland)) <span class="op">+</span></span>
-<span id="cb229-14"><a href="stochastic-genetic-effects.html#cb229-14"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb229-15"><a href="stochastic-genetic-effects.html#cb229-15"></a><span class="st">  </span><span class="kw">facet_grid</span>(Group <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
-<span id="cb229-16"><a href="stochastic-genetic-effects.html#cb229-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"generations"</span>, <span class="dt">y =</span> <span class="st">"population size (N)"</span>)</span>
-<span id="cb229-17"><a href="stochastic-genetic-effects.html#cb229-17"></a></span>
-<span id="cb229-18"><a href="stochastic-genetic-effects.html#cb229-18"></a><span class="kw">multiplot</span>(p1, p2, <span class="dt">cols =</span> <span class="dv">2</span>)</span></code></pre></div>
+<span id="cb229-3"><a href="stochastic-genetic-effects.html#cb229-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">8</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb229-4"><a href="stochastic-genetic-effects.html#cb229-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Group =</span> <span class="kw">ordered</span>(Group, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"5_1"</span>, <span class="st">"5_2"</span>, <span class="st">"5_3"</span>, </span>
+<span id="cb229-5"><a href="stochastic-genetic-effects.html#cb229-5"></a>                                           <span class="st">"25_1"</span>, <span class="st">"25_2"</span>, <span class="st">"25_3"</span>,</span>
+<span id="cb229-6"><a href="stochastic-genetic-effects.html#cb229-6"></a>                                           <span class="st">"50_1"</span>, <span class="st">"50_2"</span>, </span>
+<span id="cb229-7"><a href="stochastic-genetic-effects.html#cb229-7"></a>                                           <span class="st">"100_1"</span>, <span class="st">"100_2"</span>, <span class="st">"100_3"</span>)))</span>
+<span id="cb229-8"><a href="stochastic-genetic-effects.html#cb229-8"></a></span>
+<span id="cb229-9"><a href="stochastic-genetic-effects.html#cb229-9"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bottleneck, <span class="kw">aes</span>(<span class="dt">x =</span> Ticks, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
+<span id="cb229-10"><a href="stochastic-genetic-effects.html#cb229-10"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">.6</span>) <span class="op">+</span></span>
+<span id="cb229-11"><a href="stochastic-genetic-effects.html#cb229-11"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
+<span id="cb229-12"><a href="stochastic-genetic-effects.html#cb229-12"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb229-13"><a href="stochastic-genetic-effects.html#cb229-13"></a><span class="st">  </span><span class="kw">facet_grid</span>(Group <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb229-14"><a href="stochastic-genetic-effects.html#cb229-14"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
+<span id="cb229-15"><a href="stochastic-genetic-effects.html#cb229-15"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb229-16"><a href="stochastic-genetic-effects.html#cb229-16"></a></span>
+<span id="cb229-17"><a href="stochastic-genetic-effects.html#cb229-17"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bottleneck, <span class="kw">aes</span>(<span class="dt">x =</span> Ticks, <span class="dt">y =</span> N_Mainland)) <span class="op">+</span></span>
+<span id="cb229-18"><a href="stochastic-genetic-effects.html#cb229-18"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">.6</span>) <span class="op">+</span></span>
+<span id="cb229-19"><a href="stochastic-genetic-effects.html#cb229-19"></a><span class="st">  </span><span class="kw">facet_grid</span>(Group <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb229-20"><a href="stochastic-genetic-effects.html#cb229-20"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"population size (N)"</span>)</span>
+<span id="cb229-21"><a href="stochastic-genetic-effects.html#cb229-21"></a></span>
+<span id="cb229-22"><a href="stochastic-genetic-effects.html#cb229-22"></a><span class="kw">multiplot</span>(p1, p2, <span class="dt">cols =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-230"></span>
+<p class="caption marginnote shownote">
+Figure 14.2: Change in allele frequencies over time for populations with an initial population size of N = 700 experiencing a bottleneck of N = 5, 25, 50, 100 remaining individuals.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-230-1.png" alt="Change in allele frequencies over time for populations with an initial population size of N = 700 experiencing a bottleneck of N = 5, 25, 50, 100 remaining individuals." width="768">
+</div>
 <div id="ques:drift-16" class="question">
 <p class="question-begin">
 ► Question 14.15
@@ -709,9 +727,9 @@ Give a brief description of what a founder effect is, explain how it impacts gen
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-46" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-46', 'sol-start-46')"></span>
+Hint<span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-24', 'sol-start-24')"></span>
 </p>
-<div id="sol-body-46" class="solution-body" style="display: none;">
+<div id="sol-body-24" class="solution-body" style="display: none;">
 <p>
 Here’s an example of a concise definition of a founder effect for you to consider: The founder effect describes the reduced genetic diversity in a population as a result of it having been establied by a small number of colonizers for a larger source population.
 </p>
@@ -762,7 +780,10 @@ Argue how you expect the genetic diversity (both in terms of allele frequencies 
 </div>
 </div>
 <p>Again, we are going to run a set of scenarios to illustrate how different size of founding populations and carrying capacity on the island affects the genetic diversity.</p>
-<p>For each scenario we will have a mainland carrying capacity of 700 individuals. Make sure to hit <code>Reset</code> to initialize the mainland population. Then you will set your parameters for the two island populations and hit <code>colonize</code> to found your populations. Similar to the bottleneck simulations, you will record your results every 10 tick marks until your island population reaches carrying capacity or a minimum of three generations have passed, then you can record your results every generation for a total of 50 generations. You will not get initial allele frequencies for the island populations right after colonizing so stop the simulation within one or two tick marks to get an initial value.</p>
+<p>For each scenario we will have a mainland carrying capacity of 700 individuals. Make sure to hit <code>Reset</code> to initialize the mainland population.</p>
+<p>Next, you will set your parameters for the two island populations and hit <code>colonize</code> to found your populations.</p>
+<p>You will not get initial allele frequencies for the island populations right after colonizing so stop the simulation within one or two tick marks to get initial allele frequencies for the islands.</p>
+<p>Similar to the bottleneck simulations, you will record your results every 15 tick marks until your island population reaches carrying capacity or a minimum of three generations have passed, then record your results every two generations for a total of 30 generations.</p>
 <p>Here are the scenarios we are going to run:</p>
 <ul>
 <li>Founding-N-1 = 5/Isle-1-K = 50, Founding-N-2 = 2/Isle-1-K = 50</li>
@@ -827,7 +848,7 @@ Use your description from the question above to explain the key characteristics 
 <a href="references.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-11-04
+2020-11-10
 </p>
 </div>
 </div>

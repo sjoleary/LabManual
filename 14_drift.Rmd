@@ -168,7 +168,7 @@ genepool
 
 ```
 
-For simplicity we are going to make two assumptions
+For simplicity we are going to make three assumptions:
 
 1. Every allele has the same probability of reproducing (no selection).
 2. Generations do not overlap.
@@ -289,13 +289,13 @@ Once all the data has been uploaded save the data in your `data` sub-directory o
 
 Let's take a look at our results.
 
-```{r eval=FALSE}
+```{r fig.cap="Change in allele frequencies across time for three alleles (blue, red, yellow) for 20 - 1,000 individuals in the populations. Columns 1, 2, and 3 indicate separate runs.", fig.width=8, fig.height=17}
 
 drift <- read_delim("data/drift.txt", delim = "\t") %>%
   pivot_longer(cols = 5:7, names_to = "Allele", values_to = "Freq")
 
 ggplot(drift, aes(x = Generation, y = Freq, color = Allele)) +
-  geom_line() +
+  geom_line(size = 0.6) +
   scale_color_manual(values = c("blue", "darkred", "gold")) +
   scale_y_continuous(limits = c(0, 1)) +
   facet_grid(K_Mainland ~ Run) +
@@ -308,7 +308,8 @@ ggplot(drift, aes(x = Generation, y = Freq, color = Allele)) +
 
 `r msmbstyle::question(label = "ques:drift-10", text = "Use your description from the question above to explain the key characteristics of genetic drift in terms of the relationship of the strength of genetic drift and population size, the relationship of the initial allele frequency and the probability of an allele being lost due to drift, the fact that drift is a stochastic effect, and what it means for genetic drift to be random in respect to fitness.")`
 
-## Bottleneck
+
+## Bottlenecks
 
 `r msmbstyle::question(label = "ques:drift-11", text = "Give a brief description of a bottleneck and explain how it is expected to affect the genetic diversity of a population. Distinguish between a demographic bottleneck and a genetic bottleneck and argue whether those always co-occur.")`
 
@@ -335,24 +336,28 @@ Once all the data has been recorded save the results as a tab-delimited file in 
 
 Now, let's take a look at our results.
 
-```{r eval=FALSE}
+```{r fig.cap="Change in allele frequencies over time for populations with an initial population size of N = 700 experiencing a bottleneck of N = 5, 25, 50, 100 remaining individuals.", fig.width=8, fig.height=20}
 
 bottleneck <- read_delim("data/bottleneck.txt", delim = "\t") %>%
   unite(col = "Group", Bottleneck, Run, sep = "_") %>%
-  pivot_longer(cols = 5:7, names_to = "Allele", values_to = "Freq")
+  pivot_longer(cols = 6:8, names_to = "Allele", values_to = "Freq") %>%
+  mutate(Group = ordered(Group, levels = c("5_1", "5_2", "5_3", 
+                                           "25_1", "25_2", "25_3",
+                                           "50_1", "50_2", 
+                                           "100_1", "100_2", "100_3")))
 
 p1 <- ggplot(bottleneck, aes(x = Ticks, y = Freq, color = Allele)) +
-  geom_line() +
+  geom_line(size = .6) +
   scale_color_manual(values = c("blue", "darkred", "gold")) +
   scale_y_continuous(limits = c(0, 1)) +
   facet_grid(Group ~ .) +
-  labs(x = "generations", y = "allele freq") +
+  labs(x = "time", y = "allele freq") +
   theme(legend.position = "none")
 
 p2 <- ggplot(bottleneck, aes(x = Ticks, y = N_Mainland)) +
-  geom_line() +
+  geom_line(size = .6) +
   facet_grid(Group ~ .) +
-  labs(x = "generations", y = "population size (N)")
+  labs(x = "time", y = "population size (N)")
 
 multiplot(p1, p2, cols = 2)
  
@@ -382,7 +387,13 @@ On the right hand of the screen you have two islands (`Island-1`, `Island-2`). Y
 
 Again, we are going to run a set of scenarios to illustrate how different size of founding populations and carrying capacity on the island affects the genetic diversity.
 
-For each scenario we will have a mainland carrying capacity of 700 individuals. Make sure to hit `Reset` to initialize the mainland population. Then you will set your parameters for the two island populations and hit `colonize` to found your populations. Similar to the bottleneck simulations, you will record your results every 10 tick marks until your island population reaches carrying capacity or a minimum of three generations have passed, then you can record your results every generation for a total of 50 generations. You will not get initial allele frequencies for the island populations right after colonizing so stop the simulation within one or two tick marks to get an initial value.
+For each scenario we will have a mainland carrying capacity of 700 individuals. Make sure to hit `Reset` to initialize the mainland population. 
+
+Next, you will set your parameters for the two island populations and hit `colonize` to found your populations. 
+
+You will not get initial allele frequencies for the island populations right after colonizing so stop the simulation within one or two tick marks to get initial allele frequencies for the islands.
+
+Similar to the bottleneck simulations, you will record your results every 15 tick marks until your island population reaches carrying capacity or a minimum of three generations have passed, then record your results every two generations for a total of 30 generations. 
 
 Here are the scenarios we are going to run: 
 
