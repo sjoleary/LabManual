@@ -410,20 +410,25 @@ Once all all the results have been collected save the results as a tab-delimited
 
 Let's take a look at our results.
 
-```{r eval=FALSE}
+```{r fig.cap="Change in allele frequencies on the mainland and an island population colonized by 2, 5, 10, or 25 individuals with a carrying capacity of 50, 100, or 200 individuals. Each row is identified as N_Founding/K_Island_Run.", fig.width=8, fig.height=30}
 
 founder <- read_delim("data/founder.txt", delim = "\t") %>%
-  pivot_longer(cols = 5:6, names_to = "tmp1", values_to = "K_Island") %>%
-  pivot_longer(cols = 6:7, names_to = "tmp2", values_to = "N_Founding") %>%
-  pivot_longer(cols = 6:7, names_to = "tmp3", values_to = "N_Island") %>%
-  pivot_longer(cols = 6:14, names_to = "Allele", values_to = "Freq") %>%
+  pivot_longer(cols = 9:14, names_to = "Allele", values_to = "Freq") %>%
   separate(Allele, into = c("Allele", "Category"), sep = "_") %>%
-  separate(Category, into = c("Category", "tmp4"), sep = "-") %>%
-  select(-tmp1, -tmp2, -tmp3, -tmp4) %>%
-  unite(Scenario, N_Founding, K_Island, Run, sep = "_")
-
+  unite(Scenario, N_Founding, K_Island, Run, sep = "_", remove = FALSE) %>%
+  mutate(Scenario = ordered(Scenario, levels = c("2_50_1", "2_100_1", "2_100_2", "2_200_1", "2_200_2",
+                                                 "5_50_1", "5_100_1", "5_100_2", "5_200_1", "5_200_2",
+                                                 "10_50_1", "10_50_2", "10_100_1", "10_200_1", 
+                                                 "25_50_2", "25_100_1")))
+K <- founder %>%
+  filter(N_Island == K_Island) %>%
+  group_by(Scenario) %>%
+  slice_min(order_by = Time, n = 1) %>%
+  select(Scenario, Time) %>%
+  distinct()
 ggplot(founder, aes(x = Time, y = Freq, color = Allele)) +
-  geom_line() +
+  geom_line(size = 0.6) +
+  geom_vline(data = K, aes(xintercept = Time), linetype = "dotted") +
   scale_color_manual(values = c("blue", "darkred", "gold")) +
   scale_y_continuous(limits = c(0, 1)) +
   facet_grid(Scenario ~ Category) +
@@ -432,6 +437,6 @@ ggplot(founder, aes(x = Time, y = Freq, color = Allele)) +
 
 ```
 
-`r msmbstyle::question(label = "ques:drift-22", text = "Give a brief description of the major patterns you observe. This should include comparing difference among the sizes of founder effects and the carrying capcity of the island (think back to your answers to the questions above), differences among runs of the scenarios, and how different the island population is from the mainland population it originated from over time.")`
+`r msmbstyle::question(label = "ques:drift-22", text = "Give a brief description of the major patterns you observe. This should include comparing difference among the sizes of founder effects and the carrying capacity of the island (think back to your answers to the questions above), differences among runs of the scenarios, and how different the island population is from the mainland population it originated from over time.")`
 
 `r msmbstyle::question(label = "ques:drift-23", text = "Use your description from the question above to explain the key characteristics of the founder effect are in terms of how different the genetic diversity of island populations is from the mainland population (both in terms of alleles present and allele frequencies), how this is impacted by the founding size/carrying capacity, the probability of alleles being lost both during the initial colonization event and afterwards, and factors contributing to the stochastic nature of a founding event.")`

@@ -14,7 +14,7 @@
 
 <meta name="author" content="Shannon J. O’Leary" />
 
-<meta name="date" content="2020-11-10" />
+<meta name="date" content="2020-11-11" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -292,8 +292,8 @@ Here is an example of a concise definition: Genetic drift describes the random f
 <span id="cb219-11"><a href="stochastic-genetic-effects.html#cb219-11"></a>genepool &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">"Allele-1"</span>, p<span class="op">*</span>pop_size<span class="op">*</span><span class="dv">2</span>), <span class="kw">rep</span>(<span class="st">"Allele-2"</span>,q<span class="op">*</span>pop_size<span class="op">*</span><span class="dv">2</span>))</span></code></pre></div>
 <p>If we print our <code>genepool</code> we just created we’ll see that we have 10 of each allele present.</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="stochastic-genetic-effects.html#cb220-1"></a>genepool</span></code></pre></div>
-<pre><code>##  [1] "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-2"
-## [12] "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2"</code></pre>
+<pre><code>##  [1] "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-1" "Allele-2" "Allele-2"
+## [13] "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2" "Allele-2"</code></pre>
 <p>For simplicity we are going to make three assumptions:</p>
 <ol style="list-style-type: decimal">
 <li>Every allele has the same probability of reproducing (no selection).</li>
@@ -306,14 +306,14 @@ Here is an example of a concise definition: Genetic drift describes the random f
 <span id="cb222-3"><a href="stochastic-genetic-effects.html#cb222-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
 <pre><code>## genepool
 ## Allele-1 Allele-2 
-##        8       12</code></pre>
+##       15        5</code></pre>
 <p>To model the generation after that (Gen-2), we will do the same thing, except now we will make the same random draw from Gen-1.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="stochastic-genetic-effects.html#cb224-1"></a>genepool &lt;-<span class="st"> </span><span class="kw">sample</span>(genepool, <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb224-2"><a href="stochastic-genetic-effects.html#cb224-2"></a></span>
 <span id="cb224-3"><a href="stochastic-genetic-effects.html#cb224-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
 <pre><code>## genepool
 ## Allele-1 Allele-2 
-##        6       14</code></pre>
+##       17        3</code></pre>
 <p>We start to see how our allele counts (frequencies) start to drift, from generation to generation. They do not shift much f you are comparing two adjacent generations, but once you do this for several generations it is possible that the frequencies vary considerable from our initial equal distribution.</p>
 <p>We can use a <code>for loop</code> to run this for 15 generations.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="stochastic-genetic-effects.html#cb226-1"></a><span class="co"># number of generations</span></span>
@@ -371,78 +371,78 @@ Here is an example of a concise definition: Genetic drift describes the random f
 </tr>
 <tr class="even">
 <td align="right">1</td>
-<td align="right">8</td>
-<td align="right">12</td>
+<td align="right">9</td>
+<td align="right">11</td>
 </tr>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">7</td>
-<td align="right">13</td>
+<td align="right">9</td>
+<td align="right">11</td>
 </tr>
 <tr class="even">
 <td align="right">3</td>
+<td align="right">10</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
 <td align="right">8</td>
 <td align="right">12</td>
 </tr>
 <tr class="odd">
-<td align="right">4</td>
-<td align="right">14</td>
 <td align="right">6</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="right">15</td>
-<td align="right">5</td>
-</tr>
-<tr class="odd">
-<td align="right">6</td>
-<td align="right">15</td>
-<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">10</td>
 </tr>
 <tr class="even">
 <td align="right">7</td>
-<td align="right">15</td>
-<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">10</td>
 </tr>
 <tr class="odd">
 <td align="right">8</td>
-<td align="right">17</td>
-<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">11</td>
 </tr>
 <tr class="even">
 <td align="right">9</td>
-<td align="right">16</td>
-<td align="right">4</td>
+<td align="right">8</td>
+<td align="right">12</td>
 </tr>
 <tr class="odd">
 <td align="right">10</td>
-<td align="right">16</td>
-<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">15</td>
 </tr>
 <tr class="even">
 <td align="right">11</td>
-<td align="right">12</td>
-<td align="right">8</td>
+<td align="right">7</td>
+<td align="right">13</td>
 </tr>
 <tr class="odd">
 <td align="right">12</td>
-<td align="right">14</td>
-<td align="right">6</td>
+<td align="right">4</td>
+<td align="right">16</td>
 </tr>
 <tr class="even">
 <td align="right">13</td>
-<td align="right">15</td>
-<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">16</td>
 </tr>
 <tr class="odd">
 <td align="right">14</td>
-<td align="right">11</td>
-<td align="right">9</td>
+<td align="right">4</td>
+<td align="right">16</td>
 </tr>
 <tr class="even">
 <td align="right">15</td>
-<td align="right">10</td>
-<td align="right">10</td>
+<td align="right">5</td>
+<td align="right">15</td>
 </tr>
 </tbody>
 </table>
@@ -797,22 +797,34 @@ Argue how you expect the genetic diversity (both in terms of allele frequencies 
 <p>Once all all the results have been collected save the results as a tab-delimited file in your <code>data</code> subdirectory as <code>founder.txt</code>.</p>
 <p>Let’s take a look at our results.</p>
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="stochastic-genetic-effects.html#cb230-1"></a>founder &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/founder.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-2"><a href="stochastic-genetic-effects.html#cb230-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to =</span> <span class="st">"tmp1"</span>, <span class="dt">values_to =</span> <span class="st">"K_Island"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-3"><a href="stochastic-genetic-effects.html#cb230-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"tmp2"</span>, <span class="dt">values_to =</span> <span class="st">"N_Founding"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-4"><a href="stochastic-genetic-effects.html#cb230-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">7</span>, <span class="dt">names_to =</span> <span class="st">"tmp3"</span>, <span class="dt">values_to =</span> <span class="st">"N_Island"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-5"><a href="stochastic-genetic-effects.html#cb230-5"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">14</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-6"><a href="stochastic-genetic-effects.html#cb230-6"></a><span class="st">  </span><span class="kw">separate</span>(Allele, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"Allele"</span>, <span class="st">"Category"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-7"><a href="stochastic-genetic-effects.html#cb230-7"></a><span class="st">  </span><span class="kw">separate</span>(Category, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"Category"</span>, <span class="st">"tmp4"</span>), <span class="dt">sep =</span> <span class="st">"-"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb230-8"><a href="stochastic-genetic-effects.html#cb230-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tmp1, <span class="op">-</span>tmp2, <span class="op">-</span>tmp3, <span class="op">-</span>tmp4) <span class="op">%&gt;%</span></span>
-<span id="cb230-9"><a href="stochastic-genetic-effects.html#cb230-9"></a><span class="st">  </span><span class="kw">unite</span>(Scenario, N_Founding, K_Island, Run, <span class="dt">sep =</span> <span class="st">"_"</span>)</span>
-<span id="cb230-10"><a href="stochastic-genetic-effects.html#cb230-10"></a></span>
-<span id="cb230-11"><a href="stochastic-genetic-effects.html#cb230-11"></a><span class="kw">ggplot</span>(founder, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
-<span id="cb230-12"><a href="stochastic-genetic-effects.html#cb230-12"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb230-13"><a href="stochastic-genetic-effects.html#cb230-13"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
-<span id="cb230-14"><a href="stochastic-genetic-effects.html#cb230-14"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb230-15"><a href="stochastic-genetic-effects.html#cb230-15"></a><span class="st">  </span><span class="kw">facet_grid</span>(Scenario <span class="op">~</span><span class="st"> </span>Category) <span class="op">+</span></span>
-<span id="cb230-16"><a href="stochastic-genetic-effects.html#cb230-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
-<span id="cb230-17"><a href="stochastic-genetic-effects.html#cb230-17"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<span id="cb230-2"><a href="stochastic-genetic-effects.html#cb230-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">9</span><span class="op">:</span><span class="dv">14</span>, <span class="dt">names_to =</span> <span class="st">"Allele"</span>, <span class="dt">values_to =</span> <span class="st">"Freq"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-3"><a href="stochastic-genetic-effects.html#cb230-3"></a><span class="st">  </span><span class="kw">separate</span>(Allele, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"Allele"</span>, <span class="st">"Category"</span>), <span class="dt">sep =</span> <span class="st">"_"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-4"><a href="stochastic-genetic-effects.html#cb230-4"></a><span class="st">  </span><span class="kw">unite</span>(Scenario, N_Founding, K_Island, Run, <span class="dt">sep =</span> <span class="st">"_"</span>, <span class="dt">remove =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-5"><a href="stochastic-genetic-effects.html#cb230-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Scenario =</span> <span class="kw">ordered</span>(Scenario, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"2_50_1"</span>, <span class="st">"2_100_1"</span>, <span class="st">"2_100_2"</span>, <span class="st">"2_200_1"</span>, <span class="st">"2_200_2"</span>,</span>
+<span id="cb230-6"><a href="stochastic-genetic-effects.html#cb230-6"></a>                                                 <span class="st">"5_50_1"</span>, <span class="st">"5_100_1"</span>, <span class="st">"5_100_2"</span>, <span class="st">"5_200_1"</span>, <span class="st">"5_200_2"</span>,</span>
+<span id="cb230-7"><a href="stochastic-genetic-effects.html#cb230-7"></a>                                                 <span class="st">"10_50_1"</span>, <span class="st">"10_50_2"</span>, <span class="st">"10_100_1"</span>, <span class="st">"10_200_1"</span>, </span>
+<span id="cb230-8"><a href="stochastic-genetic-effects.html#cb230-8"></a>                                                 <span class="st">"25_50_2"</span>, <span class="st">"25_100_1"</span>)))</span>
+<span id="cb230-9"><a href="stochastic-genetic-effects.html#cb230-9"></a>K &lt;-<span class="st"> </span>founder <span class="op">%&gt;%</span></span>
+<span id="cb230-10"><a href="stochastic-genetic-effects.html#cb230-10"></a><span class="st">  </span><span class="kw">filter</span>(N_Island <span class="op">==</span><span class="st"> </span>K_Island) <span class="op">%&gt;%</span></span>
+<span id="cb230-11"><a href="stochastic-genetic-effects.html#cb230-11"></a><span class="st">  </span><span class="kw">group_by</span>(Scenario) <span class="op">%&gt;%</span></span>
+<span id="cb230-12"><a href="stochastic-genetic-effects.html#cb230-12"></a><span class="st">  </span><span class="kw">slice_min</span>(<span class="dt">order_by =</span> Time, <span class="dt">n =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb230-13"><a href="stochastic-genetic-effects.html#cb230-13"></a><span class="st">  </span><span class="kw">select</span>(Scenario, Time) <span class="op">%&gt;%</span></span>
+<span id="cb230-14"><a href="stochastic-genetic-effects.html#cb230-14"></a><span class="st">  </span><span class="kw">distinct</span>()</span>
+<span id="cb230-15"><a href="stochastic-genetic-effects.html#cb230-15"></a><span class="kw">ggplot</span>(founder, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
+<span id="cb230-16"><a href="stochastic-genetic-effects.html#cb230-16"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">0.6</span>) <span class="op">+</span></span>
+<span id="cb230-17"><a href="stochastic-genetic-effects.html#cb230-17"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">data =</span> K, <span class="kw">aes</span>(<span class="dt">xintercept =</span> Time), <span class="dt">linetype =</span> <span class="st">"dotted"</span>) <span class="op">+</span></span>
+<span id="cb230-18"><a href="stochastic-genetic-effects.html#cb230-18"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
+<span id="cb230-19"><a href="stochastic-genetic-effects.html#cb230-19"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb230-20"><a href="stochastic-genetic-effects.html#cb230-20"></a><span class="st">  </span><span class="kw">facet_grid</span>(Scenario <span class="op">~</span><span class="st"> </span>Category) <span class="op">+</span></span>
+<span id="cb230-21"><a href="stochastic-genetic-effects.html#cb230-21"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
+<span id="cb230-22"><a href="stochastic-genetic-effects.html#cb230-22"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-231"></span>
+<p class="caption marginnote shownote">
+Figure 14.3: Change in allele frequencies on the mainland and an island population colonized by 2, 5, 10, or 25 individuals with a carrying capacity of 50, 100, or 200 individuals. Each row is identified as N_Founding/K_Island_Run.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-231-1.png" alt="Change in allele frequencies on the mainland and an island population colonized by 2, 5, 10, or 25 individuals with a carrying capacity of 50, 100, or 200 individuals. Each row is identified as N_Founding/K_Island_Run." width="768">
+</div>
 <div id="ques:drift-22" class="question">
 <p class="question-begin">
 ► Question 14.21
@@ -848,7 +860,7 @@ Use your description from the question above to explain the key characteristics 
 <a href="references.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-11-10
+2020-11-11
 </p>
 </div>
 </div>
