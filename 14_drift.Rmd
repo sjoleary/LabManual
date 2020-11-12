@@ -426,6 +426,7 @@ K <- founder %>%
   slice_min(order_by = Time, n = 1) %>%
   select(Scenario, Time) %>%
   distinct()
+
 ggplot(founder, aes(x = Time, y = Freq, color = Allele)) +
   geom_line(size = 0.6) +
   geom_vline(data = K, aes(xintercept = Time), linetype = "dotted") +

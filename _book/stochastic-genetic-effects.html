@@ -306,14 +306,14 @@ Here is an example of a concise definition: Genetic drift describes the random f
 <span id="cb222-3"><a href="stochastic-genetic-effects.html#cb222-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
 <pre><code>## genepool
 ## Allele-1 Allele-2 
-##       15        5</code></pre>
+##        7       13</code></pre>
 <p>To model the generation after that (Gen-2), we will do the same thing, except now we will make the same random draw from Gen-1.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="stochastic-genetic-effects.html#cb224-1"></a>genepool &lt;-<span class="st"> </span><span class="kw">sample</span>(genepool, <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb224-2"><a href="stochastic-genetic-effects.html#cb224-2"></a></span>
 <span id="cb224-3"><a href="stochastic-genetic-effects.html#cb224-3"></a><span class="kw">table</span>(genepool)</span></code></pre></div>
 <pre><code>## genepool
 ## Allele-1 Allele-2 
-##       17        3</code></pre>
+##        8       12</code></pre>
 <p>We start to see how our allele counts (frequencies) start to drift, from generation to generation. They do not shift much f you are comparing two adjacent generations, but once you do this for several generations it is possible that the frequencies vary considerable from our initial equal distribution.</p>
 <p>We can use a <code>for loop</code> to run this for 15 generations.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="stochastic-genetic-effects.html#cb226-1"></a><span class="co"># number of generations</span></span>
@@ -371,78 +371,78 @@ Here is an example of a concise definition: Genetic drift describes the random f
 </tr>
 <tr class="even">
 <td align="right">1</td>
-<td align="right">9</td>
-<td align="right">11</td>
+<td align="right">10</td>
+<td align="right">10</td>
 </tr>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">9</td>
 <td align="right">11</td>
+<td align="right">9</td>
 </tr>
 <tr class="even">
 <td align="right">3</td>
-<td align="right">10</td>
-<td align="right">10</td>
+<td align="right">12</td>
+<td align="right">8</td>
 </tr>
 <tr class="odd">
 <td align="right">4</td>
-<td align="right">10</td>
-<td align="right">10</td>
+<td align="right">11</td>
+<td align="right">9</td>
 </tr>
 <tr class="even">
 <td align="right">5</td>
-<td align="right">8</td>
 <td align="right">12</td>
+<td align="right">8</td>
 </tr>
 <tr class="odd">
 <td align="right">6</td>
-<td align="right">10</td>
-<td align="right">10</td>
+<td align="right">14</td>
+<td align="right">6</td>
 </tr>
 <tr class="even">
 <td align="right">7</td>
-<td align="right">10</td>
-<td align="right">10</td>
+<td align="right">11</td>
+<td align="right">9</td>
 </tr>
 <tr class="odd">
-<td align="right">8</td>
-<td align="right">9</td>
-<td align="right">11</td>
-</tr>
-<tr class="even">
-<td align="right">9</td>
 <td align="right">8</td>
 <td align="right">12</td>
-</tr>
-<tr class="odd">
-<td align="right">10</td>
-<td align="right">5</td>
-<td align="right">15</td>
+<td align="right">8</td>
 </tr>
 <tr class="even">
-<td align="right">11</td>
+<td align="right">9</td>
+<td align="right">13</td>
 <td align="right">7</td>
-<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">14</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">16</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="right">12</td>
-<td align="right">4</td>
-<td align="right">16</td>
+<td align="right">17</td>
+<td align="right">3</td>
 </tr>
 <tr class="even">
 <td align="right">13</td>
-<td align="right">4</td>
-<td align="right">16</td>
+<td align="right">18</td>
+<td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="right">14</td>
-<td align="right">4</td>
 <td align="right">16</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="right">15</td>
-<td align="right">5</td>
-<td align="right">15</td>
+<td align="right">18</td>
+<td align="right">2</td>
 </tr>
 </tbody>
 </table>
@@ -810,14 +810,15 @@ Argue how you expect the genetic diversity (both in terms of allele frequencies 
 <span id="cb230-12"><a href="stochastic-genetic-effects.html#cb230-12"></a><span class="st">  </span><span class="kw">slice_min</span>(<span class="dt">order_by =</span> Time, <span class="dt">n =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></span>
 <span id="cb230-13"><a href="stochastic-genetic-effects.html#cb230-13"></a><span class="st">  </span><span class="kw">select</span>(Scenario, Time) <span class="op">%&gt;%</span></span>
 <span id="cb230-14"><a href="stochastic-genetic-effects.html#cb230-14"></a><span class="st">  </span><span class="kw">distinct</span>()</span>
-<span id="cb230-15"><a href="stochastic-genetic-effects.html#cb230-15"></a><span class="kw">ggplot</span>(founder, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
-<span id="cb230-16"><a href="stochastic-genetic-effects.html#cb230-16"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">0.6</span>) <span class="op">+</span></span>
-<span id="cb230-17"><a href="stochastic-genetic-effects.html#cb230-17"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">data =</span> K, <span class="kw">aes</span>(<span class="dt">xintercept =</span> Time), <span class="dt">linetype =</span> <span class="st">"dotted"</span>) <span class="op">+</span></span>
-<span id="cb230-18"><a href="stochastic-genetic-effects.html#cb230-18"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
-<span id="cb230-19"><a href="stochastic-genetic-effects.html#cb230-19"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb230-20"><a href="stochastic-genetic-effects.html#cb230-20"></a><span class="st">  </span><span class="kw">facet_grid</span>(Scenario <span class="op">~</span><span class="st"> </span>Category) <span class="op">+</span></span>
-<span id="cb230-21"><a href="stochastic-genetic-effects.html#cb230-21"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
-<span id="cb230-22"><a href="stochastic-genetic-effects.html#cb230-22"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<span id="cb230-15"><a href="stochastic-genetic-effects.html#cb230-15"></a></span>
+<span id="cb230-16"><a href="stochastic-genetic-effects.html#cb230-16"></a><span class="kw">ggplot</span>(founder, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Freq, <span class="dt">color =</span> Allele)) <span class="op">+</span></span>
+<span id="cb230-17"><a href="stochastic-genetic-effects.html#cb230-17"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">0.6</span>) <span class="op">+</span></span>
+<span id="cb230-18"><a href="stochastic-genetic-effects.html#cb230-18"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">data =</span> K, <span class="kw">aes</span>(<span class="dt">xintercept =</span> Time), <span class="dt">linetype =</span> <span class="st">"dotted"</span>) <span class="op">+</span></span>
+<span id="cb230-19"><a href="stochastic-genetic-effects.html#cb230-19"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"blue"</span>, <span class="st">"darkred"</span>, <span class="st">"gold"</span>)) <span class="op">+</span></span>
+<span id="cb230-20"><a href="stochastic-genetic-effects.html#cb230-20"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb230-21"><a href="stochastic-genetic-effects.html#cb230-21"></a><span class="st">  </span><span class="kw">facet_grid</span>(Scenario <span class="op">~</span><span class="st"> </span>Category) <span class="op">+</span></span>
+<span id="cb230-22"><a href="stochastic-genetic-effects.html#cb230-22"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"time"</span>, <span class="dt">y =</span> <span class="st">"allele freq"</span>) <span class="op">+</span></span>
+<span id="cb230-23"><a href="stochastic-genetic-effects.html#cb230-23"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
 <div class="figure">
 <span id="fig:unnamed-chunk-231"></span>
 <p class="caption marginnote shownote">
@@ -831,7 +832,7 @@ Figure 14.3: Change in allele frequencies on the mainland and an island populati
 </p>
 <div class="question-body">
 <p>
-Give a brief description of the major patterns you observe. This should include comparing difference among the sizes of founder effects and the carrying capcity of the island (think back to your answers to the questions above), differences among runs of the scenarios, and how different the island population is from the mainland population it originated from over time.
+Give a brief description of the major patterns you observe. This should include comparing difference among the sizes of founder effects and the carrying capacity of the island (think back to your answers to the questions above), differences among runs of the scenarios, and how different the island population is from the mainland population it originated from over time.
 </p>
 <p class="question-end">
 <span class="fa fa-square-o solution-icon"></span>
