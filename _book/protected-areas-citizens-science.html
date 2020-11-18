@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="15 Protected Areas &amp; Citizen’s Science | Lab Manual Conservation Biology Fall 2020" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Shannon J. O’Leary" />
+
+<meta name="date" content="2020-11-18" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="15 Protected Areas &amp; Citizen’s Science | Lab Manual Conservation Biology Fall 2020">
+
+<title>15 Protected Areas &amp; Citizen’s Science | Lab Manual Conservation Biology Fall 2020</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script src="libs/accessible-code-block/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="msmb.css" type="text/css" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Lab Manual Conservation Biology Fall 2020<p><p class="author">Shannon J. O'Leary</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BE; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Overview</a>
+<a href="installing-rrstudio.html"><span class="toc-section-number">1</span> Installing R/Rstudio</a>
+<a href="project-management-and-rmarkdown-basics.html"><span class="toc-section-number">2</span> Project management and Rmarkdown Basics</a>
+<a href="welcome-to-the-tidyverse.html"><span class="toc-section-number">3</span> Welcome to the tidyverse</a>
+<a href="field-stream-trip.html"><span class="toc-section-number">4</span> Field &amp; Stream Trip</a>
+<a href="assessing-sources-calling-bullsht.html"><span class="toc-section-number">5</span> Assessing sources &amp; calling bullsh*t</a>
+<a href="island-biogeography.html"><span class="toc-section-number">6</span> Island Biogeography</a>
+<a href="iucn-redlist-evaluation.html"><span class="toc-section-number">7</span> IUCN Redlist Evaluation</a>
+<a href="stream-diversity.html"><span class="toc-section-number">8</span> Stream Diversity</a>
+<a href="habitat-fragmentation.html"><span class="toc-section-number">9</span> Habitat Fragmentation</a>
+<a href="biomagnification.html"><span class="toc-section-number">10</span> Biomagnification</a>
+<a href="species-distribution-modeling.html"><span class="toc-section-number">11</span> Species distribution modeling</a>
+<a href="shark-fin-trade-monitoring.html"><span class="toc-section-number">12</span> Shark fin trade monitoring</a>
+<a href="population-modeling.html"><span class="toc-section-number">13</span> Population modeling</a>
+<a href="stochastic-genetic-effects.html"><span class="toc-section-number">14</span> Stochastic Genetic Effects</a>
+<a id="active-page" href="protected-areas-citizens-science.html"><span class="toc-section-number">15</span> Protected Areas &amp; Citizen’s Science</a><ul class="toc-sections">
+<li class="toc"><a href="#iucn-classification-of-protected-areas"> IUCN Classification of protected areas</a></li>
+<li class="toc"><a href="#conservation-easements"> Conservation Easements</a></li>
+<li class="toc"><a href="#importance-of-unprotected-areas"> Importance of unprotected areas</a></li>
+<li class="toc"><a href="#citizens-science"> Citizen’s science</a></li>
+<li class="toc"><a href="#precipitation-in-nh"> Precipitation in NH</a></li>
+<li class="toc"><a href="#crowdwater-app-data"> Crowdwater app data</a></li>
+</ul>
+<a href="references.html">References</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="protected-areas-citizens-science" class="section level1">
+<h1>
+<span class="header-section-number">15</span> Protected Areas &amp; Citizen’s Science</h1>
+<p><strong>Date</strong>: 11/18/2020</p>
+<p>Download the project folder <a href="https://drive.google.com/drive/folders/195mjPATLxPf1xcWI66hl_pqS-3oJ7562?usp=sharing">here</a>.</p>
+<p>Make sure to download the <strong>entire</strong> folder (not just the contents).</p>
+<p>You can open the <code>Rproject</code> directly by double-clicking on the file which will launch <code>Rstudio</code>, or once you have opened <code>Rstudio</code> open the project folder using <code>File -&gt; Open Project</code> or using the <code>Rproj</code> icon in the top right corner above the environment panel.</p>
+<p>We need to install an additional package to allow us to deal with dates. Remember, you only need to do this once.</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="protected-areas-citizens-science.html#cb231-1"></a><span class="kw">install.packages</span>(<span class="st">"lubridate"</span>)</span></code></pre></div>
+<p>Let’s go ahead and load the libraries we are going to use for this lab - remember anytime you restart your <code>Rsession</code> (e.g. by closing <code>Rstudio</code> or closing your project) you need to reload your libraries even if your environment is loaded/re-established.</p>
+<p>We are also going to load a custom function that will allow us to combine two plots in a single figure for easier comparison.</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="protected-areas-citizens-science.html#cb232-1"></a><span class="co"># load library</span></span>
+<span id="cb232-2"><a href="protected-areas-citizens-science.html#cb232-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb232-3"><a href="protected-areas-citizens-science.html#cb232-3"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb232-4"><a href="protected-areas-citizens-science.html#cb232-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb232-5"><a href="protected-areas-citizens-science.html#cb232-5"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this lab you should understand</p>
+<ul>
+<li>What the IUCN classification of protected areas is</li>
+<li>how Conservation Easements can be used to protect privately owned lands</li>
+<li>what citizen’s science is and how that information can be support conservation biology and environmental science.</li>
+</ul>
+<div id="iucn-classification-of-protected-areas" class="section level2">
+<h2>
+<span class="header-section-number">15.1</span> IUCN Classification of protected areas</h2>
+<p>The IUCN classifies protected areas into <a href="https://www.iucn.org/theme/protected-areas/about/protected-area-categories">seven categories</a>.</p>
+<div id="ques:water-1" class="question">
+<p class="question-begin">
+► Question 15.1
+</p>
+<div class="question-body">
+<p>
+Go to the IUCN website outlining the descriptions for each category. For each give brief description of the category, including the primary goal, distinguishing features, the role in the landscape, and what makes this category unique.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:water-2" class="question">
+<p class="question-begin">
+► Question 15.2
+</p>
+<div class="question-body">
+<p>
+Find a local example for each category, start in your home state if you cannot find anything there expand your search to outside of New England. Consider why some of these categories of protected areas could be unlikely to be found here in the Northeast.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="conservation-easements" class="section level2">
+<h2>
+<span class="header-section-number">15.2</span> Conservation Easements</h2>
+<p>The protected areas that fall into the categories described above are generally public lands (government-owned). Frequently, we think of the creation and maintenance of protected areas being something that falls under the responsibility of national and local governments. Increasingly, corporations, land trusts, and even individuals are establishing protected areas by setting aside tracts of land for conservation. One option to do this is through conservation easements.</p>
+<p>A conservation easement is a voluntary, legally-binding agreement between the landowner and a land trust or government area that limits the uses of the land to protect it in perpetuity. The exact details in terms of restriction will vary from contract to contract but a core component is that the land cannot be developed, in return the owner gets certain tax credits/benefits. Overall, a conservation easement allows the owner to retain the private ownership and most of the private property rights and the rights to the resources on the land. Putting private land into a conservation easement does not automatically make properties open to the public. Not all conservation easements are on privately owned land, some land trusts also acquire land with high conservation value.</p>
+<p>One of the sites for our semester long field &amp; stream trip(ish) is a conservation easement held by the <a href="https://plcnh.org/about-us/">Piscataquog Land Conservancy</a>.</p>
+<div id="ques:water-3" class="question">
+<p class="question-begin">
+► Question 15.3
+</p>
+<div class="question-body">
+<p>
+Go to the website for the Piscataquog Land Conservancy and use this specific example to describe what a land trust/land conservation organization does, what the central goal is, and what role they plan in conservation in generatl and specifically for landscape-level conservation.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Piscataquog Land Conservancy holds a range of <a href="https://plcnh.org/conservation-properties-4/">properties</a>, including <a href="https://plcnh.org/pulpit-rock-trails/">Pulpit Rock Conservation Area</a>.</p>
+<div id="ques:water-4" class="question">
+<p class="question-begin">
+► Question 15.4
+</p>
+<div class="question-body">
+<p>
+Use the listing of different properties they hold an interest in or a conservation easement on to give a description of how many properties are included, how many are publicly accessible, how large the geographic region is they serve, and what type of features they are designed to conserve.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:water-5" class="question">
+<p class="question-begin">
+► Question 15.5
+</p>
+<div class="question-body">
+<p>
+Use the description of the website to give brief description of Purplit Rock Conservation Area, its purpose, and what type of features it is designed to protect. Then give a brief impression of the area from your visit to explain why it can be important to have these types of conservation areas that are accessible to the public.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="importance-of-unprotected-areas" class="section level2">
+<h2>
+<span class="header-section-number">15.3</span> Importance of unprotected areas</h2>
+<p>In class, we discussed the importance of landscape-level conservation and how management of a mosaic of different habitat patches encompassing a range of quality and size from those where habitat has been converted for human-use (e.g. agriculture, urban areas), heavily degraded patches (e.g. due to industrial pollution), to natural habitats. Many remaining natural habitats are small, fragmented, and disconnected which is one reason why designing protected areas to function as a network is becoming increasingly important.</p>
+<p>For conservation management, the importance of balancing the needs of humans and of biodiversity is increasingly being recognized and stated as an explicit goal to increase efficacy and ensure long-term success. Realistically, it is not possible to protect all areas and completely ignore all needs for access to goods and services. Human-well being is intrinsically tied to well functioning ecosystems - but precisely because of the benefits we gain from ecosystem services, some of which require direct access. This is where conservation and management blend as management of natural resources can play an important roll in limiting the effects of (over)exploitation which can become a significant driver of biodiversity loss when practiced in a unsustainable way. And even though habitats may be degraded and no longer pristine they can still serve as viable habitats for species and landscape-level management plans (e.g. ecosystem-based management plans) regularly incorporate and account for unprotected areas in the landscape.</p>
+<p>Urbanization generally results in habitat loss and the loss of biodiversity has been demonstrated to be correlated to the density of the human population. Some species have been able to adapt to urban habitats and are commonly found in city green spaces, urban streams or ponds, in golf courses, or among buildings, bridges and other infrastructure. Increasingly, urban planning incorporates increasing biodiversity as a goal, for example by planning for extensive green spaces, parks, woods, and grassland or by replacing the physical, artificial infrastructure with green infrastructure, for example by maintaining natural wetlands for drainage and storage instead of pipelines or by encouraging homeowners to create rain gardens so water will drain into the groundwater instead of run-off needing to be managed with drains.</p>
+<div id="ques:water-6" class="question">
+<p class="question-begin">
+► Question 15.6
+</p>
+<div class="question-body">
+<p>
+Consider the area around the boat ramp above the dam we used to as a water-level monitoring location and the Piscataquog River Park determine where you think it broadly fits in in the context of lanscape-level conservation and urban planning, including what you think its central purpose is, what uses it has, what ecosystem services it contributes.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="citizens-science" class="section level2">
+<h2>
+<span class="header-section-number">15.4</span> Citizen’s science</h2>
+<p>Citizen Science or volunteer monitoring is scientific research where data collection for specific projects is gathered at least in part by non-professional scientists. Frequently, these projects make use of the ubiquity of smartphones allowing users to gather and upload data using an app.</p>
+<p>Over the course of the semester, we used the <a href="https://crowdwater.ch/en/">Crowdwater App</a>, a Citizen Science project out of the University of Zurich, to collect supplemental data to enable improved modeling of floods and droughts. Crowdwater uses a geocaching-type approach where “spots” (measuring stations) can be found using a smart phone app and navigated to using the built-in maps and any user can add additional observations. The generated data can be used to update hydrological models predicting streamflow which have important roles for flood/drought prediction and water management decisions.</p>
+<p>By contrast, the <a href="cocorahs.org">Community Collaborative Rain, Hail and Snow Network (CoCoRaHS)</a> is a community-based network of volunteers that is working towards measuring and mapping precipitation (rain, hail, and snow) using low-cost measurement tools. Their website has instructions on how to build simple tools, and they offer training as well to ensure the quality of the data. All the measurements can be accessed from a database hosted on their website.</p>
+<div id="ques:water-7" class="question">
+<p class="question-begin">
+► Question 15.7
+</p>
+<div class="question-body">
+<p>
+Compare and contrast these two citizen’s science projects including the type of data they are trying to gather and for what purpose, the quality of the data, committment level of volunteers, the amount of training involved, and why it is more helpful to create networks of volunteers for this type of data rather than more traditional methods.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div id="ques:water-8" class="question">
+<p class="question-begin">
+► Question 15.8
+</p>
+<div class="question-body">
+<p>
+Give a brief assessment of the level of intuitiveness and ease of use of the crowdwater app (did you run into problems? if so had you read the instructions) and argue how reliable you think the data is.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>One issue with citizen’s science data can be a lack of quality control. The virtual staff gauge is used to determine relative differences in water level using water classes. To be able to use the data it is important that a there is a minimum resolution (how frequently measurements are taken) and that measurements can be taken in an unbiased way.</p>
+<p>Let’s take a quick look at the quality of our water level measurements using the virtual staff gauge. In our data folder there is a <code>pdf</code> with the original measurement initializing the virtual staff gauge and each of the measurements side by side. Go through each picture and assess the water level relative to the original image for each measurement and enter your assessments into the google spreadsheet in the data subdirectory of our project folder.</p>
+<div id="ques:water-9" class="question">
+<p class="question-begin">
+► Question 15.9
+</p>
+<div class="question-body">
+<p>
+Once the data set has been completed give a quick description of how you can use this data set to determine the quality of the data, then evaluate how reliable you think our data set is and suggest how the accuracy could be imporoved (consider things like the initial placement of the virtual staff gauge, pictures taken, plattform used to upload the data).
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="precipitation-in-nh" class="section level2">
+<h2>
+<span class="header-section-number">15.5</span> Precipitation in NH</h2>
+<p>I have downloaded the precipitation observations for all NH stations gathered by the CoCoRaHS network from May of this year until 11/17/2020. Let’s start by loading the data set.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="protected-areas-citizens-science.html#cb233-1"></a>precip &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/NH_precipitation.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb233-2"><a href="protected-areas-citizens-science.html#cb233-2"></a><span class="st">  </span><span class="kw">filter</span>(StationNumber <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">" NH-HL-19"</span>, </span>
+<span id="cb233-3"><a href="protected-areas-citizens-science.html#cb233-3"></a>                              <span class="st">" NH-HL-25"</span>,</span>
+<span id="cb233-4"><a href="protected-areas-citizens-science.html#cb233-4"></a>                              <span class="st">" NH-HL-48"</span>,</span>
+<span id="cb233-5"><a href="protected-areas-citizens-science.html#cb233-5"></a>                              <span class="st">" NH-HL-49"</span>,</span>
+<span id="cb233-6"><a href="protected-areas-citizens-science.html#cb233-6"></a>                              <span class="st">" NH-HL-84"</span>,</span>
+<span id="cb233-7"><a href="protected-areas-citizens-science.html#cb233-7"></a>                              <span class="st">" NH-HL-96"</span>,</span>
+<span id="cb233-8"><a href="protected-areas-citizens-science.html#cb233-8"></a>                              <span class="st">" NH-HL-99"</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb233-9"><a href="protected-areas-citizens-science.html#cb233-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Date =</span> <span class="kw">mdy</span>(ObservationDate),</span>
+<span id="cb233-10"><a href="protected-areas-citizens-science.html#cb233-10"></a>         <span class="dt">JulianDay =</span> <span class="kw">yday</span>(Date),</span>
+<span id="cb233-11"><a href="protected-areas-citizens-science.html#cb233-11"></a>         <span class="dt">Month =</span> <span class="kw">month</span>(Date, <span class="dt">label =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb233-12"><a href="protected-areas-citizens-science.html#cb233-12"></a>         <span class="dt">TotalPrecipAmt =</span> <span class="kw">as.numeric</span>(TotalPrecipAmt))</span></code></pre></div>
+<p>Let’s take a look at the individual stations.</p>
+<p>Now, let’s plot the daily precipitation over summer.</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="protected-areas-citizens-science.html#cb234-1"></a><span class="kw">ggplot</span>(precip, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> TotalPrecipAmt)) <span class="op">+</span></span>
+<span id="cb234-2"><a href="protected-areas-citizens-science.html#cb234-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"identity"</span>, <span class="dt">color =</span> <span class="st">"darkblue"</span>, <span class="dt">fill =</span> <span class="st">"darkblue"</span>) <span class="op">+</span></span>
+<span id="cb234-3"><a href="protected-areas-citizens-science.html#cb234-3"></a><span class="st">  </span><span class="kw">facet_grid</span>(StationNumber <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb234-4"><a href="protected-areas-citizens-science.html#cb234-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Date"</span>, <span class="dt">y =</span> <span class="st">"Precipitation"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-237"></span>
+<p class="caption marginnote shownote">
+Figure 15.1: Daily precipitation recorded at CoCoRaHS measuring stations throughout New Hampshire.
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-237-1.png" alt="Daily precipitation recorded at CoCoRaHS measuring stations throughout New Hampshire." width="768">
+</div>
+<p>The <a href="https://www.usclimatedata.com/climate/manchester/new-hampshire/united-states/usnh0361">US Climate Database</a> lists the average high and average precipitation for each month. Let’s see how our data compares.</p>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-238">Table 15.1: </span>Minimum, maximum, mean +/- std of monthly precipitation.</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="left">Month</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">mean</th>
+<th align="right">std</th>
+<th align="right">total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">May</td>
+<td align="right">0</td>
+<td align="right">1.30</td>
+<td align="right">0.09</td>
+<td align="right">0.22</td>
+<td align="right">16.82</td>
+</tr>
+<tr class="even">
+<td align="left">Jun</td>
+<td align="right">0</td>
+<td align="right">1.77</td>
+<td align="right">0.06</td>
+<td align="right">0.18</td>
+<td align="right">10.83</td>
+</tr>
+<tr class="odd">
+<td align="left">Jul</td>
+<td align="right">0</td>
+<td align="right">2.10</td>
+<td align="right">0.20</td>
+<td align="right">0.40</td>
+<td align="right">37.71</td>
+</tr>
+<tr class="even">
+<td align="left">Aug</td>
+<td align="right">0</td>
+<td align="right">0.70</td>
+<td align="right">0.06</td>
+<td align="right">0.13</td>
+<td align="right">11.18</td>
+</tr>
+<tr class="odd">
+<td align="left">Sep</td>
+<td align="right">0</td>
+<td align="right">0.94</td>
+<td align="right">0.05</td>
+<td align="right">0.14</td>
+<td align="right">8.09</td>
+</tr>
+<tr class="even">
+<td align="left">Oct</td>
+<td align="right">0</td>
+<td align="right">2.51</td>
+<td align="right">0.18</td>
+<td align="right">0.41</td>
+<td align="right">31.79</td>
+</tr>
+<tr class="odd">
+<td align="left">Nov</td>
+<td align="right">0</td>
+<td align="right">0.82</td>
+<td align="right">0.07</td>
+<td align="right">0.18</td>
+<td align="right">6.78</td>
+</tr>
+</tbody>
+</table>
+<div id="ques:water-10" class="question">
+<p class="question-begin">
+► Question 15.10
+</p>
+<div class="question-body">
+<p>
+Compare the levels observed here with the monthly normals recorded on the US Climate Data base for Manchester, NH.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>You can assess drought levels in New Hampshire in the <a href="https://www.drought.gov/drought/states/new-hampshire#:~:text=Drought%20in%20New%20Hampshire&amp;text=Since%202000%2C%20the%20longest%20duration,21.99%25%20of%20New%20Hampshire%20land.">drought portal</a></p>
+</div>
+<div id="crowdwater-app-data" class="section level2">
+<h2>
+<span class="header-section-number">15.6</span> Crowdwater app data</h2>
+<div id="ques:water-11" class="question">
+<p class="question-begin">
+► Question 15.11
+</p>
+<div class="question-body">
+<p>
+Given our precipitation and drought data, argue how you would expect our monitoring of water levels, temporal streams, and soil moisture to look across our sampling period.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="protected-areas-citizens-science.html#cb235-1"></a>levels &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/crowdwater.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span></code></pre></div>
+<p>We have different categories of measurements to compare.</p>
+<p><!--
+<caption>--><span class="marginnote shownote"><span id="tab:unnamed-chunk-240">Table 15.2: </span>Crowdwater App spots at both sample locations for three categories of measuremts.</span><!--</caption>--></p>
+<table>
+<thead><tr class="header">
+<th align="left">CATEGORY</th>
+<th align="right">ROOT_ID</th>
+<th align="right">LATITUDE</th>
+<th align="right">LONGITUDE</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">soil moisture</td>
+<td align="right">256788</td>
+<td align="right">42.9442</td>
+<td align="right">-71.5987</td>
+</tr>
+<tr class="even">
+<td align="left">temporary stream</td>
+<td align="right">256787</td>
+<td align="right">42.9445</td>
+<td align="right">-71.5962</td>
+</tr>
+<tr class="odd">
+<td align="left">temporary stream</td>
+<td align="right">256789</td>
+<td align="right">42.9450</td>
+<td align="right">-71.6053</td>
+</tr>
+<tr class="even">
+<td align="left">virtual scale</td>
+<td align="right">259161</td>
+<td align="right">42.9452</td>
+<td align="right">-71.6002</td>
+</tr>
+<tr class="odd">
+<td align="left">soil moisture</td>
+<td align="right">256792</td>
+<td align="right">42.9469</td>
+<td align="right">-71.6081</td>
+</tr>
+<tr class="even">
+<td align="left">soil moisture</td>
+<td align="right">253577</td>
+<td align="right">42.9481</td>
+<td align="right">-71.6094</td>
+</tr>
+<tr class="odd">
+<td align="left">virtual scale</td>
+<td align="right">258283</td>
+<td align="right">42.9903</td>
+<td align="right">-71.4919</td>
+</tr>
+<tr class="even">
+<td align="left">temporary stream</td>
+<td align="right">258284</td>
+<td align="right">42.9904</td>
+<td align="right">-71.4922</td>
+</tr>
+<tr class="odd">
+<td align="left">virtual scale</td>
+<td align="right">258285</td>
+<td align="right">42.9949</td>
+<td align="right">-71.4946</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s start with the changes in water levels.</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="protected-areas-citizens-science.html#cb236-1"></a>levels &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/crowdwater.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb236-2"><a href="protected-areas-citizens-science.html#cb236-2"></a><span class="st">  </span><span class="kw">filter</span>(CATEGORY <span class="op">==</span><span class="st"> "virtual scale"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb236-3"><a href="protected-areas-citizens-science.html#cb236-3"></a><span class="st">  </span><span class="kw">separate</span>(SPOTTED_AT, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"tmp1"</span>, <span class="st">"tmp2"</span>), <span class="dt">sep =</span> <span class="st">" "</span>) <span class="op">%&gt;%</span></span>
+<span id="cb236-4"><a href="protected-areas-citizens-science.html#cb236-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Date =</span> <span class="kw">mdy</span>(tmp1),</span>
+<span id="cb236-5"><a href="protected-areas-citizens-science.html#cb236-5"></a>         <span class="dt">JulianDay =</span> <span class="kw">yday</span>(Date))</span>
+<span id="cb236-6"><a href="protected-areas-citizens-science.html#cb236-6"></a></span>
+<span id="cb236-7"><a href="protected-areas-citizens-science.html#cb236-7"></a><span class="kw">ggplot</span>(levels, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> WATER_LEVEL)) <span class="op">+</span></span>
+<span id="cb236-8"><a href="protected-areas-citizens-science.html#cb236-8"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">"darkred"</span>, <span class="dt">linetype =</span> <span class="st">"dashed"</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb236-9"><a href="protected-areas-citizens-science.html#cb236-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb236-10"><a href="protected-areas-citizens-science.html#cb236-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>, <span class="dt">color =</span> <span class="st">"black"</span>) <span class="op">+</span></span>
+<span id="cb236-11"><a href="protected-areas-citizens-science.html#cb236-11"></a><span class="st">  </span><span class="kw">facet_grid</span>(ROOT_ID <span class="op">~</span><span class="st"> </span>.)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-241"></span>
+<p class="caption marginnote shownote">
+Figure 15.2: Change in water level at crowdwater measuring spots
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-241-1.png" alt="Change in water level at crowdwater measuring spots" width="768">
+</div>
+<div id="ques:water-12" class="question">
+<p class="question-begin">
+► Question 15.12
+</p>
+<div class="question-body">
+<p>
+Give a brief description of the changes in water level at the three sampled locations in comparison to each other.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Now, lets take a look at our soil moisture measurements.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="protected-areas-citizens-science.html#cb237-1"></a>soil &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/crowdwater.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb237-2"><a href="protected-areas-citizens-science.html#cb237-2"></a><span class="st">  </span><span class="kw">filter</span>(CATEGORY <span class="op">==</span><span class="st"> "soil moisture"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb237-3"><a href="protected-areas-citizens-science.html#cb237-3"></a><span class="st">  </span><span class="kw">separate</span>(SPOTTED_AT, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"tmp1"</span>, <span class="st">"tmp2"</span>), <span class="dt">sep =</span> <span class="st">" "</span>) <span class="op">%&gt;%</span></span>
+<span id="cb237-4"><a href="protected-areas-citizens-science.html#cb237-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Date =</span> <span class="kw">mdy</span>(tmp1),</span>
+<span id="cb237-5"><a href="protected-areas-citizens-science.html#cb237-5"></a>         <span class="dt">JulianDay =</span> <span class="kw">yday</span>(Date),</span>
+<span id="cb237-6"><a href="protected-areas-citizens-science.html#cb237-6"></a>         <span class="dt">MOISTURE =</span> <span class="kw">ordered</span>(MOISTURE, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"dry"</span>,</span>
+<span id="cb237-7"><a href="protected-areas-citizens-science.html#cb237-7"></a>                                                 <span class="st">"gradually damp"</span>,</span>
+<span id="cb237-8"><a href="protected-areas-citizens-science.html#cb237-8"></a>                                                 <span class="st">"gradually wet"</span>,</span>
+<span id="cb237-9"><a href="protected-areas-citizens-science.html#cb237-9"></a>                                                 <span class="st">"immediately wet"</span>,</span>
+<span id="cb237-10"><a href="protected-areas-citizens-science.html#cb237-10"></a>                                                 <span class="st">"muddy"</span>,</span>
+<span id="cb237-11"><a href="protected-areas-citizens-science.html#cb237-11"></a>                                                 <span class="st">"rain / snow"</span>)))</span>
+<span id="cb237-12"><a href="protected-areas-citizens-science.html#cb237-12"></a></span>
+<span id="cb237-13"><a href="protected-areas-citizens-science.html#cb237-13"></a><span class="kw">ggplot</span>(soil, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> MOISTURE)) <span class="op">+</span></span>
+<span id="cb237-14"><a href="protected-areas-citizens-science.html#cb237-14"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>, <span class="dt">color =</span> <span class="st">"black"</span>) <span class="op">+</span></span>
+<span id="cb237-15"><a href="protected-areas-citizens-science.html#cb237-15"></a><span class="st">  </span><span class="kw">facet_grid</span>(ROOT_ID <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb237-16"><a href="protected-areas-citizens-science.html#cb237-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Date"</span>, <span class="dt">y =</span> <span class="st">"soil moisture"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-242"></span>
+<p class="caption marginnote shownote">
+Figure 15.3: Change in soil moisture at crowdwater measuring spots
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-242-1.png" alt="Change in soil moisture at crowdwater measuring spots" width="768">
+</div>
+<div id="ques:water-13" class="question">
+<p class="question-begin">
+► Question 15.13
+</p>
+<div class="question-body">
+<p>
+Give a brief description of the changes in soil moisture at the sampled locations in comparison to each other.
+</p>
+<p class="question-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Finally, let’s take peak at our temporary streams.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="protected-areas-citizens-science.html#cb238-1"></a>stream &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/crowdwater.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb238-2"><a href="protected-areas-citizens-science.html#cb238-2"></a><span class="st">  </span><span class="kw">filter</span>(CATEGORY <span class="op">==</span><span class="st"> "temporary stream"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb238-3"><a href="protected-areas-citizens-science.html#cb238-3"></a><span class="st">  </span><span class="kw">separate</span>(SPOTTED_AT, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">"tmp1"</span>, <span class="st">"tmp2"</span>), <span class="dt">sep =</span> <span class="st">" "</span>) <span class="op">%&gt;%</span></span>
+<span id="cb238-4"><a href="protected-areas-citizens-science.html#cb238-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Date =</span> <span class="kw">mdy</span>(tmp1),</span>
+<span id="cb238-5"><a href="protected-areas-citizens-science.html#cb238-5"></a>         <span class="dt">JulianDay =</span> <span class="kw">yday</span>(Date),</span>
+<span id="cb238-6"><a href="protected-areas-citizens-science.html#cb238-6"></a>         <span class="dt">FLOW_TYPE =</span> <span class="kw">ordered</span>(FLOW_TYPE, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">"dry streambed"</span>,</span>
+<span id="cb238-7"><a href="protected-areas-citizens-science.html#cb238-7"></a>                                                   <span class="st">"damp / wet streambed"</span>,</span>
+<span id="cb238-8"><a href="protected-areas-citizens-science.html#cb238-8"></a>                                                   <span class="st">"isolated pools"</span>,</span>
+<span id="cb238-9"><a href="protected-areas-citizens-science.html#cb238-9"></a>                                                   <span class="st">"standing water"</span>,</span>
+<span id="cb238-10"><a href="protected-areas-citizens-science.html#cb238-10"></a>                                                   <span class="st">"trickling water"</span>,</span>
+<span id="cb238-11"><a href="protected-areas-citizens-science.html#cb238-11"></a>                                                   <span class="st">"flowing"</span>)))</span>
+<span id="cb238-12"><a href="protected-areas-citizens-science.html#cb238-12"></a></span>
+<span id="cb238-13"><a href="protected-areas-citizens-science.html#cb238-13"></a><span class="kw">ggplot</span>(stream, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> FLOW_TYPE)) <span class="op">+</span></span>
+<span id="cb238-14"><a href="protected-areas-citizens-science.html#cb238-14"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">"darkorange"</span>, <span class="dt">color =</span> <span class="st">"black"</span>) <span class="op">+</span></span>
+<span id="cb238-15"><a href="protected-areas-citizens-science.html#cb238-15"></a><span class="st">  </span><span class="kw">facet_grid</span>(ROOT_ID <span class="op">~</span><span class="st"> </span>.) <span class="op">+</span></span>
+<span id="cb238-16"><a href="protected-areas-citizens-science.html#cb238-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Date"</span>, <span class="dt">y =</span> <span class="st">"flow type"</span>)</span></code></pre></div>
+<div class="figure">
+<span id="fig:unnamed-chunk-243"></span>
+<p class="caption marginnote shownote">
+Figure 15.4: Change in flow type at crowdwater measuring spots
+</p>
+<img src="_main_files/figure-html/unnamed-chunk-243-1.png" alt="Change in flow type at crowdwater measuring spots" width="768">
+</div>
+
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="stochastic-genetic-effects.html"><button class="btn btn-default">Previous</button></a>
+<a href="references.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-11-18
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

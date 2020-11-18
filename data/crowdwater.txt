@@ -1,0 +1,113 @@
+ID	ROOT_ID	LATITUDE	LONGITUDE	CATEGORY	FLOW_TYPE	MOISTURE	WATER_LEVEL	SPOTTED_AT	IMAGE
+253577	253577	42.94813	-71.609372	soil moisture		dry		8/5/2020 18:34	https://files.spotteron.com/images/spots/000007/2020/08/vv1b3sc8iq4opo4rj0fwmamyrfktgsxm.jpg
+254903	253577	42.94813	-71.609372	soil moisture		dry		8/9/2020 7:48	https://files.spotteron.com/images/spots/000007/2020/08/vyfi34s8h651e84jdqsbecfsezsj2wn6.jpg
+260114	253577	42.94813	-71.609372	soil moisture		dry		8/18/2020 16:09	https://files.spotteron.com/images/spots/000007/2020/08/lfhfh5bhhq1w4qbvkhbmiqs4k8ixodym.jpg
+263950	253577	42.94813	-71.609372	soil moisture		dry		8/28/2020 10:47	
+267043	253577	42.94813	-71.609372	soil moisture		dry		9/6/2020 23:23	https://files.spotteron.com/images/spots/000007/2020/09/6ujlw4sodrpjzznxae0olqxhpw2hetkx.jpg
+268857	253577	42.94813	-71.609372	soil moisture		gradually damp		9/11/2020 14:38	https://files.spotteron.com/images/spots/000007/2020/09/xacu6zqi86rx7uckk6t0qzz1skp2taoi.jpg
+274180	253577	42.94813	-71.609372	soil moisture		dry		9/19/2020 13:39	https://files.spotteron.com/images/spots/000007/2020/09/6a48qb66ob1d4rdjoo737erjqkciquuw.jpg
+279049	253577	42.94813	-71.609372	soil moisture		dry		9/27/2020 20:06	https://files.spotteron.com/images/spots/000007/2020/09/cvp61n0lkk9pip275pee3ss3pnlwurkt.jpg
+283050	253577	42.94813	-71.609372	soil moisture		gradually damp		10/4/2020 11:53	https://files.spotteron.com/images/spots/000007/2020/10/j5ebco11c0rflo58yct2ojxn1ssq3mtp.jpg
+288678	253577	42.94813	-71.609372	soil moisture		gradually damp		10/18/2020 9:00	https://files.spotteron.com/images/spots/000007/2020/10/o9tyiy8vvn8il9foxelimkq1qjbtcde2.jpg
+290738	253577	42.94813	-71.609372	soil moisture		gradually wet		10/23/2020 17:18	https://files.spotteron.com/images/spots/000007/2020/10/l5bvd3kmp9hhsus156i96fc7m0s8xpf1.jpg
+301827	253577	42.94813	-71.609372	soil moisture		immediately wet		11/13/2020 13:47	https://files.spotteron.com/images/spots/000007/2020/11/bu5fdwa3v1j82fteacq8ud75wou4so8z.jpg
+301829	253577	42.94813	-71.609372	soil moisture		gradually wet		11/13/2020 13:51	https://files.spotteron.com/images/spots/000007/2020/11/6fce3cg2pfpl0cleyau1xk5gzqsroa9y.jpg
+303129	253577	42.94813	-71.609372	soil moisture		gradually damp		11/15/2020 20:19	https://files.spotteron.com/images/spots/000007/2020/11/hvq02fwvlxu7r9ztbfieevjf9mn4y8my.jpg
+256788	256788	42.944206	-71.598718	soil moisture		gradually damp		8/8/2020 16:43	https://files.spotteron.com/images/spots/000007/2020/08/ugfssmnwg31gaz5gyj75cj5zcxxvir5k.jpg
+259163	256788	42.944206	-71.598718	soil moisture		gradually damp		8/18/2020 21:14	https://files.spotteron.com/images/spots/000007/2020/08/p7oewtvik900ompg53jat5861ow54vqt.jpg
+263942	256788	42.944206	-71.598718	soil moisture		gradually damp		8/28/2020 10:39	https://files.spotteron.com/images/spots/000007/2020/08/8vmi3zej7humvr8hgankfzvpryicnymd.jpg
+267038	256788	42.944206	-71.598718	soil moisture		gradually damp		9/6/2020 23:21	https://files.spotteron.com/images/spots/000007/2020/09/4a4z8igj4liwkv0ruzz92zohradi2ib7.jpg
+268853	256788	42.944206	-71.598718	soil moisture		gradually damp		9/11/2020 14:32	https://files.spotteron.com/images/spots/000007/2020/09/lmwpx3kyblnhrn6te5wl5ks26xv9pvu0.jpg
+274176	256788	42.944206	-71.598718	soil moisture		gradually damp		9/19/2020 13:29	https://files.spotteron.com/images/spots/000007/2020/09/rwp6n1dcs9qr3h2imdezpn5msgef6wuk.jpg
+279046	256788	42.944206	-71.598718	soil moisture		gradually damp		9/27/2020 20:02	https://files.spotteron.com/images/spots/000007/2020/09/88znsces5n38xagzlrt12hnonsqd52zb.jpg
+283045	256788	42.944206	-71.598718	soil moisture		immediately wet		10/4/2020 11:46	https://files.spotteron.com/images/spots/000007/2020/10/595eat0an2xaerar7nj9wh70uwr0kfjx.jpg
+288674	256788	42.944206	-71.598718	soil moisture		muddy		10/18/2020 9:00	
+290727	256788	42.944206	-71.598718	soil moisture		muddy		10/23/2020 17:07	https://files.spotteron.com/images/spots/000007/2020/10/2vrp0eld1w9re04388zp6xgtp5ck78uu.jpg
+295349	256788	42.944206	-71.598718	soil moisture		rain / snow		10/31/2020 15:53	https://files.spotteron.com/images/spots/000007/2020/10/6mxv07146hsrjwgkqfhqtu0ulspnncz6.jpg
+256792	256792	42.946921	-71.608091	soil moisture		dry		8/8/2020 16:59	https://files.spotteron.com/images/spots/000007/2020/08/b3mn5mxwk1dbwxelnbk0p02gyrxejfkl.jpg
+260112	256792	42.946921	-71.608091	soil moisture		dry		8/18/2020 16:08	https://files.spotteron.com/images/spots/000007/2020/08/vlta6jg22w4lovs47hffyxy3mvyl7g43.jpg
+263947	256792	42.946921	-71.608091	soil moisture		gradually damp		8/28/2020 10:42	https://files.spotteron.com/images/spots/000007/2020/08/oeeekarg438k7jxrmufmlxi40pj848ir.jpg
+267042	256792	42.946921	-71.608091	soil moisture		gradually damp		9/6/2020 23:23	https://files.spotteron.com/images/spots/000007/2020/09/pl7ysbpmkx5zockx5q3igcyitqlwwjq5.jpg
+268856	256792	42.946921	-71.608091	soil moisture		gradually damp		9/11/2020 14:35	https://files.spotteron.com/images/spots/000007/2020/09/afdjxvb5npvt5lreqo1aesn2v52769qq.jpg
+274177	256792	42.946921	-71.608091	soil moisture		dry		9/19/2020 13:36	https://files.spotteron.com/images/spots/000007/2020/09/d78mf4pidpefy95g7w9agltpga80x9xl.jpg
+279050	256792	42.946921	-71.608091	soil moisture		dry		9/27/2020 20:07	https://files.spotteron.com/images/spots/000007/2020/09/aoubg2043fz7tcx8i3fs9e5p1sy82xp8.jpg
+283049	256792	42.946921	-71.608091	soil moisture		gradually damp		10/4/2020 11:52	https://files.spotteron.com/images/spots/000007/2020/10/rf0ifuvfk6uo7ougfjmb6jlmx5smpfbq.jpg
+288677	256792	42.946921	-71.608091	soil moisture		gradually wet		10/18/2020 9:00	https://files.spotteron.com/images/spots/000007/2020/10/cpjouze1y605ywhnmml5zsjn9q2vx2p5.jpg
+290732	256792	42.946921	-71.608091	soil moisture		immediately wet		10/23/2020 17:14	https://files.spotteron.com/images/spots/000007/2020/10/dtblqo3dkgll9dqubsqz34celsyjefa8.jpg
+295346	256792	42.946921	-71.608091	soil moisture		rain / snow		10/31/2020 15:50	https://files.spotteron.com/images/spots/000007/2020/10/6hen9c3wlyf885ia6vsy9wiebbicse2h.jpg
+301828	256792	42.946921	-71.608091	soil moisture		immediately wet		11/13/2020 13:49	https://files.spotteron.com/images/spots/000007/2020/11/5dwqva9pszeyiisk3jpd5lmnvqgk75n5.jpg
+303132	256792	42.946921	-71.608091	soil moisture		gradually damp		11/15/2020 20:23	https://files.spotteron.com/images/spots/000007/2020/11/mq0wr1blka5o4zi0zggm8tc9lcn22iql.jpg
+256787	256787	42.944495	-71.596229	temporary stream	dry streambed			8/8/2020 16:38	https://files.spotteron.com/images/spots/000007/2020/08/6mlpvxenn1pwlujll155sqewv1odqtkv.jpg
+259162	256787	42.944495	-71.596229	temporary stream	dry streambed			8/18/2020 21:13	https://files.spotteron.com/images/spots/000007/2020/08/6cu6sn8tumde58q9nvyqbemzvgy8z61j.jpg
+263941	256787	42.944495	-71.596229	temporary stream	dry streambed			8/28/2020 10:36	https://files.spotteron.com/images/spots/000007/2020/08/vjkruq628hmezt7jsjc12j6z2cnse131.jpg
+267037	256787	42.944495	-71.596229	temporary stream	dry streambed			9/6/2020 23:20	https://files.spotteron.com/images/spots/000007/2020/09/xf0ktok0zw5qgfr5gwxqg8ttvkrmdw8u.jpg
+268852	256787	42.944495	-71.596229	temporary stream	dry streambed			9/11/2020 14:31	https://files.spotteron.com/images/spots/000007/2020/09/lny18w6cx895eurgv92e87u1i1b3m9ak.jpg
+274182	256787	42.944495	-71.596229	temporary stream	dry streambed			9/19/2020 14:00	https://files.spotteron.com/images/spots/000007/2020/09/he0ay9mwlyx7af72oo304ao1lx81i3w9.jpg
+279045	256787	42.944495	-71.596229	temporary stream	dry streambed			9/27/2020 20:01	https://files.spotteron.com/images/spots/000007/2020/09/qjysi72z3o0pvrsioebgdy32vd8lpp2g.jpg
+283043	256787	42.944495	-71.596229	temporary stream	dry streambed			10/4/2020 11:42	https://files.spotteron.com/images/spots/000007/2020/10/jbw7roultcls2x4c2fbhykx7ovja0o66.jpg
+288673	256787	42.944495	-71.596229	temporary stream	trickling water			10/18/2020 9:00	https://files.spotteron.com/images/spots/000007/2020/10/semungmbb9asuxn0b6ulhm0cglf4jb1g.jpg
+290723	256787	42.944495	-71.596229	temporary stream	trickling water			10/23/2020 16:49	https://files.spotteron.com/images/spots/000007/2020/10/j5sqw56w64wwu7f8n5kpjsyyxe948kxd.jpg
+295350	256787	42.944495	-71.596229	temporary stream	flowing			10/31/2020 15:54	https://files.spotteron.com/images/spots/000007/2020/10/sieeaiq96b0ie8ro66xoys6syaeo2l1u.jpg
+256789	256789	42.944973	-71.605293	temporary stream	isolated pools			8/8/2020 16:48	https://files.spotteron.com/images/spots/000007/2020/08/dj60xkvxfgeg9zbyuo9mbiud4kz1lp1h.jpg
+260111	256789	42.944973	-71.605293	temporary stream	dry streambed			8/18/2020 16:08	https://files.spotteron.com/images/spots/000007/2020/08/67zdftivxbs15kn07rlt7kt88x0ood02.jpg
+263946	256789	42.944973	-71.605293	temporary stream	isolated pools			8/28/2020 10:41	https://files.spotteron.com/images/spots/000007/2020/08/n35nuz7hhm9hiwepni8gqssffystvwbg.jpg
+267041	256789	42.944973	-71.605293	temporary stream	isolated pools			9/6/2020 23:22	https://files.spotteron.com/images/spots/000007/2020/09/gnvtnq22zmm8i06zup54jouhvxr1ykl3.jpg
+268855	256789	42.944973	-71.605293	temporary stream	standing water			9/11/2020 14:34	https://files.spotteron.com/images/spots/000007/2020/09/ii68ri8mu76f8020gqb6mztgrj9lph0a.jpg
+274174	256789	42.944973	-71.605293	temporary stream	damp / wet streambed			9/19/2020 13:26	https://files.spotteron.com/images/spots/000007/2020/09/vliu9b86jwebycnlynf8rlp5kdnd442v.jpg
+279048	256789	42.944973	-71.605293	temporary stream	dry streambed			9/27/2020 20:04	https://files.spotteron.com/images/spots/000007/2020/09/eobxfmzvcxsh5i17yykrscnwvbsrkhax.jpg
+283047	256789	42.944973	-71.605293	temporary stream	standing water			10/4/2020 11:50	https://files.spotteron.com/images/spots/000007/2020/10/jhb20lhqohg4eic3rvl71fqd34jc76bv.jpg
+288676	256789	42.944973	-71.605293	temporary stream	trickling water			10/18/2020 9:00	https://files.spotteron.com/images/spots/000007/2020/10/s28ko779z4y17f6wbc3fcrfbn6s8id7z.jpg
+290725	256789	42.944973	-71.605293	temporary stream	standing water			10/23/2020 17:05	https://files.spotteron.com/images/spots/000007/2020/10/jwymgkpy8mzhj8hfn06uxsdvm9ykaja1.jpg
+295347	256789	42.944973	-71.605293	temporary stream	isolated pools			10/31/2020 15:51	https://files.spotteron.com/images/spots/000007/2020/10/s2wzpdxbrzpkk2wx2jx9v6icrtdilqe1.jpg
+301826	256789	42.944973	-71.605293	temporary stream	flowing			11/13/2020 13:42	https://files.spotteron.com/images/spots/000007/2020/11/4le74r5ly0jw03j0yxbb1ssl1ntykisc.jpg
+303131	256789	42.944973	-71.605293	temporary stream	trickling water			11/15/2020 20:21	https://files.spotteron.com/images/spots/000007/2020/11/5cp9wx9y6ibrkmplfmlbllbeipaapyuq.jpg
+258284	258284	42.990431	-71.4922	temporary stream	dry streambed			8/13/2020 22:16	https://files.spotteron.com/images/spots/000007/2020/08/l4py5okrwmf8jyut7aqj0xrb98nwuwa0.jpg
+260172	258284	42.990431	-71.4922	temporary stream	dry streambed			8/20/2020 22:05	https://files.spotteron.com/images/spots/000007/2020/08/tte52032j7qsvrhu4coa2jdaiylskc6k.jpg
+261894	258284	42.990431	-71.4922	temporary stream	dry streambed			8/21/2020 11:19	https://files.spotteron.com/images/spots/000007/2020/08/h2vxqk93x6302zqerlfznialb2n0e39m.jpg
+264765	258284	42.990431	-71.4922	temporary stream	damp / wet streambed			8/29/2020 22:47	https://files.spotteron.com/images/spots/000007/2020/09/cr3y0m0lgh7tucdd4e7a1m674yo0i96l.jpg
+266101	258284	42.990431	-71.4922	temporary stream	dry streambed			9/4/2020 11:49	https://files.spotteron.com/images/spots/000007/2020/09/0p2fsqregofbnz5fp931st2bjtngtmsc.jpg
+274130	258284	42.990431	-71.4922	temporary stream	dry streambed			9/19/2020 12:24	https://files.spotteron.com/images/spots/000007/2020/09/c5gsonmn4a92gjvqam9zp7h4hb0u1ier.jpg
+278971	258284	42.990431	-71.4922	temporary stream	dry streambed			9/28/2020 14:34	https://files.spotteron.com/images/spots/000007/2020/09/nuudt4w4air8ox0gpqqii5f0k5kshnrs.jpg
+279043	258284	42.990431	-71.4922	temporary stream	dry streambed			9/27/2020 19:59	https://files.spotteron.com/images/spots/000007/2020/09/63wjrde4o5euv18epycy76mgwpxyr941.jpg
+284346	258284	42.990431	-71.4922	temporary stream	dry streambed			10/9/2020 15:32	https://files.spotteron.com/images/spots/000007/2020/10/tkov13krjk2oto525g6xb32g6qxh3gg3.jpg
+290682	258284	42.990431	-71.4922	temporary stream	standing water			10/23/2020 15:53	https://files.spotteron.com/images/spots/000007/2020/10/616z6ijn2ixdh4qcnjrj2zfmgdonf2m6.jpg
+295216	258284	42.990431	-71.4922	temporary stream	isolated pools			10/31/2020 11:41	https://files.spotteron.com/images/spots/000007/2020/10/pkeo6o38tetcf1buvn0qvwiw8j4rcgvs.jpg
+301819	258284	42.990431	-71.4922	temporary stream	damp / wet streambed			11/13/2020 12:33	https://files.spotteron.com/images/spots/000007/2020/11/h6oxctdllk6a9130y0oky5aocbzw0d7k.jpg
+303128	258284	42.990431	-71.4922	temporary stream	isolated pools			11/15/2020 20:15	https://files.spotteron.com/images/spots/000007/2020/11/0b3l05zeqbgmm6649czi2bt1mvf208jn.jpg
+258283	258283	42.990274	-71.491934	virtual scale				8/13/2020 22:12	https://files.spotteron.com/images/spots/000007/2020/08/j2ejhg1911zqbdz3m6tjbi6il0gill54.jpg
+260171	258283	42.990274	-71.491934	virtual scale			0	8/20/2020 22:05	https://files.spotteron.com/images/spots/000007/2020/08/srz1ink5bnqg14w7lgh2mvwxfp79dbac.jpg
+261899	258283	42.990274	-71.491934	virtual scale			-1	8/21/2020 11:22	https://files.spotteron.com/images/spots/000007/2020/08/qv9glx0qlmlz3qm2s8ex605d0qftta8k.jpg
+264766	258283	42.990274	-71.491934	virtual scale			-1	8/29/2020 22:47	https://files.spotteron.com/images/spots/000007/2020/09/33ckv31nvfiv74gefc65jfqczkfd5vlp.jpg
+267036	258283	42.990274	-71.491934	virtual scale			-1	9/6/2020 23:17	https://files.spotteron.com/images/spots/000007/2020/09/kn48yek0c1o8e9nk92vx8t4ldc49fjqw.jpg
+274121	258283	42.990274	-71.491934	virtual scale			0	9/19/2020 12:07	https://files.spotteron.com/images/spots/000007/2020/09/z4bqyizcia1bkr6lx8pro76zfssbchmo.jpg
+274122	258283	42.990274	-71.491934	virtual scale			0	9/19/2020 12:09	https://files.spotteron.com/images/spots/000007/2020/09/yrt356vmmmey3kkbuzro46gdflsyyl2v.jpg
+278972	258283	42.990274	-71.491934	virtual scale			-1	9/28/2020 14:35	https://files.spotteron.com/images/spots/000007/2020/09/e6emncs51lf0z1tsl0w69mhthito7t7a.jpg
+279044	258283	42.990274	-71.491934	virtual scale			0	9/27/2020 19:59	https://files.spotteron.com/images/spots/000007/2020/09/rd3nyyqiab7fkwzkbk5qrdwm2l3w7wsl.jpg
+284344	258283	42.990274	-71.491934	virtual scale			0	10/9/2020 15:31	https://files.spotteron.com/images/spots/000007/2020/10/55w2cx280h9y2lk5vfa37a3pe6b95ajt.jpg
+290686	258283	42.990274	-71.491934	virtual scale			1	10/23/2020 15:55	https://files.spotteron.com/images/spots/000007/2020/10/xuuea35pw9c4t9ugh5e73ay10dqltj8d.jpg
+295186	258283	42.990274	-71.491934	virtual scale			6	10/31/2020 11:30	https://files.spotteron.com/images/spots/000007/2020/10/tk4mkz8d4o844etvmwc365dcknujutns.jpg
+301820	258283	42.990274	-71.491934	virtual scale			4	11/13/2020 12:35	https://files.spotteron.com/images/spots/000007/2020/11/ucc03lb0xbhpxvcxzmj08q1jiawgz5l1.jpg
+258285	258285	42.994909	-71.494609	virtual scale				8/13/2020 22:18	https://files.spotteron.com/images/spots/000007/2020/08/plesnrf40y5uqahqejsdqfnxm7ffkx9q.jpg
+260173	258285	42.994909	-71.494609	virtual scale			-1	8/20/2020 22:06	https://files.spotteron.com/images/spots/000007/2020/08/myujmzxkeu7kix30jk77047do6rvalqu.jpg
+261890	258285	42.994909	-71.494609	virtual scale			-1	8/21/2020 11:16	https://files.spotteron.com/images/spots/000007/2020/08/3bwsmskn6wf7k7xmpiaqs4xw6qs76rhd.jpg
+264764	258285	42.994909	-71.494609	virtual scale			0	8/29/2020 22:45	https://files.spotteron.com/images/spots/000007/2020/09/by58q24st137zmx07u2326ckly3fkg42.jpg
+266109	258285	42.994909	-71.494609	virtual scale			-2	9/4/2020 12:11	https://files.spotteron.com/images/spots/000007/2020/09/pksghwlwnyl0sgqbxt5jjf6h4lxlbpnr.jpg
+274135	258285	42.994909	-71.494609	virtual scale			0	9/19/2020 12:34	https://files.spotteron.com/images/spots/000007/2020/09/qlsafcto6xa8q9sdbyb3lamuobujyl7c.jpg
+278969	258285	42.994909	-71.494609	virtual scale			1	9/28/2020 14:20	https://files.spotteron.com/images/spots/000007/2020/09/pajje4uchmc0txnogwzkto5kcqw13x4x.jpg
+279042	258285	42.994909	-71.494609	virtual scale			0	9/27/2020 19:55	https://files.spotteron.com/images/spots/000007/2020/09/sf5hnestdoucdxzxha1oclb2qljeo48m.jpg
+284347	258285	42.994909	-71.494609	virtual scale			0	10/9/2020 15:33	https://files.spotteron.com/images/spots/000007/2020/10/d14trm4bci9a214bt06fvu5f0wgkmfwg.jpg
+290679	258285	42.994909	-71.494609	virtual scale			-1	10/23/2020 15:42	https://files.spotteron.com/images/spots/000007/2020/10/57skz8wy9zyc81vxyfklkuecllau5996.jpg
+295208	258285	42.994909	-71.494609	virtual scale			2	10/31/2020 11:38	https://files.spotteron.com/images/spots/000007/2020/10/twyei976wlhngrqpmrb1i5ce5sdzp89d.jpg
+301816	258285	42.994909	-71.494609	virtual scale			6	11/13/2020 12:24	https://files.spotteron.com/images/spots/000007/2020/11/gs97m1cj8won3am5ard9zkrhpdcxs0q1.jpg
+259161	259161	42.945238	-71.600217	virtual scale				8/18/2020 20:41	https://files.spotteron.com/images/spots/000007/2020/08/81kmlmotzngccruabb8kevlpo0b8ds2s.jpg
+263944	259161	42.945238	-71.600217	virtual scale			1	8/28/2020 10:40	https://files.spotteron.com/images/spots/000007/2020/08/0gme0hxbffuysp4ja1at9fq6ergy0u9i.jpg
+267040	259161	42.945238	-71.600217	virtual scale			1	9/6/2020 23:21	https://files.spotteron.com/images/spots/000007/2020/09/cs40cwwtqvw9aal9k3dbjx9kzm76xior.jpg
+268854	259161	42.945238	-71.600217	virtual scale			3	9/11/2020 14:32	https://files.spotteron.com/images/spots/000007/2020/09/srdpw9lacdy894wm756xea99pdwdugv3.jpg
+274175	259161	42.945238	-71.600217	virtual scale			1	9/19/2020 13:28	https://files.spotteron.com/images/spots/000007/2020/09/cu5v4jyp9i48njxgpthza1ezdey0elt4.jpg
+279047	259161	42.945238	-71.600217	virtual scale			0	9/27/2020 20:03	https://files.spotteron.com/images/spots/000007/2020/09/5f9250az62kwjjh9sncivy3fpsgdi0dh.jpg
+283046	259161	42.945238	-71.600217	virtual scale			1	10/4/2020 11:48	https://files.spotteron.com/images/spots/000007/2020/10/d3e4d9org68wd1c0ntca21q0o9d4mw97.jpg
+288675	259161	42.945238	-71.600217	virtual scale			2	10/18/2020 9:00	https://files.spotteron.com/images/spots/000007/2020/10/r4n5n1xfduh6rf3b4yw2801heg18lism.jpg
+290750	259161	42.945238	-71.600217	virtual scale			2	10/23/2020 17:51	https://files.spotteron.com/images/spots/000007/2020/10/5wb6hzz9r3fiap53579lfhh9di088naq.jpg
+295348	259161	42.945238	-71.600217	virtual scale			4	10/31/2020 15:53	https://files.spotteron.com/images/spots/000007/2020/10/bwvxd33pcguzhmxj46ewterzjlw23742.jpg
+301825	259161	42.945238	-71.600217	virtual scale			2	11/13/2020 13:37	https://files.spotteron.com/images/spots/000007/2020/11/b0b3sb8y5dkhhid493lhyx8qbzsykz2z.jpg
+303130	259161	42.945238	-71.600217	virtual scale			4	11/15/2020 20:20	https://files.spotteron.com/images/spots/000007/2020/11/lwrq469qq776gudebgzz19ptioa21buz.jpg

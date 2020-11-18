@@ -63,6 +63,14 @@ You will be receiving lab homework in some format almost every lab, part of the 
 *No late or incomplete homework will be accepted or receive credit.*
 
 
+### Due Wednesday, Nov. 25th {-}
+
+Complete lab 11 ([Protected Areas](https://labmanual.netlify.app/.html))) and submit the knitted `html`-files through Canvas (`HW-14`).
+
+
+<br>
+
+
 ### Due Wednesday, Nov. 18th {-}
 
 Complete lab 11 ([Genetic Drift](https://labmanual.netlify.app/stochastic-genetics-effects.html))) part two (bottlenecks and founder effects) and submit the knitted `html`-files through Canvas (`HW-13`).
