@@ -77,10 +77,11 @@ library(knitr)
 
 After completing this lab you should understand
 
-* What the IUCN classification of protected areas is
-* how Conservation Easements can be used to protect privately owned lands
+* what the IUCN classification of protected areas looks like.
+* how Conservation Easements can be used to protect privately owned lands.
 * what citizen's science is and how that information can be support conservation biology and environmental science.
 
+<br>
 
 
 ## IUCN Classification of protected areas
@@ -89,14 +90,14 @@ The IUCN classifies protected areas into [seven categories](https://www.iucn.org
 
 `r msmbstyle::question(label = "ques:water-1", text = "Go to the IUCN website outlining the descriptions for each category. For each give brief description of the category, including the primary goal, distinguishing features, the role in the landscape, and what makes this category unique.")`
 
-`r msmbstyle::question(label = "ques:water-2", text = "Find a local example for each category, start in your home state if you cannot find anything there expand your search to outside of New England. Consider why some of these categories of protected areas could be unlikely to be found here in the Northeast.")`
+`r msmbstyle::question(label = "ques:water-2", text = "Find a local example for each category, start in your home state. If you cannot find anything there expand your search to outside of New England. Consider why some of these categories of protected areas could be unlikely to be found here in the Northeast.")`
 
 
 ## Conservation Easements
 
 The protected areas that fall into the categories described above are generally public lands (government-owned). Frequently, we think of the creation and maintenance of protected areas being something that falls under the responsibility of national and local governments. Increasingly, corporations, land trusts, and even individuals are establishing protected areas by setting aside tracts of land for conservation. One option to do this is through conservation easements.
 
-A conservation easement is a voluntary, legally-binding agreement between the landowner and a land trust or government area that limits the uses of the land to protect it in perpetuity. The exact details in terms of restriction will vary from contract to contract but a core component is that the land cannot be developed, in return the owner gets certain tax credits/benefits. Overall, a conservation easement allows the owner to retain the private ownership and most of the private property rights and the rights to the resources on the land. Putting private land into a conservation easement does not automatically make properties open to the public. Not all conservation easements are on privately owned land, some land trusts also acquire land with high conservation value.
+A conservation easement is a voluntary, legally-binding agreement between the landowner and a land trust or government area that limits the uses of the land to protect it in perpetuity. The exact details in terms of restriction will vary from contract to contract but a core component is that the land cannot be developed. In return, the owner gets certain tax credits/benefits. Overall, a conservation easement allows the owner to retain the private ownership, most of the private property rights, and the rights to the resources on the land. Putting private land into a conservation easement does not automatically make properties open to the public. Not all conservation easements are on privately owned land, some land trusts also acquire land with high conservation value.
 
 One of the sites for our semester long field & stream trip(ish) is a conservation easement held by the [Piscataquog Land Conservancy](https://plcnh.org/about-us/).
 
@@ -117,7 +118,7 @@ For conservation management, the importance of balancing the needs of humans and
 
 Urbanization generally results in habitat loss and the loss of biodiversity has been demonstrated to be correlated to the density of the human population. Some species have been able to adapt to urban habitats and are commonly found in city green spaces, urban streams or ponds, in golf courses, or among buildings, bridges and other infrastructure. Increasingly, urban planning incorporates increasing biodiversity as a goal, for example by planning for extensive green spaces, parks, woods, and grassland or by replacing the physical, artificial infrastructure with green infrastructure, for example by maintaining natural wetlands for drainage and storage instead of pipelines or by encouraging homeowners to create rain gardens so water will drain into the groundwater instead of run-off needing to be managed with drains.
 
-`r msmbstyle::question(label = "ques:water-6", text = "Consider the area around the boat ramp above the dam we used to as a water-level monitoring location and the Piscataquog River Park determine where you think it broadly fits in in the context of lanscape-level conservation and urban planning, including what you think its central purpose is, what uses it has, what ecosystem services it contributes.")`
+`r msmbstyle::question(label = "ques:water-6", text = "Consider the area around the boat ramp above the dam we used as a water-level monitoring location and the Piscataquog River Park determine where you think it broadly fits in in the context of lanscape-level conservation and urban planning, including what you think its central purpose is, what uses it has, what ecosystem services it contributes.")`
 
 
 ## Citizen's science
@@ -126,7 +127,7 @@ Citizen Science or volunteer monitoring is scientific research where data collec
 
 Over the course of the semester, we used the [Crowdwater App](https://crowdwater.ch/en/), a Citizen Science project out of the University of Zurich, to collect supplemental data to enable improved modeling of floods and droughts. Crowdwater uses a geocaching-type approach where "spots" (measuring stations) can be found using a smart phone app and navigated to using the built-in maps and any user can add additional observations. The generated data can be used to update hydrological models predicting streamflow which have important roles for flood/drought prediction and water management decisions.
 
-By contrast, the [Community Collaborative Rain, Hail and Snow Network (CoCoRaHS)](cocorahs.org) is a community-based network of volunteers that is working towards measuring and mapping precipitation (rain, hail, and snow) using low-cost measurement tools. Their website has instructions on how to build simple tools, and they offer training as well to ensure the quality of the data. All the measurements can be accessed from a database hosted on their website. 
+By contrast, the [Community Collaborative Rain, Hail and Snow Network (CoCoRaHS)](https://www.cocorahs.org/) is a community-based network of volunteers that is working towards measuring and mapping precipitation (rain, hail, and snow) using low-cost measurement tools. Their website has instructions on how to build simple tools, and they offer training as well to ensure the quality of the data. All the measurements can be accessed from a database hosted on their website. 
 
 `r msmbstyle::question(label = "ques:water-7", text = "Compare and contrast these two citizen's science projects including the type of data they are trying to gather and for what purpose, the quality of the data, committment level of volunteers, the amount of training involved, and why it is more helpful to create networks of volunteers for this type of data rather than more traditional methods.")`
 
@@ -134,7 +135,7 @@ By contrast, the [Community Collaborative Rain, Hail and Snow Network (CoCoRaHS)
 
 One issue with citizen's science data can be a lack of quality control. The virtual staff gauge is used to determine relative differences in water level using water classes. To be able to use the data it is important that a there is a minimum resolution (how frequently measurements are taken) and that measurements can be taken in an unbiased way. 
 
-Let's take a quick look at the quality of our water level measurements using the virtual staff gauge. In our data folder there is a `pdf` with the original measurement initializing the virtual staff gauge and each of the measurements side by side. Go through each picture and assess the water level relative to the original image for each measurement and enter your assessments into the google spreadsheet in the data subdirectory of our project folder.
+Let's take a quick look at the quality of our water level measurements using the virtual staff gauges. In our data folder there is a `pdf` with the original measurement initializing the virtual staff gauge and each of the measurements side by side. Go through each picture and assess the water level relative to the original image for each measurement and enter your assessments into the google spreadsheet in the data subdirectory of our project folder.
 
 `r msmbstyle::question(label = "ques:water-9", text = "Once the data set has been completed give a quick description of how you can use this data set to determine the quality of the data, then evaluate how reliable you think our data set is and suggest how the accuracy could be imporoved (consider things like the initial placement of the virtual staff gauge, pictures taken, plattform used to upload the data).")`
 
@@ -190,14 +191,11 @@ The [US Climate Database](https://www.usclimatedata.com/climate/manchester/new-h
 
 kable(
   precip %>%
-    group_by(Month) %>%
-    summarize(min = min(TotalPrecipAmt, na.rm = TRUE),
-              max = max(TotalPrecipAmt, na.rm = TRUE),
-              mean = mean(TotalPrecipAmt, na.rm = TRUE),
-              std = sd(TotalPrecipAmt, na.rm = TRUE),
-              total = sum(TotalPrecipAmt, na.rm = TRUE)),
+    group_by(StationNumber, Month) %>%
+    summarize(total = sum(TotalPrecipAmt, na.rm = TRUE)) %>%
+    pivot_wider(names_from = "Month", values_from = "total"),
   digits = 2,
-  caption = "Minimum, maximum, mean +/- std of monthly precipitation."
+  caption = "Total monthly precipitation per sample location and month."
 )
 
 ```

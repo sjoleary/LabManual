@@ -548,9 +548,9 @@ Choose another group from the list you are interested in, and query the databse 
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-59" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-59', 'sol-start-59')"></span>
+Hint<span id="sol-start-141" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-141', 'sol-start-141')"></span>
 </p>
-<div id="sol-body-59" class="solution-body" style="display: none;">
+<div id="sol-body-141" class="solution-body" style="display: none;">
 <p>Remember, that species categorized as CR, EN, and VU are often grouped together as threatened.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -629,9 +629,9 @@ The central function we are using is rl_habitats() the rest of the code tells th
 <p>Using your new found <code>tidyverse</code>/datawrangling skills, what functions can you use to do this?</p>
 <div class="solution">
 <p class="solution-begin">
-Solution<span id="sol-start-60" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-60', 'sol-start-60')"></span>
+Solution<span id="sol-start-142" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-142', 'sol-start-142')"></span>
 </p>
-<div id="sol-body-60" class="solution-body" style="display: none;">
+<div id="sol-body-142" class="solution-body" style="display: none;">
 <p>That’s right, grouping the rows with matching code &amp; habitat and then counting the number of observations will give us the results we want.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="iucn-redlist-evaluation.html#cb110-1"></a>habitat &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">"data/habitat_ex.txt"</span>, <span class="dt">delim =</span> <span class="st">"</span><span class="ch">\t</span><span class="st">"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb110-2"><a href="iucn-redlist-evaluation.html#cb110-2"></a><span class="st">  </span><span class="kw">group_by</span>(code, habitat) <span class="op">%&gt;%</span></span>
@@ -715,9 +715,9 @@ For each of the three categories identifying species as threatened, I queried th
 </div>
 <div class="solution">
 <p class="solution-begin">
-Some advice<span id="sol-start-61" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-61', 'sol-start-61')"></span>
+Some advice<span id="sol-start-143" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-143', 'sol-start-143')"></span>
 </p>
-<div id="sol-body-61" class="solution-body" style="display: none;">
+<div id="sol-body-143" class="solution-body" style="display: none;">
 <p>Remember, these descriptions should be 2-3 sentences each + a short comparison of the categories. Identify whether there are consistent patterns across all “threatened” vs. “extinct” species of if there are distinct differences, determine if there are differences within the three threatened categories. When you explain your results, discuss/argue how certain habitats could increase the intrinsic vulnerability of a species, thus making them more likly to go extinct or become threatened.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -762,9 +762,9 @@ Some advice<span id="sol-start-61" class="fa fa-plus-square solution-icon clicka
 <p>Using your ever-growing <code>tidyverse</code>/data wrangling skills - how could you determine the number of species in each conservation status category?</p>
 <div class="solution">
 <p class="solution-begin">
-Solution<span id="sol-start-62" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-62', 'sol-start-62')"></span>
+Solution<span id="sol-start-144" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-144', 'sol-start-144')"></span>
 </p>
-<div id="sol-body-62" class="solution-body" style="display: none;">
+<div id="sol-body-144" class="solution-body" style="display: none;">
 <p>That’s right! Group the observations (rows) by conservation status category and count the number of observations.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="iucn-redlist-evaluation.html#cb122-1"></a>threat_counts &lt;-<span class="st"> </span>threat_status <span class="op">%&gt;%</span></span>
 <span id="cb122-2"><a href="iucn-redlist-evaluation.html#cb122-2"></a><span class="st">  </span><span class="kw">group_by</span>(category) <span class="op">%&gt;%</span></span>
@@ -874,9 +874,9 @@ Solution<span id="sol-start-62" class="fa fa-plus-square solution-icon clickable
 <p>That’s a start but for comparisons we probably want to format the table so that each threat category is its own column. Any ideas how we can accomplish that?</p>
 <div class="solution">
 <p class="solution-begin">
-Solution<span id="sol-start-63" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-63', 'sol-start-63')"></span>
+Solution<span id="sol-start-145" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-145', 'sol-start-145')"></span>
 </p>
-<div id="sol-body-63" class="solution-body" style="display: none;">
+<div id="sol-body-145" class="solution-body" style="display: none;">
 <p>Remember <code>pivot_wider()</code> and <code>pivot_longer</code>?</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="iucn-redlist-evaluation.html#cb127-1"></a><span class="kw">kable</span>(</span>
 <span id="cb127-2"><a href="iucn-redlist-evaluation.html#cb127-2"></a>  threat_counts <span class="op">%&gt;%</span></span>

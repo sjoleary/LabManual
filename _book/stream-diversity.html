@@ -328,9 +328,9 @@ Given this information, briefly discuss how you would design your sampling schem
 </div>
 <div class="solution">
 <p class="solution-begin">
-Note<span id="sol-start-64" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-64', 'sol-start-64')"></span>
+Note<span id="sol-start-146" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-146', 'sol-start-146')"></span>
 </p>
-<div id="sol-body-64" class="solution-body" style="display: none;">
+<div id="sol-body-146" class="solution-body" style="display: none;">
 <p>This should be a description of your experimental design and an explanation of <strong>why</strong> you are setting it up this way.</p>
 <p>Things you should touching on:</p>
 <ol style="list-style-type: decimal">
@@ -380,9 +380,9 @@ Note<span id="sol-start-64" class="fa fa-plus-square solution-icon clickable" on
 <p>Do you remember what function we use to do that? What would that code look like?</p>
 <div class="solution">
 <p class="solution-begin">
-Solution<span id="sol-start-65" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-65', 'sol-start-65')"></span>
+Solution<span id="sol-start-147" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-147', 'sol-start-147')"></span>
 </p>
-<div id="sol-body-65" class="solution-body" style="display: none;">
+<div id="sol-body-147" class="solution-body" style="display: none;">
 <p>That’s correct <code>pivot_longer()</code> is the function we’re looking for!</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="stream-diversity.html#cb141-1"></a><span class="co"># set pollution levels</span></span>
 <span id="cb141-2"><a href="stream-diversity.html#cb141-2"></a>pollution &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"none"</span>, <span class="st">"moderate"</span>, <span class="st">"severe"</span>)</span>
@@ -425,9 +425,9 @@ Consider which parameters we can compare to understand differences in species di
 </div>
 <div class="solution">
 <p class="solution-begin">
-Hint<span id="sol-start-66" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-66', 'sol-start-66')"></span>
+Hint<span id="sol-start-148" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-148', 'sol-start-148')"></span>
 </p>
-<div id="sol-body-66" class="solution-body" style="display: none;">
+<div id="sol-body-148" class="solution-body" style="display: none;">
 <p>Here are parameters we can compare using our data set:</p>
 <ol style="list-style-type: decimal">
 <li>Total number of individuals caught (total catch).</li>
@@ -445,9 +445,9 @@ Hint<span id="sol-start-66" class="fa fa-plus-square solution-icon clickable" on
 <p>What <code>tidyverse</code> functions we are familiar with can we use to calculate the total number of individuals caught for each sampling effort?</p>
 <div class="solution">
 <p class="solution-begin">
-► Solution<span id="sol-start-67" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-67', 'sol-start-67')"></span>
+► Solution<span id="sol-start-149" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-149', 'sol-start-149')"></span>
 </p>
-<div id="sol-body-67" class="solution-body" style="display: none;">
+<div id="sol-body-149" class="solution-body" style="display: none;">
 <p>That’s right, once again we can combine <code>group_by()</code> to group our observations by pollution level (<code>POLLUTION</code>), sample (<code>SAMPLE</code>), and sampling effort (<code>TIME</code>) and then use <code>summarize()</code> to add up all the values in the <code>N_INDV</code> column to get the total catch using <code>sum()</code>.</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="stream-diversity.html#cb144-1"></a><span class="co"># format data</span></span>
 <span id="cb144-2"><a href="stream-diversity.html#cb144-2"></a>total &lt;-<span class="st"> </span>tidy <span class="op">%&gt;%</span></span>
@@ -698,9 +698,9 @@ Congratulations, you were just hired to develop a project to monitor and compare
 </div>
 <div class="solution">
 <p class="solution-begin">
-Some additional help<span id="sol-start-68" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-68', 'sol-start-68')"></span>
+Some additional help<span id="sol-start-150" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-150', 'sol-start-150')"></span>
 </p>
-<div id="sol-body-68" class="solution-body" style="display: none;">
+<div id="sol-body-150" class="solution-body" style="display: none;">
 <p>To aid you in your efforts of generating a key with different categories of species I am going to give you some code to re-plot your data reflecting real world data on how sensitive to pollution the species in our model are (yes, using aquatic inverts as bioindicators is a commonly used technique). Remember, you still need to explain your criteria for generating the different groups.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="stream-diversity.html#cb152-1"></a>tidy &lt;-<span class="st"> </span>tidy <span class="op">%&gt;%</span></span>
 <span id="cb152-2"><a href="stream-diversity.html#cb152-2"></a><span class="st">  </span><span class="kw">filter</span>(TIME <span class="op">==</span><span class="st"> </span><span class="dv">500</span>) <span class="op">%&gt;%</span></span>
